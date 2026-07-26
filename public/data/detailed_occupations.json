@@ -1,0 +1,1699 @@
+{
+  "metadata": {
+    "source": "MBIE Jobs Online Detailed ANZSCO Quarterly Release (March 2026)",
+    "quarter": "March 2026 Quarter",
+    "total_occupations_tracked": 196
+  },
+  "top_growing_roles": [
+    {
+      "code": "6311",
+      "title": "Checkout Operators and Office Cashiers",
+      "annual_change_percent": 217.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5411",
+      "title": "Call or Contact Centre Workers",
+      "annual_change_percent": 110.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3333",
+      "title": "Roof Tilers",
+      "annual_change_percent": 78.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3511",
+      "title": "Bakers and Pastrycooks",
+      "annual_change_percent": 77.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3623",
+      "title": "Greenkeepers",
+      "annual_change_percent": 74.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2312",
+      "title": "Marine Transport Professionals",
+      "annual_change_percent": 71.2,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2542",
+      "title": "Nurse Educators and Researchers",
+      "annual_change_percent": 62.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7212",
+      "title": "Earthmoving Plant Operators",
+      "annual_change_percent": 54.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6211",
+      "title": "Sales Assistants (General)",
+      "annual_change_percent": 52.7,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2422",
+      "title": "Vocational Education Teachers or Polytechnic Teachers",
+      "annual_change_percent": 52.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3222",
+      "title": "Sheetmetal Trades Workers",
+      "annual_change_percent": 50.8,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8114",
+      "title": "Housekeepers",
+      "annual_change_percent": 46.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7119",
+      "title": "Other Machine Operators",
+      "annual_change_percent": 45.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8217",
+      "title": "Structural Steel Construction Workers",
+      "annual_change_percent": 45.7,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7211",
+      "title": "Agricultural, Forestry and Horticultural Plant Operators",
+      "annual_change_percent": 45.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    }
+  ],
+  "all_occupations": [
+    {
+      "code": "6311",
+      "title": "Checkout Operators and Office Cashiers",
+      "annual_change_percent": 217.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5411",
+      "title": "Call or Contact Centre Workers",
+      "annual_change_percent": 110.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3333",
+      "title": "Roof Tilers",
+      "annual_change_percent": 78.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3511",
+      "title": "Bakers and Pastrycooks",
+      "annual_change_percent": 77.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3623",
+      "title": "Greenkeepers",
+      "annual_change_percent": 74.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2312",
+      "title": "Marine Transport Professionals",
+      "annual_change_percent": 71.2,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2542",
+      "title": "Nurse Educators and Researchers",
+      "annual_change_percent": 62.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7212",
+      "title": "Earthmoving Plant Operators",
+      "annual_change_percent": 54.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6211",
+      "title": "Sales Assistants (General)",
+      "annual_change_percent": 52.7,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2422",
+      "title": "Vocational Education Teachers or Polytechnic Teachers",
+      "annual_change_percent": 52.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3222",
+      "title": "Sheetmetal Trades Workers",
+      "annual_change_percent": 50.8,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8114",
+      "title": "Housekeepers",
+      "annual_change_percent": 46.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7119",
+      "title": "Other Machine Operators",
+      "annual_change_percent": 45.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8217",
+      "title": "Structural Steel Construction Workers",
+      "annual_change_percent": 45.7,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7211",
+      "title": "Agricultural, Forestry and Horticultural Plant Operators",
+      "annual_change_percent": 45.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7121",
+      "title": "Crane, Hoist and Lift Operators",
+      "annual_change_percent": 44.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1344",
+      "title": "Other Education Managers",
+      "annual_change_percent": 43.5,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8991",
+      "title": "Caretakers",
+      "annual_change_percent": 42.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7312",
+      "title": "Bus and Coach Drivers",
+      "annual_change_percent": 42.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5612",
+      "title": "Couriers and Postal Deliverers",
+      "annual_change_percent": 41.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8911",
+      "title": "Freight and Furniture Handlers",
+      "annual_change_percent": 41.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2544",
+      "title": "Registered Nurses",
+      "annual_change_percent": 40.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3422",
+      "title": "Electrical Distribution Trades Workers",
+      "annual_change_percent": 37.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2632",
+      "title": "ICT Support and Test Engineers",
+      "annual_change_percent": 36.2,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3411",
+      "title": "Electricians",
+      "annual_change_percent": 36.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2515",
+      "title": "Pharmacists",
+      "annual_change_percent": 35.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3341",
+      "title": "Plumbers",
+      "annual_change_percent": 35.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7331",
+      "title": "Truck Drivers",
+      "annual_change_percent": 34.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2527",
+      "title": "Audiologists and Speech Pathologists or Therapists",
+      "annual_change_percent": 33.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3312",
+      "title": "Carpenters and Joiners",
+      "annual_change_percent": 33.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1335",
+      "title": "Production Managers",
+      "annual_change_percent": 32.4,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2533",
+      "title": "Specialist Physicians",
+      "annual_change_percent": 32.2,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2332",
+      "title": "Civil Engineering Professionals",
+      "annual_change_percent": 31.8,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2223",
+      "title": "Financial Investment Advisers and Managers",
+      "annual_change_percent": 31.6,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5513",
+      "title": "Payroll Clerks",
+      "annual_change_percent": 30.9,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2254",
+      "title": "Technical Sales Representatives",
+      "annual_change_percent": 30.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1331",
+      "title": "Construction Managers",
+      "annual_change_percent": 30.7,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4117",
+      "title": "Welfare Support Workers",
+      "annual_change_percent": 30.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4113",
+      "title": "Diversional Therapists",
+      "annual_change_percent": 30.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3622",
+      "title": "Gardeners",
+      "annual_change_percent": 30.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6213",
+      "title": "Motor Vehicle and Vehicle Parts Salespersons",
+      "annual_change_percent": 29.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3125",
+      "title": "Mechanical Engineering Draftspersons and Technicians",
+      "annual_change_percent": 28.2,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7219",
+      "title": "Other Mobile Plant Operators",
+      "annual_change_percent": 27.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4112",
+      "title": "Dental Hygienists, Technicians and Therapists",
+      "annual_change_percent": 27.2,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3514",
+      "title": "Cooks",
+      "annual_change_percent": 26.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8999",
+      "title": "Other Miscellaneous Labourers",
+      "annual_change_percent": 26.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2726",
+      "title": "Welfare, Recreation and Community Arts Workers",
+      "annual_change_percent": 25.3,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2322",
+      "title": "Surveyors and Spatial Scientists",
+      "annual_change_percent": 25.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3122",
+      "title": "Civil Engineering Draftspersons and Technicians",
+      "annual_change_percent": 24.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3121",
+      "title": "Architectural, Building and Surveying Technicians",
+      "annual_change_percent": 23.9,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8322",
+      "title": "Product Assemblers",
+      "annual_change_percent": 21.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2535",
+      "title": "Surgeons",
+      "annual_change_percent": 21.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4231",
+      "title": "Aged and Disabled Carers",
+      "annual_change_percent": 21.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1342",
+      "title": "Health and Welfare Services Managers",
+      "annual_change_percent": 21.2,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3999",
+      "title": "Other Miscellaneous Technicians and Trades Workers",
+      "annual_change_percent": 20.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5523",
+      "title": "Insurance, Money Market and Statistical Clerks",
+      "annual_change_percent": 20.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8116",
+      "title": "Other Cleaners",
+      "annual_change_percent": 19.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8393",
+      "title": "Product Quality Controllers",
+      "annual_change_percent": 19.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3512",
+      "title": "Butchers and Smallgoods Makers",
+      "annual_change_percent": 19.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1351",
+      "title": "ICT Managers",
+      "annual_change_percent": 18.9,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5412",
+      "title": "Information Officers",
+      "annual_change_percent": 18.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2343",
+      "title": "Environmental Scientists",
+      "annual_change_percent": 18.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2249",
+      "title": "Other Information and Organisation Professionals",
+      "annual_change_percent": 18.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8311",
+      "title": "Food and Drink Factory Workers",
+      "annual_change_percent": 17.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2512",
+      "title": "Medical Imaging Professionals",
+      "annual_change_percent": 17.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8211",
+      "title": "Building and Plumbing Labourers",
+      "annual_change_percent": 16.9,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2543",
+      "title": "Nurse Managers",
+      "annual_change_percent": 16.7,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2721",
+      "title": "Counsellors",
+      "annual_change_percent": 16.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4232",
+      "title": "Dental Assistants",
+      "annual_change_percent": 16.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3129",
+      "title": "Other Building and Engineering Technicians",
+      "annual_change_percent": 16.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3241",
+      "title": "Panelbeaters",
+      "annual_change_percent": 16.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8413",
+      "title": "Forestry and Logging Workers",
+      "annual_change_percent": 15.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5311",
+      "title": "General Clerks",
+      "annual_change_percent": 15.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1322",
+      "title": "Finance Managers",
+      "annual_change_percent": 14.8,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2421",
+      "title": "University Lecturers and Tutors",
+      "annual_change_percent": 14.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8399",
+      "title": "Other Factory Process Workers",
+      "annual_change_percent": 14.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1399",
+      "title": "Other Specialist Managers",
+      "annual_change_percent": 14.5,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8414",
+      "title": "Garden and Nursery Labourers",
+      "annual_change_percent": 14.4,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1332",
+      "title": "Engineering Managers",
+      "annual_change_percent": 14.2,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2621",
+      "title": "Database and Systems Administrators, and ICT Security Specialists",
+      "annual_change_percent": 13.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2241",
+      "title": "Actuaries, Mathematicians and Statisticians",
+      "annual_change_percent": 13.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6113",
+      "title": "Sales Representatives",
+      "annual_change_percent": 13.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2725",
+      "title": "Social Workers",
+      "annual_change_percent": 12.8,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2211",
+      "title": "Accountants",
+      "annual_change_percent": 12.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7411",
+      "title": "Storepersons",
+      "annual_change_percent": 12.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2339",
+      "title": "Other Engineering Professionals",
+      "annual_change_percent": 12.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2246",
+      "title": "Librarians",
+      "annual_change_percent": 11.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3322",
+      "title": "Painting Trades Workers",
+      "annual_change_percent": 11.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2713",
+      "title": "Solicitors",
+      "annual_change_percent": 11.2,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2525",
+      "title": "Physiotherapists",
+      "annual_change_percent": 11.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7321",
+      "title": "Delivery Drivers",
+      "annual_change_percent": 11.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5212",
+      "title": "Secretaries",
+      "annual_change_percent": 10.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3114",
+      "title": "Science Technicians",
+      "annual_change_percent": 10.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2244",
+      "title": "Intelligence and Policy Analysts",
+      "annual_change_percent": 10.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4221",
+      "title": "Education Aides",
+      "annual_change_percent": 10.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6219",
+      "title": "Other Sales Assistants and Salespersons",
+      "annual_change_percent": 10.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2724",
+      "title": "Social Professionals",
+      "annual_change_percent": 9.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2247",
+      "title": "Management and Organisation Analysts",
+      "annual_change_percent": 9.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2513",
+      "title": "Occupational and Environmental Health Professionals",
+      "annual_change_percent": 8.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5111",
+      "title": "Contract, Program and Project Administrators",
+      "annual_change_percent": 8.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2539",
+      "title": "Other Medical Practitioners",
+      "annual_change_percent": 8.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2611",
+      "title": "ICT Business and Systems Analysts",
+      "annual_change_percent": 8.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5421",
+      "title": "Receptionists",
+      "annual_change_percent": 7.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4315",
+      "title": "Waiters",
+      "annual_change_percent": 6.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2231",
+      "title": "Human Resource Professionals",
+      "annual_change_percent": 6.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4511",
+      "title": "Beauty Therapists",
+      "annual_change_percent": 6.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4312",
+      "title": "Cafe Workers",
+      "annual_change_percent": 6.5,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7123",
+      "title": "Engineering Production Workers",
+      "annual_change_percent": 6.5,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1324",
+      "title": "Policy and Planning Managers",
+      "annual_change_percent": 6.3,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1323",
+      "title": "Human Resource Managers",
+      "annual_change_percent": 6.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3941",
+      "title": "Cabinetmakers",
+      "annual_change_percent": 6.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6391",
+      "title": "Models and Sales Demonstrators",
+      "annual_change_percent": 5.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2723",
+      "title": "Psychologists",
+      "annual_change_percent": 5.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4518",
+      "title": "Other Personal Service Workers",
+      "annual_change_percent": 5.5,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7129",
+      "title": "Other Stationary Plant Operators",
+      "annual_change_percent": 5.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4233",
+      "title": "Nursing Support and Personal Care Workers",
+      "annual_change_percent": 4.9,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8112",
+      "title": "Commercial Cleaners",
+      "annual_change_percent": 4.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1112",
+      "title": "General Managers",
+      "annual_change_percent": 4.3,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8513",
+      "title": "Kitchenhands",
+      "annual_change_percent": 4.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2531",
+      "title": "General Practitioners and Resident Medical Officers",
+      "annual_change_percent": 4.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2613",
+      "title": "Software and Applications Programmers",
+      "annual_change_percent": 4.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3421",
+      "title": "Airconditioning and Refrigeration Mechanics",
+      "annual_change_percent": 3.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2631",
+      "title": "Computer Network Professionals",
+      "annual_change_percent": 3.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3212",
+      "title": "Motor Mechanics",
+      "annual_change_percent": 3.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1493",
+      "title": "Conference and Event Organisers",
+      "annual_change_percent": 3.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8994",
+      "title": "Motor Vehicle Parts and Accessories Fitters",
+      "annual_change_percent": 3.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1111",
+      "title": "Chief Executives and Managing Directors",
+      "annual_change_percent": 2.8,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5121",
+      "title": "Office Managers",
+      "annual_change_percent": 2.6,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5911",
+      "title": "Purchasing and Supply Logistics Clerks",
+      "annual_change_percent": 2.5,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5211",
+      "title": "Personal Assistants",
+      "annual_change_percent": 2.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2324",
+      "title": "Graphic and Web Designers, and Illustrators",
+      "annual_change_percent": 1.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4114",
+      "title": "Enrolled and Mothercraft Nurses",
+      "annual_change_percent": 1.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2253",
+      "title": "Public Relations Professionals",
+      "annual_change_percent": 1.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1213",
+      "title": "Livestock Farmers",
+      "annual_change_percent": 0.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3232",
+      "title": "Metal Fitters and Machinists",
+      "annual_change_percent": 0.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4319",
+      "title": "Other Hospitality Workers",
+      "annual_change_percent": 0.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5619",
+      "title": "Other Clerical and Office Support Workers",
+      "annual_change_percent": 0.0,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5511",
+      "title": "Accounting Clerks",
+      "annual_change_percent": -0.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2251",
+      "title": "Advertising and Marketing Professionals",
+      "annual_change_percent": -0.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2335",
+      "title": "Industrial, Mechanical and Production Engineers",
+      "annual_change_percent": -0.7,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5321",
+      "title": "Keyboard Operators",
+      "annual_change_percent": -0.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2511",
+      "title": "Nutrition Professionals",
+      "annual_change_percent": -1.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3513",
+      "title": "Chefs",
+      "annual_change_percent": -1.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2124",
+      "title": "Journalists and Other Writers",
+      "annual_change_percent": -2.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2534",
+      "title": "Psychiatrists",
+      "annual_change_percent": -2.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5991",
+      "title": "Conveyancers and Legal Executives",
+      "annual_change_percent": -2.5,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4521",
+      "title": "Fitness Instructors",
+      "annual_change_percent": -3.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3223",
+      "title": "Structural Steel and Welding Trades Workers",
+      "annual_change_percent": -4.5,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1321",
+      "title": "Corporate Services Managers",
+      "annual_change_percent": -4.7,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4314",
+      "title": "Hotel Service Managers",
+      "annual_change_percent": -4.9,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2221",
+      "title": "Financial Brokers",
+      "annual_change_percent": -5.0,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2321",
+      "title": "Architects and Landscape Architects",
+      "annual_change_percent": -5.4,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3112",
+      "title": "Medical Technicians",
+      "annual_change_percent": -5.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2612",
+      "title": "Multimedia Specialists and Web Developers",
+      "annual_change_percent": -6.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7213",
+      "title": "Forklift Drivers",
+      "annual_change_percent": -7.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4311",
+      "title": "Bar Attendants and Baristas",
+      "annual_change_percent": -7.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6121",
+      "title": "Real Estate Sales Agents",
+      "annual_change_percent": -7.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2524",
+      "title": "Occupational Therapists",
+      "annual_change_percent": -7.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8111",
+      "title": "Car Detailers",
+      "annual_change_percent": -8.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5995",
+      "title": "Inspectors and Regulatory Officers",
+      "annual_change_percent": -8.7,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1411",
+      "title": "Cafe and Restaurant Managers",
+      "annual_change_percent": -8.8,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2252",
+      "title": "ICT Sales Professionals",
+      "annual_change_percent": -8.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3131",
+      "title": "ICT Support Technicians",
+      "annual_change_percent": -9.1,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4516",
+      "title": "Tourism and Travel Advisers",
+      "annual_change_percent": -9.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5122",
+      "title": "Practice Managers",
+      "annual_change_percent": -10.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3211",
+      "title": "Automotive Electricians",
+      "annual_change_percent": -10.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2212",
+      "title": "Auditors, Company Secretaries and Corporate Treasurers",
+      "annual_change_percent": -10.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3243",
+      "title": "Vehicle Painters",
+      "annual_change_percent": -10.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2414",
+      "title": "Secondary School Teachers",
+      "annual_change_percent": -10.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1492",
+      "title": "Call or Contact Centre and Customer Service Managers",
+      "annual_change_percent": -10.7,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2326",
+      "title": "Urban and Regional Planners",
+      "annual_change_percent": -11.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1343",
+      "title": "School Principals",
+      "annual_change_percent": -11.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2333",
+      "title": "Electrical Engineers",
+      "annual_change_percent": -12.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1311",
+      "title": "Advertising, Public Relations and Sales Managers",
+      "annual_change_percent": -12.2,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3423",
+      "title": "Electronics Trades Workers",
+      "annual_change_percent": -12.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1421",
+      "title": "Retail Managers",
+      "annual_change_percent": -12.9,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5999",
+      "title": "Other Miscellaneous Clerical and Administrative Workers",
+      "annual_change_percent": -13.5,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5912",
+      "title": "Transport and Despatch Clerks",
+      "annual_change_percent": -13.6,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "5522",
+      "title": "Credit and Loans Officers (Aus) or Finance Clerks (NZ)",
+      "annual_change_percent": -15.2,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2411",
+      "title": "Early Childhood (Pre-primary School) Teachers",
+      "annual_change_percent": -15.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2311",
+      "title": "Air Transport Professionals",
+      "annual_change_percent": -15.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3911",
+      "title": "Hairdressers",
+      "annual_change_percent": -15.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4422",
+      "title": "Security Officers and Guards",
+      "annual_change_percent": -16.8,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2541",
+      "title": "Midwives",
+      "annual_change_percent": -16.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2412",
+      "title": "Primary School Teachers",
+      "annual_change_percent": -18.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "3123",
+      "title": "Electrical Engineering Draftspersons and Technicians",
+      "annual_change_percent": -18.5,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4116",
+      "title": "Massage Therapists",
+      "annual_change_percent": -19.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2491",
+      "title": "Education Advisers and Reviewers",
+      "annual_change_percent": -20.3,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "8321",
+      "title": "Packers",
+      "annual_change_percent": -22.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4115",
+      "title": "Indigenous Health Workers",
+      "annual_change_percent": -22.8,
+      "estimated_salary_range": "$55,000 - $75,000",
+      "estimated_hourly_range": "$26.44 - $36.06 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2233",
+      "title": "Training and Development Professionals",
+      "annual_change_percent": -23.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "4211",
+      "title": "Child Carers",
+      "annual_change_percent": -25.4,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "1336",
+      "title": "Supply, Distribution and Procurement Managers",
+      "annual_change_percent": -29.1,
+      "estimated_salary_range": "$110,000 - $175,000+",
+      "estimated_hourly_range": "$52.88 - $84.13+ / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "6215",
+      "title": "Retail Supervisors",
+      "annual_change_percent": -30.5,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "2413",
+      "title": "Middle School Teachers or Intermediate School Teachers",
+      "annual_change_percent": -33.6,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    },
+    {
+      "code": "7311",
+      "title": "Automobile Drivers",
+      "annual_change_percent": -42.9,
+      "estimated_salary_range": "$75,000 - $120,000",
+      "estimated_hourly_range": "$36.00 - $57.70 / hr",
+      "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+    }
+  ]
+}

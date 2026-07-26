@@ -1,0 +1,70 @@
+{
+  "target_industries": [
+    {
+      "id": "it_tech",
+      "label": "IT, Software & Data Analytics",
+      "top_regions": [
+        "Auckland",
+        "Wellington",
+        "Canterbury"
+      ],
+      "median_salary": "$96,200 / yr ($1,850/wk \u2022 $46.25/hr)",
+      "market_outlook": "High Demand",
+      "nz_relocation_advice": "Auckland offers 60%+ of all tech openings, while Wellington leads in government tech/defence consulting."
+    },
+    {
+      "id": "business_services",
+      "label": "Business Services, HR & Marketing",
+      "top_regions": [
+        "Auckland",
+        "Wellington",
+        "Canterbury",
+        "Waikato"
+      ],
+      "median_salary": "$80,600 / yr ($1,550/wk \u2022 $38.75/hr)",
+      "market_outlook": "Stable High Growth",
+      "nz_relocation_advice": "Auckland has strong corporate headquarters demand; Wellington leads in public sector policy and legal roles."
+    },
+    {
+      "id": "healthcare",
+      "label": "Healthcare & Community Services",
+      "top_regions": [
+        "Auckland",
+        "Canterbury",
+        "Waikato",
+        "Bay of Plenty",
+        "Otago/Southland"
+      ],
+      "median_salary": "$76,960 / yr ($1,480/wk \u2022 $37.00/hr)",
+      "market_outlook": "Critical National Demand",
+      "nz_relocation_advice": "Healthcare roles have high regional demand across all NZ Te Whatu Ora health districts with fast-track visa pathways."
+    },
+    {
+      "id": "construction_engineering",
+      "label": "Construction, Trades & Civil Engineering",
+      "top_regions": [
+        "Canterbury",
+        "Auckland",
+        "Waikato",
+        "Manawatu-Whanganui/Taranaki"
+      ],
+      "median_salary": "$73,840 / yr ($1,420/wk \u2022 $35.50/hr)",
+      "market_outlook": "Strong Infrastructure Demand",
+      "nz_relocation_advice": "Christchurch/Canterbury and regional South Island have massive ongoing civil infrastructure rebuild & renewable energy projects."
+    }
+  ],
+  "career_level_guidance": {
+    "entry_level": {
+      "title": "Junior / Entry-Level Job Seeker Strategy",
+      "key_advice": "Focus on high-growth demand sectors (IT, Healthcare, Business Services). Build a portfolio showing real NZ problem solving. Consider regional centers like Canterbury where living costs are lower relative to starting salaries."
+    },
+    "mid_level": {
+      "title": "Mid-Level Professional Strategy",
+      "key_advice": "Target Auckland and Wellington for maximum salary leverage and specialized technical roles. Benchmark your income against Stats NZ median industry rates ($35.00 - $46.25/hr)."
+    },
+    "senior_level": {
+      "title": "Senior / Leadership Strategy",
+      "key_advice": "Focus on ANZSCO Major Group 1 (Managers) & Group 2 (Professionals). Auckland accounts for the highest concentration of executive compensation ($52.00+/hr), followed by Wellington public sector heads."
+    }
+  }
+}

@@ -1,0 +1,1692 @@
+{
+  "metadata": {
+    "source": "MBIE Jobs Online Consolidated Industry Series per Region (March 2026)",
+    "total_matrix_cells": 100
+  },
+  "city_industry_matrix": [
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 100.18,
+      "prev_year_vacancy_index": 98.34,
+      "yoy_growth_percent": 1.87,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 178.83,
+      "prev_year_vacancy_index": 157.61,
+      "yoy_growth_percent": 13.46,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 92.0,
+      "prev_year_vacancy_index": 97.07,
+      "yoy_growth_percent": -5.22,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 155.08,
+      "prev_year_vacancy_index": 139.54,
+      "yoy_growth_percent": 11.14,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 145.15,
+      "prev_year_vacancy_index": 152.22,
+      "yoy_growth_percent": -4.64,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 53.88,
+      "prev_year_vacancy_index": 47.52,
+      "yoy_growth_percent": 13.38,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 155.36,
+      "prev_year_vacancy_index": 146.69,
+      "yoy_growth_percent": 5.91,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 255.78,
+      "prev_year_vacancy_index": 234.01,
+      "yoy_growth_percent": 9.3,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 90.16,
+      "prev_year_vacancy_index": 92.9,
+      "yoy_growth_percent": -2.95,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Auckland",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 259.78,
+      "prev_year_vacancy_index": 263.45,
+      "yoy_growth_percent": -1.39,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 204.73,
+      "prev_year_vacancy_index": 196.03,
+      "yoy_growth_percent": 4.44,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 334.04,
+      "prev_year_vacancy_index": 255.84,
+      "yoy_growth_percent": 30.57,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 102.15,
+      "prev_year_vacancy_index": 107.31,
+      "yoy_growth_percent": -4.81,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 251.37,
+      "prev_year_vacancy_index": 217.7,
+      "yoy_growth_percent": 15.47,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 212.05,
+      "prev_year_vacancy_index": 207.59,
+      "yoy_growth_percent": 2.15,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 102.51,
+      "prev_year_vacancy_index": 95.48,
+      "yoy_growth_percent": 7.36,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 347.91,
+      "prev_year_vacancy_index": 312.86,
+      "yoy_growth_percent": 11.2,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 349.47,
+      "prev_year_vacancy_index": 317.89,
+      "yoy_growth_percent": 9.93,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 164.85,
+      "prev_year_vacancy_index": 136.97,
+      "yoy_growth_percent": 20.35,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Waikato",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 422.75,
+      "prev_year_vacancy_index": 429.1,
+      "yoy_growth_percent": -1.48,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 332.08,
+      "prev_year_vacancy_index": 288.3,
+      "yoy_growth_percent": 15.19,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 378.54,
+      "prev_year_vacancy_index": 330.59,
+      "yoy_growth_percent": 14.5,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 92.13,
+      "prev_year_vacancy_index": 100.98,
+      "yoy_growth_percent": -8.76,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 455.32,
+      "prev_year_vacancy_index": 325.11,
+      "yoy_growth_percent": 40.05,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 232.02,
+      "prev_year_vacancy_index": 252.22,
+      "yoy_growth_percent": -8.01,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 126.51,
+      "prev_year_vacancy_index": 107.23,
+      "yoy_growth_percent": 17.98,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 470.05,
+      "prev_year_vacancy_index": 387.17,
+      "yoy_growth_percent": 21.41,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 611.36,
+      "prev_year_vacancy_index": 477.27,
+      "yoy_growth_percent": 28.1,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 204.05,
+      "prev_year_vacancy_index": 188.65,
+      "yoy_growth_percent": 8.16,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 498.08,
+      "prev_year_vacancy_index": 425.0,
+      "yoy_growth_percent": 17.2,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 207.69,
+      "prev_year_vacancy_index": 223.08,
+      "yoy_growth_percent": -6.9,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 429.05,
+      "prev_year_vacancy_index": 352.03,
+      "yoy_growth_percent": 21.88,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 115.07,
+      "prev_year_vacancy_index": 85.84,
+      "yoy_growth_percent": 34.05,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 266.74,
+      "prev_year_vacancy_index": 233.19,
+      "yoy_growth_percent": 14.39,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 322.41,
+      "prev_year_vacancy_index": 310.34,
+      "yoy_growth_percent": 3.89,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 192.86,
+      "prev_year_vacancy_index": 164.29,
+      "yoy_growth_percent": 17.39,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 358.93,
+      "prev_year_vacancy_index": 333.93,
+      "yoy_growth_percent": 7.49,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 235.9,
+      "prev_year_vacancy_index": 205.13,
+      "yoy_growth_percent": 15.0,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 272.31,
+      "prev_year_vacancy_index": 213.08,
+      "yoy_growth_percent": 27.8,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Northland",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 838.24,
+      "prev_year_vacancy_index": 785.29,
+      "yoy_growth_percent": 6.74,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 132.62,
+      "prev_year_vacancy_index": 126.95,
+      "yoy_growth_percent": 4.47,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 192.42,
+      "prev_year_vacancy_index": 172.35,
+      "yoy_growth_percent": 11.64,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 39.18,
+      "prev_year_vacancy_index": 37.14,
+      "yoy_growth_percent": 5.49,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 204.55,
+      "prev_year_vacancy_index": 159.83,
+      "yoy_growth_percent": 27.98,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 153.6,
+      "prev_year_vacancy_index": 142.4,
+      "yoy_growth_percent": 7.87,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 29.63,
+      "prev_year_vacancy_index": 29.63,
+      "yoy_growth_percent": 0.0,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 220.16,
+      "prev_year_vacancy_index": 270.16,
+      "yoy_growth_percent": -18.51,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 285.71,
+      "prev_year_vacancy_index": 230.16,
+      "yoy_growth_percent": 24.14,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 136.5,
+      "prev_year_vacancy_index": 99.0,
+      "yoy_growth_percent": 37.88,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 230.26,
+      "prev_year_vacancy_index": 190.79,
+      "yoy_growth_percent": 20.69,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 234.46,
+      "prev_year_vacancy_index": 208.61,
+      "yoy_growth_percent": 12.39,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 250.67,
+      "prev_year_vacancy_index": 209.52,
+      "yoy_growth_percent": 19.64,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 91.06,
+      "prev_year_vacancy_index": 103.25,
+      "yoy_growth_percent": -11.81,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 414.45,
+      "prev_year_vacancy_index": 341.1,
+      "yoy_growth_percent": 21.5,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 281.2,
+      "prev_year_vacancy_index": 278.2,
+      "yoy_growth_percent": 1.08,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 120.0,
+      "prev_year_vacancy_index": 100.0,
+      "yoy_growth_percent": 20.0,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 295.22,
+      "prev_year_vacancy_index": 270.87,
+      "yoy_growth_percent": 8.99,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 271.43,
+      "prev_year_vacancy_index": 248.57,
+      "yoy_growth_percent": 9.2,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 213.73,
+      "prev_year_vacancy_index": 133.98,
+      "yoy_growth_percent": 59.52,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 396.69,
+      "prev_year_vacancy_index": 332.45,
+      "yoy_growth_percent": 19.32,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 120.03,
+      "prev_year_vacancy_index": 104.9,
+      "yoy_growth_percent": 14.42,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 180.24,
+      "prev_year_vacancy_index": 141.64,
+      "yoy_growth_percent": 27.25,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 98.25,
+      "prev_year_vacancy_index": 94.88,
+      "yoy_growth_percent": 3.55,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 216.87,
+      "prev_year_vacancy_index": 178.22,
+      "yoy_growth_percent": 21.69,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 162.48,
+      "prev_year_vacancy_index": 173.9,
+      "yoy_growth_percent": -6.57,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 40.49,
+      "prev_year_vacancy_index": 36.95,
+      "yoy_growth_percent": 9.58,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 211.99,
+      "prev_year_vacancy_index": 195.64,
+      "yoy_growth_percent": 8.36,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 279.1,
+      "prev_year_vacancy_index": 216.42,
+      "yoy_growth_percent": 28.96,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 86.87,
+      "prev_year_vacancy_index": 79.86,
+      "yoy_growth_percent": 8.78,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Wellington",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 231.88,
+      "prev_year_vacancy_index": 223.85,
+      "yoy_growth_percent": 3.59,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 187.93,
+      "prev_year_vacancy_index": 204.02,
+      "yoy_growth_percent": -7.89,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 373.73,
+      "prev_year_vacancy_index": 287.71,
+      "yoy_growth_percent": 29.9,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 79.13,
+      "prev_year_vacancy_index": 75.65,
+      "yoy_growth_percent": 4.6,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 389.18,
+      "prev_year_vacancy_index": 351.44,
+      "yoy_growth_percent": 10.74,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 205.81,
+      "prev_year_vacancy_index": 196.13,
+      "yoy_growth_percent": 4.94,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 92.31,
+      "prev_year_vacancy_index": 107.69,
+      "yoy_growth_percent": -14.28,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 425.0,
+      "prev_year_vacancy_index": 423.91,
+      "yoy_growth_percent": 0.26,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 268.82,
+      "prev_year_vacancy_index": 188.17,
+      "yoy_growth_percent": 42.86,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 186.16,
+      "prev_year_vacancy_index": 157.59,
+      "yoy_growth_percent": 18.13,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 398.68,
+      "prev_year_vacancy_index": 355.26,
+      "yoy_growth_percent": 12.22,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 168.56,
+      "prev_year_vacancy_index": 158.1,
+      "yoy_growth_percent": 6.62,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 286.85,
+      "prev_year_vacancy_index": 217.12,
+      "yoy_growth_percent": 32.12,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 94.82,
+      "prev_year_vacancy_index": 92.85,
+      "yoy_growth_percent": 2.12,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 270.37,
+      "prev_year_vacancy_index": 237.15,
+      "yoy_growth_percent": 14.01,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 184.21,
+      "prev_year_vacancy_index": 149.17,
+      "yoy_growth_percent": 23.49,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 89.44,
+      "prev_year_vacancy_index": 78.57,
+      "yoy_growth_percent": 13.83,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 363.06,
+      "prev_year_vacancy_index": 293.43,
+      "yoy_growth_percent": 23.73,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 296.3,
+      "prev_year_vacancy_index": 259.26,
+      "yoy_growth_percent": 14.29,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 135.58,
+      "prev_year_vacancy_index": 113.88,
+      "yoy_growth_percent": 19.06,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Canterbury",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 484.65,
+      "prev_year_vacancy_index": 443.26,
+      "yoy_growth_percent": 9.34,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Business services",
+      "current_vacancy_index": 348.29,
+      "prev_year_vacancy_index": 297.26,
+      "yoy_growth_percent": 17.17,
+      "median_weekly_income": 1550,
+      "hourly_income": 38.75,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Construction",
+      "current_vacancy_index": 652.9,
+      "prev_year_vacancy_index": 527.96,
+      "yoy_growth_percent": 23.66,
+      "median_weekly_income": 1420,
+      "hourly_income": 35.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Education",
+      "current_vacancy_index": 91.48,
+      "prev_year_vacancy_index": 104.73,
+      "yoy_growth_percent": -12.65,
+      "median_weekly_income": 1380,
+      "hourly_income": 34.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Health care",
+      "current_vacancy_index": 433.49,
+      "prev_year_vacancy_index": 439.62,
+      "yoy_growth_percent": -1.39,
+      "median_weekly_income": 1480,
+      "hourly_income": 37.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Hospitality",
+      "current_vacancy_index": 462.2,
+      "prev_year_vacancy_index": 439.84,
+      "yoy_growth_percent": 5.08,
+      "median_weekly_income": 980,
+      "hourly_income": 24.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "IT",
+      "current_vacancy_index": 150.54,
+      "prev_year_vacancy_index": 149.46,
+      "yoy_growth_percent": 0.72,
+      "median_weekly_income": 1850,
+      "hourly_income": 46.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Manufacturing",
+      "current_vacancy_index": 569.38,
+      "prev_year_vacancy_index": 467.5,
+      "yoy_growth_percent": 21.79,
+      "median_weekly_income": 1320,
+      "hourly_income": 33.0,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Primary",
+      "current_vacancy_index": 350.46,
+      "prev_year_vacancy_index": 255.96,
+      "yoy_growth_percent": 36.92,
+      "median_weekly_income": 1300,
+      "hourly_income": 32.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Sales",
+      "current_vacancy_index": 293.88,
+      "prev_year_vacancy_index": 215.42,
+      "yoy_growth_percent": 36.42,
+      "median_weekly_income": 1220,
+      "hourly_income": 30.5,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "industry": "Other",
+      "current_vacancy_index": 789.29,
+      "prev_year_vacancy_index": 740.48,
+      "yoy_growth_percent": 6.59,
+      "median_weekly_income": 1250,
+      "hourly_income": 31.25,
+      "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
+    }
+  ],
+  "industries": [
+    "Business services",
+    "Construction",
+    "Education",
+    "Health care",
+    "Hospitality",
+    "IT",
+    "Manufacturing",
+    "Primary",
+    "Sales",
+    "Other"
+  ],
+  "regions": [
+    "Auckland",
+    "Waikato",
+    "Bay of Plenty",
+    "Northland",
+    "Gisborne/Hawkes Bay",
+    "Manawatu-Whanganui/Taranaki",
+    "Wellington",
+    "Tasman/Nelson/Marlborough/West Coast",
+    "Canterbury",
+    "Otago/Southland"
+  ]
+}

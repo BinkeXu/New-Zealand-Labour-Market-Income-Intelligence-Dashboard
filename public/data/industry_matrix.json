@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "source": "MBIE Vacancy Series & Stats NZ Income Benchmarks (June 2026)",
+    "last_updated": "June 2026"
+  },
+  "industry_matrix": [
+    {
+      "industry": "Business services",
+      "current_vacancy_index": 49.0,
+      "yoy_growth_percent": 6.29,
+      "median_weekly_income": 1550,
+      "annualized_income": 80600,
+      "hourly_income": 38.75,
+      "description": "Accounting, Legal, Consulting, HR & Marketing",
+      "quadrant": "Star (High Growth & High Income)",
+      "recommendation": "Top priority target for high career progression & compensation in NZ.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Construction",
+      "current_vacancy_index": 183.4,
+      "yoy_growth_percent": 19.87,
+      "median_weekly_income": 1420,
+      "annualized_income": 73840,
+      "hourly_income": 35.5,
+      "description": "Civil Engineering, Building Trades & Project Management",
+      "quadrant": "Star (High Growth & High Income)",
+      "recommendation": "Top priority target for high career progression & compensation in NZ.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Education",
+      "current_vacancy_index": 143.1,
+      "yoy_growth_percent": -0.83,
+      "median_weekly_income": 1380,
+      "annualized_income": 71760,
+      "hourly_income": 34.5,
+      "description": "Primary, Secondary, Tertiary Teaching & Educational Admin",
+      "quadrant": "Stable / Moderate Growth",
+      "recommendation": "Steady sector; focus on upskilling to stand out among applicants.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Health care",
+      "current_vacancy_index": 260.5,
+      "yoy_growth_percent": 6.5,
+      "median_weekly_income": 1480,
+      "annualized_income": 76960,
+      "hourly_income": 37.0,
+      "description": "Nursing, Medical Specialists, Allied Health & Care Services",
+      "quadrant": "Star (High Growth & High Income)",
+      "recommendation": "Top priority target for high career progression & compensation in NZ.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Hospitality",
+      "current_vacancy_index": 125.7,
+      "yoy_growth_percent": -4.77,
+      "median_weekly_income": 980,
+      "annualized_income": 50960,
+      "hourly_income": 24.5,
+      "description": "Accommodation, Food Services & Tourism",
+      "quadrant": "Stable / Moderate Growth",
+      "recommendation": "Steady sector; focus on upskilling to stand out among applicants.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "IT",
+      "current_vacancy_index": 34.0,
+      "yoy_growth_percent": 12.96,
+      "median_weekly_income": 1850,
+      "annualized_income": 96200,
+      "hourly_income": 46.25,
+      "description": "Software, Data Analytics, Cybersecurity & IT Infrastructure",
+      "quadrant": "Star (High Growth & High Income)",
+      "recommendation": "Top priority target for high career progression & compensation in NZ.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Manufacturing",
+      "current_vacancy_index": 172.1,
+      "yoy_growth_percent": 27.01,
+      "median_weekly_income": 1320,
+      "annualized_income": 68640,
+      "hourly_income": 33.0,
+      "description": "Food Processing, Advanced Manufacturing & Logistics",
+      "quadrant": "High Demand (High Volume & Accessible Entry)",
+      "recommendation": "Excellent entry opportunities with rapid hiring demand across NZ regions.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Primary",
+      "current_vacancy_index": 347.9,
+      "yoy_growth_percent": 32.74,
+      "median_weekly_income": 1300,
+      "annualized_income": 67600,
+      "hourly_income": 32.5,
+      "description": "Agriculture, Horticulture, Forestry & Agritech",
+      "quadrant": "High Demand (High Volume & Accessible Entry)",
+      "recommendation": "Excellent entry opportunities with rapid hiring demand across NZ regions.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Sales",
+      "current_vacancy_index": 77.4,
+      "yoy_growth_percent": 18.17,
+      "median_weekly_income": 1220,
+      "annualized_income": 63440,
+      "hourly_income": 30.5,
+      "description": "Retail Sales, Business Development & Account Management",
+      "quadrant": "High Demand (High Volume & Accessible Entry)",
+      "recommendation": "Excellent entry opportunities with rapid hiring demand across NZ regions.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    },
+    {
+      "industry": "Other",
+      "current_vacancy_index": 252.2,
+      "yoy_growth_percent": 20.15,
+      "median_weekly_income": 1250,
+      "annualized_income": 65000,
+      "hourly_income": 31.25,
+      "description": "Personal Services, Public Safety & Maintenance",
+      "quadrant": "High Demand (High Volume & Accessible Entry)",
+      "recommendation": "Excellent entry opportunities with rapid hiring demand across NZ regions.",
+      "data_source": "MBIE Jobs Online & Stats NZ ANZSIC Earnings"
+    }
+  ]
+}

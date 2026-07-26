@@ -1,0 +1,357 @@
+{
+  "metadata": {
+    "source_vacancy": "MBIE Jobs Online Consolidated Quarterly Series (March 2026)",
+    "source_income": "Stats NZ Income Census (2025)",
+    "source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+    "income_year": 2025,
+    "national_median_weekly": 1380.0,
+    "national_median_hourly": 34.5,
+    "total_regions_covered": 10
+  },
+  "regions": [
+    {
+      "region_name": "Auckland",
+      "island": "North Island",
+      "cities_included": [
+        "Auckland City",
+        "Manukau",
+        "North Shore",
+        "Waitakere",
+        "Pukekohe"
+      ],
+      "working_age_population": 956040,
+      "total_population": 1415550,
+      "vacancies_per_100k": 12.1,
+      "has_data": true,
+      "vacancy_index": 115.67,
+      "median_weekly_income": 1438.0,
+      "annualized_income": 74776.0,
+      "hourly_income": 35.95,
+      "opportunity_score": 29.0,
+      "top_key_industries": [
+        "IT",
+        "Healthcare",
+        "Business Services"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Waikato",
+      "island": "North Island",
+      "cities_included": [
+        "Hamilton",
+        "Taupo",
+        "Cambridge",
+        "Te Awamutu",
+        "Tokoroa"
+      ],
+      "working_age_population": 256584,
+      "total_population": 403638,
+      "vacancies_per_100k": 91.32,
+      "has_data": true,
+      "vacancy_index": 234.31,
+      "median_weekly_income": 1304.0,
+      "annualized_income": 67808.0,
+      "hourly_income": 32.6,
+      "opportunity_score": 198.47,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Bay of Plenty",
+      "island": "North Island",
+      "cities_included": [
+        "Tauranga",
+        "Rotorua",
+        "Whakatane",
+        "Kawerau"
+      ],
+      "working_age_population": 163146,
+      "total_population": 267744,
+      "vacancies_per_100k": 187.38,
+      "has_data": true,
+      "vacancy_index": 305.71,
+      "median_weekly_income": 1296.0,
+      "annualized_income": 67392.0,
+      "hourly_income": 32.4,
+      "opportunity_score": 404.75,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Northland",
+      "island": "North Island",
+      "cities_included": [
+        "Whangarei",
+        "Kerikeri",
+        "Kaikohe",
+        "Dargaville"
+      ],
+      "working_age_population": 91176,
+      "total_population": 151689,
+      "vacancies_per_100k": 298.77,
+      "has_data": true,
+      "vacancy_index": 272.41,
+      "median_weekly_income": 1305.0,
+      "annualized_income": 67860.0,
+      "hourly_income": 32.62,
+      "opportunity_score": 649.83,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Gisborne/Hawkes Bay",
+      "island": "North Island",
+      "cities_included": [
+        "Gisborne",
+        "Napier",
+        "Hastings",
+        "Havelock North"
+      ],
+      "working_age_population": 119622,
+      "total_population": 194832,
+      "vacancies_per_100k": 128.13,
+      "has_data": true,
+      "vacancy_index": 153.27,
+      "median_weekly_income": 1343.0,
+      "annualized_income": 69836.0,
+      "hourly_income": 33.58,
+      "opportunity_score": 286.79,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Manawatu-Whanganui/Taranaki",
+      "island": "North Island",
+      "cities_included": [
+        "Palmerston North",
+        "New Plymouth",
+        "Whanganui",
+        "Hawera",
+        "Feilding"
+      ],
+      "working_age_population": 208662,
+      "total_population": 332280,
+      "vacancies_per_100k": 118.48,
+      "has_data": true,
+      "vacancy_index": 247.22,
+      "median_weekly_income": 1344.0,
+      "annualized_income": 69888.0,
+      "hourly_income": 33.6,
+      "opportunity_score": 265.39,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Wellington",
+      "island": "North Island",
+      "cities_included": [
+        "Wellington City",
+        "Lower Hutt",
+        "Upper Hutt",
+        "Porirua",
+        "Kapiti Coast"
+      ],
+      "working_age_population": 317043,
+      "total_population": 471315,
+      "vacancies_per_100k": 37.48,
+      "has_data": true,
+      "vacancy_index": 118.82,
+      "median_weekly_income": 1496.0,
+      "annualized_income": 77792.0,
+      "hourly_income": 37.4,
+      "opportunity_score": 93.44,
+      "top_key_industries": [
+        "IT",
+        "Healthcare",
+        "Business Services"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Tasman/Nelson/Marlborough/West Coast",
+      "island": "South Island",
+      "cities_included": [
+        "Nelson",
+        "Blenheim",
+        "Richmond",
+        "Greymouth",
+        "Hokitika"
+      ],
+      "working_age_population": 106422,
+      "total_population": 169155,
+      "vacancies_per_100k": 227.26,
+      "has_data": true,
+      "vacancy_index": 241.85,
+      "median_weekly_income": 1253.0,
+      "annualized_income": 65156.0,
+      "hourly_income": 31.32,
+      "opportunity_score": 474.59,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Canterbury",
+      "island": "South Island",
+      "cities_included": [
+        "Christchurch",
+        "Timaru",
+        "Ashburton",
+        "Rangiora"
+      ],
+      "working_age_population": 354900,
+      "total_population": 539433,
+      "vacancies_per_100k": 58.32,
+      "has_data": true,
+      "vacancy_index": 206.99,
+      "median_weekly_income": 1343.0,
+      "annualized_income": 69836.0,
+      "hourly_income": 33.58,
+      "opportunity_score": 130.55,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    },
+    {
+      "region_name": "Otago/Southland",
+      "island": "South Island",
+      "cities_included": [
+        "Dunedin",
+        "Queenstown",
+        "Wanaka",
+        "Invercargill",
+        "Oamaru"
+      ],
+      "working_age_population": 195387,
+      "total_population": 295812,
+      "vacancies_per_100k": 201.33,
+      "has_data": true,
+      "vacancy_index": 393.38,
+      "median_weekly_income": 1307.0,
+      "annualized_income": 67964.0,
+      "hourly_income": 32.67,
+      "opportunity_score": 438.57,
+      "top_key_industries": [
+        "Construction",
+        "Primary Industry",
+        "Manufacturing"
+      ],
+      "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
+      "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+    }
+  ],
+  "city_region_mapping": {
+    "Auckland": [
+      "Auckland City",
+      "Manukau",
+      "North Shore",
+      "Waitakere",
+      "Pukekohe"
+    ],
+    "Waikato": [
+      "Hamilton",
+      "Taupo",
+      "Cambridge",
+      "Te Awamutu",
+      "Tokoroa"
+    ],
+    "Bay of Plenty": [
+      "Tauranga",
+      "Rotorua",
+      "Whakatane",
+      "Kawerau"
+    ],
+    "Northland": [
+      "Whangarei",
+      "Kerikeri",
+      "Kaikohe",
+      "Dargaville"
+    ],
+    "Gisborne/Hawkes Bay": [
+      "Gisborne",
+      "Napier",
+      "Hastings",
+      "Havelock North"
+    ],
+    "Manawatu-Whanganui/Taranaki": [
+      "Palmerston North",
+      "New Plymouth",
+      "Whanganui",
+      "Hawera",
+      "Feilding"
+    ],
+    "Wellington": [
+      "Wellington City",
+      "Lower Hutt",
+      "Upper Hutt",
+      "Porirua",
+      "Kapiti Coast"
+    ],
+    "Tasman/Nelson/Marlborough/West Coast": [
+      "Nelson",
+      "Blenheim",
+      "Richmond",
+      "Greymouth",
+      "Hokitika"
+    ],
+    "Canterbury": [
+      "Christchurch",
+      "Timaru",
+      "Ashburton",
+      "Rangiora"
+    ],
+    "Otago/Southland": [
+      "Dunedin",
+      "Queenstown",
+      "Wanaka",
+      "Invercargill",
+      "Oamaru"
+    ]
+  }
+}

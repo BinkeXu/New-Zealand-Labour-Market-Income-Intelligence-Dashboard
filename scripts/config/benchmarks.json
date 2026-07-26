@@ -1,0 +1,26 @@
+{
+  "city_region_mapping": {
+    "Auckland": ["Auckland City", "Manukau", "North Shore", "Waitakere", "Pukekohe"],
+    "Waikato": ["Hamilton", "Taupo", "Cambridge", "Te Awamutu", "Tokoroa"],
+    "Bay of Plenty": ["Tauranga", "Rotorua", "Whakatane", "Kawerau"],
+    "Northland": ["Whangarei", "Kerikeri", "Kaikohe", "Dargaville"],
+    "Gisborne/Hawkes Bay": ["Gisborne", "Napier", "Hastings", "Havelock North"],
+    "Manawatu-Whanganui/Taranaki": ["Palmerston North", "New Plymouth", "Whanganui", "Hawera", "Feilding"],
+    "Wellington": ["Wellington City", "Lower Hutt", "Upper Hutt", "Porirua", "Kapiti Coast"],
+    "Tasman/Nelson/Marlborough/West Coast": ["Nelson", "Blenheim", "Richmond", "Greymouth", "Hokitika"],
+    "Canterbury": ["Christchurch", "Timaru", "Ashburton", "Rangiora"],
+    "Otago/Southland": ["Dunedin", "Queenstown", "Wanaka", "Invercargill", "Oamaru"]
+  },
+  "industry_salaries": {
+    "IT": { "weekly": 1850, "annual": 96200, "description": "Software, Data Analytics, Cybersecurity & IT Infrastructure" },
+    "Business services": { "weekly": 1550, "annual": 80600, "description": "Accounting, Legal, Consulting, HR & Marketing" },
+    "Health care": { "weekly": 1480, "annual": 76960, "description": "Nursing, Medical Specialists, Allied Health & Care Services" },
+    "Construction": { "weekly": 1420, "annual": 73840, "description": "Civil Engineering, Building Trades & Project Management" },
+    "Education": { "weekly": 1380, "annual": 71760, "description": "Primary, Secondary, Tertiary Teaching & Educational Admin" },
+    "Manufacturing": { "weekly": 1320, "annual": 68640, "description": "Food Processing, Advanced Manufacturing & Logistics" },
+    "Primary": { "weekly": 1300, "annual": 67600, "description": "Agriculture, Horticulture, Forestry & Agritech" },
+    "Sales": { "weekly": 1220, "annual": 63440, "description": "Retail Sales, Business Development & Account Management" },
+    "Hospitality": { "weekly": 980, "annual": 50960, "description": "Accommodation, Food Services & Tourism" },
+    "Other": { "weekly": 1250, "annual": 65000, "description": "Personal Services, Public Safety & Maintenance" }
+  }
+}
