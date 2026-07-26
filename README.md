@@ -1,7 +1,10 @@
-# New Zealand Labour Market & Income Intelligence Dashboard
+# 🇳🇿 New Zealand Labour Market & Income Intelligence Dashboard
 
 > **End-to-End Full-Stack Data Engineering, Analytics Platform & Career Decision System**  
-> An interactive labor market analytics platform connecting **MBIE Jobs Online vacancy indices (2007–2026)** with **Stats NZ Census income benchmarks** and **Stats NZ Working-Age Population Census data**. Built to empower job seekers, HR leaders, and policymakers with data-driven salary, vacancy density, and regional career decision intelligence.
+> 🔗 **Live Demo**: [nz-labour-dashboard.vercel.app](https://nz-labour-dashboard.vercel.app/)  
+> 💻 **GitHub Repository**: [github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard](https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git)
+
+An interactive labor market analytics platform connecting **MBIE Jobs Online vacancy indices (2007–2026)** with **Stats NZ Census income benchmarks** and **Stats NZ Working-Age Population Census data**. Built to empower job seekers, HR leaders, and policymakers with data-driven salary, vacancy density, and regional career decision intelligence.
 
 ---
 
@@ -104,7 +107,7 @@ NZ Labour Market Intelligence Dashboard/
 │   │   ├── KPICards.jsx          # Executive KPI summary cards
 │   │   ├── Methodology.jsx       # Data provenance & methodology transparency hub
 │   │   ├── Overview.jsx          # Time-series charts & market overview
-      │   └── RegionalMatrix.jsx    # Regional matrix & city industry vacancy table
+│   │   └── RegionalMatrix.jsx    # Regional matrix & city industry vacancy table
 │   ├── context/
 │   │   └── DashboardContext.jsx  # Global React Context & theme state provider
 │   ├── utils/
@@ -114,6 +117,7 @@ NZ Labour Market Intelligence Dashboard/
 │   └── main.jsx                  # React DOM entry point
 ├── index.html                    # HTML entry point with Google Fonts & Meta SEO
 ├── package.json                  # Node dependencies & npm scripts
+├── vercel.json                   # Vercel deployment routing configuration
 ├── vite.config.js                # Vite bundler configuration
 └── README.md                     # Project documentation
 ```
@@ -159,7 +163,7 @@ Open your browser at **`http://localhost:3000`** to interact with the live dashb
 
 ### 5. Build for Production
 ```bash
-npm run build
+powershell -ExecutionPolicy Bypass -Command "npm run build"
 ```
 
 ---
@@ -195,9 +199,11 @@ $$\text{YoY Growth \%} = \left( \frac{\text{Index}_{\text{Current Quarter}} - \t
 
 ## 👤 Author & Job Seeker Portfolio
 
-* **Developer**: Junior IT / Data Engineer / Full-Stack Developer candidate in New Zealand
+* **Developer**: Binke Xu (Junior IT / Data Engineer / Full-Stack Developer candidate in New Zealand)
+* **Live Web App**: [https://nz-labour-dashboard.vercel.app/](https://nz-labour-dashboard.vercel.app/)
+* **GitHub Repository**: [https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard](https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard)
 * **Goal**: Showcase end-to-end software engineering capability — from python data pipeline architecture and unit testing to clean React UI/UX design, interactive tabular sorting, and cloud deployment readiness.
-* **Tech Stack**: React 18, Vite, Python 3, Pandas, Recharts, Lucide Icons, Custom CSS Design System, Node.js.
+* **Tech Stack**: React 18, Vite, Python 3, Pandas, Recharts, Lucide Icons, Custom CSS Design System, Node.js, Vercel.
 
 ---
 
