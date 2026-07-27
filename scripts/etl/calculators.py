@@ -3,6 +3,7 @@ ETL Domain Metrics & Formula Calculators (calculators.py)
 
 Contains pure mathematical domain functions for calculating:
 - Working-Age Population-Adjusted Opportunity Score
+- Net Discretionary Weekly Income & Real Rent-Adjusted Purchasing Power Index
 - Vacancies Per 100k Working-Age Population (Ages 15-64)
 - Hourly Wage (40-hour weekly baseline)
 - Annualized Income
@@ -49,6 +50,20 @@ def calculate_vacancies_per_100k(vacancy_index: float, working_age_population: i
     if vacancy_index is None or working_age_population is None or working_age_population <= 0:
         return None
     return round((vacancy_index / float(working_age_population)) * 100000.0, 2)
+
+
+def calculate_net_discretionary_income(weekly_income: float, mean_weekly_rent: float) -> Optional[float]:
+    """Calculates Net Discretionary Weekly Income after subtracting average weekly rent."""
+    if weekly_income is None or mean_weekly_rent is None or weekly_income <= 0 or mean_weekly_rent <= 0:
+        return None
+    return round(weekly_income - mean_weekly_rent, 2)
+
+
+def calculate_purchasing_power_index(net_discretionary_income: float, base_net_income: float = 800.0) -> Optional[float]:
+    """Calculates Real Rent-Adjusted Purchasing Power Index relative to $800/wk net baseline."""
+    if net_discretionary_income is None or net_discretionary_income <= 0:
+        return None
+    return round((net_discretionary_income / base_net_income) * 100.0, 2)
 
 
 def calculate_opportunity_score(

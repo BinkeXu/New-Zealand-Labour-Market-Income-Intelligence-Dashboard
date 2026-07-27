@@ -2,6 +2,7 @@
   "metadata": {
     "source_vacancy": "MBIE Jobs Online Consolidated Quarterly Series (March 2026)",
     "source_income": "Stats NZ Income Census (2025)",
+    "source_rent": "Stats NZ Mean Weekly Rent (2026)",
     "source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
     "income_year": 2025,
     "national_median_weekly": 1380.0,
@@ -25,6 +26,9 @@
       "has_data": true,
       "vacancy_index": 115.67,
       "median_weekly_income": 1438.0,
+      "mean_weekly_rent": 618.8,
+      "net_discretionary_income": 819.2,
+      "purchasing_power_index": 102.4,
       "annualized_income": 74776.0,
       "hourly_income": 35.95,
       "opportunity_score": 29.0,
@@ -35,6 +39,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -53,6 +58,9 @@
       "has_data": true,
       "vacancy_index": 234.31,
       "median_weekly_income": 1304.0,
+      "mean_weekly_rent": 528.48,
+      "net_discretionary_income": 775.52,
+      "purchasing_power_index": 96.94,
       "annualized_income": 67808.0,
       "hourly_income": 32.6,
       "opportunity_score": 198.47,
@@ -63,6 +71,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -80,6 +89,9 @@
       "has_data": true,
       "vacancy_index": 305.71,
       "median_weekly_income": 1296.0,
+      "mean_weekly_rent": 599.0,
+      "net_discretionary_income": 697.0,
+      "purchasing_power_index": 87.12,
       "annualized_income": 67392.0,
       "hourly_income": 32.4,
       "opportunity_score": 404.75,
@@ -90,6 +102,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -107,6 +120,9 @@
       "has_data": true,
       "vacancy_index": 272.41,
       "median_weekly_income": 1305.0,
+      "mean_weekly_rent": 525.23,
+      "net_discretionary_income": 779.77,
+      "purchasing_power_index": 97.47,
       "annualized_income": 67860.0,
       "hourly_income": 32.62,
       "opportunity_score": 649.83,
@@ -117,6 +133,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -134,6 +151,9 @@
       "has_data": true,
       "vacancy_index": 153.27,
       "median_weekly_income": 1343.0,
+      "mean_weekly_rent": 577.72,
+      "net_discretionary_income": 765.28,
+      "purchasing_power_index": 95.66,
       "annualized_income": 69836.0,
       "hourly_income": 33.58,
       "opportunity_score": 286.79,
@@ -144,6 +164,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -162,6 +183,9 @@
       "has_data": true,
       "vacancy_index": 247.22,
       "median_weekly_income": 1344.0,
+      "mean_weekly_rent": 512.46,
+      "net_discretionary_income": 831.54,
+      "purchasing_power_index": 103.94,
       "annualized_income": 69888.0,
       "hourly_income": 33.6,
       "opportunity_score": 265.39,
@@ -172,6 +196,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -190,6 +215,9 @@
       "has_data": true,
       "vacancy_index": 118.82,
       "median_weekly_income": 1496.0,
+      "mean_weekly_rent": 553.75,
+      "net_discretionary_income": 942.25,
+      "purchasing_power_index": 117.78,
       "annualized_income": 77792.0,
       "hourly_income": 37.4,
       "opportunity_score": 93.44,
@@ -200,6 +228,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -218,6 +247,9 @@
       "has_data": true,
       "vacancy_index": 241.85,
       "median_weekly_income": 1253.0,
+      "mean_weekly_rent": 496.33,
+      "net_discretionary_income": 756.67,
+      "purchasing_power_index": 94.58,
       "annualized_income": 65156.0,
       "hourly_income": 31.32,
       "opportunity_score": 474.59,
@@ -228,6 +260,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -245,6 +278,9 @@
       "has_data": true,
       "vacancy_index": 206.99,
       "median_weekly_income": 1343.0,
+      "mean_weekly_rent": 519.56,
+      "net_discretionary_income": 823.44,
+      "purchasing_power_index": 102.93,
       "annualized_income": 69836.0,
       "hourly_income": 33.58,
       "opportunity_score": 130.55,
@@ -255,6 +291,7 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     },
     {
@@ -273,6 +310,9 @@
       "has_data": true,
       "vacancy_index": 393.38,
       "median_weekly_income": 1307.0,
+      "mean_weekly_rent": 515.21,
+      "net_discretionary_income": 791.79,
+      "purchasing_power_index": 98.97,
       "annualized_income": 67964.0,
       "hourly_income": 32.67,
       "opportunity_score": 438.57,
@@ -283,9 +323,1002 @@
       ],
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
+      "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
       "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
     }
   ],
+  "national_income_distribution": {
+    "income_sources": [
+      {
+        "source_name": "Wage and Salary Income",
+        "description": "Primary employment wages & salaries",
+        "color": "#4f46e5",
+        "policy_note": "Includes PAYE wages, salaries, bonuses, and overtime pay.",
+        "median_weekly": 1380.0,
+        "median_hourly": 34.5,
+        "annualized_median": 71760.0,
+        "average_weekly": 1555.0,
+        "average_hourly": 38.88,
+        "annualized_average": 80860.0,
+        "people_count_thousands": 2355.4,
+        "historical_series": [
+          {
+            "year": 1998,
+            "median_weekly": 518.0,
+            "median_hourly": 12.95,
+            "annualized": 26936.0
+          },
+          {
+            "year": 1999,
+            "median_weekly": 520.0,
+            "median_hourly": 13.0,
+            "annualized": 27040.0
+          },
+          {
+            "year": 2000,
+            "median_weekly": 536.0,
+            "median_hourly": 13.4,
+            "annualized": 27872.0
+          },
+          {
+            "year": 2001,
+            "median_weekly": 550.0,
+            "median_hourly": 13.75,
+            "annualized": 28600.0
+          },
+          {
+            "year": 2002,
+            "median_weekly": 566.0,
+            "median_hourly": 14.15,
+            "annualized": 29432.0
+          },
+          {
+            "year": 2003,
+            "median_weekly": 586.0,
+            "median_hourly": 14.65,
+            "annualized": 30472.0
+          },
+          {
+            "year": 2004,
+            "median_weekly": 606.0,
+            "median_hourly": 15.15,
+            "annualized": 31512.0
+          },
+          {
+            "year": 2005,
+            "median_weekly": 639.0,
+            "median_hourly": 15.97,
+            "annualized": 33228.0
+          },
+          {
+            "year": 2006,
+            "median_weekly": 671.0,
+            "median_hourly": 16.77,
+            "annualized": 34892.0
+          },
+          {
+            "year": 2007,
+            "median_weekly": 710.0,
+            "median_hourly": 17.75,
+            "annualized": 36920.0
+          },
+          {
+            "year": 2008,
+            "median_weekly": 730.0,
+            "median_hourly": 18.25,
+            "annualized": 37960.0
+          },
+          {
+            "year": 2009,
+            "median_weekly": 760.0,
+            "median_hourly": 19.0,
+            "annualized": 39520.0
+          },
+          {
+            "year": 2010,
+            "median_weekly": 777.0,
+            "median_hourly": 19.43,
+            "annualized": 40404.0
+          },
+          {
+            "year": 2011,
+            "median_weekly": 800.0,
+            "median_hourly": 20.0,
+            "annualized": 41600.0
+          },
+          {
+            "year": 2012,
+            "median_weekly": 806.0,
+            "median_hourly": 20.15,
+            "annualized": 41912.0
+          },
+          {
+            "year": 2013,
+            "median_weekly": 844.0,
+            "median_hourly": 21.1,
+            "annualized": 43888.0
+          },
+          {
+            "year": 2014,
+            "median_weekly": 863.0,
+            "median_hourly": 21.57,
+            "annualized": 44876.0
+          },
+          {
+            "year": 2015,
+            "median_weekly": 884.0,
+            "median_hourly": 22.1,
+            "annualized": 45968.0
+          },
+          {
+            "year": 2016,
+            "median_weekly": 937.0,
+            "median_hourly": 23.43,
+            "annualized": 48724.0
+          },
+          {
+            "year": 2017,
+            "median_weekly": 960.0,
+            "median_hourly": 24.0,
+            "annualized": 49920.0
+          },
+          {
+            "year": 2018,
+            "median_weekly": 997.0,
+            "median_hourly": 24.93,
+            "annualized": 51844.0
+          },
+          {
+            "year": 2019,
+            "median_weekly": 1016.0,
+            "median_hourly": 25.4,
+            "annualized": 52832.0
+          },
+          {
+            "year": 2020,
+            "median_weekly": 1062.0,
+            "median_hourly": 26.55,
+            "annualized": 55224.0
+          },
+          {
+            "year": 2021,
+            "median_weekly": 1093.0,
+            "median_hourly": 27.32,
+            "annualized": 56836.0
+          },
+          {
+            "year": 2022,
+            "median_weekly": 1189.0,
+            "median_hourly": 29.73,
+            "annualized": 61828.0
+          },
+          {
+            "year": 2023,
+            "median_weekly": 1273.0,
+            "median_hourly": 31.82,
+            "annualized": 66196.0
+          },
+          {
+            "year": 2024,
+            "median_weekly": 1343.0,
+            "median_hourly": 33.58,
+            "annualized": 69836.0
+          },
+          {
+            "year": 2025,
+            "median_weekly": 1380.0,
+            "median_hourly": 34.5,
+            "annualized": 71760.0
+          }
+        ]
+      },
+      {
+        "source_name": "Self-employment Income",
+        "description": "Business owner & sole trader net earnings",
+        "color": "#059669",
+        "policy_note": "Includes net profit/earnings from business ownership, partnership, and sole trading.",
+        "median_weekly": 921.0,
+        "median_hourly": 23.02,
+        "annualized_median": 47892.0,
+        "average_weekly": 1401.0,
+        "average_hourly": 35.02,
+        "annualized_average": 72852.0,
+        "people_count_thousands": 574.4,
+        "historical_series": [
+          {
+            "year": 1998,
+            "median_weekly": 529.0,
+            "median_hourly": 13.22,
+            "annualized": 27508.0
+          },
+          {
+            "year": 1999,
+            "median_weekly": 499.0,
+            "median_hourly": 12.47,
+            "annualized": 25948.0
+          },
+          {
+            "year": 2000,
+            "median_weekly": 518.0,
+            "median_hourly": 12.95,
+            "annualized": 26936.0
+          },
+          {
+            "year": 2001,
+            "median_weekly": 575.0,
+            "median_hourly": 14.38,
+            "annualized": 29900.0
+          },
+          {
+            "year": 2002,
+            "median_weekly": 575.0,
+            "median_hourly": 14.38,
+            "annualized": 29900.0
+          },
+          {
+            "year": 2003,
+            "median_weekly": 614.0,
+            "median_hourly": 15.35,
+            "annualized": 31928.0
+          },
+          {
+            "year": 2004,
+            "median_weekly": 614.0,
+            "median_hourly": 15.35,
+            "annualized": 31928.0
+          },
+          {
+            "year": 2005,
+            "median_weekly": 575.0,
+            "median_hourly": 14.38,
+            "annualized": 29900.0
+          },
+          {
+            "year": 2006,
+            "median_weekly": 614.0,
+            "median_hourly": 15.35,
+            "annualized": 31928.0
+          },
+          {
+            "year": 2007,
+            "median_weekly": 671.0,
+            "median_hourly": 16.77,
+            "annualized": 34892.0
+          },
+          {
+            "year": 2008,
+            "median_weekly": 614.0,
+            "median_hourly": 15.35,
+            "annualized": 31928.0
+          },
+          {
+            "year": 2009,
+            "median_weekly": 623.0,
+            "median_hourly": 15.57,
+            "annualized": 32396.0
+          },
+          {
+            "year": 2010,
+            "median_weekly": 575.0,
+            "median_hourly": 14.38,
+            "annualized": 29900.0
+          },
+          {
+            "year": 2011,
+            "median_weekly": 575.0,
+            "median_hourly": 14.38,
+            "annualized": 29900.0
+          },
+          {
+            "year": 2012,
+            "median_weekly": 575.0,
+            "median_hourly": 14.38,
+            "annualized": 29900.0
+          },
+          {
+            "year": 2013,
+            "median_weekly": 671.0,
+            "median_hourly": 16.77,
+            "annualized": 34892.0
+          },
+          {
+            "year": 2014,
+            "median_weekly": 748.0,
+            "median_hourly": 18.7,
+            "annualized": 38896.0
+          },
+          {
+            "year": 2015,
+            "median_weekly": 690.0,
+            "median_hourly": 17.25,
+            "annualized": 35880.0
+          },
+          {
+            "year": 2016,
+            "median_weekly": 720.0,
+            "median_hourly": 18.0,
+            "annualized": 37440.0
+          },
+          {
+            "year": 2017,
+            "median_weekly": 700.0,
+            "median_hourly": 17.5,
+            "annualized": 36400.0
+          },
+          {
+            "year": 2018,
+            "median_weekly": 729.0,
+            "median_hourly": 18.23,
+            "annualized": 37908.0
+          },
+          {
+            "year": 2019,
+            "median_weekly": 767.0,
+            "median_hourly": 19.18,
+            "annualized": 39884.0
+          },
+          {
+            "year": 2020,
+            "median_weekly": 671.0,
+            "median_hourly": 16.77,
+            "annualized": 34892.0
+          },
+          {
+            "year": 2021,
+            "median_weekly": 767.0,
+            "median_hourly": 19.18,
+            "annualized": 39884.0
+          },
+          {
+            "year": 2022,
+            "median_weekly": 767.0,
+            "median_hourly": 19.18,
+            "annualized": 39884.0
+          },
+          {
+            "year": 2023,
+            "median_weekly": 767.0,
+            "median_hourly": 19.18,
+            "annualized": 39884.0
+          },
+          {
+            "year": 2024,
+            "median_weekly": 863.0,
+            "median_hourly": 21.57,
+            "annualized": 44876.0
+          },
+          {
+            "year": 2025,
+            "median_weekly": 921.0,
+            "median_hourly": 23.02,
+            "annualized": 47892.0
+          }
+        ]
+      },
+      {
+        "source_name": "Government Transfer Income",
+        "description": "Superannuation, benefits & student allowances",
+        "color": "#d97706",
+        "policy_note": "Includes NZ Superannuation, Jobseeker Support, Sole Parent Support, Accommodation Supplement, and Student Allowances.",
+        "median_weekly": 472.0,
+        "median_hourly": 11.8,
+        "annualized_median": 24544.0,
+        "average_weekly": 459.0,
+        "average_hourly": 11.47,
+        "annualized_average": 23868.0,
+        "people_count_thousands": 1313.4,
+        "historical_series": [
+          {
+            "year": 1998,
+            "median_weekly": 191.0,
+            "median_hourly": 4.78,
+            "annualized": 9932.0
+          },
+          {
+            "year": 1999,
+            "median_weekly": 192.0,
+            "median_hourly": 4.8,
+            "annualized": 9984.0
+          },
+          {
+            "year": 2000,
+            "median_weekly": 204.0,
+            "median_hourly": 5.1,
+            "annualized": 10608.0
+          },
+          {
+            "year": 2001,
+            "median_weekly": 212.0,
+            "median_hourly": 5.3,
+            "annualized": 11024.0
+          },
+          {
+            "year": 2002,
+            "median_weekly": 216.0,
+            "median_hourly": 5.4,
+            "annualized": 11232.0
+          },
+          {
+            "year": 2003,
+            "median_weekly": 222.0,
+            "median_hourly": 5.55,
+            "annualized": 11544.0
+          },
+          {
+            "year": 2004,
+            "median_weekly": 228.0,
+            "median_hourly": 5.7,
+            "annualized": 11856.0
+          },
+          {
+            "year": 2005,
+            "median_weekly": 234.0,
+            "median_hourly": 5.85,
+            "annualized": 12168.0
+          },
+          {
+            "year": 2006,
+            "median_weekly": 239.0,
+            "median_hourly": 5.97,
+            "annualized": 12428.0
+          },
+          {
+            "year": 2007,
+            "median_weekly": 243.0,
+            "median_hourly": 6.08,
+            "annualized": 12636.0
+          },
+          {
+            "year": 2008,
+            "median_weekly": 252.0,
+            "median_hourly": 6.3,
+            "annualized": 13104.0
+          },
+          {
+            "year": 2009,
+            "median_weekly": 272.0,
+            "median_hourly": 6.8,
+            "annualized": 14144.0
+          },
+          {
+            "year": 2010,
+            "median_weekly": 268.0,
+            "median_hourly": 6.7,
+            "annualized": 13936.0
+          },
+          {
+            "year": 2011,
+            "median_weekly": 280.0,
+            "median_hourly": 7.0,
+            "annualized": 14560.0
+          },
+          {
+            "year": 2012,
+            "median_weekly": 288.0,
+            "median_hourly": 7.2,
+            "annualized": 14976.0
+          },
+          {
+            "year": 2013,
+            "median_weekly": 297.0,
+            "median_hourly": 7.42,
+            "annualized": 15444.0
+          },
+          {
+            "year": 2014,
+            "median_weekly": 302.0,
+            "median_hourly": 7.55,
+            "annualized": 15704.0
+          },
+          {
+            "year": 2015,
+            "median_weekly": 311.0,
+            "median_hourly": 7.78,
+            "annualized": 16172.0
+          },
+          {
+            "year": 2016,
+            "median_weekly": 318.0,
+            "median_hourly": 7.95,
+            "annualized": 16536.0
+          },
+          {
+            "year": 2017,
+            "median_weekly": 336.0,
+            "median_hourly": 8.4,
+            "annualized": 17472.0
+          },
+          {
+            "year": 2018,
+            "median_weekly": 341.0,
+            "median_hourly": 8.53,
+            "annualized": 17732.0
+          },
+          {
+            "year": 2019,
+            "median_weekly": 341.0,
+            "median_hourly": 8.53,
+            "annualized": 17732.0
+          },
+          {
+            "year": 2020,
+            "median_weekly": 364.0,
+            "median_hourly": 9.1,
+            "annualized": 18928.0
+          },
+          {
+            "year": 2021,
+            "median_weekly": 371.0,
+            "median_hourly": 9.28,
+            "annualized": 19292.0
+          },
+          {
+            "year": 2022,
+            "median_weekly": 402.0,
+            "median_hourly": 10.05,
+            "annualized": 20904.0
+          },
+          {
+            "year": 2023,
+            "median_weekly": 432.0,
+            "median_hourly": 10.8,
+            "annualized": 22464.0
+          },
+          {
+            "year": 2024,
+            "median_weekly": 453.0,
+            "median_hourly": 11.32,
+            "annualized": 23556.0
+          },
+          {
+            "year": 2025,
+            "median_weekly": 472.0,
+            "median_hourly": 11.8,
+            "annualized": 24544.0
+          }
+        ]
+      },
+      {
+        "source_name": "All sources collected",
+        "description": "Combined total income from all sources",
+        "color": "#0284c7",
+        "policy_note": "Total aggregate income across wages, self-employment, transfers, investments, and pensions.",
+        "median_weekly": 959.0,
+        "median_hourly": 23.98,
+        "annualized_median": 49868.0,
+        "average_weekly": 1156.0,
+        "average_hourly": 28.9,
+        "annualized_average": 60112.0,
+        "people_count_thousands": 4314.3,
+        "historical_series": [
+          {
+            "year": 1998,
+            "median_weekly": 289.0,
+            "median_hourly": 7.22,
+            "annualized": 15028.0
+          },
+          {
+            "year": 1999,
+            "median_weekly": 300.0,
+            "median_hourly": 7.5,
+            "annualized": 15600.0
+          },
+          {
+            "year": 2000,
+            "median_weekly": 313.0,
+            "median_hourly": 7.83,
+            "annualized": 16276.0
+          },
+          {
+            "year": 2001,
+            "median_weekly": 340.0,
+            "median_hourly": 8.5,
+            "annualized": 17680.0
+          },
+          {
+            "year": 2002,
+            "median_weekly": 350.0,
+            "median_hourly": 8.75,
+            "annualized": 18200.0
+          },
+          {
+            "year": 2003,
+            "median_weekly": 370.0,
+            "median_hourly": 9.25,
+            "annualized": 19240.0
+          },
+          {
+            "year": 2004,
+            "median_weekly": 394.0,
+            "median_hourly": 9.85,
+            "annualized": 20488.0
+          },
+          {
+            "year": 2005,
+            "median_weekly": 420.0,
+            "median_hourly": 10.5,
+            "annualized": 21840.0
+          },
+          {
+            "year": 2006,
+            "median_weekly": 450.0,
+            "median_hourly": 11.25,
+            "annualized": 23400.0
+          },
+          {
+            "year": 2007,
+            "median_weekly": 478.0,
+            "median_hourly": 11.95,
+            "annualized": 24856.0
+          },
+          {
+            "year": 2008,
+            "median_weekly": 480.0,
+            "median_hourly": 12.0,
+            "annualized": 24960.0
+          },
+          {
+            "year": 2009,
+            "median_weekly": 490.0,
+            "median_hourly": 12.25,
+            "annualized": 25480.0
+          },
+          {
+            "year": 2010,
+            "median_weekly": 489.0,
+            "median_hourly": 12.22,
+            "annualized": 25428.0
+          },
+          {
+            "year": 2011,
+            "median_weekly": 498.0,
+            "median_hourly": 12.45,
+            "annualized": 25896.0
+          },
+          {
+            "year": 2012,
+            "median_weekly": 500.0,
+            "median_hourly": 12.5,
+            "annualized": 26000.0
+          },
+          {
+            "year": 2013,
+            "median_weekly": 525.0,
+            "median_hourly": 13.12,
+            "annualized": 27300.0
+          },
+          {
+            "year": 2014,
+            "median_weekly": 560.0,
+            "median_hourly": 14.0,
+            "annualized": 29120.0
+          },
+          {
+            "year": 2015,
+            "median_weekly": 581.0,
+            "median_hourly": 14.53,
+            "annualized": 30212.0
+          },
+          {
+            "year": 2016,
+            "median_weekly": 600.0,
+            "median_hourly": 15.0,
+            "annualized": 31200.0
+          },
+          {
+            "year": 2017,
+            "median_weekly": 623.0,
+            "median_hourly": 15.57,
+            "annualized": 32396.0
+          },
+          {
+            "year": 2018,
+            "median_weekly": 675.0,
+            "median_hourly": 16.88,
+            "annualized": 35100.0
+          },
+          {
+            "year": 2019,
+            "median_weekly": 708.0,
+            "median_hourly": 17.7,
+            "annualized": 36816.0
+          },
+          {
+            "year": 2020,
+            "median_weekly": 665.0,
+            "median_hourly": 16.62,
+            "annualized": 34580.0
+          },
+          {
+            "year": 2021,
+            "median_weekly": 770.0,
+            "median_hourly": 19.25,
+            "annualized": 40040.0
+          },
+          {
+            "year": 2022,
+            "median_weekly": 848.0,
+            "median_hourly": 21.2,
+            "annualized": 44096.0
+          },
+          {
+            "year": 2023,
+            "median_weekly": 921.0,
+            "median_hourly": 23.02,
+            "annualized": 47892.0
+          },
+          {
+            "year": 2024,
+            "median_weekly": 959.0,
+            "median_hourly": 23.98,
+            "annualized": 49868.0
+          },
+          {
+            "year": 2025,
+            "median_weekly": 959.0,
+            "median_hourly": 23.98,
+            "annualized": 49868.0
+          }
+        ]
+      }
+    ],
+    "ethnicity_distribution": [
+      {
+        "ethnic_group": "European",
+        "median_weekly": 1438.0,
+        "median_hourly": 35.95
+      },
+      {
+        "ethnic_group": "Other Ethnicity",
+        "median_weekly": 1435.0,
+        "median_hourly": 35.88
+      },
+      {
+        "ethnic_group": "MELAA",
+        "median_weekly": 1343.0,
+        "median_hourly": 33.58
+      },
+      {
+        "ethnic_group": "Asian",
+        "median_weekly": 1306.0,
+        "median_hourly": 32.65
+      },
+      {
+        "ethnic_group": "M\u0101ori",
+        "median_weekly": 1280.0,
+        "median_hourly": 32.0
+      },
+      {
+        "ethnic_group": "Pacific Peoples",
+        "median_weekly": 1247.0,
+        "median_hourly": 31.18
+      }
+    ],
+    "gender_distribution": [
+      {
+        "sex": "Male",
+        "median_weekly": 1500.0,
+        "median_hourly": 37.5
+      },
+      {
+        "sex": "Female",
+        "median_weekly": 1247.0,
+        "median_hourly": 31.18
+      },
+      {
+        "sex": "Total Both Sexes",
+        "median_weekly": 1380.0,
+        "median_hourly": 34.5
+      }
+    ],
+    "income_quintiles": [
+      {
+        "tier": "Tier 1 (Lower 20% / Entry-Level)",
+        "weekly_range": "< $650 / wk",
+        "hourly_range": "< $16.25 / hr",
+        "annual_range": "< $33,800 / yr",
+        "description": "Entry-level trainees, part-time workers & apprentices"
+      },
+      {
+        "tier": "Tier 2 (Lower-Mid 20-40%)",
+        "weekly_range": "$650 - $1,100 / wk",
+        "hourly_range": "$16.25 - $27.50 / hr",
+        "annual_range": "$33,800 - $57,200 / yr",
+        "description": "Customer support, administrative & entry service roles"
+      },
+      {
+        "tier": "Tier 3 (National Median 50%)",
+        "weekly_range": "$1,380 / wk",
+        "hourly_range": "$34.50 / hr",
+        "annual_range": "$71,760 / yr",
+        "description": "New Zealand national median wage benchmark (Stats NZ 2025)"
+      },
+      {
+        "tier": "Tier 4 (Upper-Mid 60-80%)",
+        "weekly_range": "$1,400 - $1,850 / wk",
+        "hourly_range": "$35.00 - $46.25 / hr",
+        "annual_range": "$72,800 - $96,200 / yr",
+        "description": "Mid-level software engineers, nurses & qualified trades"
+      },
+      {
+        "tier": "Tier 5 (Top 20% / Executive & Tech Lead)",
+        "weekly_range": "$2,000+ / wk",
+        "hourly_range": "$50.00+ / hr",
+        "annual_range": "$104,000+ / yr",
+        "description": "Senior IT architects, medical specialists & executive heads"
+      }
+    ],
+    "historical_income_series": [
+      {
+        "year": 1998,
+        "median_weekly": 518.0,
+        "median_hourly": 12.95,
+        "annualized": 26936.0
+      },
+      {
+        "year": 1999,
+        "median_weekly": 520.0,
+        "median_hourly": 13.0,
+        "annualized": 27040.0
+      },
+      {
+        "year": 2000,
+        "median_weekly": 536.0,
+        "median_hourly": 13.4,
+        "annualized": 27872.0
+      },
+      {
+        "year": 2001,
+        "median_weekly": 550.0,
+        "median_hourly": 13.75,
+        "annualized": 28600.0
+      },
+      {
+        "year": 2002,
+        "median_weekly": 566.0,
+        "median_hourly": 14.15,
+        "annualized": 29432.0
+      },
+      {
+        "year": 2003,
+        "median_weekly": 586.0,
+        "median_hourly": 14.65,
+        "annualized": 30472.0
+      },
+      {
+        "year": 2004,
+        "median_weekly": 606.0,
+        "median_hourly": 15.15,
+        "annualized": 31512.0
+      },
+      {
+        "year": 2005,
+        "median_weekly": 639.0,
+        "median_hourly": 15.97,
+        "annualized": 33228.0
+      },
+      {
+        "year": 2006,
+        "median_weekly": 671.0,
+        "median_hourly": 16.77,
+        "annualized": 34892.0
+      },
+      {
+        "year": 2007,
+        "median_weekly": 710.0,
+        "median_hourly": 17.75,
+        "annualized": 36920.0
+      },
+      {
+        "year": 2008,
+        "median_weekly": 730.0,
+        "median_hourly": 18.25,
+        "annualized": 37960.0
+      },
+      {
+        "year": 2009,
+        "median_weekly": 760.0,
+        "median_hourly": 19.0,
+        "annualized": 39520.0
+      },
+      {
+        "year": 2010,
+        "median_weekly": 777.0,
+        "median_hourly": 19.43,
+        "annualized": 40404.0
+      },
+      {
+        "year": 2011,
+        "median_weekly": 800.0,
+        "median_hourly": 20.0,
+        "annualized": 41600.0
+      },
+      {
+        "year": 2012,
+        "median_weekly": 806.0,
+        "median_hourly": 20.15,
+        "annualized": 41912.0
+      },
+      {
+        "year": 2013,
+        "median_weekly": 844.0,
+        "median_hourly": 21.1,
+        "annualized": 43888.0
+      },
+      {
+        "year": 2014,
+        "median_weekly": 863.0,
+        "median_hourly": 21.57,
+        "annualized": 44876.0
+      },
+      {
+        "year": 2015,
+        "median_weekly": 884.0,
+        "median_hourly": 22.1,
+        "annualized": 45968.0
+      },
+      {
+        "year": 2016,
+        "median_weekly": 937.0,
+        "median_hourly": 23.43,
+        "annualized": 48724.0
+      },
+      {
+        "year": 2017,
+        "median_weekly": 960.0,
+        "median_hourly": 24.0,
+        "annualized": 49920.0
+      },
+      {
+        "year": 2018,
+        "median_weekly": 997.0,
+        "median_hourly": 24.93,
+        "annualized": 51844.0
+      },
+      {
+        "year": 2019,
+        "median_weekly": 1016.0,
+        "median_hourly": 25.4,
+        "annualized": 52832.0
+      },
+      {
+        "year": 2020,
+        "median_weekly": 1062.0,
+        "median_hourly": 26.55,
+        "annualized": 55224.0
+      },
+      {
+        "year": 2021,
+        "median_weekly": 1093.0,
+        "median_hourly": 27.32,
+        "annualized": 56836.0
+      },
+      {
+        "year": 2022,
+        "median_weekly": 1189.0,
+        "median_hourly": 29.73,
+        "annualized": 61828.0
+      },
+      {
+        "year": 2023,
+        "median_weekly": 1273.0,
+        "median_hourly": 31.82,
+        "annualized": 66196.0
+      },
+      {
+        "year": 2024,
+        "median_weekly": 1343.0,
+        "median_hourly": 33.58,
+        "annualized": 69836.0
+      },
+      {
+        "year": 2025,
+        "median_weekly": 1380.0,
+        "median_hourly": 34.5,
+        "annualized": 71760.0
+      }
+    ]
+  },
   "city_region_mapping": {
     "Auckland": [
       "Auckland City",

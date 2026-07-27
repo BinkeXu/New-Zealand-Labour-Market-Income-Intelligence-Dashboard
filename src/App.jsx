@@ -79,6 +79,8 @@ function DashboardContent() {
             industryData={industryData} 
             occupationData={occupationData} 
             cityIndustryData={cityIndustryData}
+            monthlyData={monthlyData}
+            regionalData={regionalData}
           />
         )}
 
@@ -98,10 +100,7 @@ function DashboardContent() {
       {/* Footer */}
       <footer className="app-footer">
         <p>
-          <strong>NZ Labour Market & Income Intelligence Dashboard</strong> • Built with React, Vite & Python ETL Pipeline
-        </p>
-        <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', marginTop: '4px' }}>
-          Data Sources: Ministry of Business, Innovation and Employment (MBIE) Jobs Online & Stats NZ Household Labour Force Census
+          New Zealand Labour Market & Income Intelligence Platform • Data Sources: MBIE Jobs Online & Stats NZ Census (2026 Release)
         </p>
       </footer>
     </div>

@@ -4,11 +4,12 @@ import {
   selectRegionalChartData, 
   selectFilteredCityIndustryVacancies 
 } from '../utils/selectors';
+import DownloadCSVButton from './DownloadCSVButton';
 import { 
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend 
 } from 'recharts';
 import { 
-  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown, Calculator, CheckCircle, Briefcase, Filter, UserCheck 
+  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown, Calculator, CheckCircle, Briefcase, Filter, UserCheck, Home, DollarSign 
 } from 'lucide-react';
 
 export default function RegionalMatrix({ regionalData, cityIndustryData }) {
@@ -25,7 +26,6 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
   const [matrixSortField, setMatrixSortField] = useState('current_vacancy_index');
   const [matrixSortDirection, setMatrixSortDirection] = useState('desc');
 
-  // Handle Regional Summary Column Header Sort
   const handleSort = (field) => {
     if (sortField === field) {
       setSortDirection(prev => (prev === 'asc' ? 'desc' : 'asc'));
@@ -35,7 +35,6 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
     }
   };
 
-  // Handle City Industry Matrix Column Header Sort
   const handleMatrixSort = (field) => {
     if (matrixSortField === field) {
       setMatrixSortDirection(prev => (prev === 'asc' ? 'desc' : 'asc'));
@@ -45,7 +44,6 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
     }
   };
 
-  // Render Sort Indicator Icon
   const renderSortIcon = (field, activeField, activeDirection) => {
     if (activeField !== field) {
       return <ArrowUpDown size={14} style={{ marginLeft: '4px', opacity: 0.5 }} aria-hidden="true" />;
@@ -55,17 +53,14 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
       : <ArrowDown size={14} style={{ marginLeft: '4px', color: 'var(--primary)' }} aria-hidden="true" />;
   };
 
-  // Memoized Selector for Filtered & Sorted Regions
   const filteredRegions = useMemo(() => {
     return selectFilteredRegions(regionalData, selectedIsland, selectedCityFilter, sortField, sortDirection);
   }, [regionalData, selectedIsland, selectedCityFilter, sortField, sortDirection]);
 
-  // Memoized Selector for Bar Chart Data
   const chartData = useMemo(() => {
     return selectRegionalChartData(filteredRegions);
   }, [filteredRegions]);
 
-  // Memoized Selector for City x Industry Vacancy Matrix
   const cityIndustryMatrix = useMemo(() => {
     return selectFilteredCityIndustryVacancies(
       cityIndustryData, 
@@ -95,21 +90,21 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
 
   return (
     <div>
-      {/* SECTION 1: Regional Summary & Working-Age Population Analysis */}
+      {/* SECTION 1: Regional Summary & Purchasing Power Analysis */}
       <section className="glass-card section-card" style={{ marginBottom: '24px' }} aria-labelledby="regional-matrix-title">
         <div className="card-header-flex">
           <div>
             <h2 id="regional-matrix-title" className="card-title">
               <MapPin size={22} className="text-gradient-cyan" aria-hidden="true" />
-              All New Zealand Regional & City Vacancy, Income & Working-Age Population Analysis
+              All New Zealand Regional Vacancies, Income, Rent & Purchasing Power
             </h2>
             <p className="card-subtitle">
-              Comprehensive analysis of online job vacancy volume (MBIE), median earnings (Stats NZ Census), and <strong>Working-Age Resident Population (Ages 15–64)</strong> excluding children and retirees. Click headers to sort.
+              Comprehensive analysis of online job vacancies (MBIE), median earnings (Stats NZ), mean rent (Stats NZ/MBIE Tenancy), and <strong>Rent-Adjusted Real Purchasing Power Index</strong> across all 10 regions.
             </p>
           </div>
 
           <div className="filter-group">
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
               <div>
                 <label htmlFor="city-search-input" className="navbar-subtitle" style={{ display: 'block', marginBottom: '4px' }}>Filter City / Region:</label>
                 <input 
@@ -117,7 +112,7 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                   type="text" 
                   placeholder="Type city (e.g. Hamilton, Dunedin, Tauranga)…"
                   className="select-control"
-                  style={{ width: '240px' }}
+                  style={{ width: '220px' }}
                   value={selectedCityFilter}
                   onChange={(e) => setSelectedCityFilter(e.target.value)}
                   aria-label="Filter by specific NZ city or region"
@@ -138,15 +133,21 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                   <option value="South Island">South Island Regions</option>
                 </select>
               </div>
+
+              {/* Download CSV Button */}
+              <DownloadCSVButton 
+                data={filteredRegions} 
+                filename="nz_regional_purchasing_power_report.csv" 
+                label="Export CSV" 
+              />
             </div>
           </div>
         </div>
 
-        {/* No Data Available Banner if search returns 0 results */}
         {filteredRegions.length === 0 ? (
           <div className="no-data-banner" style={{ margin: '24px 0' }}>
             <AlertCircle size={20} aria-hidden="true" />
-            <span>No data available for "{selectedCityFilter}". Try searching a major NZ city name (e.g., Hamilton, Tauranga, Christchurch, Dunedin) or clear the filter.</span>
+            <span>No data available for "{selectedCityFilter}". Try searching a major NZ city name or clear the filter.</span>
           </div>
         ) : (
           <>
@@ -156,7 +157,7 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                 <BarChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 60 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
                   <XAxis dataKey="name" stroke="var(--text-muted)" fontSize={11} interval={0} angle={-25} textAnchor="end" />
-                  <YAxis yAxisId="left" stroke="#4f46e5" fontSize={11} orientation="left" label={{ value: 'Vacancies / 100k (Ages 15-64)', angle: -90, position: 'insideLeft', fill: '#4f46e5' }} />
+                  <YAxis yAxisId="left" stroke="#4f46e5" fontSize={11} orientation="left" label={{ value: 'Vacancies / 100k', angle: -90, position: 'insideLeft', fill: '#4f46e5' }} />
                   <YAxis yAxisId="right" stroke="#059669" fontSize={11} orientation="right" label={{ value: 'Hourly Wage ($)', angle: 90, position: 'insideRight', fill: '#059669' }} />
                   <Tooltip 
                     contentStyle={{ 
@@ -175,12 +176,12 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
 
             <div className="data-source-caption" style={{ marginBottom: '24px' }}>
               <Database size={14} aria-hidden="true" />
-              <span>Data Sources: MBIE Jobs Online Consolidated Series, Stats NZ Household Income Census & Stats NZ Working-Age Population (Ages 15–64)</span>
+              <span>Data Sources: MBIE Jobs Online, Stats NZ Income Census, Stats NZ Mean Rent (2026) & Working-Age Population</span>
             </div>
 
             {/* Sortable Regional Data Table */}
             <div className="custom-table-container">
-              <table className="custom-table" aria-label="Regional Vacancy, Income and Working-Age Population Data Table">
+              <table className="custom-table" aria-label="Regional Purchasing Power Data Table">
                 <thead>
                   <tr>
                     <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('region_name')}>
@@ -188,20 +189,14 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                         Region Name {renderSortIcon('region_name', sortField, sortDirection)}
                       </div>
                     </th>
-                    <th scope="col">Cities Included</th>
                     <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('working_age_population')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Working-Age Population (15–64) {renderSortIcon('working_age_population', sortField, sortDirection)}
+                        Working-Age Pop (15–64) {renderSortIcon('working_age_population', sortField, sortDirection)}
                       </div>
                     </th>
                     <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('vacancies_per_100k')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Vacancies / 100k Working-Age {renderSortIcon('vacancies_per_100k', sortField, sortDirection)}
-                      </div>
-                    </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('hourly_income')}>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Hourly Wage (40 hr/wk) {renderSortIcon('hourly_income', sortField, sortDirection)}
+                        Vacancies / 100k {renderSortIcon('vacancies_per_100k', sortField, sortDirection)}
                       </div>
                     </th>
                     <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('median_weekly_income')}>
@@ -209,9 +204,24 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                         Median Weekly Wage {renderSortIcon('median_weekly_income', sortField, sortDirection)}
                       </div>
                     </th>
+                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('mean_weekly_rent')}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        Mean Rent ($/wk) {renderSortIcon('mean_weekly_rent', sortField, sortDirection)}
+                      </div>
+                    </th>
+                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('net_discretionary_income')}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        Net Income (After Rent) {renderSortIcon('net_discretionary_income', sortField, sortDirection)}
+                      </div>
+                    </th>
+                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('purchasing_power_index')}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        Real Purchasing Power {renderSortIcon('purchasing_power_index', sortField, sortDirection)}
+                      </div>
+                    </th>
                     <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('opportunity_score')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Opportunity Score (Working-Age) {renderSortIcon('opportunity_score', sortField, sortDirection)}
+                        Opportunity Score {renderSortIcon('opportunity_score', sortField, sortDirection)}
                       </div>
                     </th>
                   </tr>
@@ -225,51 +235,41 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                           {region.region_name}
                         </div>
                       </td>
-                      <td style={{ fontSize: '0.8rem', color: 'var(--text-muted)', maxWidth: '220px' }}>
-                        {region.cities_included ? region.cities_included.join(', ') : 'Regional center'}
-                      </td>
                       <td className="tabular-nums">
                         {region.working_age_population ? (
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <UserCheck size={14} color="var(--primary)" aria-hidden="true" />
-                            <span>{region.working_age_population.toLocaleString()}</span>
-                            <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>({((region.working_age_population / region.total_population) * 100).toFixed(0)}%)</span>
-                          </div>
-                        ) : (
-                          <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>No data available</span>
-                        )}
+                          <span>{region.working_age_population.toLocaleString()}</span>
+                        ) : 'N/A'}
                       </td>
                       <td className="tabular-nums" style={{ fontWeight: '700', color: '#4f46e5' }}>
-                        {region.vacancies_per_100k !== undefined && region.vacancies_per_100k !== null ? (
-                          <span>{region.vacancies_per_100k} / 100k</span>
-                        ) : (
-                          <span className="badge" style={{ background: 'rgba(244,63,94,0.1)', color: '#e11d48' }}>No data available</span>
-                        )}
-                      </td>
-                      <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
-                        {region.hourly_income ? `$${region.hourly_income.toFixed(2)} / hr` : 'No data available'}
+                        {region.vacancies_per_100k ? `${region.vacancies_per_100k} / 100k` : 'N/A'}
                       </td>
                       <td className="tabular-nums" style={{ fontWeight: '600' }}>
-                        {region.median_weekly_income ? `$${region.median_weekly_income.toLocaleString()} / wk` : 'No data available'}
+                        {region.median_weekly_income ? `$${region.median_weekly_income.toLocaleString()} / wk` : 'N/A'}
+                      </td>
+                      <td className="tabular-nums" style={{ color: 'var(--accent-rose)', fontWeight: '600' }}>
+                        {region.mean_weekly_rent ? `$${region.mean_weekly_rent.toFixed(2)} / wk` : 'N/A'}
+                      </td>
+                      <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
+                        {region.net_discretionary_income ? `$${region.net_discretionary_income.toFixed(2)} / wk` : 'N/A'}
+                      </td>
+                      <td>
+                        {region.purchasing_power_index ? (
+                          <span className="badge badge-emerald tabular-nums" style={{ fontWeight: '800' }}>
+                            {region.purchasing_power_index} pts
+                          </span>
+                        ) : 'N/A'}
                       </td>
                       <td>
                         {region.opportunity_score ? (
                           <span className="badge badge-indigo tabular-nums" style={{ fontWeight: '800' }}>
                             {region.opportunity_score} pts
                           </span>
-                        ) : (
-                          <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
-                        )}
+                        ) : 'N/A'}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-            </div>
-
-            <div className="data-source-caption" style={{ marginTop: '12px' }}>
-              <Database size={14} aria-hidden="true" />
-              <span>Data Sources: MBIE Jobs Online Consolidated Series, Stats NZ Household Labour Force Survey Census & Stats NZ Working-Age Population (Ages 15–64)</span>
             </div>
           </>
         )}
@@ -284,12 +284,12 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
               Industry Vacancy Breakdown in Each New Zealand City & Region
             </h2>
             <p className="card-subtitle">
-              Detailed breakdown of online job vacancy index and YoY growth rate for <strong>every industry in every New Zealand city</strong> (March 2026 Release). Filter by Region or Industry and click headers to sort.
+              Detailed breakdown of online job vacancy index and YoY growth rate for <strong>every industry in every New Zealand city</strong> (March 2026 Release).
             </p>
           </div>
 
           <div className="filter-group">
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
               <div>
                 <label htmlFor="matrix-region-select" className="navbar-subtitle" style={{ display: 'block', marginBottom: '4px' }}>Select NZ Region / City:</label>
                 <select 
@@ -328,6 +328,12 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                   ))}
                 </select>
               </div>
+
+              <DownloadCSVButton 
+                data={cityIndustryMatrix} 
+                filename="nz_city_industry_vacancy_matrix.csv" 
+                label="Export Matrix CSV" 
+              />
             </div>
           </div>
         </div>
@@ -335,7 +341,7 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
         {cityIndustryMatrix.length === 0 ? (
           <div className="no-data-banner">
             <AlertCircle size={20} aria-hidden="true" />
-            <span>No industry vacancy data available for this region and industry selection.</span>
+            <span>No industry vacancy data available for this selection.</span>
           </div>
         ) : (
           <div className="custom-table-container">
@@ -417,78 +423,39 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
             </table>
           </div>
         )}
-
-        <div className="data-source-caption" style={{ marginTop: '16px' }}>
-          <Database size={14} aria-hidden="true" />
-          <span>Data Source: MBIE Jobs Online Consolidated Industry Series per Region (March 2026 Quarterly Release)</span>
-        </div>
       </section>
 
-      {/* Strategic Regional Insights */}
-      <div className="section-grid" style={{ marginBottom: '24px' }}>
-        <section className="glass-card section-card col-6" aria-labelledby="north-island-title">
-          <h3 id="north-island-title" className="card-title" style={{ marginBottom: '12px' }}>
-            <Award size={20} color="#d97706" aria-hidden="true" />
-            North Island Working-Age Labor Supply Dynamics
-          </h3>
-          <ul style={{ paddingLeft: '20px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.8' }}>
-            <li><strong style={{ color: 'var(--text-main)' }}>Auckland</strong> has NZ's largest working-age labor force (<strong>956,040 active residents</strong>, 68% of total pop) with high wage density (<strong>$35.95/hr</strong>).</li>
-            <li><strong style={{ color: 'var(--text-main)' }}>Wellington</strong> (<strong>317,043 working-age residents</strong>) offers New Zealand's top median income of <strong>$37.40/hr</strong>.</li>
-            <li><strong style={{ color: 'var(--text-main)' }}>Northland & Bay of Plenty</strong> show high job vacancy density per active working-age resident (<strong>179 – 187 vacancies / 100k active residents</strong>).</li>
-            <li><strong style={{ color: 'var(--text-main)' }}>Waikato (Hamilton)</strong> (<strong>256,584 working-age residents</strong>) balances industrial hiring with strong labor force growth.</li>
-          </ul>
-        </section>
-
-        <section className="glass-card section-card col-6" aria-labelledby="south-island-title">
-          <h3 id="south-island-title" className="card-title" style={{ marginBottom: '12px' }}>
-            <ArrowUpRight size={20} color="#059669" aria-hidden="true" />
-            South Island Working-Age Labor Supply Dynamics
-          </h3>
-          <ul style={{ paddingLeft: '20px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.8' }}>
-            <li><strong style={{ color: 'var(--text-main)' }}>Otago / Southland</strong> (<strong>195,387 working-age residents</strong>) leads South Island per-capita vacancy density with a high working-age Opportunity Score (<strong>438.98 pts</strong>).</li>
-            <li><strong style={{ color: 'var(--text-main)' }}>Canterbury (Christchurch)</strong> (<strong>354,900 working-age residents</strong>) offers high construction hiring relative to active job seekers (<strong>$33.58/hr</strong>).</li>
-            <li><strong style={{ color: 'var(--text-main)' }}>Tasman / Nelson / Marlborough / West Coast</strong> (<strong>106,422 working-age residents</strong>) features high primary industry vacancy per active resident.</li>
-          </ul>
-        </section>
-      </div>
-
-      {/* Opportunity Score Calculation Methodology Card */}
+      {/* Opportunity Score & Rent Methodology Card */}
       <section className="glass-card section-card col-12" aria-labelledby="opportunity-formula-title">
         <h3 id="opportunity-formula-title" className="card-title" style={{ marginBottom: '16px', color: 'var(--text-main)' }}>
           <Calculator size={22} className="text-gradient" aria-hidden="true" />
-          How the Working-Age Opportunity Score is Calculated & Why
+          Real Rent-Adjusted Purchasing Power & Working-Age Opportunity Score
         </h3>
-
-        <div style={{ background: 'var(--table-header-bg)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-subtle)', marginBottom: '20px' }}>
-          <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>
-            🧮 Mathematical Formula:
-          </div>
-          <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)', background: 'var(--bg-card)', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-subtle)', overflowX: 'auto' }}>
-            Opportunity Score = (Vacancies Per 100k Working-Age / 50.0) × (Median Weekly Income / $1,200.00) × 100
-          </div>
-          <div style={{ marginTop: '10px', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-            Where: <code>Vacancies Per 100k Working-Age = (MBIE Vacancy Index / Working-Age Population [Ages 15–64]) × 100,000</code>
-          </div>
-        </div>
 
         <div className="section-grid" style={{ marginBottom: 0 }}>
           <div className="col-6">
             <h4 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <CheckCircle size={16} color="#4f46e5" aria-hidden="true" />
-              1. Filtering Out Children (Ages under 15–18) and Retirees (65+):
+              <Home size={16} color="#059669" aria-hidden="true" />
+              1. Rent-Adjusted Real Purchasing Power:
             </h4>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-              Using total population includes infants, school children, and retired seniors who do not participate in the active labor market. Filtering for the <strong>Working-Age Population (Ages 15–64)</strong> isolates the active labor supply, measuring real job availability relative to actual job seekers.
+            <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: 'var(--primary)', background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '6px', marginBottom: '8px' }}>
+              Net Discretionary = Median Weekly Wage - Mean Rent ($/wk)
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+              High wages in Wellington ($1,496/wk) or Auckland ($1,438/wk) are offset by high rents ($553 – $618/wk). Canterbury ($1,343/wk wage, $519 rent) offers higher net disposable income relative to cost of living.
             </p>
           </div>
 
           <div className="col-6">
             <h4 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <CheckCircle size={16} color="#059669" aria-hidden="true" />
-              2. Weighting Median Earnings:
+              <UserCheck size={16} color="#4f46e5" aria-hidden="true" />
+              2. Working-Age Opportunity Score:
             </h4>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-              High job availability alone is incomplete if compensation is low. Multiplying working-age job density by Stats NZ median weekly and hourly earnings ($1,200 baseline) ensures the score balances <strong>high active job availability</strong> with <strong>strong living standards</strong>.
+            <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: 'var(--primary)', background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '6px', marginBottom: '8px' }}>
+              Opp Score = (Vacancies / 100k Working-Age / 50) × (Wage / $1,200) × 100
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+              Filters out children (&lt;15) and retirees (65+) to measure per-capita job vacancy density relative to active job seekers.
             </p>
           </div>
         </div>

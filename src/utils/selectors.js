@@ -9,9 +9,10 @@
 
 /**
  * Selects time-series chart data for the Overview line chart based on the selected time horizon.
+ * Supports 3M (3 months), 6M (6 months), 1Y (12 months), 3Y (36 months), 5Y (60 months), and All.
  * 
  * @param {Object} monthlyData - Parsed JSON object from /data/monthly_series.json containing dates and series arrays.
- * @param {string} timeRange - Selected time horizon ('1Y', '3Y', '5Y', or 'All').
+ * @param {string} timeRange - Selected time horizon ('3M', '6M', '1Y', '3Y', '5Y', or 'All').
  * @returns {Array<Object>} Formatted data points for Recharts LineChart rendering.
  */
 export function selectOverviewChartData(monthlyData, timeRange) {
@@ -21,8 +22,11 @@ export function selectOverviewChartData(monthlyData, timeRange) {
 
   const totalLength = monthlyData.dates.length;
   let sliceCount = 60; // Default to 5 Years (60 months)
+  if (timeRange === '3M') sliceCount = 3;
+  if (timeRange === '6M') sliceCount = 6;
   if (timeRange === '1Y') sliceCount = 12;
   if (timeRange === '3Y') sliceCount = 36;
+  if (timeRange === '5Y') sliceCount = 60;
   if (timeRange === 'All') sliceCount = totalLength;
 
   return monthlyData.dates.slice(-sliceCount).map((date, idx) => {
@@ -235,4 +239,17 @@ export function selectFilteredOccupations(occupationData, searchTerm, sortField 
   }
 
   return occupations.slice(0, maxResults);
+}
+
+/**
+ * Selects National Income Distribution metrics safely from regionalData.
+ * 
+ * @param {Object} regionalData - Parsed JSON object from /data/regional_summary.json.
+ * @returns {Object|null} National income distribution object or null if unavailable.
+ */
+export function selectNationalIncomeDistribution(regionalData) {
+  if (!regionalData || !regionalData.national_income_distribution) {
+    return null;
+  }
+  return regionalData.national_income_distribution;
 }

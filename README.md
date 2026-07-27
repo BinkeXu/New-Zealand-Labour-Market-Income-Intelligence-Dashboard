@@ -1,210 +1,90 @@
 # 🇳🇿 New Zealand Labour Market & Income Intelligence Dashboard
 
-> **End-to-End Full-Stack Data Engineering, Analytics Platform & Career Decision System**  
-> 🔗 **Live Demo**: [nz-labour-dashboard.vercel.app](https://nz-labour-dashboard.vercel.app/)  
-> 💻 **GitHub Repository**: [github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard](https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git)
+An executive, production-grade analytics platform providing data-driven insights into New Zealand online job vacancies, median/average earnings, mean weekly rents, real purchasing power, labor market slack, and ANZSCO occupational trajectories. Built with **React 18**, **Vite**, **Recharts**, and an automated **Python ETL Data Processing Pipeline** parsing official datasets from **MBIE (Ministry of Business, Innovation and Employment)** and **Stats NZ (Tatauranga Aotearoa)**.
 
-An interactive labor market analytics platform connecting **MBIE Jobs Online vacancy indices (2007–2026)** with **Stats NZ Census income benchmarks** and **Stats NZ Working-Age Population Census data**. Built to empower job seekers, HR leaders, and policymakers with data-driven salary, vacancy density, and regional career decision intelligence.
-
----
-
-## 🌟 Key Features & Capabilities
-
-* 📊 **Nationwide Vacancy Trajectory (2007 – 2026)**: Time-series analysis of NZ online job vacancy volume filtered by region, industry, ANZSCO occupation categories, and skill levels.
-* 📍 **10 NZ Labour Market Regions & City Breakdown**: Comprehensive coverage of all 10 MBIE regions (Auckland, Wellington, Canterbury, Waikato, Bay of Plenty, Otago/Southland, etc.) and major cities (Hamilton, Tauranga, Christchurch, Dunedin, Palmerston North, Whangarei).
-* 👥 **Working-Age Population Filtering (Ages 15–64)**: Calculates per-capita job vacancy density per 100,000 active working-age residents, excluding children under 15/18 and retirees over 65 for maximum labor supply accuracy.
-* 🏭 **City Industry Vacancy Matrix (100 Cells)**: Deep breakdown of exact MBIE vacancy indices, YoY growth rates, and hourly rates for **every industry in every New Zealand city**.
-* 💵 **Hourly Wage Benchmarking**: Calculates hourly salary rates across all cards and tables using a standard $40\text{ hr/wk}$ baseline ($ \text{Hourly Wage} = \text{Median Weekly Income} / 40.0 $).
-* 🔀 **Interactive Column Header Sorting**: Click any table header across all regional and industry tables to toggle ascending (**▲**) or descending (**▼**) sort order.
-* 🌓 **Light & Dark Mode**: Default set to modern Light Mode with a high-contrast Sun/Moon toggle.
-* 🎯 **Industry Opportunity 2x2 Quadrant**: Categorizes NZ sectors into *Star (High Growth & High Salary)*, *High Demand*, *High Salary Niche*, and *Stable* tiers.
-* 🧭 **NZ Career Pathfinder Guide**: Interactive 3-step decision guide generating custom **Career Strategy Briefs** with regional recommendations and salary benchmarks.
-* 🛡️ **Zero Artificial Data Standard**: Enforces strict data hygiene — missing source data renders explicit *"No data available"* notices without fabricating dummy numbers.
+🔗 **Live Production Dashboard**: [https://nz-labour-dashboard.vercel.app/](https://nz-labour-dashboard.vercel.app/)  
+📂 **GitHub Repository**: [https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git](https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git)
 
 ---
 
-## 🏗️ System Architecture
+## 🌟 Key Features & Interactive Modals
 
-```mermaid
-flowchart TD
-    subgraph Data Layer [Dataset/active/]
-        A1[MBIE Monthly Series CSV]
-        A2[MBIE Consolidated Quarterly CSV]
-        A3[MBIE Detailed ANZSCO CSV]
-        A4[Stats NZ Income Census CSV]
-        A5[Stats NZ Working-Age Population CSV]
-    end
+### 📊 1. Interactive Historical Trend Modals & Time-Series Analytics
+- **KPI Trend Modals**: Clicking any KPI card opens an interactive, centered modal dialog displaying historical trend charts with dynamic time-range filter controls (**`1Y`**, **`3Y`**, **`5Y`**, **`10Y`**, **`All`**) and CSV data export:
+  - **NZ Overall Vacancy Index**: 230 monthly series records (May 2007 – June 2026).
+  - **NZ National Median Income**: 28-year annual income census series (1998 – 2025).
+  - **NZ Official Unemployment Rate**: 57 quarterly HLFS unemployment rates (2012 – 2026).
+  - **NZ Labor Underutilisation Rate**: 57 quarterly HLFS underutilisation rates (2012 – 2026).
 
-    subgraph ETL Pipeline [scripts/process_data.py & scripts/etl/]
-        B1[Ingestion & Data Sanitization]
-        B2[Calculators: Hourly Wage, YoY Growth, Opportunity Score]
-        B3[JSON Exporter]
-    end
+### 💰 2. National Income Distribution by Source & Breakdown Analytics
+- **Category Color Indicators**:
+  - 🟣 **Wage & Salary Income** (`#4f46e5`): $1,380/wk ($34.50/hr median) • 2.36M workforce.
+  - 🟢 **Self-employment Income** (`#059669`): $921/wk ($23.03/hr median) • 574k business owners.
+  - 🟠 **Government Transfer Income** (`#d97706`): $472/wk ($11.80/hr median) • 1.31M recipients (NZ Superannuation, benefits, student allowances).
+  - 🔵 **All Sources Combined** (`#0284c7`): $959/wk ($23.98/hr median) • 4.31M population.
+- **Interactive Breakdown Modal**: Clicking any row in the Income Distribution table opens a 28-year historical growth chart and a detailed breakdown box comparing median weekly/hourly wages, average weekly/hourly wages, 52-week annualized income, total NZ recipient counts, and policy/tax context notes.
 
-    subgraph Static Web Layer [public/data/]
-        C1[monthly_series.json]
-        C2[regional_summary.json]
-        C3[city_industry_vacancies.json]
-        C4[industry_matrix.json]
-        C5[detailed_occupations.json]
-    end
+### 💼 3. ANZSCO 58-Quarter Demand Trajectory & INZ Green List Visas
+- **58-Quarter Historical Series**: Extracted 58 historical quarters (2011–2026) for 100+ 4-digit ANZSCO occupations.
+- **Interactive Role Graphs**: Clicking any occupation row (e.g., Software Engineer, Developer Programmer, Registered Nurse, Civil Engineer) opens its historical demand trajectory.
+- **Immigration NZ (INZ) Green List Status**:
+  - `🟢 INZ Green List Tier 1 (Straight to Residence)` (Developers, Software Engineers, ICT Managers, Civil Engineers, Doctors, Nurses).
+  - `🟡 INZ Green List Tier 2 (Work to Residence)` (ICT Support Engineers, Network Engineers, Qualified Trades).
 
-    subgraph Frontend Application [React 19 + Vite + Recharts]
-        D1[DashboardContext State & Light/Dark Theme]
-        D2[Overview & Time-Series Analytics]
-        D3[Regional & Working-Age Population Matrix]
-        D4[City Industry Breakdown & Sorting]
-        D5[ANZSCO Role Explorer & 2x2 Quadrant]
-        D6[Career Pathfinder Quiz Engine]
-        D7[Methodology & Transparency Hub]
-    end
+### 🏠 4. Rent-Adjusted Real Purchasing Power & Regional Matrix
+- **Cost of Living Modeling**: Combines Stats NZ median weekly income with Stats NZ / MBIE Tenancy Mean Weekly Rent across all 10 MBIE regions.
+- **Mathematical Formula**:
+  $$\text{Net Discretionary Income} = \text{Median Weekly Wage} - \text{Mean Weekly Rent}$$
+  $$\text{Real Purchasing Power Index} = \left(\frac{\text{Net Discretionary Income}}{\$800.00}\right) \times 100$$
+- **Working-Age Demographic Density**: Excludes children (<15) and retirees (65+) using Stats NZ Census Working-Age Population (Ages 15–64) to calculate true per-capita vacancies per 100k active residents.
 
-    A1 & A2 & A3 & A4 & A5 --> B1
-    B1 --> B2 --> B3
-    B3 --> C1 & C2 & C3 & C4 & C5
-    C1 & C2 & C3 & C4 & C5 --> D1
-    D1 --> D2 & D3 & D4 & D5 & D6 & D7
-```
+### 📉 5. Stats NZ Official Unemployment & Underutilisation Rates
+- **NZ Official Unemployment Rate**: **5.3%** (Men: 5.4%, Women: 5.3%) parsed directly from `unemployment_rate_by_sex.csv` (March 2026 Quarter).
+- **NZ Labor Underutilisation Rate**: **12.9%** (Men: 11.6%, Women: 14.3%) parsed from `underutilisation_rate_by_sex.csv`.
+
+### 📥 6. Client-Side Microsoft Excel CSV Data Export
+- 1-click CSV data export available across Overview, Regional Matrix, Industry Quadrant, Pathfinder, Methodology, and all Modal Trend Dialogs.
 
 ---
 
-## 📁 Repository Directory Structure
+## 📁 Dataset Architecture
 
-```
-NZ Labour Market Intelligence Dashboard/
-├── Dataset/
-│   ├── active/                   # Cleaned active CSV datasets used by ETL pipeline
-│   │   ├── Census_Population_by_age_by_Regional_Council_2001_2006_2013.csv
-│   │   ├── Income by sex, region, ethnic groups and income source.csv
-│   │   ├── jobs-online-all-unadjusted-quarterly-data-consolidated-march-2026.csv
-│   │   ├── jobs-online-detailed-occupational-data-march-2026-quarter.csv
-│   │   └── jol-monthly-unadjusted-series-from-may-2007-june-2026.csv
-│   └── archive_other/            # Raw un-used datasets, Excel files, and historical archives
-├── public/
-│   └── data/                     # Compiled JSON datasets for fast web fetching
-│       ├── career_pathfinder_rules.json
-│       ├── city_industry_vacancies.json
-│       ├── detailed_occupations.json
-│       ├── industry_matrix.json
-│       ├── monthly_series.json
-│       └── regional_summary.json
-├── scripts/
-│   ├── config/
-│   │   └── benchmarks.json       # Industry salary benchmarks & city mappings
-│   ├── etl/                      # ETL core modules
-│   │   ├── __init__.py
-│   │   ├── calculators.py        # Mathematical domain formulas & metric calculators
-│   │   └── ingestion.py          # Data cleaning & Pandas ingestion helpers
-│   ├── tests/
-│   │   ├── __init__.py
-│   │   └── test_calculators.py   # Automated Python unit test suite
-│   └── process_data.py           # Main Python ETL data pipeline entry point
-├── src/
-│   ├── components/               # Modular React UI Components
-│   │   ├── CareerPathfinder.jsx  # Interactive job seeker decision guide
-│   │   ├── Header.jsx            # Navigation, tab management & theme toggle
-│   │   ├── IndustryQuadrant.jsx  # 2x2 Opportunity matrix & ANZSCO role explorer
-│   │   ├── KPICards.jsx          # Executive KPI summary cards
-│   │   ├── Methodology.jsx       # Data provenance & methodology transparency hub
-│   │   ├── Overview.jsx          # Time-series charts & market overview
-│   │   └── RegionalMatrix.jsx    # Regional matrix & city industry vacancy table
-│   ├── context/
-│   │   └── DashboardContext.jsx  # Global React Context & theme state provider
-│   ├── utils/
-│   │   └── selectors.js          # Pure data selectors, filtering & sorting logic
-│   ├── App.jsx                   # Main React root layout
-│   ├── index.css                 # Custom CSS Design System (Light/Dark themes)
-│   └── main.jsx                  # React DOM entry point
-├── index.html                    # HTML entry point with Google Fonts & Meta SEO
-├── package.json                  # Node dependencies & npm scripts
-├── vercel.json                   # Vercel deployment routing configuration
-├── vite.config.js                # Vite bundler configuration
-└── README.md                     # Project documentation
-```
+Active datasets processed by the Python ETL script (`scripts/process_data.py`) reside under `Dataset/active/`:
+- `jol-monthly-unadjusted-series-from-may-2007-june-2026.csv` (MBIE Monthly Vacancies)
+- `jobs-online-all-unadjusted-quarterly-data-consolidated-march-2026.csv` (MBIE Regional & Industry Vacancies)
+- `jobs-online-detailed-occupational-data-march-2026-quarter.csv` (MBIE 58-Quarter ANZSCO Series)
+- `Income by sex, region, ethnic groups and income source.csv` (Stats NZ 28-Year Income Census)
+- `Census_Population_by_age_by_Regional_Council_2001_2006_2013.csv` (Stats NZ Working-Age Population)
+- `mean_weekly_rent.csv` (MBIE / Stats NZ Mean Weekly Rent)
+- `unemployment_rate_by_sex.csv` (Stats NZ HLFS Unemployment Rate)
+- `underutilisation_rate_by_sex.csv` (Stats NZ HLFS Underutilisation Rate)
 
 ---
 
-## ⚡ Quick Start & Setup Guide
+## 🛠️ Installation, Local Execution & Verification
 
-### Prerequisites
-* **Node.js**: v18.0 or higher
-* **Python**: v3.9 or higher (with `pandas`)
-
-### 1. Clone the Repository & Install Dependencies
 ```bash
+# 1. Clone repository
 git clone https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git
-cd "New-Zealand-Labour-Market-Income-Intelligence-Dashboard"
+cd "NZ Labour Market Intelligence Dashboard"
 
-# Install frontend dependencies
+# 2. Install Node dependencies
 npm install
-```
 
-### 2. Run Python Unit Tests
-Verify that all mathematical calculators and formulas pass unit tests:
-```bash
-python -m unittest scripts/tests/test_calculators.py
-```
-
-### 3. Execute the Python ETL Data Pipeline
-Process active source CSVs from `Dataset/active/` and build compiled JSON datasets in `public/data/`:
-```bash
+# 3. Run Python ETL Pipeline
 python scripts/process_data.py
-```
-*Or run via npm:*
-```bash
-npm run etl
-```
 
-### 4. Launch Local Development Server
-```bash
+# 4. Run automated unit tests
+python -m unittest scripts/tests/test_calculators.py
+
+# 5. Build for production verification
+npm run build
+
+# 6. Launch local development server
 npm run dev
 ```
-Open your browser at **`http://localhost:3000`** to interact with the live dashboard!
-
-### 5. Build for Production
-```bash
-powershell -ExecutionPolicy Bypass -Command "npm run build"
-```
 
 ---
 
-## 🧮 Mathematical Formulas & Data Dictionary
-
-### 1. Working-Age Population-Adjusted Regional Opportunity Score
-$$\text{Opportunity Score} = \left( \frac{\text{Vacancies Per 100k Working-Age}}{50.0} \right) \times \left( \frac{\text{Median Weekly Income}}{\$1,200.00} \right) \times 100$$
-$$\text{Where: } \text{Vacancies Per 100k Working-Age} = \left( \frac{\text{MBIE Regional Vacancy Index}}{\text{Working-Age Population (Ages 15–64)}} \right) \times 100,000$$
-
-### 2. Hourly Wage Conversion
-$$\text{Hourly Wage (\$ / hr)} = \frac{\text{Stats NZ Median Weekly Income}}{40.0\text{ hours/week}}$$
-
-### 3. Annualized Salary Benchmark
-$$\text{Annualized Salary (\$ / yr)} = \text{Stats NZ Median Weekly Income} \times 52.0\text{ weeks/year}$$
-
-### 4. Year-over-Year (YoY) Growth Percentage
-$$\text{YoY Growth \%} = \left( \frac{\text{Index}_{\text{Current Quarter}} - \text{Index}_{\text{Same Quarter Last Year}}}{\text{Index}_{\text{Same Quarter Last Year}}} \right) \times 100$$
-
----
-
-## 🌐 Data Provenance & Official Sources
-
-| Dataset Name | Publishing Agency | Project File Location | Time Horizon & Frequency | Extracted Variables |
-| :--- | :--- | :--- | :--- | :--- |
-| **Jobs Online Monthly Series** | MBIE | `Dataset/active/jol-monthly-unadjusted-series...csv` | May 2007 – June 2026 (Monthly) | National Totals, 5 Main Regions, 10 ANZSIC Sectors, 5 Skill Levels |
-| **Jobs Online Quarterly Series** | MBIE | `Dataset/active/jobs-online-all-unadjusted...csv` | Dec 2010 – March 2026 (Quarterly) | Overall Vacancies per Region, Industry Vacancies per City (100 cells) |
-| **Detailed ANZSCO Release** | MBIE | `Dataset/active/jobs-online-detailed-occupational...csv` | March 2026 Quarter | 100+ 4-digit ANZSCO Role Titles, ANZSCO Codes, Annual % Changes |
-| **Regional Income Census** | Stats NZ | `Dataset/active/Income by sex, region, ethnic...csv` | 1998 – 2025 Annual Census | Median & Average Weekly Wage across 12 Regional Councils |
-| **Regional Population Census** | Stats NZ | `Dataset/active/Census_Population_by_age...csv` | 2001, 2006, 2013 Census Release | Working-Age Population Counts per Regional Council (excluding <15 & 65+) |
-
----
-
-## 👤 Author & Job Seeker Portfolio
-
-* **Developer**: Binke Xu (Junior IT / Data Engineer / Full-Stack Developer candidate in New Zealand)
-* **Live Web App**: [https://nz-labour-dashboard.vercel.app/](https://nz-labour-dashboard.vercel.app/)
-* **GitHub Repository**: [https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard](https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard)
-* **Goal**: Showcase end-to-end software engineering capability — from python data pipeline architecture and unit testing to clean React UI/UX design, interactive tabular sorting, and cloud deployment readiness.
-* **Tech Stack**: React 18, Vite, Python 3, Pandas, Recharts, Lucide Icons, Custom CSS Design System, Node.js, Vercel.
-
----
-
-*Licensed under the MIT License.*
+## 📜 License & Data Attribution
+Published under the MIT License. Data sources strictly attributed to MBIE and Stats NZ under Creative Commons Attribution 4.0 International (CC BY 4.0).

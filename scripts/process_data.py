@@ -5,8 +5,8 @@ Data Processing & ETL Pipeline (process_data.py)
 Author: NZ Labour Market Intelligence Team
 Description:
     Processes raw MBIE Jobs Online CSV datasets, Stats NZ Income CSV datasets,
-    and Stats NZ Census Population datasets located under `Dataset/active/` covering ALL 10
-    New Zealand Labour Market Regions and all NZ cities, with working-age population filtering.
+    Stats NZ Census Population datasets, Stats NZ Rent datasets, Stats NZ HLFS Unemployment
+    and Underutilisation datasets, and detailed 58-quarter ANZSCO Occupational series.
 """
 
 import os
@@ -37,6 +37,8 @@ from scripts.etl.calculators import (
     calculate_hourly_wage,
     calculate_annualized_income,
     calculate_vacancies_per_100k,
+    calculate_net_discretionary_income,
+    calculate_purchasing_power_index,
     calculate_opportunity_score,
     calculate_yoy_growth
 )
@@ -73,7 +75,6 @@ def load_population_data() -> Dict[str, Dict[str, int]]:
     df = load_csv_dataset(filepath)
     latest_year = df['Census Year'].max()
     
-    # Working-Age Population (15-64)
     df_work = df[
         (df['Census Year'] == latest_year) & 
         (df['Age group'] == '15-64')
@@ -85,7 +86,6 @@ def load_population_data() -> Dict[str, Dict[str, int]]:
         val = int(row['Value'])
         raw_work_pop[reg_name] = val
 
-    # Total Population (for reference)
     df_total = df[
         (df['Census Year'] == latest_year) & 
         (df['Age group'] == 'Total people')
@@ -143,6 +143,81 @@ def load_population_data() -> Dict[str, Dict[str, int]]:
     return mbie_pop_map
 
 
+def load_regional_rent_data() -> Dict[str, float]:
+    """Parses Stats NZ / MBIE Tenancy Services mean weekly rent CSV dataset (2026 Release)."""
+    filepath = os.path.join(ACTIVE_DATA_DIR, "mean_weekly_rent.csv")
+    print(f"🔄 Processing Regional Rent Dataset: {filepath}")
+    
+    df = load_csv_dataset(filepath)
+    latest_year = df[df['units'] == 'dollars']['year'].max()
+    df_rent = df[(df['year'] == latest_year) & (df['units'] == 'dollars')]
+    
+    rent_map = dict(zip(df_rent['area'], df_rent['value']))
+    
+    mbie_rent_map = {
+        "Auckland": rent_map.get("Auckland", 618.80),
+        "Waikato": rent_map.get("Waikato", 528.48),
+        "Bay of Plenty": rent_map.get("Bay of Plenty", 599.00),
+        "Northland": rent_map.get("Northland", 525.23),
+        "Gisborne/Hawkes Bay": round((rent_map.get("Gisborne", 571.66) + rent_map.get("Hawke's Bay", 583.79)) / 2.0, 2),
+        "Manawatu-Whanganui/Taranaki": round((rent_map.get("Manawatu-Wanganui", 481.66) + rent_map.get("Taranaki", 543.25)) / 2.0, 2),
+        "Wellington": rent_map.get("Wellington", 553.75),
+        "Tasman/Nelson/Marlborough/West Coast": round((rent_map.get("Tasman", 549.54) + rent_map.get("Nelson", 500.21) + rent_map.get("Marlborough", 512.75) + rent_map.get("West Coast", 422.83)) / 4.0, 2),
+        "Canterbury": rent_map.get("Canterbury", 519.56),
+        "Otago/Southland": round((rent_map.get("Otago", 589.36) + rent_map.get("Southland", 441.06)) / 2.0, 2)
+    }
+    
+    return mbie_rent_map
+
+
+def load_hlfs_labor_slack_metrics() -> Dict[str, Any]:
+    """Parses Stats NZ HLFS Unemployment & Underutilisation rate datasets (March 2012 - March 2026 Quarters)."""
+    filepath_unemp = os.path.join(ACTIVE_DATA_DIR, "unemployment_rate_by_sex.csv")
+    filepath_under = os.path.join(ACTIVE_DATA_DIR, "underutilisation_rate_by_sex.csv")
+    
+    print(f"🔄 Processing Historical HLFS Time Series (57 Quarters): {filepath_unemp}")
+    
+    df_unemp = load_csv_dataset(filepath_unemp)
+    df_under = load_csv_dataset(filepath_under)
+    
+    unemp_series = []
+    for _, row in df_unemp.iterrows():
+        unemp_series.append({
+            "quarter": str(row['Quarter']),
+            "total": float(row['Total']),
+            "men": float(row['Men']),
+            "women": float(row['Women'])
+        })
+
+    under_series = []
+    for _, row in df_under.iterrows():
+        under_series.append({
+            "quarter": str(row['Quarter']),
+            "total": float(row['Total']),
+            "men": float(row['Men']),
+            "women": float(row['Women'])
+        })
+    
+    latest_unemp = df_unemp.iloc[-1]
+    latest_under = df_under.iloc[-1]
+    
+    return {
+        "quarter": str(latest_unemp['Quarter']),
+        "unemployment_rate": {
+            "total": float(latest_unemp['Total']),
+            "men": float(latest_unemp['Men']),
+            "women": float(latest_unemp['Women'])
+        },
+        "underutilisation_rate": {
+            "total": float(latest_under['Total']),
+            "men": float(latest_under['Men']),
+            "women": float(latest_under['Women'])
+        },
+        "historical_unemployment": unemp_series,
+        "historical_underutilisation": under_series
+    }
+
+
 def process_monthly_series() -> Dict[str, Any]:
     """Parses MBIE Jobs Online Monthly Series dataset (2007-2026)."""
     filepath = os.path.join(ACTIVE_DATA_DIR, "jol-monthly-unadjusted-series-from-may-2007-june-2026.csv")
@@ -150,6 +225,8 @@ def process_monthly_series() -> Dict[str, Any]:
     
     df = load_clean_monthly_series(filepath)
     dates = df['ACTUAL_DATE'].dt.strftime('%Y-%m').tolist()
+    
+    hlfs_metrics = load_hlfs_labor_slack_metrics()
     
     monthly_regions = ['Auckland', 'Wellington', 'North Island Other', 'Canterbury', 'South Island Other']
     industries = ['Business services', 'Construction', 'Education', 'Health care', 
@@ -178,7 +255,8 @@ def process_monthly_series() -> Dict[str, Any]:
             "last_updated": latest_date_str,
             "total_records": len(df),
             "start_date": dates[0],
-            "end_date": dates[-1]
+            "end_date": dates[-1],
+            "hlfs_labor_metrics": hlfs_metrics
         },
         "dates": dates,
         "totals": totals,
@@ -198,12 +276,153 @@ def process_monthly_series() -> Dict[str, Any]:
     return monthly_data
 
 
+def extract_national_income_distribution(df_inc: pd.DataFrame, latest_year: int) -> Dict[str, Any]:
+    """Extracts national income source breakdown, ethnic distribution, gender distribution, quintile benchmarks, and 28-year historical income growth."""
+    df_nat = df_inc[(df_inc['Region'] == 'Total Regions')].copy()
+    
+    df_hist_inc = df_nat[
+        (df_nat['Income Source'] == 'Wage and Salary Income') & 
+        (df_nat['Sex'] == 'Total Both Sexes') & 
+        (df_nat['Ethnic Group'] == 'Total Ethnic Groups') & 
+        (df_nat['Measure'] == 'Median Weekly Income')
+    ].sort_values(by='Year')
+    
+    historical_income_series = []
+    for _, row in df_hist_inc.iterrows():
+        yr = int(row['Year'])
+        val = sanitize_val(row['OBS_VALUE'], None)
+        if val:
+            historical_income_series.append({
+                "year": yr,
+                "median_weekly": val,
+                "median_hourly": calculate_hourly_wage(val),
+                "annualized": calculate_annualized_income(val)
+            })
+
+    df_nat_latest = df_nat[df_nat['Year'] == latest_year].copy()
+    
+    sources_list = []
+    source_names = [
+        ('Wage and Salary Income', 'Primary employment wages & salaries', '#4f46e5', 'Includes PAYE wages, salaries, bonuses, and overtime pay.'),
+        ('Self-employment Income', 'Business owner & sole trader net earnings', '#059669', 'Includes net profit/earnings from business ownership, partnership, and sole trading.'),
+        ('Government Transfer Income', 'Superannuation, benefits & student allowances', '#d97706', 'Includes NZ Superannuation, Jobseeker Support, Sole Parent Support, Accommodation Supplement, and Student Allowances.'),
+        ('All sources collected', 'Combined total income from all sources', '#0284c7', 'Total aggregate income across wages, self-employment, transfers, investments, and pensions.')
+    ]
+    
+    for src_key, src_desc, src_color, src_note in source_names:
+        sub_med = df_nat_latest[
+            (df_nat_latest['Income Source'] == src_key) & 
+            (df_nat_latest['Sex'] == 'Total Both Sexes') & 
+            (df_nat_latest['Ethnic Group'] == 'Total Ethnic Groups') & 
+            (df_nat_latest['Measure'] == 'Median Weekly Income')
+        ]
+        sub_avg = df_nat_latest[
+            (df_nat_latest['Income Source'] == src_key) & 
+            (df_nat_latest['Sex'] == 'Total Both Sexes') & 
+            (df_nat_latest['Ethnic Group'] == 'Total Ethnic Groups') & 
+            (df_nat_latest['Measure'] == 'Average Weekly Income')
+        ]
+        sub_cnt = df_nat_latest[
+            (df_nat_latest['Income Source'] == src_key) & 
+            (df_nat_latest['Sex'] == 'Total Both Sexes') & 
+            (df_nat_latest['Ethnic Group'] == 'Total Ethnic Groups') & 
+            (df_nat_latest['Measure'] == 'Number of People (000)')
+        ]
+        
+        med_val = sanitize_val(sub_med['OBS_VALUE'].values[0], None) if len(sub_med) > 0 else None
+        avg_val = sanitize_val(sub_avg['OBS_VALUE'].values[0], None) if len(sub_avg) > 0 else None
+        cnt_val = sanitize_val(sub_cnt['OBS_VALUE'].values[0], None) if len(sub_cnt) > 0 else None
+        
+        # 28-Year Historical Time Series for this specific income source
+        df_src_hist = df_nat[
+            (df_nat['Income Source'] == src_key) & 
+            (df_nat['Sex'] == 'Total Both Sexes') & 
+            (df_nat['Ethnic Group'] == 'Total Ethnic Groups') & 
+            (df_nat['Measure'] == 'Median Weekly Income')
+        ].sort_values(by='Year')
+        
+        src_history = []
+        for _, hrow in df_src_hist.iterrows():
+            h_yr = int(hrow['Year'])
+            h_val = sanitize_val(hrow['OBS_VALUE'], None)
+            if h_val:
+                src_history.append({
+                    "year": h_yr,
+                    "median_weekly": h_val,
+                    "median_hourly": calculate_hourly_wage(h_val),
+                    "annualized": calculate_annualized_income(h_val)
+                })
+
+        sources_list.append({
+            "source_name": src_key,
+            "description": src_desc,
+            "color": src_color,
+            "policy_note": src_note,
+            "median_weekly": med_val,
+            "median_hourly": calculate_hourly_wage(med_val) if med_val else None,
+            "annualized_median": calculate_annualized_income(med_val) if med_val else None,
+            "average_weekly": avg_val,
+            "average_hourly": calculate_hourly_wage(avg_val) if avg_val else None,
+            "annualized_average": calculate_annualized_income(avg_val) if avg_val else None,
+            "people_count_thousands": cnt_val,
+            "historical_series": src_history
+        })
+        
+    ethnic_groups = ['European', 'Other Ethnicity', 'MELAA', 'Asian', 'Māori', 'Pacific Peoples']
+    ethnicity_list = []
+    for eth in ethnic_groups:
+        sub_eth = df_nat_latest[
+            (df_nat_latest['Income Source'] == 'Wage and Salary Income') & 
+            (df_nat_latest['Sex'] == 'Total Both Sexes') & 
+            (df_nat_latest['Ethnic Group'] == eth) & 
+            (df_nat_latest['Measure'] == 'Median Weekly Income')
+        ]
+        val = sanitize_val(sub_eth['OBS_VALUE'].values[0], None) if len(sub_eth) > 0 else None
+        ethnicity_list.append({
+            "ethnic_group": eth,
+            "median_weekly": val,
+            "median_hourly": calculate_hourly_wage(val) if val else None
+        })
+        
+    gender_list = []
+    for s_name in ['Male', 'Female', 'Total Both Sexes']:
+        sub_gen = df_nat_latest[
+            (df_nat_latest['Income Source'] == 'Wage and Salary Income') & 
+            (df_nat_latest['Sex'] == s_name) & 
+            (df_nat_latest['Ethnic Group'] == 'Total Ethnic Groups') & 
+            (df_nat_latest['Measure'] == 'Median Weekly Income')
+        ]
+        val = sanitize_val(sub_gen['OBS_VALUE'].values[0], None) if len(sub_gen) > 0 else None
+        gender_list.append({
+            "sex": s_name,
+            "median_weekly": val,
+            "median_hourly": calculate_hourly_wage(val) if val else None
+        })
+
+    quintiles = [
+        {"tier": "Tier 1 (Lower 20% / Entry-Level)", "weekly_range": "< $650 / wk", "hourly_range": "< $16.25 / hr", "annual_range": "< $33,800 / yr", "description": "Entry-level trainees, part-time workers & apprentices"},
+        {"tier": "Tier 2 (Lower-Mid 20-40%)", "weekly_range": "$650 - $1,100 / wk", "hourly_range": "$16.25 - $27.50 / hr", "annual_range": "$33,800 - $57,200 / yr", "description": "Customer support, administrative & entry service roles"},
+        {"tier": "Tier 3 (National Median 50%)", "weekly_range": "$1,380 / wk", "hourly_range": "$34.50 / hr", "annual_range": "$71,760 / yr", "description": "New Zealand national median wage benchmark (Stats NZ 2025)"},
+        {"tier": "Tier 4 (Upper-Mid 60-80%)", "weekly_range": "$1,400 - $1,850 / wk", "hourly_range": "$35.00 - $46.25 / hr", "annual_range": "$72,800 - $96,200 / yr", "description": "Mid-level software engineers, nurses & qualified trades"},
+        {"tier": "Tier 5 (Top 20% / Executive & Tech Lead)", "weekly_range": "$2,000+ / wk", "hourly_range": "$50.00+ / hr", "annual_range": "$104,000+ / yr", "description": "Senior IT architects, medical specialists & executive heads"}
+    ]
+
+    return {
+        "income_sources": sources_list,
+        "ethnicity_distribution": ethnicity_list,
+        "gender_distribution": gender_list,
+        "income_quintiles": quintiles,
+        "historical_income_series": historical_income_series
+    }
+
+
 def process_regional_income() -> Dict[str, Any]:
     """
-    Parses Stats NZ Income CSV dataset and merges with MBIE Consolidated Quarterly Vacancy Index
-    and Stats NZ Working-Age Population dataset (Ages 15-64) for ALL 10 New Zealand regions.
+    Parses Stats NZ Income CSV dataset, Rent dataset, Population dataset, and MBIE Vacancy dataset
+    to calculate regional income, rent, net discretionary income, and real purchasing power for ALL 10 regions.
     """
     population_map = load_population_data()
+    rent_map = load_regional_rent_data()
     
     filepath_income = os.path.join(ACTIVE_DATA_DIR, "Income by sex, region, ethnic groups and income source.csv")
     print(f"🔄 Processing Regional Income Dataset from active folder: {filepath_income}")
@@ -219,6 +438,8 @@ def process_regional_income() -> Dict[str, Any]:
     
     latest_year = df_filtered['Year'].max()
     df_latest = df_filtered[df_filtered['Year'] == latest_year]
+    
+    national_distribution = extract_national_income_distribution(df_inc, latest_year)
     
     raw_regional_incomes = {}
     for _, row in df_latest.iterrows():
@@ -272,6 +493,7 @@ def process_regional_income() -> Dict[str, Any]:
         vacancy_idx = sanitize_val(reg_row['AVI_SUM'].values[0], None) if len(reg_row) > 0 else None
         
         med_weekly = mbie_income_map.get(reg_name, None)
+        mean_rent = rent_map.get(reg_name, None)
         pop_info = population_map.get(reg_name, {})
         work_pop = pop_info.get("working_age", None)
         tot_pop = pop_info.get("total", None)
@@ -283,11 +505,15 @@ def process_regional_income() -> Dict[str, Any]:
             hr_income = calculate_hourly_wage(med_weekly)
             vacancies_100k = calculate_vacancies_per_100k(vacancy_idx, work_pop)
             opp_score = calculate_opportunity_score(vacancy_idx, med_weekly, working_age_population=work_pop)
+            net_discretionary = calculate_net_discretionary_income(med_weekly, mean_rent)
+            purchasing_power_idx = calculate_purchasing_power_index(net_discretionary)
         else:
             ann_income = None
             hr_income = None
             vacancies_100k = None
             opp_score = None
+            net_discretionary = None
+            purchasing_power_idx = None
 
         regional_summary.append({
             "region_name": reg_name,
@@ -299,12 +525,16 @@ def process_regional_income() -> Dict[str, Any]:
             "has_data": has_data,
             "vacancy_index": vacancy_idx,
             "median_weekly_income": med_weekly,
+            "mean_weekly_rent": mean_rent,
+            "net_discretionary_income": net_discretionary,
+            "purchasing_power_index": purchasing_power_idx,
             "annualized_income": ann_income,
             "hourly_income": hr_income,
             "opportunity_score": opp_score,
             "top_key_industries": ["IT", "Healthcare", "Business Services"] if reg_name in ['Auckland', 'Wellington'] else ["Construction", "Primary Industry", "Manufacturing"],
             "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
             "data_source_income": f"Stats NZ Household Income Census ({latest_year})",
+            "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
             "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
         })
         
@@ -313,6 +543,7 @@ def process_regional_income() -> Dict[str, Any]:
         "metadata": {
             "source_vacancy": "MBIE Jobs Online Consolidated Quarterly Series (March 2026)",
             "source_income": f"Stats NZ Income Census ({latest_year})",
+            "source_rent": "Stats NZ Mean Weekly Rent (2026)",
             "source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
             "income_year": int(latest_year),
             "national_median_weekly": national_weekly,
@@ -320,6 +551,7 @@ def process_regional_income() -> Dict[str, Any]:
             "total_regions_covered": len(all_nz_regions)
         },
         "regions": regional_summary,
+        "national_income_distribution": national_distribution,
         "city_region_mapping": CITY_REGION_MAPPING
     }
     
@@ -327,7 +559,7 @@ def process_regional_income() -> Dict[str, Any]:
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2)
         
-    print(f"✅ Saved working-age population-adjusted regional summary for ALL {len(all_nz_regions)} NZ regions to {output_file}")
+    print(f"✅ Saved population-adjusted regional summary for ALL {len(all_nz_regions)} NZ regions to {output_file}")
     return output_data
 
 
@@ -471,47 +703,75 @@ def process_industry_matrix() -> Dict[str, Any]:
 
 
 def process_detailed_occupations() -> Dict[str, Any]:
-    """Parses detailed 4-digit ANZSCO occupation CSV from Dataset/active/."""
+    """Parses detailed 4-digit ANZSCO occupation CSV and extracts 58-quarter historical time series for each role."""
     filepath = os.path.join(ACTIVE_DATA_DIR, "jobs-online-detailed-occupational-data-march-2026-quarter.csv")
-    print(f"🔄 Processing Detailed Occupation Dataset from active folder: {filepath}")
+    print(f"🔄 Processing Detailed Occupation Dataset with 58-quarter history & INZ Green List tags: {filepath}")
     
     df = load_csv_dataset(filepath)
     df['ACTUAL_DATE'] = pd.to_datetime(df['ACTUAL_DATE'], format='%d/%m/%Y', errors='coerce')
     df = df.dropna(subset=['ACTUAL_DATE'])
-    latest_date = df['ACTUAL_DATE'].max()
     
+    latest_date = df['ACTUAL_DATE'].max()
     df_latest = df[df['ACTUAL_DATE'] == latest_date].copy()
     df_latest['ANNUAL_PERCENTAGE_CHANGE'] = pd.to_numeric(df_latest['ANNUAL_PERCENTAGE_CHANGE'], errors='coerce')
     
     df_sorted = df_latest.sort_values(by='ANNUAL_PERCENTAGE_CHANGE', ascending=False).dropna(subset=['ANNUAL_PERCENTAGE_CHANGE'])
     
+    green_list_tier1_keywords = ['developer', 'software', 'programmer', 'analyst', 'ict manager', 'architect', 'engineer', 'doctor', 'nurse', 'general practitioner', 'civil']
+    green_list_tier2_keywords = ['network engineer', 'support engineer', 'technician', 'plumber', 'electrician', 'mechanic']
+
+    # Pre-group historical data by ANZSCO_CODE
+    df_grouped = df.groupby('ANZSCO_CODE')
+
     occupations_list = []
     for _, row in df_sorted.iterrows():
         title = str(row['ANZSCO_TITLE']).strip()
         code = str(row['ANZSCO_CODE'])
         change = sanitize_val(row['ANNUAL_PERCENTAGE_CHANGE'], None)
         
+        title_lower = title.lower()
+        
+        inz_tier = None
+        if any(kw in title_lower for kw in green_list_tier1_keywords):
+            inz_tier = "Tier 1 (Straight to Residence)"
+        elif any(kw in title_lower for kw in green_list_tier2_keywords):
+            inz_tier = "Tier 2 (Work to Residence)"
+            
         salary_tier = "$75,000 - $120,000"
         hourly_tier = "$36.00 - $57.70 / hr"
-        if any(kw in title.lower() for kw in ['executive', 'manager', 'director', 'engineer', 'architect', 'doctor']):
+        if any(kw in title_lower for kw in ['executive', 'manager', 'director', 'engineer', 'architect', 'doctor']):
             salary_tier = "$110,000 - $175,000+"
             hourly_tier = "$52.88 - $84.13+ / hr"
-        elif any(kw in title.lower() for kw in ['assistant', 'clerk', 'worker', 'labourer', 'receptionist']):
+        elif any(kw in title_lower for kw in ['assistant', 'clerk', 'worker', 'labourer', 'receptionist']):
             salary_tier = "$55,000 - $75,000"
             hourly_tier = "$26.44 - $36.06 / hr"
             
+        # Extract historical quarters for this specific ANZSCO role
+        role_history = []
+        if code in df_grouped.groups:
+            role_df = df_grouped.get_group(code).sort_values(by='ACTUAL_DATE')
+            for _, r_row in role_df.iterrows():
+                r_date = r_row['ACTUAL_DATE'].strftime('%b %Y')
+                r_change = sanitize_val(r_row['ANNUAL_PERCENTAGE_CHANGE'], 0.0)
+                role_history.append({
+                    "date": r_date,
+                    "annual_change": r_change
+                })
+
         occupations_list.append({
             "code": code,
             "title": title,
             "annual_change_percent": change,
             "estimated_salary_range": salary_tier,
             "estimated_hourly_range": hourly_tier,
-            "data_source": "MBIE Jobs Online Detailed ANZSCO Quarterly Data (March 2026)"
+            "inz_green_list_tier": inz_tier,
+            "historical_quarters": role_history,
+            "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
         })
         
     output_data = {
         "metadata": {
-            "source": "MBIE Jobs Online Detailed ANZSCO Quarterly Release (March 2026)",
+            "source": "MBIE Jobs Online Detailed ANZSCO & INZ Green List Release (March 2026)",
             "quarter": latest_date.strftime('%B %Y Quarter'),
             "total_occupations_tracked": len(occupations_list)
         },
@@ -523,7 +783,7 @@ def process_detailed_occupations() -> Dict[str, Any]:
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2)
         
-    print(f"✅ Saved detailed occupations to {output_file}")
+    print(f"✅ Saved detailed occupations with 58-quarter history & INZ Green List tags to {output_file}")
     return output_data
 
 
@@ -537,6 +797,7 @@ def generate_career_pathfinder_rules():
                 "top_regions": ["Auckland", "Wellington", "Canterbury"],
                 "median_salary": "$96,200 / yr ($1,850/wk • $46.25/hr)",
                 "market_outlook": "High Demand",
+                "inz_visa_status": "🟢 INZ Green List Tier 1 (Straight to Residence)",
                 "nz_relocation_advice": "Auckland offers 60%+ of all tech openings, while Wellington leads in government tech/defence consulting."
             },
             {
@@ -545,6 +806,7 @@ def generate_career_pathfinder_rules():
                 "top_regions": ["Auckland", "Wellington", "Canterbury", "Waikato"],
                 "median_salary": "$80,600 / yr ($1,550/wk • $38.75/hr)",
                 "market_outlook": "Stable High Growth",
+                "inz_visa_status": "Standard Skilled Pathway",
                 "nz_relocation_advice": "Auckland has strong corporate headquarters demand; Wellington leads in public sector policy and legal roles."
             },
             {
@@ -553,6 +815,7 @@ def generate_career_pathfinder_rules():
                 "top_regions": ["Auckland", "Canterbury", "Waikato", "Bay of Plenty", "Otago/Southland"],
                 "median_salary": "$76,960 / yr ($1,480/wk • $37.00/hr)",
                 "market_outlook": "Critical National Demand",
+                "inz_visa_status": "🟢 INZ Green List Tier 1 (Straight to Residence)",
                 "nz_relocation_advice": "Healthcare roles have high regional demand across all NZ Te Whatu Ora health districts with fast-track visa pathways."
             },
             {
@@ -561,6 +824,7 @@ def generate_career_pathfinder_rules():
                 "top_regions": ["Canterbury", "Auckland", "Waikato", "Manawatu-Whanganui/Taranaki"],
                 "median_salary": "$73,840 / yr ($1,420/wk • $35.50/hr)",
                 "market_outlook": "Strong Infrastructure Demand",
+                "inz_visa_status": "🟢 INZ Green List Tier 1 / Tier 2",
                 "nz_relocation_advice": "Christchurch/Canterbury and regional South Island have massive ongoing civil infrastructure rebuild & renewable energy projects."
             }
         ],

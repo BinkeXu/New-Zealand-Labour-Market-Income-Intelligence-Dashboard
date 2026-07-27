@@ -1,15 +1,21 @@
 import React from 'react';
-import { TrendingUp, DollarSign, MapPin, Award, Database } from 'lucide-react';
+import { TrendingUp, DollarSign, Database, UserX, ShieldAlert, BarChart2 } from 'lucide-react';
 
-export default function KPICards({ monthlyData, regionalData }) {
+export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
   const latestIndex = monthlyData?.totals?.[monthlyData.totals.length - 1] || 101.8;
   const latestChange = monthlyData?.annual_change?.[monthlyData.annual_change.length - 1] || 13.5;
   
   const nationalWeekly = regionalData?.metadata?.national_median_weekly || 1380;
   const nationalHourly = regionalData?.metadata?.national_median_hourly || (nationalWeekly / 40.0).toFixed(2);
 
+  const hlfs = monthlyData?.metadata?.hlfs_labor_metrics || {
+    unemployment_rate: { total: 5.3, men: 5.4, women: 5.3 },
+    underutilisation_rate: { total: 12.9, men: 11.6, women: 14.3 }
+  };
+
   const cards = [
     {
+      metricId: "vacancy",
       title: "NZ Overall Vacancy Index",
       value: `${latestIndex}`,
       subtitle: `${latestChange > 0 ? '+' : ''}${latestChange}% YoY Growth`,
@@ -20,6 +26,7 @@ export default function KPICards({ monthlyData, regionalData }) {
       trendClass: latestChange >= 0 ? "trend-up" : "trend-down"
     },
     {
+      metricId: "income",
       title: "NZ National Median Income",
       value: `$${nationalWeekly.toLocaleString()} / wk`,
       subtitle: `$${nationalHourly}/hr ($${(nationalWeekly * 52).toLocaleString()}/yr)`,
@@ -30,24 +37,26 @@ export default function KPICards({ monthlyData, regionalData }) {
       trendClass: "trend-up"
     },
     {
-      title: "Top Hiring Regions",
-      value: "Auckland & Canterbury",
-      subtitle: "Highest Volume & Regional Rebuild Growth",
-      source: "MBIE Consolidated Regional Series",
-      icon: MapPin,
-      iconBg: "rgba(2, 132, 199, 0.15)",
-      iconColor: "#0284c7",
-      trendClass: "trend-up"
+      metricId: "unemployment",
+      title: "NZ Official Unemployment Rate",
+      value: `${hlfs.unemployment_rate.total}%`,
+      subtitle: `Men: ${hlfs.unemployment_rate.men}% • Women: ${hlfs.unemployment_rate.women}%`,
+      source: "Stats NZ HLFS (March 2026 Quarter)",
+      icon: UserX,
+      iconBg: "rgba(244, 63, 94, 0.15)",
+      iconColor: "#e11d48",
+      trendClass: "trend-down"
     },
     {
-      title: "Highest Earning Sector",
-      value: "IT & Digital Services",
-      subtitle: "$46.25/hr ($1,850/wk • $96,200/yr)",
-      source: "Stats NZ ANZSIC Earnings Benchmark",
-      icon: Award,
+      metricId: "underutilisation",
+      title: "NZ Labor Underutilisation Rate",
+      value: `${hlfs.underutilisation_rate.total}%`,
+      subtitle: `Men: ${hlfs.underutilisation_rate.men}% • Women: ${hlfs.underutilisation_rate.women}%`,
+      source: "Stats NZ HLFS Labor Slack Survey",
+      icon: ShieldAlert,
       iconBg: "rgba(217, 119, 6, 0.15)",
       iconColor: "#d97706",
-      trendClass: "trend-up"
+      trendClass: "trend-down"
     }
   ];
 
@@ -56,7 +65,13 @@ export default function KPICards({ monthlyData, regionalData }) {
       {cards.map((card, index) => {
         const Icon = card.icon;
         return (
-          <div key={index} className="glass-card kpi-card">
+          <div 
+            key={index} 
+            className="glass-card kpi-card"
+            style={{ cursor: 'pointer', transition: 'all 0.2s ease-in-out' }}
+            onClick={() => onOpenModal && onOpenModal(card.metricId)}
+            title={`Click to view historical trend chart for ${card.title}`}
+          >
             <div>
               <div className="kpi-header">
                 <span className="kpi-title">{card.title}</span>
@@ -65,8 +80,11 @@ export default function KPICards({ monthlyData, regionalData }) {
                 </div>
               </div>
               <div className="kpi-value tabular-nums">{card.value}</div>
-              <div className="kpi-footer">
+              <div className="kpi-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span className={card.trendClass}>{card.subtitle}</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--primary)', display: 'inline-flex', alignItems: 'center', gap: '4px', fontWeight: '700' }}>
+                  <BarChart2 size={14} /> View Graph
+                </span>
               </div>
             </div>
 
