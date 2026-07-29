@@ -1,14 +1,15 @@
 import React from 'react';
 import { Briefcase, Compass, BarChart3, MapPin, Award, BookOpen, Sun, Moon } from 'lucide-react';
 
+const tabs = [
+  { id: 'overview', label: 'Market Overview', icon: BarChart3 },
+  { id: 'regional', label: 'Regional & Income Comparison', icon: MapPin },
+  { id: 'industry', label: 'Industry Opportunity Matrix', icon: Award },
+  { id: 'pathfinder', label: 'NZ Career Pathfinder Guide', icon: Compass },
+  { id: 'methodology', label: 'Data & Methodology', icon: BookOpen }
+];
+
 export default function Header({ activeTab, setActiveTab, theme, toggleTheme }) {
-  const tabs = [
-    { id: 'overview', label: 'Market Overview', icon: BarChart3 },
-    { id: 'regional', label: 'Regional & Income Comparison', icon: MapPin },
-    { id: 'industry', label: 'Industry Opportunity Matrix', icon: Award },
-    { id: 'pathfinder', label: 'NZ Career Pathfinder Guide', icon: Compass },
-    { id: 'methodology', label: 'Data & Methodology', icon: BookOpen }
-  ];
 
   return (
     <header>
@@ -33,7 +34,6 @@ export default function Header({ activeTab, setActiveTab, theme, toggleTheme }) 
                   key={tab.id}
                   role="tab"
                   aria-selected={isActive}
-                  aria-label={tab.label}
                   className={`nav-tab-btn ${isActive ? 'active' : ''}`}
                   onClick={() => setActiveTab(tab.id)}
                 >

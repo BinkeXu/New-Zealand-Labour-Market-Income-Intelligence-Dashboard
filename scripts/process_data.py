@@ -13,6 +13,7 @@ import os
 import sys
 import json
 import pandas as pd
+import re
 from typing import Dict, List, Any
 
 # Root directory setup
@@ -99,44 +100,44 @@ def load_population_data() -> Dict[str, Dict[str, int]]:
         
     mbie_pop_map = {
         "Auckland": {
-            "working_age": raw_work_pop.get("Auckland", 956040),
-            "total": raw_total_pop.get("Auckland", 1415550)
+            "working_age": raw_work_pop["Auckland"],
+            "total": raw_total_pop["Auckland"]
         },
         "Waikato": {
-            "working_age": raw_work_pop.get("Waikato", 256584),
-            "total": raw_total_pop.get("Waikato", 403638)
+            "working_age": raw_work_pop["Waikato"],
+            "total": raw_total_pop["Waikato"]
         },
         "Bay of Plenty": {
-            "working_age": raw_work_pop.get("Bay of Plenty", 163146),
-            "total": raw_total_pop.get("Bay of Plenty", 267744)
+            "working_age": raw_work_pop["Bay of Plenty"],
+            "total": raw_total_pop["Bay of Plenty"]
         },
         "Northland": {
-            "working_age": raw_work_pop.get("Northland", 91176),
-            "total": raw_total_pop.get("Northland", 151689)
+            "working_age": raw_work_pop["Northland"],
+            "total": raw_total_pop["Northland"]
         },
         "Gisborne/Hawkes Bay": {
-            "working_age": raw_work_pop.get("Gisborne", 26799) + raw_work_pop.get("Hawke's Bay", 92823),
-            "total": raw_total_pop.get("Gisborne", 43653) + raw_total_pop.get("Hawke's Bay", 151179)
+            "working_age": raw_work_pop["Gisborne"] + raw_work_pop["Hawke's Bay"],
+            "total": raw_total_pop["Gisborne"] + raw_total_pop["Hawke's Bay"]
         },
         "Manawatu-Whanganui/Taranaki": {
-            "working_age": raw_work_pop.get("Manawatū-Whanganui", 139995) + raw_work_pop.get("Taranaki", 68667),
-            "total": raw_total_pop.get("Manawatū-Whanganui", 222672) + raw_total_pop.get("Taranaki", 109608)
+            "working_age": raw_work_pop["Manawatū-Whanganui"] + raw_work_pop["Taranaki"],
+            "total": raw_total_pop["Manawatū-Whanganui"] + raw_total_pop["Taranaki"]
         },
         "Wellington": {
-            "working_age": raw_work_pop.get("Wellington", 317043),
-            "total": raw_total_pop.get("Wellington", 471315)
+            "working_age": raw_work_pop["Wellington"],
+            "total": raw_total_pop["Wellington"]
         },
         "Tasman/Nelson/Marlborough/West Coast": {
-            "working_age": raw_work_pop.get("Tasman", 29262) + raw_work_pop.get("Nelson", 29586) + raw_work_pop.get("Marlborough", 26757) + raw_work_pop.get("West Coast", 20817),
-            "total": raw_total_pop.get("Tasman", 47154) + raw_total_pop.get("Nelson", 46437) + raw_total_pop.get("Marlborough", 43416) + raw_total_pop.get("West Coast", 32148)
+            "working_age": raw_work_pop["Tasman"] + raw_work_pop["Nelson"] + raw_work_pop["Marlborough"] + raw_work_pop["West Coast"],
+            "total": raw_total_pop["Tasman"] + raw_total_pop["Nelson"] + raw_total_pop["Marlborough"] + raw_total_pop["West Coast"]
         },
         "Canterbury": {
-            "working_age": raw_work_pop.get("Canterbury", 354900),
-            "total": raw_total_pop.get("Canterbury", 539433)
+            "working_age": raw_work_pop["Canterbury"],
+            "total": raw_total_pop["Canterbury"]
         },
         "Otago/Southland": {
-            "working_age": raw_work_pop.get("Otago", 135858) + raw_work_pop.get("Southland", 59529),
-            "total": raw_total_pop.get("Otago", 202470) + raw_total_pop.get("Southland", 93342)
+            "working_age": raw_work_pop["Otago"] + raw_work_pop["Southland"],
+            "total": raw_total_pop["Otago"] + raw_total_pop["Southland"]
         }
     }
     
@@ -155,16 +156,16 @@ def load_regional_rent_data() -> Dict[str, float]:
     rent_map = dict(zip(df_rent['area'], df_rent['value']))
     
     mbie_rent_map = {
-        "Auckland": rent_map.get("Auckland", 618.80),
-        "Waikato": rent_map.get("Waikato", 528.48),
-        "Bay of Plenty": rent_map.get("Bay of Plenty", 599.00),
-        "Northland": rent_map.get("Northland", 525.23),
-        "Gisborne/Hawkes Bay": round((rent_map.get("Gisborne", 571.66) + rent_map.get("Hawke's Bay", 583.79)) / 2.0, 2),
-        "Manawatu-Whanganui/Taranaki": round((rent_map.get("Manawatu-Wanganui", 481.66) + rent_map.get("Taranaki", 543.25)) / 2.0, 2),
-        "Wellington": rent_map.get("Wellington", 553.75),
-        "Tasman/Nelson/Marlborough/West Coast": round((rent_map.get("Tasman", 549.54) + rent_map.get("Nelson", 500.21) + rent_map.get("Marlborough", 512.75) + rent_map.get("West Coast", 422.83)) / 4.0, 2),
-        "Canterbury": rent_map.get("Canterbury", 519.56),
-        "Otago/Southland": round((rent_map.get("Otago", 589.36) + rent_map.get("Southland", 441.06)) / 2.0, 2)
+        "Auckland": rent_map["Auckland"],
+        "Waikato": rent_map["Waikato"],
+        "Bay of Plenty": rent_map["Bay of Plenty"],
+        "Northland": rent_map["Northland"],
+        "Gisborne/Hawkes Bay": round((rent_map["Gisborne"] + rent_map["Hawke's Bay"]) / 2.0, 2),
+        "Manawatu-Whanganui/Taranaki": round((rent_map["Manawatu-Wanganui"] + rent_map["Taranaki"]) / 2.0, 2),
+        "Wellington": rent_map["Wellington"],
+        "Tasman/Nelson/Marlborough/West Coast": round((rent_map["Tasman"] + rent_map["Nelson"] + rent_map["Marlborough"] + rent_map["West Coast"]) / 4.0, 2),
+        "Canterbury": rent_map["Canterbury"],
+        "Otago/Southland": round((rent_map["Otago"] + rent_map["Southland"]) / 2.0, 2)
     }
     
     return mbie_rent_map
@@ -198,6 +199,9 @@ def load_hlfs_labor_slack_metrics() -> Dict[str, Any]:
             "women": float(row['Women'])
         })
     
+    if df_unemp.empty or df_under.empty:
+        raise ValueError("Empty dataset after cleaning")
+        
     latest_unemp = df_unemp.iloc[-1]
     latest_under = df_under.iloc[-1]
     
@@ -246,6 +250,9 @@ def process_monthly_series() -> Dict[str, Any]:
     occupation_series = {occ: [sanitize_val(v, 100.0) for v in df[occ].tolist()] for occ in occupations if occ in df.columns}
     skill_series = {sk: [sanitize_val(v, 100.0) for v in df[sk].tolist()] for sk in skill_levels if sk in df.columns}
     
+    if df.empty:
+        raise ValueError("Empty dataset after cleaning")
+        
     latest_row = df.iloc[-1]
     latest_date_str = latest_row['ACTUAL_DATE'].strftime('%B %Y')
     
@@ -642,6 +649,9 @@ def process_industry_matrix() -> Dict[str, Any]:
     industries = ['Business services', 'Construction', 'Education', 'Health care', 
                   'Hospitality', 'IT', 'Manufacturing', 'Primary', 'Sales', 'Other']
     
+    if df_monthly.empty:
+        raise ValueError("Empty dataset after cleaning")
+        
     latest_row = df_monthly.iloc[-1]
     prev_year_row = df_monthly.iloc[-13] if len(df_monthly) >= 13 else df_monthly.iloc[0]
     
@@ -709,7 +719,11 @@ def process_detailed_occupations() -> Dict[str, Any]:
     
     df = load_csv_dataset(filepath)
     df['ACTUAL_DATE'] = pd.to_datetime(df['ACTUAL_DATE'], format='%d/%m/%Y', errors='coerce')
+    initial_len = len(df)
     df = df.dropna(subset=['ACTUAL_DATE'])
+    dropped_count = initial_len - len(df)
+    if dropped_count > 0:
+        print(f"⚠️ Dropped {dropped_count} rows missing ACTUAL_DATE")
     
     latest_date = df['ACTUAL_DATE'].max()
     df_latest = df[df['ACTUAL_DATE'] == latest_date].copy()
@@ -732,9 +746,9 @@ def process_detailed_occupations() -> Dict[str, Any]:
         title_lower = title.lower()
         
         inz_tier = None
-        if any(kw in title_lower for kw in green_list_tier1_keywords):
+        if any(re.search(rf'\b({re.escape(kw)})\b', title_lower) for kw in green_list_tier1_keywords):
             inz_tier = "Tier 1 (Straight to Residence)"
-        elif any(kw in title_lower for kw in green_list_tier2_keywords):
+        elif any(re.search(rf'\b({re.escape(kw)})\b', title_lower) for kw in green_list_tier2_keywords):
             inz_tier = "Tier 2 (Work to Residence)"
             
         salary_tier = "$75,000 - $120,000"

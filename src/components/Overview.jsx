@@ -211,16 +211,16 @@ export default function Overview({ monthlyData, regionalData, onNavigate }) {
                           {item.description}
                         </td>
                         <td className="tabular-nums" style={{ fontWeight: '700', color: item.color || '#4f46e5' }}>
-                          ${item.median_weekly ? item.median_weekly.toLocaleString() : 'N/A'} / wk
+                          ${item.median_weekly != null ? item.median_weekly.toLocaleString() : 'N/A'} / wk
                         </td>
                         <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
-                          ${item.median_hourly ? item.median_hourly.toFixed(2) : 'N/A'} / hr
+                          ${item.median_hourly != null ? item.median_hourly.toFixed(2) : 'N/A'} / hr
                         </td>
                         <td className="tabular-nums" style={{ fontWeight: '600' }}>
-                          ${item.average_weekly ? item.average_weekly.toLocaleString() : 'N/A'} / wk
+                          ${item.average_weekly != null ? item.average_weekly.toLocaleString() : 'N/A'} / wk
                         </td>
                         <td className="tabular-nums" style={{ color: 'var(--text-muted)' }}>
-                          {item.people_count_thousands ? `${(item.people_count_thousands / 1000).toFixed(2)}M people (${item.people_count_thousands.toLocaleString()}k)` : 'N/A'}
+                          {item.people_count_thousands != null ? `${(item.people_count_thousands / 1000).toFixed(2)}M people (${item.people_count_thousands.toLocaleString()}k)` : 'N/A'}
                         </td>
                         <td>
                           <span className="badge badge-indigo" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>

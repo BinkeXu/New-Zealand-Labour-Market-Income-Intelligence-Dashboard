@@ -373,7 +373,7 @@
       "annual_change_percent": 40.9,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -393,7 +393,7 @@
       "annual_change_percent": 36.2,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -403,7 +403,7 @@
       "annual_change_percent": 36.0,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -423,7 +423,7 @@
       "annual_change_percent": 35.0,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -573,7 +573,7 @@
       "annual_change_percent": 28.2,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -593,7 +593,7 @@
       "annual_change_percent": 27.2,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -653,7 +653,7 @@
       "annual_change_percent": 23.9,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -703,7 +703,7 @@
       "annual_change_percent": 20.6,
       "estimated_salary_range": "$55,000 - $75,000",
       "estimated_hourly_range": "$26.44 - $36.06 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -753,7 +753,7 @@
       "annual_change_percent": 18.9,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -853,7 +853,7 @@
       "annual_change_percent": 16.1,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -933,7 +933,7 @@
       "annual_change_percent": 14.4,
       "estimated_salary_range": "$55,000 - $75,000",
       "estimated_hourly_range": "$26.44 - $36.06 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -943,7 +943,7 @@
       "annual_change_percent": 14.2,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1013,7 +1013,7 @@
       "annual_change_percent": 12.1,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1083,7 +1083,7 @@
       "annual_change_percent": 10.7,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1093,7 +1093,7 @@
       "annual_change_percent": 10.3,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1133,7 +1133,7 @@
       "annual_change_percent": 9.8,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1173,7 +1173,7 @@
       "annual_change_percent": 8.0,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1233,7 +1233,7 @@
       "annual_change_percent": 6.5,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1353,7 +1353,7 @@
       "annual_change_percent": 4.1,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1373,7 +1373,7 @@
       "annual_change_percent": 3.9,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1393,7 +1393,7 @@
       "annual_change_percent": 3.4,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1473,7 +1473,7 @@
       "annual_change_percent": 1.1,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1553,7 +1553,7 @@
       "annual_change_percent": -0.7,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1673,7 +1673,7 @@
       "annual_change_percent": -5.4,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1683,7 +1683,7 @@
       "annual_change_percent": -5.8,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1693,7 +1693,7 @@
       "annual_change_percent": -6.6,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1783,7 +1783,7 @@
       "annual_change_percent": -9.1,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1813,7 +1813,7 @@
       "annual_change_percent": -10.3,
       "estimated_salary_range": "$75,000 - $120,000",
       "estimated_hourly_range": "$36.00 - $57.70 / hr",
-      "inz_green_list_tier": "Tier 2 (Work to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -1883,7 +1883,7 @@
       "annual_change_percent": -12.1,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },
@@ -2013,7 +2013,7 @@
       "annual_change_percent": -18.5,
       "estimated_salary_range": "$110,000 - $175,000+",
       "estimated_hourly_range": "$52.88 - $84.13+ / hr",
-      "inz_green_list_tier": "Tier 1 (Straight to Residence)",
+      "inz_green_list_tier": null,
       "historical_quarters": [],
       "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"
     },

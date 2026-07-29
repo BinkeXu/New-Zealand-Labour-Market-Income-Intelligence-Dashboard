@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TrendingUp, DollarSign, Database, UserX, ShieldAlert, BarChart2 } from 'lucide-react';
 
 export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
@@ -13,7 +13,7 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
     underutilisation_rate: { total: 12.9, men: 11.6, women: 14.3 }
   };
 
-  const cards = [
+  const cards = useMemo(() => [
     {
       metricId: "vacancy",
       title: "NZ Overall Vacancy Index",
@@ -58,18 +58,26 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
       iconColor: "#d97706",
       trendClass: "trend-down"
     }
-  ];
+  ], [latestIndex, latestChange, nationalWeekly, nationalHourly, hlfs]);
 
   return (
     <div className="kpi-grid" aria-label="Key Performance Indicators">
-      {cards.map((card, index) => {
+      {cards.map((card) => {
         const Icon = card.icon;
         return (
           <div 
-            key={index} 
+            key={card.metricId} 
             className="glass-card kpi-card"
+            role="button"
+            tabIndex={0}
             style={{ cursor: 'pointer', transition: 'all 0.2s ease-in-out' }}
             onClick={() => onOpenModal && onOpenModal(card.metricId)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onOpenModal && onOpenModal(card.metricId);
+              }
+            }}
             title={`Click to view historical trend chart for ${card.title}`}
           >
             <div>

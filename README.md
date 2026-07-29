@@ -45,6 +45,11 @@ An executive, production-grade analytics platform providing data-driven insights
 ### 📥 6. Client-Side Microsoft Excel CSV Data Export
 - 1-click CSV data export available across Overview, Regional Matrix, Industry Quadrant, Pathfinder, Methodology, and all Modal Trend Dialogs.
 
+### ♿ 7. Accessibility (a11y) & Clean Architecture
+- **Full Keyboard Navigation**: Fully keyboard accessible interactive KPI cards, table headers, and modal dialogs (`role="button"`, `tabIndex={0}`, Enter/Space key listeners).
+- **Custom React Hooks**: Modular state architecture using custom React hooks (e.g. `useTableSort`) for clean component separation.
+- **Resilient ETL Pipeline**: Robust Python data transformation pipeline with strict exception bounds checks, schema validation, and Regex word-boundary matching for INZ Green List tags.
+
 ---
 
 ## 📁 Dataset Architecture

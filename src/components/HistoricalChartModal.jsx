@@ -208,7 +208,7 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
   }
 
   // Debug logging — check browser console if chart still doesn't render
-  console.log('[HistoricalChartModal] metric:', modalMetric, '| data points:', displayData.length, '| sample:', displayData[0]);
+
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -308,27 +308,27 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
               <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Median Weekly Wage</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  ${chartConfig.extraBreakdown.median_weekly ? chartConfig.extraBreakdown.median_weekly.toLocaleString() : 'N/A'} / wk
+                  ${chartConfig.extraBreakdown.median_weekly != null ? chartConfig.extraBreakdown.median_weekly.toLocaleString() : 'N/A'} / wk
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#059669', fontWeight: '600' }}>
-                  ${chartConfig.extraBreakdown.median_hourly ? chartConfig.extraBreakdown.median_hourly.toFixed(2) : 'N/A'} / hr
+                  ${chartConfig.extraBreakdown.median_hourly != null ? chartConfig.extraBreakdown.median_hourly.toFixed(2) : 'N/A'} / hr
                 </div>
               </div>
 
               <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Average Weekly Wage</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  ${chartConfig.extraBreakdown.average_weekly ? chartConfig.extraBreakdown.average_weekly.toLocaleString() : 'N/A'} / wk
+                  ${chartConfig.extraBreakdown.average_weekly != null ? chartConfig.extraBreakdown.average_weekly.toLocaleString() : 'N/A'} / wk
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: '600' }}>
-                  ${chartConfig.extraBreakdown.average_hourly ? chartConfig.extraBreakdown.average_hourly.toFixed(2) : 'N/A'} / hr
+                  ${chartConfig.extraBreakdown.average_hourly != null ? chartConfig.extraBreakdown.average_hourly.toFixed(2) : 'N/A'} / hr
                 </div>
               </div>
 
               <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Annualized Median</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary)' }}>
-                  ${chartConfig.extraBreakdown.annualized_median ? chartConfig.extraBreakdown.annualized_median.toLocaleString() : 'N/A'} / yr
+                  ${chartConfig.extraBreakdown.annualized_median != null ? chartConfig.extraBreakdown.annualized_median.toLocaleString() : 'N/A'} / yr
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
                   52-week baseline
@@ -338,7 +338,7 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
               <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Recipients / Workforce</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#d97706' }}>
-                  {chartConfig.extraBreakdown.people_count_thousands ? `${(chartConfig.extraBreakdown.people_count_thousands / 1000).toFixed(2)}M people` : 'N/A'}
+                  {chartConfig.extraBreakdown.people_count_thousands != null ? `${(chartConfig.extraBreakdown.people_count_thousands / 1000).toFixed(2)}M people` : 'N/A'}
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
                   {chartConfig.extraBreakdown.people_count_thousands ? `${chartConfig.extraBreakdown.people_count_thousands.toLocaleString()}k count` : ''}

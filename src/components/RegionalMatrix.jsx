@@ -11,47 +11,33 @@ import {
 import { 
   MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown, Calculator, CheckCircle, Briefcase, Filter, UserCheck, Home, DollarSign 
 } from 'lucide-react';
+import { useTableSort } from '../hooks/useTableSort';
 
 export default function RegionalMatrix({ regionalData, cityIndustryData }) {
   const [selectedIsland, setSelectedIsland] = useState('All');
   const [selectedCityFilter, setSelectedCityFilter] = useState('');
   
   // Regional Summary Sorting State
-  const [sortField, setSortField] = useState('opportunity_score');
-  const [sortDirection, setSortDirection] = useState('desc');
+  const { 
+    sortField, 
+    sortDirection, 
+    handleSort, 
+    onKeyDown, 
+    renderSortIcon 
+  } = useTableSort('opportunity_score', 'desc');
 
   // City x Industry Matrix Filter & Sorting State
   const [matrixRegion, setMatrixRegion] = useState('All');
   const [matrixIndustry, setMatrixIndustry] = useState('All');
-  const [matrixSortField, setMatrixSortField] = useState('current_vacancy_index');
-  const [matrixSortDirection, setMatrixSortDirection] = useState('desc');
+  
+  const { 
+    sortField: matrixSortField, 
+    sortDirection: matrixSortDirection, 
+    handleSort: handleMatrixSort, 
+    onKeyDown: onMatrixKeyDown, 
+    renderSortIcon: renderMatrixSortIcon 
+  } = useTableSort('current_vacancy_index', 'desc');
 
-  const handleSort = (field) => {
-    if (sortField === field) {
-      setSortDirection(prev => (prev === 'asc' ? 'desc' : 'asc'));
-    } else {
-      setSortField(field);
-      setSortDirection('desc');
-    }
-  };
-
-  const handleMatrixSort = (field) => {
-    if (matrixSortField === field) {
-      setMatrixSortDirection(prev => (prev === 'asc' ? 'desc' : 'asc'));
-    } else {
-      setMatrixSortField(field);
-      setMatrixSortDirection('desc');
-    }
-  };
-
-  const renderSortIcon = (field, activeField, activeDirection) => {
-    if (activeField !== field) {
-      return <ArrowUpDown size={14} style={{ marginLeft: '4px', opacity: 0.5 }} aria-hidden="true" />;
-    }
-    return activeDirection === 'asc' 
-      ? <ArrowUp size={14} style={{ marginLeft: '4px', color: 'var(--primary)' }} aria-hidden="true" />
-      : <ArrowDown size={14} style={{ marginLeft: '4px', color: 'var(--primary)' }} aria-hidden="true" />;
-  };
 
   const filteredRegions = useMemo(() => {
     return selectFilteredRegions(regionalData, selectedIsland, selectedCityFilter, sortField, sortDirection);
@@ -184,51 +170,51 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
               <table className="custom-table" aria-label="Regional Purchasing Power Data Table">
                 <thead>
                   <tr>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('region_name')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('region_name')} onKeyDown={(e) => onKeyDown(e, 'region_name')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Region Name {renderSortIcon('region_name', sortField, sortDirection)}
+                        Region Name {renderSortIcon('region_name')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('working_age_population')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('working_age_population')} onKeyDown={(e) => onKeyDown(e, 'working_age_population')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Working-Age Pop (15–64) {renderSortIcon('working_age_population', sortField, sortDirection)}
+                        Working-Age Pop (15–64) {renderSortIcon('working_age_population')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('vacancies_per_100k')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('vacancies_per_100k')} onKeyDown={(e) => onKeyDown(e, 'vacancies_per_100k')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Vacancies / 100k {renderSortIcon('vacancies_per_100k', sortField, sortDirection)}
+                        Vacancies / 100k {renderSortIcon('vacancies_per_100k')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('median_weekly_income')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('median_weekly_income')} onKeyDown={(e) => onKeyDown(e, 'median_weekly_income')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Median Weekly Wage {renderSortIcon('median_weekly_income', sortField, sortDirection)}
+                        Median Weekly Wage {renderSortIcon('median_weekly_income')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('mean_weekly_rent')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('mean_weekly_rent')} onKeyDown={(e) => onKeyDown(e, 'mean_weekly_rent')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Mean Rent ($/wk) {renderSortIcon('mean_weekly_rent', sortField, sortDirection)}
+                        Mean Rent ($/wk) {renderSortIcon('mean_weekly_rent')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('net_discretionary_income')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('net_discretionary_income')} onKeyDown={(e) => onKeyDown(e, 'net_discretionary_income')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Net Income (After Rent) {renderSortIcon('net_discretionary_income', sortField, sortDirection)}
+                        Net Income (After Rent) {renderSortIcon('net_discretionary_income')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('purchasing_power_index')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('purchasing_power_index')} onKeyDown={(e) => onKeyDown(e, 'purchasing_power_index')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Real Purchasing Power {renderSortIcon('purchasing_power_index', sortField, sortDirection)}
+                        Real Purchasing Power {renderSortIcon('purchasing_power_index')}
                       </div>
                     </th>
-                    <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleSort('opportunity_score')}>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('opportunity_score')} onKeyDown={(e) => onKeyDown(e, 'opportunity_score')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Opportunity Score {renderSortIcon('opportunity_score', sortField, sortDirection)}
+                        Opportunity Score {renderSortIcon('opportunity_score')}
                       </div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredRegions.map((region, index) => (
-                    <tr key={index}>
+                  {filteredRegions.map((region) => (
+                    <tr key={region.region_name}>
                       <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                           <MapPin size={16} color="#4f46e5" aria-hidden="true" />
@@ -348,42 +334,42 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
             <table className="custom-table" aria-label="City Industry Vacancies Table">
               <thead>
                 <tr>
-                  <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('region_name')}>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('region_name')} onKeyDown={(e) => onMatrixKeyDown(e, 'region_name')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Region / City {renderSortIcon('region_name', matrixSortField, matrixSortDirection)}
+                      Region / City {renderMatrixSortIcon('region_name')}
                     </div>
                   </th>
                   <th scope="col">Cities Included</th>
-                  <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('industry')}>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('industry')} onKeyDown={(e) => onMatrixKeyDown(e, 'industry')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Industry Sector {renderSortIcon('industry', matrixSortField, matrixSortDirection)}
+                      Industry Sector {renderMatrixSortIcon('industry')}
                     </div>
                   </th>
-                  <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('current_vacancy_index')}>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('current_vacancy_index')} onKeyDown={(e) => onMatrixKeyDown(e, 'current_vacancy_index')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      MBIE Vacancy Index {renderSortIcon('current_vacancy_index', matrixSortField, matrixSortDirection)}
+                      MBIE Vacancy Index {renderMatrixSortIcon('current_vacancy_index')}
                     </div>
                   </th>
-                  <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('yoy_growth_percent')}>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('yoy_growth_percent')} onKeyDown={(e) => onMatrixKeyDown(e, 'yoy_growth_percent')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      YoY Vacancy Growth (%) {renderSortIcon('yoy_growth_percent', matrixSortField, matrixSortDirection)}
+                      YoY Vacancy Growth (%) {renderMatrixSortIcon('yoy_growth_percent')}
                     </div>
                   </th>
-                  <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('hourly_income')}>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('hourly_income')} onKeyDown={(e) => onMatrixKeyDown(e, 'hourly_income')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Hourly Wage (40 hr/wk) {renderSortIcon('hourly_income', matrixSortField, matrixSortDirection)}
+                      Hourly Wage (40 hr/wk) {renderMatrixSortIcon('hourly_income')}
                     </div>
                   </th>
-                  <th scope="col" style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('median_weekly_income')}>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('median_weekly_income')} onKeyDown={(e) => onMatrixKeyDown(e, 'median_weekly_income')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Median Weekly Wage {renderSortIcon('median_weekly_income', matrixSortField, matrixSortDirection)}
+                      Median Weekly Wage {renderMatrixSortIcon('median_weekly_income')}
                     </div>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {cityIndustryMatrix.map((row, idx) => (
-                  <tr key={idx}>
+                {cityIndustryMatrix.map((row) => (
+                  <tr key={`${row.region_name}-${row.industry}`}>
                     <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <MapPin size={16} color="#4f46e5" aria-hidden="true" />
