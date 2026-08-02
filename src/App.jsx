@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { DashboardProvider, useDashboardContext } from './context/DashboardContext';
 import Header from './components/Header';
-import Overview from './components/Overview';
-import RegionalMatrix from './components/RegionalMatrix';
-import IndustryQuadrant from './components/IndustryQuadrant';
-import CareerPathfinder from './components/CareerPathfinder';
-import Methodology from './components/Methodology';
+import ErrorBoundary from './components/ErrorBoundary';
+
+// Code-split tabs lazily to optimize initial bundle size
+const Overview = lazy(() => import('./components/Overview'));
+const RegionalMatrix = lazy(() => import('./components/RegionalMatrix'));
+const IndustryQuadrant = lazy(() => import('./components/IndustryQuadrant'));
+const CareerPathfinder = lazy(() => import('./components/CareerPathfinder'));
+const Methodology = lazy(() => import('./components/Methodology'));
+
+function TabFallback() {
+  return (
+    <div className="glass-card section-card" style={{ textAlign: 'center', padding: '48px', margin: '24px 0' }} role="status" aria-live="polite">
+      <div className="text-gradient" style={{ fontSize: '1.25rem', fontWeight: '800', marginBottom: '8px' }}>
+        Loading Section…
+      </div>
+      <p style={{ color: 'var(--text-muted)' }}>Rendering analytics module…</p>
+    </div>
+  );
+}
 
 function DashboardContent() {
   const { 
@@ -40,8 +54,8 @@ function DashboardContent() {
   if (error) {
     return (
       <div className="app-container">
-        <div className="glass-card section-card" style={{ borderColor: '#f43f5e' }}>
-          <h2 style={{ color: '#f43f5e', marginBottom: '8px' }}>Dataset Load Error</h2>
+        <div className="glass-card section-card" style={{ borderColor: 'var(--accent-rose)' }}>
+          <h2 style={{ color: 'var(--accent-rose)', marginBottom: '8px' }}>Dataset Load Error</h2>
           <p style={{ color: 'var(--text-muted)' }}>{error}</p>
         </div>
       </div>
@@ -60,44 +74,48 @@ function DashboardContent() {
 
       {/* Main Tab Content */}
       <main>
-        {activeTab === 'overview' && (
-          <Overview 
-            monthlyData={monthlyData} 
-            regionalData={regionalData} 
-            irdIncomeData={irdIncomeData}
-            onNavigate={(tab) => setActiveTab(tab)} 
-          />
-        )}
+        <ErrorBoundary>
+          <Suspense fallback={<TabFallback />}>
+            {activeTab === 'overview' && (
+              <Overview 
+                monthlyData={monthlyData} 
+                regionalData={regionalData} 
+                irdIncomeData={irdIncomeData}
+                onNavigate={(tab) => setActiveTab(tab)} 
+              />
+            )}
 
-        {activeTab === 'regional' && (
-          <RegionalMatrix 
-            regionalData={regionalData} 
-            cityIndustryData={cityIndustryData}
-            irdIncomeData={irdIncomeData}
-          />
-        )}
+            {activeTab === 'regional' && (
+              <RegionalMatrix 
+                regionalData={regionalData} 
+                cityIndustryData={cityIndustryData}
+                irdIncomeData={irdIncomeData}
+              />
+            )}
 
-        {activeTab === 'industry' && (
-          <IndustryQuadrant 
-            industryData={industryData} 
-            occupationData={occupationData} 
-            cityIndustryData={cityIndustryData}
-            monthlyData={monthlyData}
-            regionalData={regionalData}
-          />
-        )}
+            {activeTab === 'industry' && (
+              <IndustryQuadrant 
+                industryData={industryData} 
+                occupationData={occupationData} 
+                cityIndustryData={cityIndustryData}
+                monthlyData={monthlyData}
+                regionalData={regionalData}
+              />
+            )}
 
-        {activeTab === 'pathfinder' && (
-          <CareerPathfinder 
-            pathfinderRules={pathfinderRules} 
-            regionalData={regionalData}
-            industryData={industryData}
-          />
-        )}
+            {activeTab === 'pathfinder' && (
+              <CareerPathfinder 
+                pathfinderRules={pathfinderRules} 
+                regionalData={regionalData}
+                industryData={industryData}
+              />
+            )}
 
-        {activeTab === 'methodology' && (
-          <Methodology />
-        )}
+            {activeTab === 'methodology' && (
+              <Methodology />
+            )}
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Footer */}

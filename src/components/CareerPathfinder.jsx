@@ -50,23 +50,23 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
       <section className="glass-card section-card col-12" aria-labelledby="pathfinder-title">
         <div className="card-header-flex">
           <div>
-            <h2 id="pathfinder-title" className="card-title" style={{ fontSize: '1.5rem' }}>
+            <h2 id="pathfinder-title" className="card-title" style={{ fontSize: '1.4rem' }}>
               <Compass size={26} className="text-gradient" aria-hidden="true" />
               NZ Career Pathfinder & Personalised Job Market Strategy Engine
             </h2>
-            <p className="card-subtitle" style={{ fontSize: '0.95rem' }}>
+            <p className="card-subtitle" style={{ fontSize: '0.9rem' }}>
               Interactive decision guide matching your target industry, career stage, and relocation willingness against MBIE vacancies, Stats NZ salary benchmarks, and <strong>Immigration NZ (INZ) Green List Visa Status</strong>.
             </p>
           </div>
 
           {quizCompleted && (
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <DownloadCSVButton 
                 data={briefExportData} 
                 filename="nz_career_strategy_brief.csv" 
                 label="Export Strategy Brief (CSV)" 
               />
-              <button onClick={handleReset} className="filter-btn">
+              <button onClick={handleReset} className="btn-secondary">
                 <RotateCcw size={14} style={{ marginRight: '4px' }} aria-hidden="true" /> Reset Pathfinder
               </button>
             </div>
@@ -75,7 +75,7 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
 
         {!quizCompleted ? (
           <div style={{ background: 'var(--table-header-bg)', padding: '24px', borderRadius: '16px', border: '1px solid var(--border-subtle)' }}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Target size={20} color="#4f46e5" aria-hidden="true" />
               Step 1: Define Your Target New Zealand Career Parameters
             </h3>
@@ -123,8 +123,8 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
 
             <button 
               onClick={handleGenerateBrief} 
-              className="filter-btn active"
-              style={{ padding: '12px 28px', fontSize: '1rem', fontWeight: '700', borderRadius: '10px', width: '100%' }}
+              className="btn-primary"
+              style={{ padding: '12px 28px', fontSize: '0.95rem', fontWeight: '700', borderRadius: '12px', width: '100%', justifyContent: 'center' }}
             >
               Generate Personalised NZ Career Strategy Brief <ArrowRight size={18} style={{ marginLeft: '8px' }} aria-hidden="true" />
             </button>
@@ -179,7 +179,7 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
                   </h4>
                   <div style={{ display: 'flex', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
                     {currentIndustryObj?.top_regions.map((reg, idx) => (
-                      <span key={idx} className="badge badge-cyan" style={{ fontWeight: '700' }}>{reg}</span>
+                      <span key={idx} className="badge badge-indigo" style={{ fontWeight: '700' }}>{reg}</span>
                     ))}
                   </div>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
@@ -190,7 +190,7 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <button onClick={handleReset} className="filter-btn">
+              <button onClick={handleReset} className="btn-secondary">
                 <RotateCcw size={14} style={{ marginRight: '4px' }} aria-hidden="true" /> Configure Different Target Strategy
               </button>
             </div>

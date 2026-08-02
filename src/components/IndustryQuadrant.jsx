@@ -6,14 +6,18 @@ import {
 import DownloadCSVButton from './DownloadCSVButton';
 import HistoricalChartModal from './HistoricalChartModal';
 import { 
-  Briefcase, TrendingUp, Award, DollarSign, Search, Filter, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown, Database, CheckCircle, ShieldCheck, Bookmark, BarChart2 
+  Briefcase, TrendingUp, Award, DollarSign, Search, Filter, AlertCircle, Database, CheckCircle, ShieldCheck, Bookmark, BarChart2 
 } from 'lucide-react';
-import { useTableSort } from '../hooks/useTableSort';
+import { useTableSort, SortIcon } from '../hooks/useTableSort';
+import { useDebounce } from '../hooks/useDebounce';
 
 export default function IndustryQuadrant({ industryData, occupationData, cityIndustryData, monthlyData, regionalData }) {
   const [selectedQuadrant, setSelectedQuadrant] = useState('All');
   const [occupationSearch, setOccupationSearch] = useState('');
   
+  // Debounce search query to prevent high-frequency re-filtering on keystrokes
+  const debouncedOccupationSearch = useDebounce(occupationSearch, 250);
+
   // ANZSCO Modal Graph State
   const [selectedRoleForModal, setSelectedRoleForModal] = useState(null);
 
@@ -22,8 +26,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
     sortField: matrixSortField, 
     sortDirection: matrixSortDirection, 
     handleSort: handleMatrixSort, 
-    onKeyDown: onMatrixKeyDown, 
-    renderSortIcon: renderMatrixSortIcon 
+    onKeyDown: onMatrixKeyDown
   } = useTableSort('median_weekly_income', 'desc');
 
   // ANZSCO Occupation Sorting State
@@ -31,8 +34,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
     sortField: occSortField, 
     sortDirection: occSortDirection, 
     handleSort: handleOccSort, 
-    onKeyDown: onOccKeyDown, 
-    renderSortIcon: renderOccSortIcon 
+    onKeyDown: onOccKeyDown
   } = useTableSort('annual_change_percent', 'desc');
 
   const filteredMatrix = useMemo(() => {
@@ -40,8 +42,8 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
   }, [industryData, selectedQuadrant, matrixSortField, matrixSortDirection]);
 
   const filteredOccupations = useMemo(() => {
-    return selectFilteredOccupations(occupationData, occupationSearch, occSortField, occSortDirection, 25);
-  }, [occupationData, occupationSearch, occSortField, occSortDirection]);
+    return selectFilteredOccupations(occupationData, debouncedOccupationSearch, occSortField, occSortDirection, 25);
+  }, [occupationData, debouncedOccupationSearch, occSortField, occSortDirection]);
 
   if (!industryData || !industryData.industry_matrix) {
     return (
@@ -67,7 +69,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
       />
 
       {/* SECTION 1: Industry Opportunity 2x2 Matrix */}
-      <section className="glass-card section-card" style={{ marginBottom: '24px' }} aria-labelledby="industry-quadrant-title">
+      <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="industry-quadrant-title">
         <div className="card-header-flex">
           <div>
             <h2 id="industry-quadrant-title" className="card-title">
@@ -113,27 +115,27 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
               <tr>
                 <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('industry')} onKeyDown={(e) => onMatrixKeyDown(e, 'industry')}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    Industry Sector {renderMatrixSortIcon('industry')}
+                    Industry Sector <SortIcon field="industry" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                   </div>
                 </th>
                 <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('current_vacancy_index')} onKeyDown={(e) => onMatrixKeyDown(e, 'current_vacancy_index')}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    MBIE Vacancy Index {renderMatrixSortIcon('current_vacancy_index')}
+                    MBIE Vacancy Index <SortIcon field="current_vacancy_index" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                   </div>
                 </th>
                 <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('yoy_growth_percent')} onKeyDown={(e) => onMatrixKeyDown(e, 'yoy_growth_percent')}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    YoY Growth (%) {renderMatrixSortIcon('yoy_growth_percent')}
+                    YoY Growth (%) <SortIcon field="yoy_growth_percent" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                   </div>
                 </th>
                 <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('hourly_income')} onKeyDown={(e) => onMatrixKeyDown(e, 'hourly_income')}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    Hourly Wage (40 hr/wk) {renderMatrixSortIcon('hourly_income')}
+                    Hourly Wage (40 hr/wk) <SortIcon field="hourly_income" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                   </div>
                 </th>
                 <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('median_weekly_income')} onKeyDown={(e) => onMatrixKeyDown(e, 'median_weekly_income')}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    Median Weekly Wage {renderMatrixSortIcon('median_weekly_income')}
+                    Median Weekly Wage <SortIcon field="median_weekly_income" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                   </div>
                 </th>
                 <th scope="col">Strategic Quadrant Tier</th>
@@ -158,10 +160,10 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                     </span>
                   </td>
                   <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
-                    ${item.hourly_income.toFixed(2)} / hr
+                    ${item.hourly_income ? item.hourly_income.toFixed(2) : (item.median_weekly_income / 40.0).toFixed(2)} / hr
                   </td>
                   <td className="tabular-nums" style={{ fontWeight: '600' }}>
-                    ${item.median_weekly_income.toLocaleString()} / wk
+                    ${item.median_weekly_income ? item.median_weekly_income.toLocaleString() : 'N/A'} / wk
                   </td>
                   <td>
                     <span className={`badge ${
@@ -231,7 +233,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
         {filteredOccupations.length === 0 ? (
           <div className="no-data-banner">
             <AlertCircle size={20} aria-hidden="true" />
-            <span>No occupation results found matching "{occupationSearch}".</span>
+            <span>No occupation results found matching "{debouncedOccupationSearch}".</span>
           </div>
         ) : (
           <div className="custom-table-container">
@@ -240,17 +242,17 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                 <tr>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleOccSort('code')} onKeyDown={(e) => onOccKeyDown(e, 'code')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      ANZSCO Code {renderOccSortIcon('code')}
+                      ANZSCO Code <SortIcon field="code" sortField={occSortField} sortDirection={occSortDirection} />
                     </div>
                   </th>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleOccSort('title')} onKeyDown={(e) => onOccKeyDown(e, 'title')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Occupation Title {renderOccSortIcon('title')}
+                      Occupation Title <SortIcon field="title" sortField={occSortField} sortDirection={occSortDirection} />
                     </div>
                   </th>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleOccSort('annual_change_percent')} onKeyDown={(e) => onOccKeyDown(e, 'annual_change_percent')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      YoY Demand Growth (%) {renderOccSortIcon('annual_change_percent')}
+                      YoY Demand Growth (%) <SortIcon field="annual_change_percent" sortField={occSortField} sortDirection={occSortDirection} />
                     </div>
                   </th>
                   <th scope="col">Estimated Hourly Salary Range</th>

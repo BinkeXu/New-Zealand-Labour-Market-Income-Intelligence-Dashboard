@@ -1,16 +1,15 @@
 import React from 'react';
-import { Briefcase, Compass, BarChart3, MapPin, Award, BookOpen, Sun, Moon } from 'lucide-react';
+import { Briefcase, Compass, BarChart3, MapPin, Award, BookOpen, Sun, Moon, Activity } from 'lucide-react';
 
 const tabs = [
   { id: 'overview', label: 'Market Overview', icon: BarChart3 },
-  { id: 'regional', label: 'Regional & Income Comparison', icon: MapPin },
-  { id: 'industry', label: 'Industry Opportunity Matrix', icon: Award },
-  { id: 'pathfinder', label: 'NZ Career Pathfinder Guide', icon: Compass },
+  { id: 'regional', label: 'Regional & Income', icon: MapPin },
+  { id: 'industry', label: 'Industry Matrix', icon: Award },
+  { id: 'pathfinder', label: 'Career Pathfinder', icon: Compass },
   { id: 'methodology', label: 'Data & Methodology', icon: BookOpen }
 ];
 
 export default function Header({ activeTab, setActiveTab, theme, toggleTheme }) {
-
   return (
     <header>
       <nav className="navbar glass-card" aria-label="Main Navigation">
@@ -19,8 +18,11 @@ export default function Header({ activeTab, setActiveTab, theme, toggleTheme }) 
             <Briefcase size={22} />
           </div>
           <div>
-            <h1 className="navbar-title" style={{ fontSize: '1.25rem' }}>NZ Labour Market & Income Intelligence</h1>
-            <p className="navbar-subtitle">Employment Trends & Career Pathfinder • Updated 2026</p>
+            <h1 className="navbar-title">NZ Labour Market & Income Intelligence</h1>
+            <div className="navbar-subtitle">
+              <span className="status-dot" aria-hidden="true" />
+              <span>MBIE Vacancy & Stats NZ Census • 2026 Release</span>
+            </div>
           </div>
         </div>
 
@@ -48,8 +50,8 @@ export default function Header({ activeTab, setActiveTab, theme, toggleTheme }) 
           <button
             className="theme-toggle-btn"
             onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
           >
             {theme === 'dark' ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
           </button>
