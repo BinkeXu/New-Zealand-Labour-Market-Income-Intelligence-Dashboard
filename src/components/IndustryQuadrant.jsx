@@ -27,7 +27,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
     sortDirection: matrixSortDirection, 
     handleSort: handleMatrixSort, 
     onKeyDown: onMatrixKeyDown
-  } = useTableSort('median_weekly_income', 'desc');
+  } = useTableSort('opportunity_score', 'desc');
 
   // ANZSCO Occupation Sorting State
   const { 
@@ -35,7 +35,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
     sortDirection: occSortDirection, 
     handleSort: handleOccSort, 
     onKeyDown: onOccKeyDown
-  } = useTableSort('annual_change_percent', 'desc');
+  } = useTableSort('opportunity_score', 'desc');
 
   const filteredMatrix = useMemo(() => {
     return selectFilteredIndustryMatrix(industryData, selectedQuadrant, matrixSortField, matrixSortDirection);
@@ -77,7 +77,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
               New Zealand Industry Opportunity 2x2 Quadrant Matrix
             </h2>
             <p className="card-subtitle">
-              Cross-evaluating MBIE job vacancy growth against Stats NZ ANZSIC median weekly and hourly earnings. Filter by strategic tier or click headers to sort.
+              Cross-evaluating MBIE job vacancy growth against Stats NZ ANZSIC median weekly and hourly earnings with <strong>Sector Opportunity Scores</strong>.
             </p>
           </div>
 
@@ -118,6 +118,11 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                     Industry Sector <SortIcon field="industry" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                   </div>
                 </th>
+                <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('opportunity_score')} onKeyDown={(e) => onMatrixKeyDown(e, 'opportunity_score')}>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    Opportunity Score <SortIcon field="opportunity_score" sortField={matrixSortField} sortDirection={matrixSortDirection} />
+                  </div>
+                </th>
                 <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('current_vacancy_index')} onKeyDown={(e) => onMatrixKeyDown(e, 'current_vacancy_index')}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     MBIE Vacancy Index <SortIcon field="current_vacancy_index" sortField={matrixSortField} sortDirection={matrixSortDirection} />
@@ -150,6 +155,15 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                       <Briefcase size={16} color="#4f46e5" aria-hidden="true" />
                       {item.industry}
                     </div>
+                  </td>
+                  <td>
+                    {item.opportunity_score ? (
+                      <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                        {item.opportunity_score} pts
+                      </span>
+                    ) : (
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
+                    )}
                   </td>
                   <td className="tabular-nums" style={{ fontWeight: '700', color: '#4f46e5' }}>
                     {item.current_vacancy_index}
@@ -198,7 +212,7 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
               Detailed ANZSCO Occupational Demand & Immigration NZ (INZ) Green List
             </h2>
             <p className="card-subtitle">
-              Detailed tracking of 4-digit ANZSCO occupations with annual growth %, estimated hourly salary ranges, and <strong>Immigration NZ (INZ) Green List Visa Status</strong>. Click any row to view 58-quarter historical trend graph!
+              Detailed tracking of 4-digit ANZSCO occupations with <strong>Opportunity Scores</strong>, annual growth %, estimated hourly salary ranges, and <strong>INZ Green List Visa Status</strong>. Click any row to view 58-quarter historical trend graph!
             </p>
           </div>
 
@@ -250,6 +264,11 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                       Occupation Title <SortIcon field="title" sortField={occSortField} sortDirection={occSortDirection} />
                     </div>
                   </th>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleOccSort('opportunity_score')} onKeyDown={(e) => onOccKeyDown(e, 'opportunity_score')}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      Opportunity Score <SortIcon field="opportunity_score" sortField={occSortField} sortDirection={occSortDirection} />
+                    </div>
+                  </th>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleOccSort('annual_change_percent')} onKeyDown={(e) => onOccKeyDown(e, 'annual_change_percent')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       YoY Demand Growth (%) <SortIcon field="annual_change_percent" sortField={occSortField} sortDirection={occSortDirection} />
@@ -281,6 +300,15 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                     </td>
                     <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>
                       {occ.title}
+                    </td>
+                    <td>
+                      {occ.opportunity_score ? (
+                        <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                          {occ.opportunity_score} pts
+                        </span>
+                      ) : (
+                        <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
+                      )}
                     </td>
                     <td>
                       <span className={`tabular-nums ${occ.annual_change_percent >= 0 ? "trend-up" : "trend-down"}`}>

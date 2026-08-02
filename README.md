@@ -37,18 +37,14 @@ An executive, production-grade analytics platform providing data-driven insights
   - `🟢 INZ Green List Tier 1 (Straight to Residence)` (Developers, Software Engineers, ICT Managers, Civil Engineers, Doctors, Nurses).
   - `🟡 INZ Green List Tier 2 (Work to Residence)` (ICT Support Engineers, Network Engineers, Qualified Trades).
 
-### 🏠 5. Rent-Adjusted Real Purchasing Power & Regional Matrix
-- **Cost of Living Modeling**: Combines Stats NZ median weekly income with Stats NZ / MBIE Tenancy Mean Weekly Rent across all 10 MBIE regions.
-- **Mathematical Formula**:
+### 🏠 5. Market Concentration Volume-Weighted Opportunity Score & Regional Matrix
+- **Calibrated Opportunity Score Formula**: Combines MBIE Vacancy Indices with regional industry hiring volume shares ($S_{\text{region, industry}}$) and median weekly earnings to prevent index baseline distortions in small regions:
+  $$\text{Opportunity Score}_{\text{region, industry}} = \left(\text{Vacancy Index} \times \frac{S_{\text{region, industry}}}{10\%}\right) \times \left(\frac{\text{Effective Weekly Income}}{\$1,200}\right)$$
+- **Real Purchasing Power Index**:
   $$\text{Net Discretionary Income} = \text{Median Weekly Wage} - \text{Mean Weekly Rent}$$
-  $$\text{Real Purchasing Power Index} = \left(\frac{\text{Net Discretionary Income}}{\$800.00}\right) \times 100$$
-- **Working-Age Demographic Density**: Excludes children (<15) and retirees (65+) using Stats NZ Census Working-Age Population (Ages 15–64) to calculate true per-capita vacancies per 100k active residents.
+- **Granular Table Displays**: Opportunity Scores are computed and displayed for every region, every city/region x industry matrix cell, every industry sector, and every 4-digit ANZSCO occupation.
 
-### 📉 6. Stats NZ Official Unemployment & Underutilisation Rates
-- **NZ Official Unemployment Rate**: **5.3%** (Men: 5.4%, Women: 5.3%) parsed directly from `unemployment_rate_by_sex.csv` (March 2026 Quarter).
-- **NZ Labor Underutilisation Rate**: **12.9%** (Men: 11.6%, Women: 14.3%) parsed from `underutilisation_rate_by_sex.csv`.
-
-### ⚡ 7. Enterprise State Architecture & Performance
+### ⚡ 6. Enterprise State Architecture & Performance
 - **Segregated Memoized Contexts**: Split state into `ThemeContext`, `NavigationContext`, and `DataContext` with `useMemo` to eliminate global re-renders.
 - **`React.lazy()` & `Suspense` Code-Splitting**: Lazily loads dashboard tabs (`Overview`, `RegionalMatrix`, `IndustryQuadrant`, etc.), dropping initial JS bundle size from **700 kB down to 210 kB** (~70% load speed improvement).
 - **React `ErrorBoundary`**: Graceful error catching prevents single-component errors from crashing the entire application.

@@ -593,12 +593,25 @@ def process_city_industry_breakdown() -> Dict[str, Any]:
         "Tasman/Nelson/Marlborough/West Coast", "Canterbury", "Otago/Southland"
     ]
     
+    pop_map = load_population_data()
+    regional_wages = {
+        "Auckland": 1438.0, "Waikato": 1320.0, "Bay of Plenty": 1290.0, "Northland": 1210.0,
+        "Gisborne/Hawkes Bay": 1230.0, "Manawatu-Whanganui/Taranaki": 1240.0, "Wellington": 1496.0,
+        "Tasman/Nelson/Marlborough/West Coast": 1220.0, "Canterbury": 1343.0, "Otago/Southland": 1280.0
+    }
+    
+    industry_shares = CONFIG.get("industry_regional_shares", {})
+    
     df_latest = df[df['ACTUAL_DATE'] == latest_q_date]
     df_prev = df[df['ACTUAL_DATE'] == prev_year_date]
     
     breakdown_list = []
     
     for reg_name in all_nz_regions:
+        w_pop = pop_map.get(reg_name, {}).get("working_age", 300000)
+        reg_wage = regional_wages.get(reg_name, 1380.0)
+        wage_factor = reg_wage / 1380.0
+        
         for ind in industries:
             curr_row = df_latest[(df_latest['KEYA'] == reg_name) & (df_latest['KEYBB'] == ind)]
             prev_row = df_prev[(df_prev['KEYA'] == reg_name) & (df_prev['KEYBB'] == ind)]
@@ -609,7 +622,12 @@ def process_city_industry_breakdown() -> Dict[str, Any]:
             yoy_growth = calculate_yoy_growth(curr_idx, prev_idx)
             
             salary = INDUSTRY_BENCHMARKS.get(ind, {'weekly': 1250, 'annual': 65000, 'description': 'General Sector'})
-            hourly = calculate_hourly_wage(salary['weekly'])
+            effective_weekly = salary['weekly'] * wage_factor
+            hourly = calculate_hourly_wage(effective_weekly)
+            
+            # Calibrate opportunity score using regional industry volume share weight
+            ind_share = industry_shares.get(ind, {}).get(reg_name, 0.10)
+            opp_score = round(((curr_idx or 0) * (ind_share / 0.10)) * (effective_weekly / 1200.0), 2) if curr_idx else None
             
             breakdown_list.append({
                 "region_name": reg_name,
@@ -618,8 +636,9 @@ def process_city_industry_breakdown() -> Dict[str, Any]:
                 "current_vacancy_index": curr_idx,
                 "prev_year_vacancy_index": prev_idx,
                 "yoy_growth_percent": yoy_growth,
-                "median_weekly_income": salary['weekly'],
+                "median_weekly_income": round(effective_weekly, 2),
                 "hourly_income": hourly,
+                "opportunity_score": opp_score,
                 "data_source": "MBIE Jobs Online Quarterly Release (March 2026)"
             })
             
@@ -666,6 +685,7 @@ def process_industry_matrix() -> Dict[str, Any]:
                 
             salary = INDUSTRY_BENCHMARKS.get(ind, {'weekly': 1250, 'annual': 65000, 'description': 'General Sector'})
             hourly = calculate_hourly_wage(salary['weekly'])
+            opp_score = calculate_opportunity_score(current_idx, salary['weekly'])
             
             high_salary = salary['weekly'] >= 1400
             high_growth = (yoy_growth is not None) and (yoy_growth >= 0.0)
@@ -690,6 +710,7 @@ def process_industry_matrix() -> Dict[str, Any]:
                 "median_weekly_income": salary['weekly'],
                 "annualized_income": salary['annual'],
                 "hourly_income": hourly,
+                "opportunity_score": opp_score,
                 "description": salary['description'],
                 "quadrant": quadrant,
                 "recommendation": recommendation,
@@ -753,12 +774,19 @@ def process_detailed_occupations() -> Dict[str, Any]:
             
         salary_tier = "$75,000 - $120,000"
         hourly_tier = "$36.00 - $57.70 / hr"
+        mid_hourly = 45.0
         if any(kw in title_lower for kw in ['executive', 'manager', 'director', 'engineer', 'architect', 'doctor']):
             salary_tier = "$110,000 - $175,000+"
             hourly_tier = "$52.88 - $84.13+ / hr"
+            mid_hourly = 60.0
         elif any(kw in title_lower for kw in ['assistant', 'clerk', 'worker', 'labourer', 'receptionist']):
             salary_tier = "$55,000 - $75,000"
             hourly_tier = "$26.44 - $36.06 / hr"
+            mid_hourly = 30.0
+
+        # Calculate ANZSCO opportunity score
+        baseline_idx = max(20.0, 100.0 + (change or 0.0) * 3)
+        opp_score = calculate_opportunity_score(baseline_idx, mid_hourly * 40.0)
             
         # Extract historical quarters for this specific ANZSCO role
         role_history = []
@@ -778,6 +806,7 @@ def process_detailed_occupations() -> Dict[str, Any]:
             "annual_change_percent": change,
             "estimated_salary_range": salary_tier,
             "estimated_hourly_range": hourly_tier,
+            "opportunity_score": opp_score,
             "inz_green_list_tier": inz_tier,
             "historical_quarters": role_history,
             "data_source": "MBIE Jobs Online Detailed ANZSCO & Immigration NZ Green List (March 2026)"

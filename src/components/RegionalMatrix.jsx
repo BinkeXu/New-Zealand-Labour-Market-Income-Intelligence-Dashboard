@@ -9,7 +9,7 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend 
 } from 'recharts';
 import { 
-  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck 
+  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star 
 } from 'lucide-react';
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
@@ -38,11 +38,17 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
     sortDirection: matrixSortDirection, 
     handleSort: handleMatrixSort, 
     onKeyDown: onMatrixKeyDown
-  } = useTableSort('current_vacancy_index', 'desc');
+  } = useTableSort('opportunity_score', 'desc');
 
   const filteredRegions = useMemo(() => {
     return selectFilteredRegions(regionalData, selectedIsland, debouncedCityFilter, sortField, sortDirection);
   }, [regionalData, selectedIsland, debouncedCityFilter, sortField, sortDirection]);
+
+  // Opportunity Score Leaderboard Ranking (Top 4 Regions)
+  const topOpportunityLeaderboard = useMemo(() => {
+    const all = regionalData?.regions || [];
+    return [...all].sort((a, b) => (b.opportunity_score || 0) - (a.opportunity_score || 0)).slice(0, 4);
+  }, [regionalData]);
 
   const chartData = useMemo(() => {
     return selectRegionalChartData(filteredRegions);
@@ -77,16 +83,67 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
 
   return (
     <div>
+      {/* HIGHLIGHT BANNER: Working-Age Opportunity Score Leaderboard */}
+      <section className="glass-card section-card" style={{ marginBottom: '28px', background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(79, 70, 229, 0.04) 100%)', border: '1px solid rgba(139, 92, 246, 0.3)' }} aria-labelledby="opp-leaderboard-title">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <h2 id="opp-leaderboard-title" className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
+              <Award size={24} color="#8b5cf6" aria-hidden="true" />
+              NZ Working-Age Opportunity Score Regional Leaderboard
+            </h2>
+            <p className="card-subtitle">
+              Evaluates job vacancy availability per 100k active Working-Age residents (Ages 15–64) relative to Stats NZ median weekly earnings.
+            </p>
+          </div>
+          <span className="badge badge-amber" style={{ fontSize: '0.85rem', padding: '6px 12px' }}>
+            ⭐ Working-Age Density Benchmark
+          </span>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px' }}>
+          {topOpportunityLeaderboard.map((reg, idx) => (
+            <div 
+              key={reg.region_name} 
+              style={{ 
+                background: 'var(--bg-card)', 
+                padding: '14px 16px', 
+                borderRadius: '12px', 
+                border: idx === 0 ? '2px solid #8b5cf6' : '1px solid var(--border-subtle)',
+                position: 'relative'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: '800', color: idx === 0 ? '#8b5cf6' : 'var(--text-muted)', textTransform: 'uppercase' }}>
+                  Rank #{idx + 1} Region
+                </span>
+                <span className={`badge ${idx === 0 ? 'badge-amber' : idx === 1 ? 'badge-indigo' : 'badge-emerald'}`} style={{ fontSize: '0.75rem' }}>
+                  {reg.opportunity_score} pts
+                </span>
+              </div>
+
+              <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '4px' }}>
+                {reg.region_name}
+              </div>
+
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', justifyContent: 'space-between' }}>
+                <span>Vacancies: <strong>{reg.vacancies_per_100k}/100k</strong></span>
+                <span>Wage: <strong>${reg.median_weekly_income}/wk</strong></span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* SECTION 1: Regional Summary & Purchasing Power Analysis */}
       <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="regional-matrix-title">
         <div className="card-header-flex">
           <div>
             <h2 id="regional-matrix-title" className="card-title">
               <MapPin size={22} className="text-gradient-cyan" aria-hidden="true" />
-              All New Zealand Regional Vacancies, Income, Rent & Purchasing Power
+              All New Zealand Regional Vacancies, Opportunity Scores & Income
             </h2>
             <p className="card-subtitle">
-              Comprehensive analysis of online job vacancies (MBIE), median earnings (Stats NZ), mean rent (Stats NZ/MBIE Tenancy), and <strong>Rent-Adjusted Real Purchasing Power Index</strong> across all 10 regions.
+              Comprehensive analysis of online job vacancies (MBIE), median earnings (Stats NZ), mean rent (Stats NZ/MBIE Tenancy), and <strong>Working-Age Opportunity Scores</strong> across all 10 regions.
             </p>
           </div>
 
@@ -145,7 +202,7 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
                   <XAxis dataKey="name" stroke="var(--text-muted)" fontSize={11} interval={0} angle={-25} textAnchor="end" />
                   <YAxis yAxisId="left" stroke="#4f46e5" fontSize={11} orientation="left" label={{ value: 'Vacancies / 100k', angle: -90, position: 'insideLeft', fill: '#4f46e5' }} />
-                  <YAxis yAxisId="right" stroke="#059669" fontSize={11} orientation="right" label={{ value: 'Hourly Wage ($)', angle: 90, position: 'insideRight', fill: '#059669' }} />
+                  <YAxis yAxisId="right" stroke="#8b5cf6" fontSize={11} orientation="right" label={{ value: 'Opportunity Score (pts)', angle: 90, position: 'insideRight', fill: '#8b5cf6' }} />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: 'var(--bg-card)', 
@@ -156,7 +213,7 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                   />
                   <Legend verticalAlign="top" height={36} />
                   <Bar yAxisId="left" dataKey="Vacancies per 100k (Ages 15-64)" fill="#4f46e5" radius={[6, 6, 0, 0]} />
-                  <Bar yAxisId="right" dataKey="Hourly Wage ($/hr)" fill="#059669" radius={[6, 6, 0, 0]} />
+                  <Bar yAxisId="right" dataKey="Opportunity Score (Working-Age)" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -174,6 +231,11 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                     <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('region_name')} onKeyDown={(e) => onKeyDown(e, 'region_name')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         Region Name <SortIcon field="region_name" sortField={sortField} sortDirection={sortDirection} />
+                      </div>
+                    </th>
+                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('opportunity_score')} onKeyDown={(e) => onKeyDown(e, 'opportunity_score')}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        Opportunity Score <SortIcon field="opportunity_score" sortField={sortField} sortDirection={sortDirection} />
                       </div>
                     </th>
                     <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('working_age_population')} onKeyDown={(e) => onKeyDown(e, 'working_age_population')}>
@@ -206,11 +268,6 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                         Real Purchasing Power <SortIcon field="purchasing_power_index" sortField={sortField} sortDirection={sortDirection} />
                       </div>
                     </th>
-                    <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('opportunity_score')} onKeyDown={(e) => onKeyDown(e, 'opportunity_score')}>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Opportunity Score <SortIcon field="opportunity_score" sortField={sortField} sortDirection={sortDirection} />
-                      </div>
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -221,6 +278,13 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                           <MapPin size={16} color="#4f46e5" aria-hidden="true" />
                           {region.region_name}
                         </div>
+                      </td>
+                      <td>
+                        {region.opportunity_score ? (
+                          <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                            {region.opportunity_score} pts
+                          </span>
+                        ) : 'N/A'}
                       </td>
                       <td className="tabular-nums">
                         {region.working_age_population ? (
@@ -246,13 +310,6 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                           </span>
                         ) : 'N/A'}
                       </td>
-                      <td>
-                        {region.opportunity_score ? (
-                          <span className="badge badge-indigo tabular-nums" style={{ fontWeight: '800' }}>
-                            {region.opportunity_score} pts
-                          </span>
-                        ) : 'N/A'}
-                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -268,10 +325,10 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
           <div>
             <h2 id="city-industry-matrix-title" className="card-title">
               <Briefcase size={22} className="text-gradient" aria-hidden="true" />
-              City x Industry Vacancy Breakdown Matrix
+              City x Industry Vacancy & Calibrated Opportunity Score Matrix
             </h2>
             <p className="card-subtitle">
-              Granular vacancy indices across specific NZ cities and industry sectors. Filter by region or industry below.
+              Granular vacancy indices and <strong>Market Concentration-Weighted Opportunity Scores</strong> across specific NZ cities and industry sectors. Filter by region or industry below.
             </p>
           </div>
 
@@ -337,6 +394,11 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                       Industry Sector <SortIcon field="industry" sortField={matrixSortField} sortDirection={matrixSortDirection} />
                     </div>
                   </th>
+                  <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('opportunity_score')} onKeyDown={(e) => onMatrixKeyDown(e, 'opportunity_score')}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      Opportunity Score <SortIcon field="opportunity_score" sortField={matrixSortField} sortDirection={matrixSortDirection} />
+                    </div>
+                  </th>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('current_vacancy_index')} onKeyDown={(e) => onMatrixKeyDown(e, 'current_vacancy_index')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       MBIE Vacancy Index <SortIcon field="current_vacancy_index" sortField={matrixSortField} sortDirection={matrixSortDirection} />
@@ -377,6 +439,15 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                         {row.industry}
                       </div>
                     </td>
+                    <td>
+                      {row.opportunity_score ? (
+                        <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                          {row.opportunity_score} pts
+                        </span>
+                      ) : (
+                        <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
+                      )}
+                    </td>
                     <td className="tabular-nums" style={{ fontWeight: '700', color: '#4f46e5' }}>
                       {row.current_vacancy_index !== null ? row.current_vacancy_index : 'No data available'}
                     </td>
@@ -403,11 +474,11 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
         )}
       </section>
 
-      {/* Opportunity Score & Rent Methodology Card */}
+      {/* Opportunity Score & Rent Methodology Card with Volume Weighting Explanation */}
       <section className="glass-card section-card col-12" style={{ marginTop: '28px' }} aria-labelledby="opportunity-formula-title">
         <h3 id="opportunity-formula-title" className="card-title" style={{ marginBottom: '16px', color: 'var(--text-main)' }}>
           <Calculator size={22} className="text-gradient" aria-hidden="true" />
-          Real Rent-Adjusted Purchasing Power & Working-Age Opportunity Score
+          Opportunity Score Calibration & Real Purchasing Power Methodology
         </h3>
 
         <div className="section-grid" style={{ marginBottom: 0 }}>
@@ -416,7 +487,7 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
               <Home size={16} color="#059669" aria-hidden="true" />
               1. Rent-Adjusted Real Purchasing Power:
             </h4>
-            <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: 'var(--primary)', background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '6px', marginBottom: '8px' }}>
+            <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: 'var(--primary)', background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '6px', marginBottom: '8px' }}>
               Net Discretionary = Median Weekly Wage - Mean Rent ($/wk)
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
@@ -427,13 +498,13 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
           <div className="col-6">
             <h4 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <UserCheck size={16} color="#4f46e5" aria-hidden="true" />
-              2. Working-Age Opportunity Score:
+              2. Market-Volume Weighted Opportunity Score:
             </h4>
-            <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: 'var(--primary)', background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '6px', marginBottom: '8px' }}>
-              Opp Score = (Vacancies / 100k Working-Age / 50) × (Wage / $1,200) × 100
+            <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: 'var(--primary)', background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '6px', marginBottom: '8px' }}>
+              Opp Score = (Vacancy Index × Regional Industry Share Weight) × (Wage / $1,200)
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-              Filters out children (&lt;15) and retirees (65+) to measure per-capita job vacancy density relative to active job seekers.
+              <strong>Why Market Weighting Matters:</strong> MBIE Job Vacancy indices track growth relative to 2007 baselines. Without regional market concentration weights, small regional growth spikes could falsely overstate opportunities. By weighting each region's actual share of national industry hiring (e.g. Auckland 60% of IT, Wellington 25% of IT, Waikato 22% of Primary Agriculture), Opportunity Scores accurately reflect true hiring volume and career depth.
             </p>
           </div>
         </div>

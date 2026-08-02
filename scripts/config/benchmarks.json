@@ -22,5 +22,17 @@
     "Sales": { "weekly": 1220, "annual": 63440, "description": "Retail Sales, Business Development & Account Management" },
     "Hospitality": { "weekly": 980, "annual": 50960, "description": "Accommodation, Food Services & Tourism" },
     "Other": { "weekly": 1250, "annual": 65000, "description": "Personal Services, Public Safety & Maintenance" }
+  },
+  "industry_regional_shares": {
+    "IT": { "Auckland": 0.60, "Wellington": 0.25, "Canterbury": 0.08, "Waikato": 0.03, "Bay of Plenty": 0.02, "Otago/Southland": 0.01, "Manawatu-Whanganui/Taranaki": 0.005, "Gisborne/Hawkes Bay": 0.003, "Tasman/Nelson/Marlborough/West Coast": 0.001, "Northland": 0.001 },
+    "Business services": { "Auckland": 0.52, "Wellington": 0.28, "Canterbury": 0.10, "Waikato": 0.04, "Bay of Plenty": 0.03, "Otago/Southland": 0.01, "Manawatu-Whanganui/Taranaki": 0.01, "Gisborne/Hawkes Bay": 0.005, "Tasman/Nelson/Marlborough/West Coast": 0.003, "Northland": 0.002 },
+    "Health care": { "Auckland": 0.32, "Canterbury": 0.15, "Wellington": 0.12, "Waikato": 0.10, "Bay of Plenty": 0.08, "Otago/Southland": 0.07, "Manawatu-Whanganui/Taranaki": 0.06, "Gisborne/Hawkes Bay": 0.04, "Northland": 0.04, "Tasman/Nelson/Marlborough/West Coast": 0.02 },
+    "Construction": { "Auckland": 0.40, "Canterbury": 0.22, "Waikato": 0.12, "Wellington": 0.10, "Bay of Plenty": 0.07, "Otago/Southland": 0.04, "Manawatu-Whanganui/Taranaki": 0.025, "Gisborne/Hawkes Bay": 0.015, "Northland": 0.005, "Tasman/Nelson/Marlborough/West Coast": 0.005 },
+    "Education": { "Auckland": 0.35, "Canterbury": 0.14, "Wellington": 0.14, "Waikato": 0.10, "Otago/Southland": 0.09, "Bay of Plenty": 0.07, "Manawatu-Whanganui/Taranaki": 0.05, "Gisborne/Hawkes Bay": 0.03, "Northland": 0.02, "Tasman/Nelson/Marlborough/West Coast": 0.01 },
+    "Manufacturing": { "Auckland": 0.38, "Waikato": 0.16, "Canterbury": 0.16, "Bay of Plenty": 0.09, "Manawatu-Whanganui/Taranaki": 0.07, "Otago/Southland": 0.06, "Wellington": 0.04, "Gisborne/Hawkes Bay": 0.02, "Northland": 0.01, "Tasman/Nelson/Marlborough/West Coast": 0.01 },
+    "Primary": { "Waikato": 0.22, "Bay of Plenty": 0.18, "Canterbury": 0.18, "Manawatu-Whanganui/Taranaki": 0.12, "Otago/Southland": 0.10, "Gisborne/Hawkes Bay": 0.08, "Tasman/Nelson/Marlborough/West Coast": 0.04, "Northland": 0.04, "Auckland": 0.03, "Wellington": 0.01 },
+    "Sales": { "Auckland": 0.42, "Canterbury": 0.14, "Wellington": 0.12, "Waikato": 0.10, "Bay of Plenty": 0.08, "Otago/Southland": 0.06, "Manawatu-Whanganui/Taranaki": 0.04, "Gisborne/Hawkes Bay": 0.02, "Northland": 0.01, "Tasman/Nelson/Marlborough/West Coast": 0.01 },
+    "Hospitality": { "Auckland": 0.35, "Otago/Southland": 0.18, "Canterbury": 0.12, "Wellington": 0.12, "Bay of Plenty": 0.09, "Waikato": 0.06, "Tasman/Nelson/Marlborough/West Coast": 0.04, "Northland": 0.02, "Manawatu-Whanganui/Taranaki": 0.01, "Gisborne/Hawkes Bay": 0.01 },
+    "Other": { "Auckland": 0.38, "Wellington": 0.18, "Canterbury": 0.14, "Waikato": 0.08, "Bay of Plenty": 0.06, "Otago/Southland": 0.06, "Manawatu-Whanganui/Taranaki": 0.04, "Gisborne/Hawkes Bay": 0.03, "Northland": 0.02, "Tasman/Nelson/Marlborough/West Coast": 0.01 }
   }
 }

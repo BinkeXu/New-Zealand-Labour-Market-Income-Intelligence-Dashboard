@@ -79,7 +79,7 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
                 onOpenModal && onOpenModal(card.metricId);
               }
             }}
-            title={`Click to view 5-year historical trend chart for ${card.title}`}
+            title={`Click to view historical trend chart for ${card.title}`}
           >
             <div>
               <div className="kpi-header">

@@ -1,22 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { X, Database } from 'lucide-react';
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from 'recharts';
+import { X, Database, Award } from 'lucide-react';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, BarChart, Bar } from 'recharts';
 import DownloadCSVButton from './DownloadCSVButton';
 
-/**
- * HistoricalChartModal — completely rewritten to fix rendering bugs.
- *
- * Root cause of previous failures:
- *   Recharts <Line yAxisId={undefined}> conflicts with a <YAxis> that has
- *   no explicit yAxisId. Recharts silently swallows the error and renders
- *   nothing. Fix: never pass yAxisId to <Line> when using a single Y axis.
- *
- * This version:
- *   1. Separates the chart JSX for single-axis vs dual-axis metrics
- *   2. Never passes yAxisId when there is only one Y axis
- *   3. Uses useMemo for data preparation
- *   4. Adds console.log breadcrumbs for debugging
- */
 export default function HistoricalChartModal({ isOpen, onClose, modalMetric, extraData, monthlyData, regionalData }) {
   const [modalTimeRange, setModalTimeRange] = useState('All');
 
@@ -25,6 +11,34 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
     if (!modalMetric) return null;
 
     const hlfs = monthlyData?.metadata?.hlfs_labor_metrics || {};
+
+    // --- OPPORTUNITY SCORE ---
+    if (modalMetric === 'opportunity_score') {
+      const regions = regionalData?.regions || [];
+      const data = [...regions].map(r => ({
+        region: r.region_name,
+        "Opportunity Score (pts)": r.opportunity_score,
+        "Vacancies per 100k": r.vacancies_per_100k,
+        "Median Weekly Wage ($)": r.median_weekly_income,
+        "Mean Rent ($/wk)": r.mean_weekly_rent
+      })).sort((a, b) => (b["Opportunity Score (pts)"] || 0) - (a["Opportunity Score (pts)"] || 0));
+
+      return {
+        title: "NZ Regional Working-Age Opportunity Score Comparison (2026)",
+        subtitle: "Comprehensive evaluation of job vacancy density per 100k Working-Age residents (Ages 15-64) against Stats NZ median weekly earnings.",
+        source: "MBIE Jobs Online & Stats NZ Census Working-Age Population (2026)",
+        filename: "nz_regional_opportunity_scores.csv",
+        rangeOptions: ['All'],
+        xKey: "region",
+        isBarChart: true,
+        dualAxis: false,
+        lines: [
+          { key: "Opportunity Score (pts)", color: "#8b5cf6", width: 3 }
+        ],
+        fullData: data,
+        sliceMap: {}
+      };
+    }
 
     // --- VACANCY ---
     if (modalMetric === 'vacancy') {
@@ -178,15 +192,15 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
         "Annual Growth (%)": item.annual_change,
       }));
       return {
-        title: `ANZSCO ${extraData.code}: ${extraData.title} — Demand Trajectory`,
-        subtitle: `58-quarter historical series tracking YoY demand growth percentage for ${extraData.title}.`,
-        source: "MBIE Jobs Online Detailed ANZSCO Occupation Dataset (2011 – 2026)",
-        filename: `anzsco_${extraData.code}_demand_history.csv`,
+        title: `${extraData.title} (ANZSCO ${extraData.code}): 58-Quarter Demand Trajectory`,
+        subtitle: `Occupational demand index trajectory across 58 historical quarters (2011–2026). Hourly Range: ${extraData.estimated_hourly_range}. Green List: ${extraData.inz_green_list_tier || 'Standard Pathway'}.`,
+        source: "MBIE Jobs Online Detailed ANZSCO Quarterly Series (2011 – 2026)",
+        filename: `nz_anzsco_${extraData.code}_history.csv`,
         rangeOptions: ['1Y', '3Y', '5Y', 'All'],
         xKey: "quarter",
         dualAxis: false,
         lines: [
-          { key: "Annual Growth (%)", color: "#4f46e5", width: 3 },
+          { key: "Annual Growth (%)", color: "#4f46e5", width: 3 }
         ],
         fullData: data,
         sliceMap: { '1Y': 4, '3Y': 12, '5Y': 20 },
@@ -194,169 +208,144 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
     }
 
     return null;
-  }, [modalMetric, monthlyData, regionalData, extraData]);
+  }, [modalMetric, extraData, monthlyData, regionalData]);
 
-  // Don't render if closed or no config
-  if (!isOpen || !modalMetric || !chartConfig) return null;
+  // Filter fullData according to modalTimeRange
+  const displayData = useMemo(() => {
+    if (!chartConfig || !chartConfig.fullData) return [];
+    if (modalTimeRange === 'All' || !chartConfig.sliceMap || !chartConfig.sliceMap[modalTimeRange]) {
+      return chartConfig.fullData;
+    }
+    const count = chartConfig.sliceMap[modalTimeRange];
+    return chartConfig.fullData.slice(-count);
+  }, [chartConfig, modalTimeRange]);
 
-  // Slice data by time range
-  const { fullData, sliceMap } = chartConfig;
-  let displayData = fullData;
-  if (modalTimeRange !== 'All' && sliceMap[modalTimeRange]) {
-    const count = sliceMap[modalTimeRange];
-    displayData = fullData.slice(Math.max(0, fullData.length - count));
-  }
-
-  // Debug logging — check browser console if chart still doesn't render
-
+  if (!isOpen || !chartConfig) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute', top: 16, right: 16,
-            background: 'var(--table-header-bg)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: '50%', width: 36, height: 36,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'var(--text-main)', cursor: 'pointer', zIndex: 10
-          }}
-          aria-label="Close Modal"
-        >
-          <X size={18} />
-        </button>
-
+    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+      <div className="glass-card modal-content" style={{ maxWidth: '850px', width: '92%' }} onClick={(e) => e.stopPropagation()}>
         {/* Header */}
-        <div style={{ marginBottom: 20, paddingRight: 44 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12, marginBottom: 8 }}>
-            <span className="badge badge-indigo">Historical Time-Series Analytics</span>
-            <div className="filter-group" role="group" aria-label="Time Range Selector">
-              {chartConfig.rangeOptions.map(range => (
-                <button
-                  key={range}
-                  className={`filter-btn ${modalTimeRange === range ? 'active' : ''}`}
-                  onClick={() => setModalTimeRange(range)}
-                  aria-pressed={modalTimeRange === range}
-                  style={{ padding: '4px 10px', fontSize: '0.8rem' }}
-                >
-                  {range}
-                </button>
-              ))}
-            </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+          <div>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '4px' }}>
+              {chartConfig.title}
+            </h2>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              {chartConfig.subtitle}
+            </p>
           </div>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 6 }}>
-            {chartConfig.title}
-          </h2>
-          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-            {chartConfig.subtitle}
-          </p>
+          <button onClick={onClose} className="filter-btn" style={{ padding: '6px', cursor: 'pointer' }} aria-label="Close dialog">
+            <X size={18} />
+          </button>
         </div>
 
-        {/* Chart Area */}
-        <div style={{ width: '100%', height: 360, marginBottom: 20 }}>
-          {displayData.length === 0 ? (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-muted)' }}>
-              No historical trend data available for this metric.
-            </div>
-          ) : chartConfig.dualAxis ? (
-            /* ===== DUAL Y-AXIS CHART (income only) ===== */
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={displayData} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
-                <XAxis dataKey={chartConfig.xKey} stroke="var(--text-muted)" fontSize={11} interval="preserveStartEnd" />
-                <YAxis yAxisId="left" stroke="#059669" fontSize={11} orientation="left"
-                  label={{ value: chartConfig.leftAxisLabel, angle: -90, position: 'insideLeft', fill: '#059669' }} />
-                <YAxis yAxisId="right" stroke="#0284c7" fontSize={11} orientation="right"
-                  label={{ value: chartConfig.rightAxisLabel, angle: 90, position: 'insideRight', fill: '#0284c7' }} />
-                <Tooltip contentStyle={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-accent)', borderRadius: 12, color: 'var(--text-main)' }} />
-                <Legend verticalAlign="top" height={36} />
-                {chartConfig.lines.map((l, i) => (
-                  <Line key={i} type="monotone" dataKey={l.key} stroke={l.color} strokeWidth={l.width}
-                    yAxisId={l.axis} dot={displayData.length <= 15} />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
-          ) : (
-            /* ===== SINGLE Y-AXIS CHART (vacancy, unemployment, underutilisation, anzsco) ===== */
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={displayData} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
-                <XAxis dataKey={chartConfig.xKey} stroke="var(--text-muted)" fontSize={11} interval="preserveStartEnd" />
-                <YAxis stroke="var(--text-muted)" fontSize={11} domain={['auto', 'auto']} />
-                <Tooltip contentStyle={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-accent)', borderRadius: 12, color: 'var(--text-main)' }} />
-                <Legend verticalAlign="top" height={36} />
-                {chartConfig.lines.map((l, i) => (
-                  <Line key={i} type="monotone" dataKey={l.key} stroke={l.color} strokeWidth={l.width}
-                    dot={displayData.length <= 15} />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
-          )}
+        {/* Range Controls & Export */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
+          <div className="nav-tabs">
+            {chartConfig.rangeOptions.map((range) => (
+              <button
+                key={range}
+                className={`nav-tab-btn ${modalTimeRange === range ? 'active' : ''}`}
+                onClick={() => setModalTimeRange(range)}
+                style={{ padding: '4px 12px', fontSize: '0.8rem' }}
+              >
+                {range}
+              </button>
+            ))}
+          </div>
+
+          <DownloadCSVButton 
+            data={displayData}
+            filename={chartConfig.filename}
+            label="Export Modal Data"
+          />
         </div>
 
-        {/* Detailed Income Source Breakdown Metrics */}
-        {chartConfig.extraBreakdown && (
-          <div style={{ background: 'var(--table-header-bg)', borderRadius: '12px', padding: '16px', marginBottom: '20px', border: '1px solid var(--border-accent)' }}>
-            <div style={{ fontSize: '0.85rem', fontWeight: '700', color: chartConfig.extraBreakdown.color || 'var(--primary)', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              📊 Stats NZ Income Breakdown & Demographics ({chartConfig.extraBreakdown.source_name})
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
-              <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Median Weekly Wage</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  ${chartConfig.extraBreakdown.median_weekly != null ? chartConfig.extraBreakdown.median_weekly.toLocaleString() : 'N/A'} / wk
-                </div>
-                <div style={{ fontSize: '0.75rem', color: '#059669', fontWeight: '600' }}>
-                  ${chartConfig.extraBreakdown.median_hourly != null ? chartConfig.extraBreakdown.median_hourly.toFixed(2) : 'N/A'} / hr
-                </div>
-              </div>
+        {/* Dynamic Chart */}
+        <div style={{ width: '100%', height: 320, marginBottom: '16px' }}>
+          <ResponsiveContainer width="100%" height="100%">
+            {chartConfig.isBarChart ? (
+              <BarChart data={displayData} margin={{ top: 10, right: 20, left: 0, bottom: 40 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
+                <XAxis dataKey={chartConfig.xKey} stroke="var(--text-muted)" fontSize={11} interval={0} angle={-25} textAnchor="end" />
+                <YAxis stroke="var(--text-muted)" fontSize={11} />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'var(--bg-card)', 
+                    borderColor: 'var(--border-accent)',
+                    borderRadius: '10px',
+                    color: 'var(--text-main)' 
+                  }} 
+                />
+                <Bar dataKey="Opportunity Score (pts)" fill="#8b5cf6" radius={[6, 6, 0, 0]} name="Opportunity Score (pts)" />
+              </BarChart>
+            ) : chartConfig.dualAxis ? (
+              <LineChart data={displayData} margin={{ top: 10, right: 30, left: 10, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
+                <XAxis dataKey={chartConfig.xKey} stroke="var(--text-muted)" fontSize={11} />
+                <YAxis yAxisId="left" stroke="#059669" fontSize={11} label={{ value: chartConfig.leftAxisLabel, angle: -90, position: 'insideLeft', fill: '#059669' }} />
+                <YAxis yAxisId="right" stroke="#0284c7" fontSize={11} orientation="right" label={{ value: chartConfig.rightAxisLabel, angle: 90, position: 'insideRight', fill: '#0284c7' }} />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'var(--bg-card)', 
+                    borderColor: 'var(--border-accent)',
+                    borderRadius: '10px',
+                    color: 'var(--text-main)' 
+                  }} 
+                />
+                <Legend verticalAlign="top" height={36} />
+                {chartConfig.lines.map((l) => (
+                  <Line
+                    key={l.key}
+                    yAxisId={l.axis}
+                    type="monotone"
+                    dataKey={l.key}
+                    stroke={l.color}
+                    strokeWidth={l.width}
+                    dot={false}
+                  />
+                ))}
+              </LineChart>
+            ) : (
+              <LineChart data={displayData} margin={{ top: 10, right: 20, left: 0, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
+                <XAxis dataKey={chartConfig.xKey} stroke="var(--text-muted)" fontSize={11} />
+                <YAxis stroke="var(--text-muted)" fontSize={11} />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'var(--bg-card)', 
+                    borderColor: 'var(--border-accent)',
+                    borderRadius: '10px',
+                    color: 'var(--text-main)' 
+                  }} 
+                />
+                <Legend verticalAlign="top" height={36} />
+                {chartConfig.lines.map((l) => (
+                  <Line
+                    key={l.key}
+                    type="monotone"
+                    dataKey={l.key}
+                    stroke={l.color}
+                    strokeWidth={l.width}
+                    dot={false}
+                  />
+                ))}
+              </LineChart>
+            )}
+          </ResponsiveContainer>
+        </div>
 
-              <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Average Weekly Wage</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  ${chartConfig.extraBreakdown.average_weekly != null ? chartConfig.extraBreakdown.average_weekly.toLocaleString() : 'N/A'} / wk
-                </div>
-                <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: '600' }}>
-                  ${chartConfig.extraBreakdown.average_hourly != null ? chartConfig.extraBreakdown.average_hourly.toFixed(2) : 'N/A'} / hr
-                </div>
-              </div>
-
-              <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Annualized Median</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary)' }}>
-                  ${chartConfig.extraBreakdown.annualized_median != null ? chartConfig.extraBreakdown.annualized_median.toLocaleString() : 'N/A'} / yr
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-                  52-week baseline
-                </div>
-              </div>
-
-              <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Recipients / Workforce</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#d97706' }}>
-                  {chartConfig.extraBreakdown.people_count_thousands != null ? `${(chartConfig.extraBreakdown.people_count_thousands / 1000).toFixed(2)}M people` : 'N/A'}
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-                  {chartConfig.extraBreakdown.people_count_thousands ? `${chartConfig.extraBreakdown.people_count_thousands.toLocaleString()}k count` : ''}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Footer */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12, paddingTop: 16, borderTop: '1px solid var(--border-subtle)' }}>
-          <div className="data-source-caption">
+        {/* Data Source Footer */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Database size={14} aria-hidden="true" />
-            <span>Data Source: {chartConfig.source}</span>
+            <span>{chartConfig.source}</span>
           </div>
-          <DownloadCSVButton data={displayData} filename={chartConfig.filename} label="Export Historical CSV" />
+          <button onClick={onClose} className="btn-primary" style={{ padding: '6px 16px', fontSize: '0.8rem' }}>
+            Close
+          </button>
         </div>
-
       </div>
     </div>
   );
