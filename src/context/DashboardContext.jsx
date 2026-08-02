@@ -16,6 +16,7 @@ export function DashboardProvider({ children }) {
   const [industryData, setIndustryData] = useState(null);
   const [occupationData, setOccupationData] = useState(null);
   const [pathfinderRules, setPathfinderRules] = useState(null);
+  const [irdIncomeData, setIrdIncomeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -32,13 +33,14 @@ export function DashboardProvider({ children }) {
     async function loadData() {
       try {
         setLoading(true);
-        const [resMonthly, resRegional, resCityIndustry, resIndustry, resOccupation, resRules] = await Promise.all([
+        const [resMonthly, resRegional, resCityIndustry, resIndustry, resOccupation, resRules, resIrd] = await Promise.all([
           fetch('/data/monthly_series.json'),
           fetch('/data/regional_summary.json'),
           fetch('/data/city_industry_vacancies.json'),
           fetch('/data/industry_matrix.json'),
           fetch('/data/detailed_occupations.json'),
-          fetch('/data/career_pathfinder_rules.json')
+          fetch('/data/career_pathfinder_rules.json'),
+          fetch('/data/ird_income_distributions.json')
         ]);
 
         if (!resMonthly.ok || !resRegional.ok || !resCityIndustry.ok) {
@@ -51,6 +53,7 @@ export function DashboardProvider({ children }) {
         const dataIndustry = await resIndustry.json();
         const dataOccupation = await resOccupation.json();
         const dataRules = await resRules.json();
+        const dataIrd = resIrd.ok ? await resIrd.json() : null;
 
         setMonthlyData(dataMonthly);
         setRegionalData(dataRegional);
@@ -58,6 +61,7 @@ export function DashboardProvider({ children }) {
         setIndustryData(dataIndustry);
         setOccupationData(dataOccupation);
         setPathfinderRules(dataRules);
+        setIrdIncomeData(dataIrd);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching dashboard datasets:', err);
@@ -80,6 +84,7 @@ export function DashboardProvider({ children }) {
     industryData,
     occupationData,
     pathfinderRules,
+    irdIncomeData,
     loading,
     error
   };

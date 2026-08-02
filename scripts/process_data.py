@@ -865,6 +865,180 @@ def generate_career_pathfinder_rules():
     print(f"✅ Saved career pathfinder rules to {output_file}")
 
 
+def process_ird_income_distributions() -> Dict[str, Any]:
+    """
+    Parses Inland Revenue Department (IRD / Te Tari Taake) administrative PAYE tax return dataset.
+    
+    Source File:
+        `Dataset/active/Wage and salary distributions for individuals.xlsx`
+        
+    Extracted Analytics:
+        1. 25-Year Decile Boundaries (10th to 90th percentiles: 2001 - 2025).
+        2. High-Earner Percentiles (91st to 99th percentiles: Top 10% to Top 1% thresholds).
+        3. 10-Bracket Income Histogram (Aggregating 200 $1k income bands for 2.46M NZ taxpayers).
+        
+    Returns:
+        Dict containing metadata, deciles, top percentiles, and histogram distribution array.
+    """
+    filepath = os.path.join(ACTIVE_DATA_DIR, "Wage and salary distributions for individuals.xlsx")
+    print(f"🔄 Processing IRD Individual Wage & Salary Distribution Dataset: {filepath}")
+    
+    if not os.path.exists(filepath):
+        print(f"⚠️ IRD dataset not found at {filepath}, skipping...")
+        return {}
+
+    import zipfile
+    import xml.etree.ElementTree as ET
+
+    z = zipfile.ZipFile(filepath)
+    ss = ET.fromstring(z.read('xl/sharedStrings.xml'))
+    strings = []
+    for si in ss.findall('{http://schemas.openxmlformats.org/spreadsheetml/2006/main}si'):
+        texts = [t.text for t in si.findall('.//{http://schemas.openxmlformats.org/spreadsheetml/2006/main}t') if t.text]
+        strings.append(' '.join(texts))
+
+    sheet3 = ET.fromstring(z.read('xl/worksheets/sheet3.xml'))
+    ns = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    rows3 = []
+    for r in sheet3.findall('.//s:row', ns):
+        r_vals = []
+        for c in r.findall('s:c', ns):
+            v = c.find('s:v', ns)
+            if v is not None and v.text is not None:
+                val = v.text
+                if c.attrib.get('t') == 's':
+                    val = strings[int(val)] if int(val) < len(strings) else val
+                r_vals.append(val)
+        if r_vals:
+            rows3.append(r_vals)
+
+    sheet4 = ET.fromstring(z.read('xl/worksheets/sheet4.xml'))
+    rows4 = []
+    for r in sheet4.findall('.//s:row', ns):
+        r_vals = []
+        for c in r.findall('s:c', ns):
+            v = c.find('s:v', ns)
+            if v is not None and v.text is not None:
+                val = v.text
+                if c.attrib.get('t') == 's':
+                    val = strings[int(val)] if int(val) < len(strings) else val
+                r_vals.append(val)
+        if r_vals:
+            rows4.append(r_vals)
+
+    years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025']
+    decile_map = {}
+    top10_map = {}
+
+    decile_labels = {
+        '1': '10th Percentile (Bottom 10%)',
+        '2': '20th Percentile',
+        '3': '30th Percentile',
+        '4': '40th Percentile',
+        '5': '50th Percentile (NZ Median Income)',
+        '6': '60th Percentile',
+        '7': '70th Percentile',
+        '8': '80th Percentile',
+        '9': '90th Percentile (Top 10% Threshold)'
+    }
+
+    for r in rows3:
+        if len(r) >= 12 and r[0] in [str(i) for i in range(1, 10)]:
+            d_num = r[0]
+            vals = {}
+            for idx, y in enumerate(years):
+                col_idx = 1 + (idx * 2)
+                if col_idx < len(r):
+                    try:
+                        vals[y] = round(float(r[col_idx]), 2)
+                    except ValueError:
+                        pass
+            ann_2025 = vals.get('2025', 0)
+            decile_map[d_num] = {
+                'decile': int(d_num),
+                'percentile_label': decile_labels.get(d_num, f'Decile {d_num}'),
+                'annual_boundary_2025': ann_2025,
+                'weekly_boundary_2025': round(ann_2025 / 52.0, 2) if ann_2025 else 0,
+                'hourly_boundary_2025': round(ann_2025 / 2080.0, 2) if ann_2025 else 0,
+                'history': vals
+            }
+        elif len(r) >= 12 and r[0].isdigit() and 91 <= int(r[0]) <= 99:
+            p_num = int(r[0])
+            vals = {}
+            for idx, y in enumerate(years):
+                col_idx = 1 + (idx * 2)
+                if col_idx < len(r):
+                    try:
+                        vals[y] = round(float(r[col_idx]), 2)
+                    except ValueError:
+                        pass
+            ann_2025 = vals.get('2025', 0)
+            top10_map[str(p_num)] = {
+                'percentile': p_num,
+                'percentile_label': f'Top {100 - p_num}% Threshold ({p_num}th Percentile)',
+                'annual_boundary_2025': ann_2025,
+                'weekly_boundary_2025': round(ann_2025 / 52.0, 2) if ann_2025 else 0,
+                'hourly_boundary_2025': round(ann_2025 / 2080.0, 2) if ann_2025 else 0,
+                'history': vals
+            }
+
+    # Group 200 $1k bands into 10 clean distribution brackets for 2025
+    bracket_buckets = [
+        {"range_label": "< $20k", "min": 0, "max": 20000, "count": 0.0},
+        {"range_label": "$20k - $40k", "min": 20000, "max": 40000, "count": 0.0},
+        {"range_label": "$40k - $60k", "min": 40000, "max": 60000, "count": 0.0},
+        {"range_label": "$60k - $80k", "min": 60000, "max": 80000, "count": 0.0},
+        {"range_label": "$80k - $100k", "min": 80000, "max": 100000, "count": 0.0},
+        {"range_label": "$100k - $120k", "min": 100000, "max": 120000, "count": 0.0},
+        {"range_label": "$120k - $140k", "min": 120000, "max": 140000, "count": 0.0},
+        {"range_label": "$140k - $160k", "min": 140000, "max": 160000, "count": 0.0},
+        {"range_label": "$160k - $200k", "min": 160000, "max": 200000, "count": 0.0},
+        {"range_label": "> $200k", "min": 200000, "max": 9999999, "count": 0.0}
+    ]
+
+    for r in rows4[2:]:
+        if len(r) >= 7 and r[0].isdigit():
+            b_val = int(r[0])
+            try:
+                val_2025 = float(r[6])
+                people = val_2025 * 100.0 if b_val <= 10000 else val_2025
+                for b in bracket_buckets:
+                    if b["min"] <= b_val < b["max"]:
+                        b["count"] += people
+                        break
+            except ValueError:
+                pass
+
+    total_earners = sum(b["count"] for b in bracket_buckets)
+    histogram = []
+    for b in bracket_buckets:
+        histogram.append({
+            "range_label": b["range_label"],
+            "people_count": round(b["count"]),
+            "people_count_thousands": round(b["count"] / 1000.0, 1),
+            "percentage_of_earners": round((b["count"] / total_earners) * 100, 1) if total_earners else 0
+        })
+
+    output_data = {
+        "metadata": {
+            "source": "Inland Revenue Department (IRD) Individual Wage & Salary Returns (2001 - 2025)",
+            "last_updated": "2025 PAYE Final Release",
+            "total_wage_earners_2025": round(total_earners),
+            "total_wage_earners_2025_thousands": round(total_earners / 1000.0, 1)
+        },
+        "deciles": [decile_map[str(i)] for i in range(1, 10) if str(i) in decile_map],
+        "top_percentiles": [top10_map[str(i)] for i in range(91, 100) if str(i) in top10_map],
+        "income_histogram": histogram
+    }
+
+    output_file = os.path.join(PUBLIC_DATA_DIR, "ird_income_distributions.json")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(output_data, f, indent=2)
+
+    print(f"✅ Saved IRD income distributions to {output_file}")
+    return output_data
+
+
 def main():
     print("🚀 Starting New Zealand Labour Market Data Processing Pipeline...")
     ensure_directories()
@@ -873,9 +1047,11 @@ def main():
     process_city_industry_breakdown()
     process_industry_matrix()
     process_detailed_occupations()
+    process_ird_income_distributions()
     generate_career_pathfinder_rules()
     print("🎉 ETL Data Processing Pipeline completed successfully!")
 
 
 if __name__ == "__main__":
     main()
+

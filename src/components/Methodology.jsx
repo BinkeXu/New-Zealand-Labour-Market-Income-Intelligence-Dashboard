@@ -11,7 +11,8 @@ export default function Methodology() {
     { Metric: "Annualized Salary", Formula: "Stats NZ Median Weekly Wage * 52.0 weeks", Source: "Stats NZ Household Income Census" },
     { Metric: "YoY Vacancy Growth", Formula: "((Index_Current - Index_PrevYear) / Index_PrevYear) * 100", Source: "MBIE Jobs Online Quarterly Consolidated Release" },
     { Metric: "NZ Official Unemployment Rate", Formula: "HLFS Seasonally Adjusted Unemployed / Labour Force", Source: "Stats NZ Unemployment Rate Dataset (5.3%)" },
-    { Metric: "NZ Labor Underutilisation Rate", Formula: "HLFS Seasonally Adjusted Underutilised / Extended Labour Force", Source: "Stats NZ Underutilisation Rate Dataset (12.9%)" }
+    { Metric: "NZ Labor Underutilisation Rate", Formula: "HLFS Seasonally Adjusted Underutilised / Extended Labour Force", Source: "Stats NZ Underutilisation Rate Dataset (12.9%)" },
+    { Metric: "IRD Income Percentile Rank", Formula: "Linear Interpolation over IRD PAYE Tax Return Deciles (2001-2025)", Source: "Inland Revenue Department (IRD) PAYE Returns" }
   ];
 
   return (
@@ -72,12 +73,27 @@ export default function Methodology() {
               </p>
             </div>
 
+            {/* IRD Individual Wage & Salary Returns */}
+            <div className="col-6 glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <span className="badge badge-cyan">IRD Tax Census Dataset</span>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
+                  3. IRD Individual Wage & Salary Returns (2001 – 2025)
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                <strong>Source:</strong> Inland Revenue Department (IRD / Te Tari Taake).<br />
+                <strong>Methodology:</strong> Census-level administrative PAYE tax return records for 2.46 million individual wage and salary earners in New Zealand.<br />
+                <strong>Coverage:</strong> 25-year time series tracking income deciles (10th-90th), top high-earner percentiles (91st-99th), and $1,000 income bracket distribution histograms.
+              </p>
+            </div>
+
             {/* Stats NZ HLFS Unemployment & Underutilisation */}
             <div className="col-6 glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                 <span className="badge badge-rose">Labor Slack Dataset</span>
                 <h4 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  3. Stats NZ HLFS Unemployment & Underutilisation (2012 – 2026)
+                  4. Stats NZ HLFS Unemployment & Underutilisation (2012 – 2026)
                 </h4>
               </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
@@ -92,7 +108,7 @@ export default function Methodology() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                 <span className="badge badge-amber">Cost of Living Dataset</span>
                 <h4 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  4. MBIE Tenancy Mean Weekly Rent Dataset (1993 – 2026)
+                  5. MBIE Tenancy Mean Weekly Rent Dataset (1993 – 2026)
                 </h4>
               </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
@@ -192,6 +208,13 @@ export default function Methodology() {
                   <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>Dataset/active/Income by sex, region, ethnic...csv</td>
                   <td>1998 – 2025 Annual Census</td>
                   <td>Median & Average Weekly Wage across 12 Regions, Gender Pay & Ethnicity Breakdown</td>
+                </tr>
+                <tr>
+                  <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>IRD Individual Wage & Salary Distributions</td>
+                  <td>Inland Revenue Department (IRD)</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>Dataset/active/Wage and salary distributions...xlsx</td>
+                  <td>2001 – 2025 Annual PAYE Tax Release</td>
+                  <td>Census of 2.46M Taxpayers, 10th-99th Percentile Boundaries, $1k Income Bracket Histograms</td>
                 </tr>
                 <tr>
                   <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>Mean Weekly Rent Dataset</td>

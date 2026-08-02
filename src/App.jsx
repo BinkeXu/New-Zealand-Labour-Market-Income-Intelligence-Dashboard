@@ -19,6 +19,7 @@ function DashboardContent() {
     industryData, 
     occupationData, 
     pathfinderRules, 
+    irdIncomeData,
     loading, 
     error 
   } = useDashboardContext();
@@ -63,6 +64,7 @@ function DashboardContent() {
           <Overview 
             monthlyData={monthlyData} 
             regionalData={regionalData} 
+            irdIncomeData={irdIncomeData}
             onNavigate={(tab) => setActiveTab(tab)} 
           />
         )}
@@ -71,6 +73,7 @@ function DashboardContent() {
           <RegionalMatrix 
             regionalData={regionalData} 
             cityIndustryData={cityIndustryData}
+            irdIncomeData={irdIncomeData}
           />
         )}
 
