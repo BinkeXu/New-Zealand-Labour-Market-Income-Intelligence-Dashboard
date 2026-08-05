@@ -368,7 +368,14 @@ export default function Overview() {
 
       {/* Navigation Quick Action Cards */}
       <div className="section-grid">
-        <div className="glass-card section-card col-6" style={{ cursor: 'pointer' }} onClick={() => onNavigate('regional')}>
+        <div 
+          className="glass-card section-card col-6" 
+          style={{ cursor: 'pointer' }} 
+          onClick={() => setActiveTab('regional')}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveTab('regional'); }}
+          role="button"
+          tabIndex={0}
+        >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <h3 className="card-title" style={{ fontSize: '1.1rem' }}>Regional & City Breakdown</h3>
             <ArrowUpRight size={20} className="text-gradient" aria-hidden="true" />
@@ -378,7 +385,14 @@ export default function Overview() {
           </p>
         </div>
 
-        <div className="glass-card section-card col-6" style={{ cursor: 'pointer' }} onClick={() => onNavigate('industry')}>
+        <div 
+          className="glass-card section-card col-6" 
+          style={{ cursor: 'pointer' }} 
+          onClick={() => setActiveTab('industry')}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveTab('industry'); }}
+          role="button"
+          tabIndex={0}
+        >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <h3 className="card-title" style={{ fontSize: '1.1rem' }}>Industry 2x2 Matrix & ANZSCO Roles</h3>
             <ArrowUpRight size={20} className="text-gradient-cyan" aria-hidden="true" />
