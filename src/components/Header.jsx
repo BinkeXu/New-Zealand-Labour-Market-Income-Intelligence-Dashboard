@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Briefcase, Compass, BarChart3, MapPin, Award, BookOpen, Sun, Moon, Activity } from 'lucide-react';
 
@@ -60,3 +61,9 @@ export default function Header({ activeTab, setActiveTab, theme, toggleTheme }) 
     </header>
   );
 }
+
+Header.propTypes = {
+  activeTab: PropTypes.string,
+  setActiveTab: PropTypes.func,
+  toggleTheme: PropTypes.func
+};

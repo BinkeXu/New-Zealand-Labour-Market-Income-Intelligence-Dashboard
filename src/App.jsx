@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { DashboardProvider, useDashboardContext } from './context/DashboardContext';
+import { DashboardProvider, useNavigation, useTheme, useDashboardData } from './context/DashboardContext';
 import Header from './components/Header';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -22,23 +22,9 @@ function TabFallback() {
 }
 
 function DashboardContent() {
-  const { 
-    activeTab, 
-    setActiveTab, 
-    theme, 
-    toggleTheme, 
-    monthlyData, 
-    regionalData,
-    cityIndustryData, 
-    industryData, 
-    occupationData, 
-    pathfinderRules, 
-    irdIncomeData,
-    levelData,
-    jobVolumeData,
-    loading, 
-    error 
-  } = useDashboardContext();
+  const { activeTab, setActiveTab } = useNavigation();
+  const { theme, toggleTheme } = useTheme();
+  const { loading, error } = useDashboardData();
 
   if (loading) {
     return (
@@ -79,43 +65,19 @@ function DashboardContent() {
         <ErrorBoundary>
           <Suspense fallback={<TabFallback />}>
             {activeTab === 'overview' && (
-              <Overview 
-                monthlyData={monthlyData} 
-                regionalData={regionalData} 
-                irdIncomeData={irdIncomeData}
-                onNavigate={(tab) => setActiveTab(tab)} 
-              />
+              <Overview />
             )}
 
             {activeTab === 'regional' && (
-              <RegionalMatrix 
-                regionalData={regionalData} 
-                cityIndustryData={cityIndustryData}
-                irdIncomeData={irdIncomeData}
-                levelData={levelData}
-                jobVolumeData={jobVolumeData}
-              />
+              <RegionalMatrix />
             )}
 
             {activeTab === 'industry' && (
-              <IndustryQuadrant 
-                industryData={industryData} 
-                occupationData={occupationData} 
-                cityIndustryData={cityIndustryData}
-                monthlyData={monthlyData}
-                regionalData={regionalData}
-                levelData={levelData}
-              />
+              <IndustryQuadrant />
             )}
 
             {activeTab === 'pathfinder' && (
-              <CareerPathfinder 
-                pathfinderRules={pathfinderRules} 
-                regionalData={regionalData}
-                industryData={industryData}
-                levelData={levelData}
-                jobVolumeData={jobVolumeData}
-              />
+              <CareerPathfinder />
             )}
 
             {activeTab === 'methodology' && (

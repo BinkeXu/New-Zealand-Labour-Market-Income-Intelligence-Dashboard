@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Download } from 'lucide-react';
 
@@ -91,3 +92,9 @@ export default function DownloadCSVButton({ data, filename = 'nz_labour_market_d
     </button>
   );
 }
+
+DownloadCSVButton.propTypes = {
+  data: PropTypes.array,
+  filename: PropTypes.string,
+  label: PropTypes.string
+};

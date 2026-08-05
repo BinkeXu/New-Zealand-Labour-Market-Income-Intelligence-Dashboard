@@ -1,4 +1,42 @@
 import os
+
+base_dir = r"E:\Personal Project\NZ Labour Market Intelligence Dashboard"
+process_data_path = os.path.join(base_dir, "scripts", "process_data.py")
+vacancies_path = os.path.join(base_dir, "scripts", "etl", "vacancies.py")
+income_path = os.path.join(base_dir, "scripts", "etl", "income.py")
+workforce_path = os.path.join(base_dir, "scripts", "etl", "workforce.py")
+
+with open(process_data_path, "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+def get_lines(start, end):
+    return "".join(lines[start-1:end]) + "\n\n"
+
+# load_hlfs_labor_slack_metrics is lines 177 to 225
+hlfs_logic = get_lines(177, 225)
+
+with open(vacancies_path, "r", encoding="utf-8") as f:
+    v_content = f.read()
+
+# Add imports for config
+config_import = "\nfrom scripts.etl.config import ACTIVE_DATA_DIR, PUBLIC_DATA_DIR, CONFIG_DIR, CITY_REGION_MAPPING, INDUSTRY_BENCHMARKS, ARCHIVE_OTHER_DIR\n"
+
+with open(vacancies_path, "w", encoding="utf-8") as f:
+    f.write(config_import + v_content + "\n" + hlfs_logic)
+
+with open(income_path, "r", encoding="utf-8") as f:
+    i_content = f.read()
+    
+with open(income_path, "w", encoding="utf-8") as f:
+    f.write(config_import + i_content)
+    
+with open(workforce_path, "r", encoding="utf-8") as f:
+    w_content = f.read()
+
+with open(workforce_path, "w", encoding="utf-8") as f:
+    f.write(config_import + w_content)
+
+new_process_data = """import os
 import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,3 +79,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
+
+with open(process_data_path, "w", encoding="utf-8") as f:
+    f.write(new_process_data)
+
+print("Done generating clean process_data.py")

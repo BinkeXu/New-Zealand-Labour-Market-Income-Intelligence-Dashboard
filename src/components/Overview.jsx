@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import KPICards from './KPICards';
 import HistoricalChartModal from './HistoricalChartModal';
 import PercentileCalculator from './PercentileCalculator';
+import { useDashboardData, useNavigation } from '../context/DashboardContext';
 import { selectOverviewChartData, selectNationalIncomeDistribution } from '../utils/selectors';
 import { 
   ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, BarChart, Bar 
@@ -10,7 +11,9 @@ import {
   Calendar, Database, ArrowUpRight, TrendingUp, Info, PieChart, Users, DollarSign, Layers, CheckCircle, Calculator, Award 
 } from 'lucide-react';
 
-export default function Overview({ monthlyData, regionalData, irdIncomeData, onNavigate }) {
+export default function Overview() {
+  const { monthlyData, regionalData, irdIncomeData } = useDashboardData();
+  const { setActiveTab } = useNavigation();
   const [timeRange, setTimeRange] = useState('5Y');
   const [activeModalMetric, setActiveModalMetric] = useState(null);
   const [activeModalData, setActiveModalData] = useState(null);
@@ -307,8 +310,8 @@ export default function Overview({ monthlyData, regionalData, irdIncomeData, onN
                 National Income Tiers & Pay Brackets:
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                {nationalIncomeData.income_quintiles.map((q, idx) => (
-                  <div key={idx} style={{ background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                {nationalIncomeData.income_quintiles.map((q) => (
+                  <div key={q.tier} style={{ background: 'var(--table-header-bg)', padding: '8px 12px', borderRadius: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
                       <div style={{ fontWeight: '700', fontSize: '0.825rem', color: 'var(--text-main)' }}>{q.tier}</div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{q.description}</div>
@@ -321,6 +324,16 @@ export default function Overview({ monthlyData, regionalData, irdIncomeData, onN
               </div>
             </div>
           </div>
+
+        {/* Global CTA */}
+        <div style={{ display: 'flex', gap: '16px', marginTop: '30px' }}>
+          <button className="btn btn-outline" onClick={() => setActiveTab('regional')} style={{ flex: 1, padding: '14px', borderRadius: '12px' }}>
+            View Regional Map <ArrowUpRight size={18} style={{ marginLeft: '6px' }} />
+          </button>
+          <button className="btn btn-outline" onClick={() => setActiveTab('industry')} style={{ flex: 1, padding: '14px', borderRadius: '12px' }}>
+            Explore Industry Quadrants <ArrowUpRight size={18} style={{ marginLeft: '6px' }} />
+          </button>
+        </div>
 
           <div className="data-source-caption">
             <Database size={14} aria-hidden="true" />

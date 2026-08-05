@@ -4,6 +4,7 @@ import {
   selectFilteredOccupations,
   selectLevelIndustryBenchmarks
 } from '../utils/selectors';
+import { useDashboardData } from '../context/DashboardContext';
 import DownloadCSVButton from './DownloadCSVButton';
 import HistoricalChartModal from './HistoricalChartModal';
 import { 
@@ -12,7 +13,8 @@ import {
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
 
-export default function IndustryQuadrant({ industryData, occupationData, cityIndustryData, monthlyData, regionalData, levelData }) {
+export default function IndustryQuadrant() {
+  const { industryData, occupationData, cityIndustryData, monthlyData, regionalData, levelData } = useDashboardData();
   const [selectedQuadrant, setSelectedQuadrant] = useState('All');
   const [selectedLevel, setSelectedLevel] = useState('Intermediate');
   const [occupationSearch, setOccupationSearch] = useState('');

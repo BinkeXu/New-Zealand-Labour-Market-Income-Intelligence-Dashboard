@@ -1,7 +1,12 @@
+from scripts.etl.config import ACTIVE_DATA_DIR, PUBLIC_DATA_DIR, CONFIG_DIR, CITY_REGION_MAPPING, INDUSTRY_BENCHMARKS, ARCHIVE_OTHER_DIR, CONFIG
 import pandas as pd
 import json
 import os
 import math
+import re
+from typing import Dict, Any, List
+from scripts.etl.ingestion import load_csv_dataset, load_clean_quarterly_series
+from scripts.etl.calculators import sanitize_val
 
 def process_job_volumes(leed_path, geo_path, output_path, benchmarks_path):
     print("Loading geographic units (Business Demography) dataset...")
@@ -157,3 +162,105 @@ if __name__ == "__main__":
     benchmarks_path = r"E:\Personal Project\NZ Labour Market Intelligence Dashboard\scripts\config\benchmarks.json"
     
     process_job_volumes(leed_path, geo_path, output_path, benchmarks_path)
+
+def process_level_industry_benchmarks() -> Dict[str, Any]:
+    """Generates level-specific salary benchmarks, regional distributions, and opportunity scores for all industries."""
+    print("🔄 Processing Multi-Level Industry & Regional Salary Benchmarks...")
+    
+    industries = ['Business services', 'Construction', 'Education', 'Health care', 
+                  'Hospitality', 'IT', 'Manufacturing', 'Primary', 'Sales', 'Other']
+                  
+    all_nz_regions = [
+        "Auckland", "Waikato", "Bay of Plenty", "Northland", 
+        "Gisborne/Hawkes Bay", "Manawatu-Whanganui/Taranaki", "Wellington", 
+        "Tasman/Nelson/Marlborough/West Coast", "Canterbury", "Otago/Southland"
+    ]
+    
+    industry_shares = CONFIG.get("industry_regional_shares", {})
+    regional_wages = {
+        "Auckland": 1438.0, "Waikato": 1320.0, "Bay of Plenty": 1290.0, "Northland": 1210.0,
+        "Gisborne/Hawkes Bay": 1230.0, "Manawatu-Whanganui/Taranaki": 1240.0, "Wellington": 1496.0,
+        "Tasman/Nelson/Marlborough/West Coast": 1220.0, "Canterbury": 1343.0, "Otago/Southland": 1280.0
+    }
+    
+    # Extract baseline current vacancy index from MBIE Jobs Online 
+    filepath = os.path.join(ACTIVE_DATA_DIR, "jobs-online-all-unadjusted-quarterly-data-consolidated-march-2026.csv")
+    df = load_clean_quarterly_series(filepath)
+    latest_q_date = df['ACTUAL_DATE'].max()
+    df_latest = df[df['ACTUAL_DATE'] == latest_q_date]
+    
+    levels_data = {
+        "Junior": {"level_name": "Junior / Entry-Level (0-2 Yrs)", "experience_range": "0-2 Years Experience", "salary_multiplier": 0.65, "competition_index": 2.5, "industries": {}},
+        "Intermediate": {"level_name": "Intermediate (3-5 Yrs)", "experience_range": "3-5 Years Experience", "salary_multiplier": 1.00, "competition_index": 1.0, "industries": {}},
+        "Senior": {"level_name": "Senior (6+ Yrs)", "experience_range": "6+ Years Experience", "salary_multiplier": 1.42, "competition_index": 0.5, "industries": {}},
+        "Lead / Executive": {"level_name": "Lead / Executive (10+ Yrs)", "experience_range": "10+ Years Experience", "salary_multiplier": 1.85, "competition_index": 0.3, "industries": {}}
+    }
+    
+    for level_key, level_info in levels_data.items():
+        multiplier = level_info["salary_multiplier"]
+        comp_index = level_info["competition_index"]
+        
+        for ind in industries:
+            base_salary = INDUSTRY_BENCHMARKS.get(ind, {'weekly': 1250, 'annual': 65000, 'description': 'General Sector'})
+            base_weekly = base_salary['weekly']
+            level_weekly = base_weekly * multiplier
+            level_annual = level_weekly * 52.0
+            
+            # Create range bands +/- 10-15%
+            lower_annual = int(level_annual * 0.88)
+            upper_annual = int(level_annual * 1.12)
+            lower_hourly = round(lower_annual / 2080.0, 2)
+            upper_hourly = round(upper_annual / 2080.0, 2)
+            
+            regional_distribution = {}
+            for reg_name in all_nz_regions:
+                # Get current vacancy index
+                curr_row = df_latest[(df_latest['KEYA'] == reg_name) & (df_latest['KEYBB'] == ind)]
+                curr_idx = sanitize_val(curr_row['AVI_SUM'].values[0], None) if len(curr_row) > 0 else None
+                
+                ind_share = industry_shares.get(ind, {}).get(reg_name, 0.10)
+                reg_wage = regional_wages.get(reg_name, 1380.0)
+                wage_factor = reg_wage / 1380.0
+                effective_weekly = level_weekly * wage_factor
+                
+                # Opportunity Score = (Vacancy Index * Share) * (Wage / 1200) / Competition Index
+                if curr_idx:
+                    opp_score = round(((curr_idx) * (ind_share / 0.10)) * (effective_weekly / 1200.0) * (1.0 / comp_index), 2)
+                else:
+                    opp_score = None
+                    
+                reg_lower_annual = int(lower_annual * wage_factor)
+                reg_upper_annual = int(upper_annual * wage_factor)
+                
+                regional_distribution[reg_name] = {
+                    "opportunity_score": opp_score,
+                    "vacancies_share": f"{int(ind_share * 100)}%",
+                    "salary_annual": f"${reg_lower_annual:,} - ${reg_upper_annual:,}",
+                    "current_vacancy_index": curr_idx
+                }
+                
+            level_info["industries"][ind] = {
+                "salary_range_annual": f"${lower_annual:,} - ${upper_annual:,}",
+                "salary_range_hourly": f"${lower_hourly:.2f} - ${upper_hourly:.2f} / hr",
+                "median_weekly": round(level_weekly, 2),
+                "regional_distribution": regional_distribution,
+                "description": base_salary['description']
+            }
+            
+    output_data = {
+        "metadata": {
+            "source": "Absolute IT NZ, Hays Salary Guide FY26-27, MBIE Jobs Online, and Stats NZ Income Census",
+            "seniority_levels": ["Junior", "Intermediate", "Senior", "Lead / Executive"],
+            "total_industries_per_level": len(industries)
+        },
+        "levels": levels_data
+    }
+    
+    output_file = os.path.join(PUBLIC_DATA_DIR, "level_industry_benchmarks.json")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(output_data, f, indent=2)
+        
+    print(f"✅ Saved multi-level industry & regional salary benchmarks to {output_file}")
+    return output_data
+
+

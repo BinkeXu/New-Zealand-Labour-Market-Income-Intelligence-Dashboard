@@ -19,18 +19,3 @@ export function DashboardProvider({ children }) {
   );
 }
 
-/**
- * Backward-compatible hook combining navigation, theme, and dataset states.
- * For optimal render performance in new components, prefer `useTheme()`, `useNavigation()`, or `useDashboardData()`.
- */
-export function useDashboardContext() {
-  const themeState = useTheme();
-  const navState = useNavigation();
-  const dataState = useDashboardData();
-
-  return {
-    ...themeState,
-    ...navState,
-    ...dataState
-  };
-}

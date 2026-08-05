@@ -6,11 +6,11 @@
     "start_date": "2007-05",
     "end_date": "2026-06",
     "hlfs_labor_metrics": {
-      "quarter": "Mar-26",
+      "quarter": "Jun-26",
       "unemployment_rate": {
-        "total": 5.3,
-        "men": 5.4,
-        "women": 5.3
+        "total": 5.6,
+        "men": 5.7,
+        "women": 5.5
       },
       "underutilisation_rate": {
         "total": 12.9,
@@ -18,12 +18,6 @@
         "women": 14.3
       },
       "historical_unemployment": [
-        {
-          "quarter": "Mar-12",
-          "total": 6.4,
-          "men": 6.1,
-          "women": 6.7
-        },
         {
           "quarter": "Jun-12",
           "total": 6.4,
@@ -274,7 +268,7 @@
           "quarter": "Sept-22",
           "total": 3.3,
           "men": 2.9,
-          "women": 3.8
+          "women": 3.7
         },
         {
           "quarter": "Dec-22",
@@ -316,7 +310,7 @@
           "quarter": "Jun-24",
           "total": 4.7,
           "men": 4.6,
-          "women": 4.8
+          "women": 4.7
         },
         {
           "quarter": "Sept-24",
@@ -327,12 +321,12 @@
         {
           "quarter": "Dec-24",
           "total": 5.1,
-          "men": 4.9,
+          "men": 5.0,
           "women": 5.3
         },
         {
           "quarter": "Mar-25",
-          "total": 5.1,
+          "total": 5.2,
           "men": 4.9,
           "women": 5.4
         },
@@ -356,9 +350,15 @@
         },
         {
           "quarter": "Mar-26",
-          "total": 5.3,
+          "total": 5.4,
           "men": 5.4,
           "women": 5.3
+        },
+        {
+          "quarter": "Jun-26",
+          "total": 5.6,
+          "men": 5.7,
+          "women": 5.5
         }
       ],
       "historical_underutilisation": [

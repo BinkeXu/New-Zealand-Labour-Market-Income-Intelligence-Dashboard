@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { AlertCircle, RotateCcw } from 'lucide-react';
 
@@ -49,3 +50,7 @@ export default class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.node
+};

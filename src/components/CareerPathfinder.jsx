@@ -3,22 +3,26 @@ import DownloadCSVButton from './DownloadCSVButton';
 import { 
   Compass, MapPin, DollarSign, Award, Target, ArrowRight, RotateCcw, CheckCircle2, ShieldCheck, Database, Briefcase, Info
 } from 'lucide-react';
+import { useDashboardData } from '../context/DashboardContext';
 import { selectJobVolumeEstimates } from '../utils/selectors';
 
-export default function CareerPathfinder({ pathfinderRules, regionalData, industryData, levelData, jobVolumeData }) {
+export default function CareerPathfinder() {
+  const { pathfinderRules, regionalData, industryData, levelData, jobVolumeData } = useDashboardData();
   const [selectedIndustry, setSelectedIndustry] = useState('');
   const [careerLevel, setCareerLevel] = useState('mid_level');
   const [relocationOpen, setRelocationOpen] = useState(true);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const industries = pathfinderRules?.target_industries || [];
   const levelGuidance = pathfinderRules?.career_level_guidance || {};
 
   const handleGenerateBrief = () => {
     if (!selectedIndustry) {
-      alert('Please select your target industry sector.');
+      setErrorMsg('Please select your target industry sector before generating a brief.');
       return;
     }
+    setErrorMsg('');
     setQuizCompleted(true);
   };
 
@@ -170,6 +174,12 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
                 </select>
               </div>
             </div>
+
+            {errorMsg && (
+              <div style={{ color: 'var(--accent-rose)', fontSize: '0.9rem', marginBottom: '16px', fontWeight: 'bold' }}>
+                {errorMsg}
+              </div>
+            )}
 
             <button 
               onClick={handleGenerateBrief} 
