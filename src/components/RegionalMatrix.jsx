@@ -71,12 +71,6 @@ export default function RegionalMatrix() {
     );
   }, [cityIndustryData, matrixRegion, matrixIndustry, debouncedCityFilter, matrixSortField, matrixSortDirection]);
 
-  const [selectedLevel, setSelectedLevel] = useState('Intermediate');
-  
-  const levelBenchmarks = useMemo(() => {
-    return selectLevelIndustryBenchmarks(levelData, selectedLevel);
-  }, [levelData, selectedLevel]);
-
   if (!regionalData || !regionalData.regions || regionalData.regions.length === 0) {
     return (
       <div className="glass-card section-card" role="status" aria-live="polite">
@@ -284,7 +278,18 @@ export default function RegionalMatrix() {
       </section>
 
       {/* SECTION 2: City x Industry Vacancy Breakdown Matrix */}
-      <CityIndustryTable cityIndustryMatrix={cityIndustryMatrix} allIndustries={allIndustries} openHistoricalChart={openHistoricalChart} />
+      <CityIndustryTable 
+        cityIndustryMatrix={cityIndustryMatrix} 
+        allIndustries={allIndustries} 
+        matrixRegion={matrixRegion}
+        setMatrixRegion={setMatrixRegion}
+        matrixIndustry={matrixIndustry}
+        setMatrixIndustry={setMatrixIndustry}
+        matrixSortField={matrixSortField}
+        matrixSortDirection={matrixSortDirection}
+        handleMatrixSort={handleMatrixSort}
+        onMatrixKeyDown={onMatrixKeyDown}
+      />
 
       {/* Opportunity Score & Rent Methodology Card with Volume Weighting Explanation */}
       <section className="glass-card section-card col-12" style={{ marginTop: '28px' }} aria-labelledby="opportunity-formula-title">

@@ -1,10 +1,31 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import { Building2 } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Briefcase, AlertCircle, Info, MapPin } from 'lucide-react';
+import { SortIcon } from '../hooks/useTableSort';
+import { useDashboardData } from '../context/DashboardContext';
+import { selectJobVolumeEstimates, selectLevelIndustryBenchmarks } from '../utils/selectors';
+import DownloadCSVButton from './DownloadCSVButton';
 
-export default function CityIndustryTable({ cityIndustryMatrix, allIndustries, openHistoricalChart }) {
+export default function CityIndustryTable({ 
+  cityIndustryMatrix, 
+  allIndustries, 
+  matrixRegion,
+  setMatrixRegion,
+  matrixIndustry,
+  setMatrixIndustry,
+  matrixSortField,
+  matrixSortDirection,
+  handleMatrixSort,
+  onMatrixKeyDown
+}) {
+  const { regionalData, levelData, jobVolumeData } = useDashboardData();
+  const [selectedLevel, setSelectedLevel] = useState('Intermediate');
   const [cityPage, setCityPage] = useState(1);
   const rowsPerPage = 15;
+
+  const levelBenchmarks = useMemo(() => {
+    return selectLevelIndustryBenchmarks(levelData, selectedLevel);
+  }, [levelData, selectedLevel]);
   const totalCityPages = Math.ceil((cityIndustryMatrix?.length || 0) / rowsPerPage);
   const paginatedCityMatrix = (cityIndustryMatrix || []).slice((cityPage - 1) * rowsPerPage, cityPage * rowsPerPage);
 
@@ -217,5 +238,12 @@ export default function CityIndustryTable({ cityIndustryMatrix, allIndustries, o
 CityIndustryTable.propTypes = {
   cityIndustryMatrix: PropTypes.array,
   allIndustries: PropTypes.array,
-  openHistoricalChart: PropTypes.func.isRequired
+  matrixRegion: PropTypes.string,
+  setMatrixRegion: PropTypes.func,
+  matrixIndustry: PropTypes.string,
+  setMatrixIndustry: PropTypes.func,
+  matrixSortField: PropTypes.string,
+  matrixSortDirection: PropTypes.oneOf(['asc', 'desc', 'none']),
+  handleMatrixSort: PropTypes.func,
+  onMatrixKeyDown: PropTypes.func
 };
