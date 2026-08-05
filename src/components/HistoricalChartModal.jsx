@@ -1,21 +1,38 @@
 import PropTypes from 'prop-types';
 import { CHART_CONFIG_STRATEGIES } from '../config/chartStrategies';
-import React, { useState, useMemo } from 'react';
-import { X, Database, Award } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { X, Database, TrendingUp } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, BarChart, Bar } from 'recharts';
 import DownloadCSVButton from './DownloadCSVButton';
 
 export default function HistoricalChartModal({ isOpen, onClose, modalMetric, extraData, monthlyData, regionalData }) {
   const [modalTimeRange, setModalTimeRange] = useState('All');
 
+  // Handle Escape key & body overflow lock
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   // Compute chart configuration based on modalMetric
-  
   const chartConfig = useMemo(() => {
     if (!modalMetric || !CHART_CONFIG_STRATEGIES[modalMetric]) return null;
     const hlfs = monthlyData?.metadata?.hlfs_labor_metrics || {};
     return CHART_CONFIG_STRATEGIES[modalMetric](monthlyData, regionalData, extraData, hlfs);
   }, [modalMetric, monthlyData, regionalData, extraData]);
-
 
   // Filter fullData according to modalTimeRange
   const displayData = useMemo(() => {
@@ -30,20 +47,43 @@ export default function HistoricalChartModal({ isOpen, onClose, modalMetric, ext
   if (!isOpen || !chartConfig) return null;
 
   return (
-    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="glass-card modal-content" style={{ maxWidth: '850px', width: '92%' }} onClick={(e) => e.stopPropagation()}>
+    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
+      <div 
+        className="glass-card modal-container" 
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', gap: '16px' }}>
           <div>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '4px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', fontWeight: '700', textTransform: 'uppercase', tracking: '0.05em', color: '#4f46e5', marginBottom: '6px', background: 'rgba(79, 70, 229, 0.1)', padding: '3px 10px', borderRadius: '12px' }}>
+              <TrendingUp size={14} />
+              <span>Analytics & Trajectory Analysis</span>
+            </div>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '4px', lineHeight: '1.2' }}>
               {chartConfig.title}
             </h2>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
               {chartConfig.subtitle}
             </p>
           </div>
-          <button onClick={onClose} className="filter-btn" style={{ padding: '6px', cursor: 'pointer' }} aria-label="Close dialog">
-            <X size={18} />
+          <button 
+            onClick={onClose} 
+            className="filter-btn" 
+            style={{ 
+              padding: '8px', 
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              background: 'var(--bg-subtle)',
+              border: '1px solid var(--border-subtle)',
+              color: 'var(--text-muted)',
+              transition: 'all 0.2s ease'
+            }} 
+            aria-label="Close dialog"
+          >
+            <X size={20} />
           </button>
         </div>
 
