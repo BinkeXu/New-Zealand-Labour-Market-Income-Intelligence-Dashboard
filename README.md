@@ -37,14 +37,21 @@ An executive, production-grade analytics platform providing data-driven insights
   - `🟢 INZ Green List Tier 1 (Straight to Residence)` (Developers, Software Engineers, ICT Managers, Civil Engineers, Doctors, Nurses).
   - `🟡 INZ Green List Tier 2 (Work to Residence)` (ICT Support Engineers, Network Engineers, Qualified Trades).
 
-### 🏠 5. Market Concentration Volume-Weighted Opportunity Score & Regional Matrix
+### 📈 5. Job Volume Estimator & Seniority Level Salary Benchmarks
+- **Real-World Annual Openings**: Extrapolates absolute annual job opening estimates across regions, industries, and seniority levels using official Stats NZ LEED turnover rates and Business Demography workforce counts.
+- **Seniority-Level Specific Benchmarks**: Dynamic selectors allowing users to filter salary benchmarks and opportunity scores by Junior (0-2 Yrs), Intermediate (3-5 Yrs), Senior (6+ Yrs), and Lead/Executive (10+ Yrs) experience levels.
+
+### 🏠 6. Market Concentration Volume-Weighted Opportunity Score & Regional Matrix
 - **Calibrated Opportunity Score Formula**: Combines MBIE Vacancy Indices with regional industry hiring volume shares ($S_{\text{region, industry}}$) and median weekly earnings to prevent index baseline distortions in small regions:
   $$\text{Opportunity Score}_{\text{region, industry}} = \left(\text{Vacancy Index} \times \frac{S_{\text{region, industry}}}{10\%}\right) \times \left(\frac{\text{Effective Weekly Income}}{\$1,200}\right)$$
 - **Real Purchasing Power Index**:
   $$\text{Net Discretionary Income} = \text{Median Weekly Wage} - \text{Mean Weekly Rent}$$
 - **Granular Table Displays**: Opportunity Scores are computed and displayed for every region, every city/region x industry matrix cell, every industry sector, and every 4-digit ANZSCO occupation.
 
-### ⚡ 6. Enterprise State Architecture & Performance
+### ⚡ 7. Modular Enterprise State Architecture & Performance
+- **Modularized Python ETL**: Decoupled monolithic processing into dedicated ETL modules (`scripts/etl/income.py`, `vacancies.py`, `workforce.py`, `config.py`).
+- **Extensible Chart Strategy Pattern**: Extracted chart configurations into strategy pattern modules (`src/config/chartStrategies.js`) following the Open/Closed Principle.
+- **Component Decomposition**: Split heavy pages into smaller focused components (`RegionalLeaderboard.jsx`, `CityIndustryTable.jsx`).
 - **Segregated Memoized Contexts**: Split state into `ThemeContext`, `NavigationContext`, and `DataContext` with `useMemo` to eliminate global re-renders.
 - **`React.lazy()` & `Suspense` Code-Splitting**: Lazily loads dashboard tabs (`Overview`, `RegionalMatrix`, `IndustryQuadrant`, etc.), dropping initial JS bundle size from **700 kB down to 210 kB** (~70% load speed improvement).
 - **React `ErrorBoundary`**: Graceful error catching prevents single-component errors from crashing the entire application.
@@ -62,7 +69,7 @@ Active datasets processed by the Python ETL script (`scripts/process_data.py`) r
 - `Income by sex, region, ethnic groups and income source.csv` (Stats NZ 28-Year Income Census)
 - `Census_Population_by_age_by_Regional_Council_2001_2006_2013.csv` (Stats NZ Working-Age Population)
 - `mean_weekly_rent.csv` (MBIE / Stats NZ Mean Weekly Rent)
-- `unemployment_rate_by_sex.csv` (Stats NZ HLFS Unemployment Rate)
+- `Unemployment-rate-by-sex,-seasonally-adjusted,-June-2012–June-2026-quarters.csv` (Stats NZ HLFS Unemployment Rate through June 2026)
 - `underutilisation_rate_by_sex.csv` (Stats NZ HLFS Underutilisation Rate)
 - `Wage and salary distributions for individuals.xlsx` (IRD PAYE Individual Tax Returns)
 
