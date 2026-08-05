@@ -1,0 +1,2766 @@
+{
+  "metadata": {
+    "source": "Absolute IT NZ, Hays Salary Guide FY26-27, MBIE Jobs Online, and Stats NZ Income Census",
+    "seniority_levels": [
+      "Junior",
+      "Intermediate",
+      "Senior",
+      "Lead / Executive"
+    ],
+    "total_industries_per_level": 10
+  },
+  "levels": {
+    "Junior": {
+      "level_name": "Junior / Entry-Level (0-2 Yrs)",
+      "experience_range": "0-2 Years Experience",
+      "salary_multiplier": 0.65,
+      "competition_index": 2.5,
+      "industries": {
+        "Business services": {
+          "salary_range_annual": "$46,103 - $58,676",
+          "salary_range_hourly": "$22.16 - $28.21 / hr",
+          "median_weekly": 1007.5,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 182.3,
+              "vacancies_share": "52%",
+              "salary_annual": "$48,040 - $61,142",
+              "current_vacancy_index": 100.18
+            },
+            "Waikato": {
+              "opportunity_score": 26.31,
+              "vacancies_share": "4%",
+              "salary_annual": "$44,098 - $56,124",
+              "current_vacancy_index": 204.73
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 31.28,
+              "vacancies_share": "3%",
+              "salary_annual": "$43,096 - $54,849",
+              "current_vacancy_index": 332.08
+            },
+            "Northland": {
+              "opportunity_score": 1.22,
+              "vacancies_share": "0%",
+              "salary_annual": "$40,423 - $51,447",
+              "current_vacancy_index": 207.69
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 1.98,
+              "vacancies_share": "0%",
+              "salary_annual": "$41,091 - $52,298",
+              "current_vacancy_index": 132.62
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 7.08,
+              "vacancies_share": "1%",
+              "salary_annual": "$41,425 - $52,723",
+              "current_vacancy_index": 234.46
+            },
+            "Wellington": {
+              "opportunity_score": 122.36,
+              "vacancies_share": "28%",
+              "salary_annual": "$49,978 - $63,608",
+              "current_vacancy_index": 120.03
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 1.67,
+              "vacancies_share": "0%",
+              "salary_annual": "$40,757 - $51,872",
+              "current_vacancy_index": 187.93
+            },
+            "Canterbury": {
+              "opportunity_score": 55.09,
+              "vacancies_share": "10%",
+              "salary_annual": "$44,866 - $57,102",
+              "current_vacancy_index": 168.56
+            },
+            "Otago/Southland": {
+              "opportunity_score": 10.85,
+              "vacancies_share": "1%",
+              "salary_annual": "$42,762 - $54,424",
+              "current_vacancy_index": 348.29
+            }
+          },
+          "description": "Accounting, Legal, Consulting, HR & Marketing"
+        },
+        "Construction": {
+          "salary_range_annual": "$42,236 - $53,755",
+          "salary_range_hourly": "$20.31 - $25.84 / hr",
+          "median_weekly": 923.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 229.33,
+              "vacancies_share": "40%",
+              "salary_annual": "$44,011 - $56,014",
+              "current_vacancy_index": 178.83
+            },
+            "Waikato": {
+              "opportunity_score": 117.97,
+              "vacancies_share": "12%",
+              "salary_annual": "$40,399 - $51,417",
+              "current_vacancy_index": 334.04
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 76.21,
+              "vacancies_share": "7%",
+              "salary_annual": "$39,481 - $50,249",
+              "current_vacancy_index": 378.54
+            },
+            "Northland": {
+              "opportunity_score": 5.79,
+              "vacancies_share": "0%",
+              "salary_annual": "$37,033 - $47,133",
+              "current_vacancy_index": 429.05
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 7.91,
+              "vacancies_share": "1%",
+              "salary_annual": "$37,645 - $47,912",
+              "current_vacancy_index": 192.42
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 17.32,
+              "vacancies_share": "2%",
+              "salary_annual": "$37,951 - $48,301",
+              "current_vacancy_index": 250.67
+            },
+            "Wellington": {
+              "opportunity_score": 60.12,
+              "vacancies_share": "10%",
+              "salary_annual": "$45,786 - $58,273",
+              "current_vacancy_index": 180.24
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 5.08,
+              "vacancies_share": "0%",
+              "salary_annual": "$37,339 - $47,522",
+              "current_vacancy_index": 373.73
+            },
+            "Canterbury": {
+              "opportunity_score": 188.95,
+              "vacancies_share": "22%",
+              "salary_annual": "$41,103 - $52,313",
+              "current_vacancy_index": 286.85
+            },
+            "Otago/Southland": {
+              "opportunity_score": 74.53,
+              "vacancies_share": "4%",
+              "salary_annual": "$39,175 - $49,859",
+              "current_vacancy_index": 652.9
+            }
+          },
+          "description": "Civil Engineering, Building Trades & Project Management"
+        },
+        "Education": {
+          "salary_range_annual": "$41,046 - $52,241",
+          "salary_range_hourly": "$19.73 - $25.12 / hr",
+          "median_weekly": 897.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 100.32,
+              "vacancies_share": "35%",
+              "salary_annual": "$42,771 - $54,436",
+              "current_vacancy_index": 92.0
+            },
+            "Waikato": {
+              "opportunity_score": 29.21,
+              "vacancies_share": "10%",
+              "salary_annual": "$39,261 - $49,969",
+              "current_vacancy_index": 102.15
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 18.03,
+              "vacancies_share": "7%",
+              "salary_annual": "$38,369 - $48,833",
+              "current_vacancy_index": 92.13
+            },
+            "Northland": {
+              "opportunity_score": 6.03,
+              "vacancies_share": "2%",
+              "salary_annual": "$35,989 - $45,805",
+              "current_vacancy_index": 115.07
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 3.13,
+              "vacancies_share": "3%",
+              "salary_annual": "$36,584 - $46,562",
+              "current_vacancy_index": 39.18
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 12.23,
+              "vacancies_share": "5%",
+              "salary_annual": "$36,881 - $46,941",
+              "current_vacancy_index": 91.06
+            },
+            "Wellington": {
+              "opportunity_score": 44.58,
+              "vacancies_share": "14%",
+              "salary_annual": "$44,496 - $56,632",
+              "current_vacancy_index": 98.25
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 2.09,
+              "vacancies_share": "1%",
+              "salary_annual": "$36,287 - $46,184",
+              "current_vacancy_index": 79.13
+            },
+            "Canterbury": {
+              "opportunity_score": 38.63,
+              "vacancies_share": "14%",
+              "salary_annual": "$39,945 - $50,840",
+              "current_vacancy_index": 94.82
+            },
+            "Otago/Southland": {
+              "opportunity_score": 22.83,
+              "vacancies_share": "9%",
+              "salary_annual": "$38,071 - $48,455",
+              "current_vacancy_index": 91.48
+            }
+          },
+          "description": "Primary, Secondary, Tertiary Teaching & Educational Admin"
+        },
+        "Health care": {
+          "salary_range_annual": "$44,021 - $56,026",
+          "salary_range_hourly": "$21.16 - $26.94 / hr",
+          "median_weekly": 962.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 165.82,
+              "vacancies_share": "32%",
+              "salary_annual": "$45,871 - $58,380",
+              "current_vacancy_index": 155.08
+            },
+            "Waikato": {
+              "opportunity_score": 77.1,
+              "vacancies_share": "10%",
+              "salary_annual": "$42,107 - $53,590",
+              "current_vacancy_index": 251.37
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 109.19,
+              "vacancies_share": "8%",
+              "salary_annual": "$41,150 - $52,372",
+              "current_vacancy_index": 455.32
+            },
+            "Northland": {
+              "opportunity_score": 30.0,
+              "vacancies_share": "4%",
+              "salary_annual": "$38,598 - $49,124",
+              "current_vacancy_index": 266.74
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 23.39,
+              "vacancies_share": "4%",
+              "salary_annual": "$39,236 - $49,936",
+              "current_vacancy_index": 204.55
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 71.65,
+              "vacancies_share": "6%",
+              "salary_annual": "$39,555 - $50,342",
+              "current_vacancy_index": 414.45
+            },
+            "Wellington": {
+              "opportunity_score": 90.47,
+              "vacancies_share": "12%",
+              "salary_annual": "$47,721 - $60,735",
+              "current_vacancy_index": 216.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 22.07,
+              "vacancies_share": "2%",
+              "salary_annual": "$38,917 - $49,530",
+              "current_vacancy_index": 389.18
+            },
+            "Canterbury": {
+              "opportunity_score": 126.56,
+              "vacancies_share": "15%",
+              "salary_annual": "$42,840 - $54,523",
+              "current_vacancy_index": 270.37
+            },
+            "Otago/Southland": {
+              "opportunity_score": 90.25,
+              "vacancies_share": "7%",
+              "salary_annual": "$40,831 - $51,966",
+              "current_vacancy_index": 433.49
+            }
+          },
+          "description": "Nursing, Medical Specialists, Allied Health & Care Services"
+        },
+        "Hospitality": {
+          "salary_range_annual": "$29,149 - $37,098",
+          "salary_range_hourly": "$14.01 - $17.84 / hr",
+          "median_weekly": 637.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 112.4,
+              "vacancies_share": "35%",
+              "salary_annual": "$30,374 - $38,657",
+              "current_vacancy_index": 145.15
+            },
+            "Waikato": {
+              "opportunity_score": 25.84,
+              "vacancies_share": "6%",
+              "salary_annual": "$27,881 - $35,485",
+              "current_vacancy_index": 212.05
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 41.45,
+              "vacancies_share": "9%",
+              "salary_annual": "$27,247 - $34,678",
+              "current_vacancy_index": 232.02
+            },
+            "Northland": {
+              "opportunity_score": 12.01,
+              "vacancies_share": "2%",
+              "salary_annual": "$25,558 - $32,527",
+              "current_vacancy_index": 322.41
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 2.91,
+              "vacancies_share": "1%",
+              "salary_annual": "$25,980 - $33,065",
+              "current_vacancy_index": 153.6
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 5.37,
+              "vacancies_share": "1%",
+              "salary_annual": "$26,191 - $33,334",
+              "current_vacancy_index": 281.2
+            },
+            "Wellington": {
+              "opportunity_score": 44.88,
+              "vacancies_share": "12%",
+              "salary_annual": "$31,599 - $40,216",
+              "current_vacancy_index": 162.48
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 15.45,
+              "vacancies_share": "4%",
+              "salary_annual": "$25,769 - $32,796",
+              "current_vacancy_index": 205.81
+            },
+            "Canterbury": {
+              "opportunity_score": 45.68,
+              "vacancies_share": "12%",
+              "salary_annual": "$28,367 - $36,103",
+              "current_vacancy_index": 184.21
+            },
+            "Otago/Southland": {
+              "opportunity_score": 163.85,
+              "vacancies_share": "18%",
+              "salary_annual": "$27,036 - $34,409",
+              "current_vacancy_index": 462.2
+            }
+          },
+          "description": "Accommodation, Food Services & Tourism"
+        },
+        "IT": {
+          "salary_range_annual": "$55,026 - $70,033",
+          "salary_range_hourly": "$26.45 - $33.67 / hr",
+          "median_weekly": 1202.5,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 135.03,
+              "vacancies_share": "60%",
+              "salary_annual": "$57,338 - $72,976",
+              "current_vacancy_index": 53.88
+            },
+            "Waikato": {
+              "opportunity_score": 11.79,
+              "vacancies_share": "3%",
+              "salary_annual": "$52,633 - $66,988",
+              "current_vacancy_index": 102.51
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 9.48,
+              "vacancies_share": "2%",
+              "salary_annual": "$51,437 - $65,465",
+              "current_vacancy_index": 126.51
+            },
+            "Northland": {
+              "opportunity_score": 0.68,
+              "vacancies_share": "0%",
+              "salary_annual": "$48,247 - $61,405",
+              "current_vacancy_index": 192.86
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 0.32,
+              "vacancies_share": "0%",
+              "salary_annual": "$49,044 - $62,420",
+              "current_vacancy_index": 29.63
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 2.16,
+              "vacancies_share": "0%",
+              "salary_annual": "$49,443 - $62,928",
+              "current_vacancy_index": 120.0
+            },
+            "Wellington": {
+              "opportunity_score": 43.98,
+              "vacancies_share": "25%",
+              "salary_annual": "$59,651 - $75,919",
+              "current_vacancy_index": 40.49
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 0.33,
+              "vacancies_share": "0%",
+              "salary_annual": "$48,646 - $61,913",
+              "current_vacancy_index": 92.31
+            },
+            "Canterbury": {
+              "opportunity_score": 27.91,
+              "vacancies_share": "8%",
+              "salary_annual": "$53,550 - $68,155",
+              "current_vacancy_index": 89.44
+            },
+            "Otago/Southland": {
+              "opportunity_score": 5.6,
+              "vacancies_share": "1%",
+              "salary_annual": "$51,038 - $64,958",
+              "current_vacancy_index": 150.54
+            }
+          },
+          "description": "Software, Data Analytics, Cybersecurity & IT Infrastructure"
+        },
+        "Manufacturing": {
+          "salary_range_annual": "$39,262 - $49,969",
+          "salary_range_hourly": "$18.88 - $24.02 / hr",
+          "median_weekly": 858.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 175.94,
+              "vacancies_share": "38%",
+              "salary_annual": "$40,912 - $52,069",
+              "current_vacancy_index": 155.36
+            },
+            "Waikato": {
+              "opportunity_score": 152.28,
+              "vacancies_share": "16%",
+              "salary_annual": "$37,554 - $47,796",
+              "current_vacancy_index": 347.91
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 113.1,
+              "vacancies_share": "9%",
+              "salary_annual": "$36,701 - $46,710",
+              "current_vacancy_index": 470.05
+            },
+            "Northland": {
+              "opportunity_score": 9.0,
+              "vacancies_share": "1%",
+              "salary_annual": "$34,425 - $43,813",
+              "current_vacancy_index": 358.93
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 11.22,
+              "vacancies_share": "2%",
+              "salary_annual": "$34,994 - $44,537",
+              "current_vacancy_index": 220.16
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 53.11,
+              "vacancies_share": "7%",
+              "salary_annual": "$35,278 - $44,899",
+              "current_vacancy_index": 295.22
+            },
+            "Wellington": {
+              "opportunity_score": 26.29,
+              "vacancies_share": "4%",
+              "salary_annual": "$42,562 - $54,169",
+              "current_vacancy_index": 211.99
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 10.75,
+              "vacancies_share": "1%",
+              "salary_annual": "$34,709 - $44,175",
+              "current_vacancy_index": 425.0
+            },
+            "Canterbury": {
+              "opportunity_score": 161.68,
+              "vacancies_share": "16%",
+              "salary_annual": "$38,209 - $48,629",
+              "current_vacancy_index": 363.06
+            },
+            "Otago/Southland": {
+              "opportunity_score": 90.63,
+              "vacancies_share": "6%",
+              "salary_annual": "$36,416 - $46,348",
+              "current_vacancy_index": 569.38
+            }
+          },
+          "description": "Food Processing, Advanced Manufacturing & Logistics"
+        },
+        "Primary": {
+          "salary_range_annual": "$38,667 - $49,212",
+          "salary_range_hourly": "$18.59 - $23.66 / hr",
+          "median_weekly": 845.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 22.52,
+              "vacancies_share": "3%",
+              "salary_annual": "$40,292 - $51,280",
+              "current_vacancy_index": 255.78
+            },
+            "Waikato": {
+              "opportunity_score": 207.14,
+              "vacancies_share": "22%",
+              "salary_annual": "$36,985 - $47,072",
+              "current_vacancy_index": 349.47
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 289.74,
+              "vacancies_share": "18%",
+              "salary_annual": "$36,145 - $46,002",
+              "current_vacancy_index": 611.36
+            },
+            "Northland": {
+              "opportunity_score": 23.3,
+              "vacancies_share": "4%",
+              "salary_annual": "$33,903 - $43,149",
+              "current_vacancy_index": 235.9
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 57.38,
+              "vacancies_share": "8%",
+              "salary_annual": "$34,464 - $43,862",
+              "current_vacancy_index": 285.71
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 82.44,
+              "vacancies_share": "12%",
+              "salary_annual": "$34,744 - $44,219",
+              "current_vacancy_index": 271.43
+            },
+            "Wellington": {
+              "opportunity_score": 8.52,
+              "vacancies_share": "1%",
+              "salary_annual": "$41,917 - $53,348",
+              "current_vacancy_index": 279.1
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 26.78,
+              "vacancies_share": "4%",
+              "salary_annual": "$34,183 - $43,506",
+              "current_vacancy_index": 268.82
+            },
+            "Canterbury": {
+              "opportunity_score": 146.2,
+              "vacancies_share": "18%",
+              "salary_annual": "$37,630 - $47,892",
+              "current_vacancy_index": 296.3
+            },
+            "Otago/Southland": {
+              "opportunity_score": 91.56,
+              "vacancies_share": "10%",
+              "salary_annual": "$35,865 - $45,645",
+              "current_vacancy_index": 350.46
+            }
+          },
+          "description": "Agriculture, Horticulture, Forestry & Agritech"
+        },
+        "Sales": {
+          "salary_range_annual": "$36,287 - $46,184",
+          "salary_range_hourly": "$17.45 - $22.20 / hr",
+          "median_weekly": 793.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 104.3,
+              "vacancies_share": "42%",
+              "salary_annual": "$37,812 - $48,125",
+              "current_vacancy_index": 90.16
+            },
+            "Waikato": {
+              "opportunity_score": 41.68,
+              "vacancies_share": "10%",
+              "salary_annual": "$34,709 - $44,176",
+              "current_vacancy_index": 164.85
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 40.34,
+              "vacancies_share": "8%",
+              "salary_annual": "$33,920 - $43,172",
+              "current_vacancy_index": 204.05
+            },
+            "Northland": {
+              "opportunity_score": 6.31,
+              "vacancies_share": "1%",
+              "salary_annual": "$31,816 - $40,494",
+              "current_vacancy_index": 272.31
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 6.43,
+              "vacancies_share": "2%",
+              "salary_annual": "$32,342 - $41,164",
+              "current_vacancy_index": 136.5
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 20.31,
+              "vacancies_share": "4%",
+              "salary_annual": "$32,605 - $41,498",
+              "current_vacancy_index": 213.73
+            },
+            "Wellington": {
+              "opportunity_score": 29.87,
+              "vacancies_share": "12%",
+              "salary_annual": "$39,337 - $50,066",
+              "current_vacancy_index": 86.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 4.35,
+              "vacancies_share": "1%",
+              "salary_annual": "$32,079 - $40,829",
+              "current_vacancy_index": 186.16
+            },
+            "Canterbury": {
+              "opportunity_score": 48.83,
+              "vacancies_share": "14%",
+              "salary_annual": "$35,314 - $44,945",
+              "current_vacancy_index": 135.58
+            },
+            "Otago/Southland": {
+              "opportunity_score": 43.23,
+              "vacancies_share": "6%",
+              "salary_annual": "$33,657 - $42,837",
+              "current_vacancy_index": 293.88
+            }
+          },
+          "description": "Retail Sales, Business Development & Account Management"
+        },
+        "Other": {
+          "salary_range_annual": "$37,180 - $47,320",
+          "salary_range_hourly": "$17.88 - $22.75 / hr",
+          "median_weekly": 812.5,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 278.59,
+              "vacancies_share": "38%",
+              "salary_annual": "$38,742 - $49,308",
+              "current_vacancy_index": 259.78
+            },
+            "Waikato": {
+              "opportunity_score": 87.61,
+              "vacancies_share": "8%",
+              "salary_annual": "$35,563 - $45,262",
+              "current_vacancy_index": 422.75
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 75.66,
+              "vacancies_share": "6%",
+              "salary_annual": "$34,755 - $44,233",
+              "current_vacancy_index": 498.08
+            },
+            "Northland": {
+              "opportunity_score": 39.81,
+              "vacancies_share": "2%",
+              "salary_annual": "$32,599 - $41,490",
+              "current_vacancy_index": 838.24
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 16.68,
+              "vacancies_share": "3%",
+              "salary_annual": "$33,138 - $42,176",
+              "current_vacancy_index": 230.26
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 38.61,
+              "vacancies_share": "4%",
+              "salary_annual": "$33,408 - $42,519",
+              "current_vacancy_index": 396.69
+            },
+            "Wellington": {
+              "opportunity_score": 122.54,
+              "vacancies_share": "18%",
+              "salary_annual": "$40,305 - $51,297",
+              "current_vacancy_index": 231.88
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 9.55,
+              "vacancies_share": "1%",
+              "salary_annual": "$32,869 - $41,833",
+              "current_vacancy_index": 398.68
+            },
+            "Canterbury": {
+              "opportunity_score": 178.84,
+              "vacancies_share": "14%",
+              "salary_annual": "$36,183 - $46,051",
+              "current_vacancy_index": 484.65
+            },
+            "Otago/Southland": {
+              "opportunity_score": 118.97,
+              "vacancies_share": "6%",
+              "salary_annual": "$34,485 - $43,891",
+              "current_vacancy_index": 789.29
+            }
+          },
+          "description": "Personal Services, Public Safety & Maintenance"
+        }
+      }
+    },
+    "Intermediate": {
+      "level_name": "Intermediate (3-5 Yrs)",
+      "experience_range": "3-5 Years Experience",
+      "salary_multiplier": 1.0,
+      "competition_index": 1.0,
+      "industries": {
+        "Business services": {
+          "salary_range_annual": "$70,928 - $90,272",
+          "salary_range_hourly": "$34.10 - $43.40 / hr",
+          "median_weekly": 1550.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 701.16,
+              "vacancies_share": "52%",
+              "salary_annual": "$73,909 - $94,066",
+              "current_vacancy_index": 100.18
+            },
+            "Waikato": {
+              "opportunity_score": 101.18,
+              "vacancies_share": "4%",
+              "salary_annual": "$67,844 - $86,347",
+              "current_vacancy_index": 204.73
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 120.29,
+              "vacancies_share": "3%",
+              "salary_annual": "$66,302 - $84,384",
+              "current_vacancy_index": 332.08
+            },
+            "Northland": {
+              "opportunity_score": 4.7,
+              "vacancies_share": "0%",
+              "salary_annual": "$62,190 - $79,151",
+              "current_vacancy_index": 207.69
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 7.63,
+              "vacancies_share": "0%",
+              "salary_annual": "$63,218 - $80,459",
+              "current_vacancy_index": 132.62
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 27.21,
+              "vacancies_share": "1%",
+              "salary_annual": "$63,732 - $81,113",
+              "current_vacancy_index": 234.46
+            },
+            "Wellington": {
+              "opportunity_score": 470.6,
+              "vacancies_share": "28%",
+              "salary_annual": "$76,890 - $97,860",
+              "current_vacancy_index": 120.03
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 6.44,
+              "vacancies_share": "0%",
+              "salary_annual": "$62,704 - $79,805",
+              "current_vacancy_index": 187.93
+            },
+            "Canterbury": {
+              "opportunity_score": 211.89,
+              "vacancies_share": "10%",
+              "salary_annual": "$69,026 - $87,851",
+              "current_vacancy_index": 168.56
+            },
+            "Otago/Southland": {
+              "opportunity_score": 41.73,
+              "vacancies_share": "1%",
+              "salary_annual": "$65,788 - $83,730",
+              "current_vacancy_index": 348.29
+            }
+          },
+          "description": "Accounting, Legal, Consulting, HR & Marketing"
+        },
+        "Construction": {
+          "salary_range_annual": "$64,979 - $82,700",
+          "salary_range_hourly": "$31.24 - $39.76 / hr",
+          "median_weekly": 1420.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 882.04,
+              "vacancies_share": "40%",
+              "salary_annual": "$67,710 - $86,175",
+              "current_vacancy_index": 178.83
+            },
+            "Waikato": {
+              "opportunity_score": 453.71,
+              "vacancies_share": "12%",
+              "salary_annual": "$62,153 - $79,104",
+              "current_vacancy_index": 334.04
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 293.11,
+              "vacancies_share": "7%",
+              "salary_annual": "$60,741 - $77,306",
+              "current_vacancy_index": 378.54
+            },
+            "Northland": {
+              "opportunity_score": 22.26,
+              "vacancies_share": "0%",
+              "salary_annual": "$56,974 - $72,512",
+              "current_vacancy_index": 429.05
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 30.44,
+              "vacancies_share": "1%",
+              "salary_annual": "$57,916 - $73,710",
+              "current_vacancy_index": 192.42
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 66.63,
+              "vacancies_share": "2%",
+              "salary_annual": "$58,386 - $74,310",
+              "current_vacancy_index": 250.67
+            },
+            "Wellington": {
+              "opportunity_score": 231.21,
+              "vacancies_share": "10%",
+              "salary_annual": "$70,441 - $89,651",
+              "current_vacancy_index": 180.24
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 19.55,
+              "vacancies_share": "0%",
+              "salary_annual": "$57,445 - $73,111",
+              "current_vacancy_index": 373.73
+            },
+            "Canterbury": {
+              "opportunity_score": 726.74,
+              "vacancies_share": "22%",
+              "salary_annual": "$63,236 - $80,482",
+              "current_vacancy_index": 286.85
+            },
+            "Otago/Southland": {
+              "opportunity_score": 286.65,
+              "vacancies_share": "4%",
+              "salary_annual": "$60,270 - $76,707",
+              "current_vacancy_index": 652.9
+            }
+          },
+          "description": "Civil Engineering, Building Trades & Project Management"
+        },
+        "Education": {
+          "salary_range_annual": "$63,148 - $80,371",
+          "salary_range_hourly": "$30.36 - $38.64 / hr",
+          "median_weekly": 1380.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 385.86,
+              "vacancies_share": "35%",
+              "salary_annual": "$65,802 - $83,748",
+              "current_vacancy_index": 92.0
+            },
+            "Waikato": {
+              "opportunity_score": 112.37,
+              "vacancies_share": "10%",
+              "salary_annual": "$60,402 - $76,876",
+              "current_vacancy_index": 102.15
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 69.33,
+              "vacancies_share": "7%",
+              "salary_annual": "$59,029 - $75,129",
+              "current_vacancy_index": 92.13
+            },
+            "Northland": {
+              "opportunity_score": 23.21,
+              "vacancies_share": "2%",
+              "salary_annual": "$55,368 - $70,470",
+              "current_vacancy_index": 115.07
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 12.05,
+              "vacancies_share": "3%",
+              "salary_annual": "$56,284 - $71,635",
+              "current_vacancy_index": 39.18
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 47.05,
+              "vacancies_share": "5%",
+              "salary_annual": "$56,741 - $72,217",
+              "current_vacancy_index": 91.06
+            },
+            "Wellington": {
+              "opportunity_score": 171.48,
+              "vacancies_share": "14%",
+              "salary_annual": "$68,456 - $87,126",
+              "current_vacancy_index": 98.25
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 8.04,
+              "vacancies_share": "1%",
+              "salary_annual": "$55,826 - $71,052",
+              "current_vacancy_index": 79.13
+            },
+            "Canterbury": {
+              "opportunity_score": 148.57,
+              "vacancies_share": "14%",
+              "salary_annual": "$61,454 - $78,216",
+              "current_vacancy_index": 94.82
+            },
+            "Otago/Southland": {
+              "opportunity_score": 87.82,
+              "vacancies_share": "9%",
+              "salary_annual": "$58,572 - $74,547",
+              "current_vacancy_index": 91.48
+            }
+          },
+          "description": "Primary, Secondary, Tertiary Teaching & Educational Admin"
+        },
+        "Health care": {
+          "salary_range_annual": "$67,724 - $86,195",
+          "salary_range_hourly": "$32.56 - $41.44 / hr",
+          "median_weekly": 1480.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 637.77,
+              "vacancies_share": "32%",
+              "salary_annual": "$70,570 - $89,817",
+              "current_vacancy_index": 155.08
+            },
+            "Waikato": {
+              "opportunity_score": 296.54,
+              "vacancies_share": "10%",
+              "salary_annual": "$64,779 - $82,447",
+              "current_vacancy_index": 251.37
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 419.95,
+              "vacancies_share": "8%",
+              "salary_annual": "$63,307 - $80,573",
+              "current_vacancy_index": 455.32
+            },
+            "Northland": {
+              "opportunity_score": 115.38,
+              "vacancies_share": "4%",
+              "salary_annual": "$59,381 - $75,576",
+              "current_vacancy_index": 266.74
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 89.94,
+              "vacancies_share": "4%",
+              "salary_annual": "$60,362 - $76,825",
+              "current_vacancy_index": 204.55
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 275.58,
+              "vacancies_share": "6%",
+              "salary_annual": "$60,853 - $77,450",
+              "current_vacancy_index": 414.45
+            },
+            "Wellington": {
+              "opportunity_score": 347.95,
+              "vacancies_share": "12%",
+              "salary_annual": "$73,416 - $93,440",
+              "current_vacancy_index": 216.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 84.87,
+              "vacancies_share": "2%",
+              "salary_annual": "$59,871 - $76,201",
+              "current_vacancy_index": 389.18
+            },
+            "Canterbury": {
+              "opportunity_score": 486.77,
+              "vacancies_share": "15%",
+              "salary_annual": "$65,908 - $83,883",
+              "current_vacancy_index": 270.37
+            },
+            "Otago/Southland": {
+              "opportunity_score": 347.13,
+              "vacancies_share": "7%",
+              "salary_annual": "$62,816 - $79,948",
+              "current_vacancy_index": 433.49
+            }
+          },
+          "description": "Nursing, Medical Specialists, Allied Health & Care Services"
+        },
+        "Hospitality": {
+          "salary_range_annual": "$44,844 - $57,075",
+          "salary_range_hourly": "$21.56 - $27.44 / hr",
+          "median_weekly": 980.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 432.32,
+              "vacancies_share": "35%",
+              "salary_annual": "$46,728 - $59,473",
+              "current_vacancy_index": 145.15
+            },
+            "Waikato": {
+              "opportunity_score": 99.39,
+              "vacancies_share": "6%",
+              "salary_annual": "$42,894 - $54,593",
+              "current_vacancy_index": 212.05
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 159.41,
+              "vacancies_share": "9%",
+              "salary_annual": "$41,919 - $53,352",
+              "current_vacancy_index": 232.02
+            },
+            "Northland": {
+              "opportunity_score": 46.17,
+              "vacancies_share": "2%",
+              "salary_annual": "$39,319 - $50,044",
+              "current_vacancy_index": 322.41
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 11.18,
+              "vacancies_share": "1%",
+              "salary_annual": "$39,969 - $50,871",
+              "current_vacancy_index": 153.6
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 20.63,
+              "vacancies_share": "1%",
+              "salary_annual": "$40,294 - $51,284",
+              "current_vacancy_index": 281.2
+            },
+            "Wellington": {
+              "opportunity_score": 172.61,
+              "vacancies_share": "12%",
+              "salary_annual": "$48,613 - $61,872",
+              "current_vacancy_index": 162.48
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 59.44,
+              "vacancies_share": "4%",
+              "salary_annual": "$39,644 - $50,457",
+              "current_vacancy_index": 205.81
+            },
+            "Canterbury": {
+              "opportunity_score": 175.69,
+              "vacancies_share": "12%",
+              "salary_annual": "$43,641 - $55,544",
+              "current_vacancy_index": 184.21
+            },
+            "Otago/Southland": {
+              "opportunity_score": 630.2,
+              "vacancies_share": "18%",
+              "salary_annual": "$41,594 - $52,939",
+              "current_vacancy_index": 462.2
+            }
+          },
+          "description": "Accommodation, Food Services & Tourism"
+        },
+        "IT": {
+          "salary_range_annual": "$84,656 - $107,744",
+          "salary_range_hourly": "$40.70 - $51.80 / hr",
+          "median_weekly": 1850.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 519.34,
+              "vacancies_share": "60%",
+              "salary_annual": "$88,214 - $112,272",
+              "current_vacancy_index": 53.88
+            },
+            "Waikato": {
+              "opportunity_score": 45.35,
+              "vacancies_share": "3%",
+              "salary_annual": "$80,975 - $103,059",
+              "current_vacancy_index": 102.51
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 36.46,
+              "vacancies_share": "2%",
+              "salary_annual": "$79,134 - $100,717",
+              "current_vacancy_index": 126.51
+            },
+            "Northland": {
+              "opportunity_score": 2.61,
+              "vacancies_share": "0%",
+              "salary_annual": "$74,227 - $94,471",
+              "current_vacancy_index": 192.86
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 1.22,
+              "vacancies_share": "0%",
+              "salary_annual": "$75,454 - $96,032",
+              "current_vacancy_index": 29.63
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 8.31,
+              "vacancies_share": "0%",
+              "salary_annual": "$76,067 - $96,813",
+              "current_vacancy_index": 120.0
+            },
+            "Wellington": {
+              "opportunity_score": 169.17,
+              "vacancies_share": "25%",
+              "salary_annual": "$91,772 - $116,800",
+              "current_vacancy_index": 40.49
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 1.26,
+              "vacancies_share": "0%",
+              "salary_annual": "$74,840 - $95,251",
+              "current_vacancy_index": 92.31
+            },
+            "Canterbury": {
+              "opportunity_score": 107.35,
+              "vacancies_share": "8%",
+              "salary_annual": "$82,386 - $104,855",
+              "current_vacancy_index": 89.44
+            },
+            "Otago/Southland": {
+              "opportunity_score": 21.53,
+              "vacancies_share": "1%",
+              "salary_annual": "$78,521 - $99,936",
+              "current_vacancy_index": 150.54
+            }
+          },
+          "description": "Software, Data Analytics, Cybersecurity & IT Infrastructure"
+        },
+        "Manufacturing": {
+          "salary_range_annual": "$60,403 - $76,876",
+          "salary_range_hourly": "$29.04 - $36.96 / hr",
+          "median_weekly": 1320.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 676.7,
+              "vacancies_share": "38%",
+              "salary_annual": "$62,941 - $80,107",
+              "current_vacancy_index": 155.36
+            },
+            "Waikato": {
+              "opportunity_score": 585.7,
+              "vacancies_share": "16%",
+              "salary_annual": "$57,776 - $73,533",
+              "current_vacancy_index": 347.91
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 435.0,
+              "vacancies_share": "9%",
+              "salary_annual": "$56,463 - $71,862",
+              "current_vacancy_index": 470.05
+            },
+            "Northland": {
+              "opportunity_score": 34.62,
+              "vacancies_share": "1%",
+              "salary_annual": "$52,962 - $67,405",
+              "current_vacancy_index": 358.93
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 43.17,
+              "vacancies_share": "2%",
+              "salary_annual": "$53,837 - $68,519",
+              "current_vacancy_index": 220.16
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 204.26,
+              "vacancies_share": "7%",
+              "salary_annual": "$54,275 - $69,076",
+              "current_vacancy_index": 295.22
+            },
+            "Wellington": {
+              "opportunity_score": 101.12,
+              "vacancies_share": "4%",
+              "salary_annual": "$65,480 - $83,338",
+              "current_vacancy_index": 211.99
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 41.33,
+              "vacancies_share": "1%",
+              "salary_annual": "$53,399 - $67,962",
+              "current_vacancy_index": 425.0
+            },
+            "Canterbury": {
+              "opportunity_score": 621.85,
+              "vacancies_share": "16%",
+              "salary_annual": "$58,783 - $74,814",
+              "current_vacancy_index": 363.06
+            },
+            "Otago/Southland": {
+              "opportunity_score": 348.56,
+              "vacancies_share": "6%",
+              "salary_annual": "$56,025 - $71,305",
+              "current_vacancy_index": 569.38
+            }
+          },
+          "description": "Food Processing, Advanced Manufacturing & Logistics"
+        },
+        "Primary": {
+          "salary_range_annual": "$59,488 - $75,712",
+          "salary_range_hourly": "$28.60 - $36.40 / hr",
+          "median_weekly": 1300.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 86.62,
+              "vacancies_share": "3%",
+              "salary_annual": "$61,988 - $78,894",
+              "current_vacancy_index": 255.78
+            },
+            "Waikato": {
+              "opportunity_score": 796.69,
+              "vacancies_share": "22%",
+              "salary_annual": "$56,901 - $72,420",
+              "current_vacancy_index": 349.47
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 1114.4,
+              "vacancies_share": "18%",
+              "salary_annual": "$55,608 - $70,774",
+              "current_vacancy_index": 611.36
+            },
+            "Northland": {
+              "opportunity_score": 89.63,
+              "vacancies_share": "4%",
+              "salary_annual": "$52,159 - $66,385",
+              "current_vacancy_index": 235.9
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 220.7,
+              "vacancies_share": "8%",
+              "salary_annual": "$53,021 - $67,482",
+              "current_vacancy_index": 285.71
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 317.06,
+              "vacancies_share": "12%",
+              "salary_annual": "$53,452 - $68,031",
+              "current_vacancy_index": 271.43
+            },
+            "Wellington": {
+              "opportunity_score": 32.78,
+              "vacancies_share": "1%",
+              "salary_annual": "$64,488 - $82,076",
+              "current_vacancy_index": 279.1
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 102.98,
+              "vacancies_share": "4%",
+              "salary_annual": "$52,590 - $66,933",
+              "current_vacancy_index": 268.82
+            },
+            "Canterbury": {
+              "opportunity_score": 562.29,
+              "vacancies_share": "18%",
+              "salary_annual": "$57,893 - $73,682",
+              "current_vacancy_index": 296.3
+            },
+            "Otago/Southland": {
+              "opportunity_score": 352.15,
+              "vacancies_share": "10%",
+              "salary_annual": "$55,177 - $70,225",
+              "current_vacancy_index": 350.46
+            }
+          },
+          "description": "Agriculture, Horticulture, Forestry & Agritech"
+        },
+        "Sales": {
+          "salary_range_annual": "$55,827 - $71,052",
+          "salary_range_hourly": "$26.84 - $34.16 / hr",
+          "median_weekly": 1220.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 401.16,
+              "vacancies_share": "42%",
+              "salary_annual": "$58,173 - $74,038",
+              "current_vacancy_index": 90.16
+            },
+            "Waikato": {
+              "opportunity_score": 160.31,
+              "vacancies_share": "10%",
+              "salary_annual": "$53,399 - $67,962",
+              "current_vacancy_index": 164.85
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 155.14,
+              "vacancies_share": "8%",
+              "salary_annual": "$52,186 - $66,418",
+              "current_vacancy_index": 204.05
+            },
+            "Northland": {
+              "opportunity_score": 24.27,
+              "vacancies_share": "1%",
+              "salary_annual": "$48,949 - $62,299",
+              "current_vacancy_index": 272.31
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 24.74,
+              "vacancies_share": "2%",
+              "salary_annual": "$49,758 - $63,328",
+              "current_vacancy_index": 136.5
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 78.1,
+              "vacancies_share": "4%",
+              "salary_annual": "$50,163 - $63,843",
+              "current_vacancy_index": 213.73
+            },
+            "Wellington": {
+              "opportunity_score": 114.89,
+              "vacancies_share": "12%",
+              "salary_annual": "$60,519 - $77,024",
+              "current_vacancy_index": 86.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 16.73,
+              "vacancies_share": "1%",
+              "salary_annual": "$49,354 - $62,814",
+              "current_vacancy_index": 186.16
+            },
+            "Canterbury": {
+              "opportunity_score": 187.8,
+              "vacancies_share": "14%",
+              "salary_annual": "$54,330 - $69,146",
+              "current_vacancy_index": 135.58
+            },
+            "Otago/Southland": {
+              "opportunity_score": 166.28,
+              "vacancies_share": "6%",
+              "salary_annual": "$51,781 - $65,903",
+              "current_vacancy_index": 293.88
+            }
+          },
+          "description": "Retail Sales, Business Development & Account Management"
+        },
+        "Other": {
+          "salary_range_annual": "$57,200 - $72,800",
+          "salary_range_hourly": "$27.50 - $35.00 / hr",
+          "median_weekly": 1250.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1071.51,
+              "vacancies_share": "38%",
+              "salary_annual": "$59,604 - $75,859",
+              "current_vacancy_index": 259.78
+            },
+            "Waikato": {
+              "opportunity_score": 336.97,
+              "vacancies_share": "8%",
+              "salary_annual": "$54,713 - $69,634",
+              "current_vacancy_index": 422.75
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 291.0,
+              "vacancies_share": "6%",
+              "salary_annual": "$53,469 - $68,052",
+              "current_vacancy_index": 498.08
+            },
+            "Northland": {
+              "opportunity_score": 153.12,
+              "vacancies_share": "2%",
+              "salary_annual": "$50,153 - $63,831",
+              "current_vacancy_index": 838.24
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 64.13,
+              "vacancies_share": "3%",
+              "salary_annual": "$50,982 - $64,886",
+              "current_vacancy_index": 230.26
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 148.52,
+              "vacancies_share": "4%",
+              "salary_annual": "$51,397 - $65,414",
+              "current_vacancy_index": 396.69
+            },
+            "Wellington": {
+              "opportunity_score": 471.32,
+              "vacancies_share": "18%",
+              "salary_annual": "$62,008 - $78,919",
+              "current_vacancy_index": 231.88
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 36.71,
+              "vacancies_share": "1%",
+              "salary_annual": "$50,568 - $64,359",
+              "current_vacancy_index": 398.68
+            },
+            "Canterbury": {
+              "opportunity_score": 687.83,
+              "vacancies_share": "14%",
+              "salary_annual": "$55,666 - $70,848",
+              "current_vacancy_index": 484.65
+            },
+            "Otago/Southland": {
+              "opportunity_score": 457.56,
+              "vacancies_share": "6%",
+              "salary_annual": "$53,055 - $67,524",
+              "current_vacancy_index": 789.29
+            }
+          },
+          "description": "Personal Services, Public Safety & Maintenance"
+        }
+      }
+    },
+    "Senior": {
+      "level_name": "Senior (6+ Yrs)",
+      "experience_range": "6+ Years Experience",
+      "salary_multiplier": 1.42,
+      "competition_index": 0.5,
+      "industries": {
+        "Business services": {
+          "salary_range_annual": "$100,717 - $128,186",
+          "salary_range_hourly": "$48.42 - $61.63 / hr",
+          "median_weekly": 2201.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1991.28,
+              "vacancies_share": "52%",
+              "salary_annual": "$104,950 - $133,573",
+              "current_vacancy_index": 100.18
+            },
+            "Waikato": {
+              "opportunity_score": 287.35,
+              "vacancies_share": "4%",
+              "salary_annual": "$96,338 - $122,612",
+              "current_vacancy_index": 204.73
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 341.62,
+              "vacancies_share": "3%",
+              "salary_annual": "$94,148 - $119,826",
+              "current_vacancy_index": 332.08
+            },
+            "Northland": {
+              "opportunity_score": 13.36,
+              "vacancies_share": "0%",
+              "salary_annual": "$88,309 - $112,394",
+              "current_vacancy_index": 207.69
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 21.68,
+              "vacancies_share": "0%",
+              "salary_annual": "$89,769 - $114,252",
+              "current_vacancy_index": 132.62
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 77.28,
+              "vacancies_share": "1%",
+              "salary_annual": "$90,499 - $115,181",
+              "current_vacancy_index": 234.46
+            },
+            "Wellington": {
+              "opportunity_score": 1336.5,
+              "vacancies_share": "28%",
+              "salary_annual": "$109,183 - $138,961",
+              "current_vacancy_index": 120.03
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 18.28,
+              "vacancies_share": "0%",
+              "salary_annual": "$89,039 - $113,323",
+              "current_vacancy_index": 187.93
+            },
+            "Canterbury": {
+              "opportunity_score": 601.76,
+              "vacancies_share": "10%",
+              "salary_annual": "$98,016 - $124,749",
+              "current_vacancy_index": 168.56
+            },
+            "Otago/Southland": {
+              "opportunity_score": 118.51,
+              "vacancies_share": "1%",
+              "salary_annual": "$93,418 - $118,897",
+              "current_vacancy_index": 348.29
+            }
+          },
+          "description": "Accounting, Legal, Consulting, HR & Marketing"
+        },
+        "Construction": {
+          "salary_range_annual": "$92,270 - $117,435",
+          "salary_range_hourly": "$44.36 - $56.46 / hr",
+          "median_weekly": 2016.4,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 2504.99,
+              "vacancies_share": "40%",
+              "salary_annual": "$96,148 - $122,370",
+              "current_vacancy_index": 178.83
+            },
+            "Waikato": {
+              "opportunity_score": 1288.55,
+              "vacancies_share": "12%",
+              "salary_annual": "$88,258 - $112,329",
+              "current_vacancy_index": 334.04
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 832.43,
+              "vacancies_share": "7%",
+              "salary_annual": "$86,252 - $109,776",
+              "current_vacancy_index": 378.54
+            },
+            "Northland": {
+              "opportunity_score": 63.21,
+              "vacancies_share": "0%",
+              "salary_annual": "$80,903 - $102,968",
+              "current_vacancy_index": 429.05
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 86.46,
+              "vacancies_share": "1%",
+              "salary_annual": "$82,240 - $104,670",
+              "current_vacancy_index": 192.42
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 189.24,
+              "vacancies_share": "2%",
+              "salary_annual": "$82,909 - $105,521",
+              "current_vacancy_index": 250.67
+            },
+            "Wellington": {
+              "opportunity_score": 656.64,
+              "vacancies_share": "10%",
+              "salary_annual": "$100,026 - $127,306",
+              "current_vacancy_index": 180.24
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 55.52,
+              "vacancies_share": "0%",
+              "salary_annual": "$81,572 - $103,819",
+              "current_vacancy_index": 373.73
+            },
+            "Canterbury": {
+              "opportunity_score": 2063.95,
+              "vacancies_share": "22%",
+              "salary_annual": "$89,796 - $114,286",
+              "current_vacancy_index": 286.85
+            },
+            "Otago/Southland": {
+              "opportunity_score": 814.07,
+              "vacancies_share": "4%",
+              "salary_annual": "$85,583 - $108,925",
+              "current_vacancy_index": 652.9
+            }
+          },
+          "description": "Civil Engineering, Building Trades & Project Management"
+        },
+        "Education": {
+          "salary_range_annual": "$89,671 - $114,127",
+          "salary_range_hourly": "$43.11 - $54.87 / hr",
+          "median_weekly": 1959.6,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1095.85,
+              "vacancies_share": "35%",
+              "salary_annual": "$93,439 - $118,923",
+              "current_vacancy_index": 92.0
+            },
+            "Waikato": {
+              "opportunity_score": 319.12,
+              "vacancies_share": "10%",
+              "salary_annual": "$85,772 - $109,164",
+              "current_vacancy_index": 102.15
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 196.89,
+              "vacancies_share": "7%",
+              "salary_annual": "$83,822 - $106,683",
+              "current_vacancy_index": 92.13
+            },
+            "Northland": {
+              "opportunity_score": 65.9,
+              "vacancies_share": "2%",
+              "salary_annual": "$78,624 - $100,067",
+              "current_vacancy_index": 115.07
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 34.22,
+              "vacancies_share": "3%",
+              "salary_annual": "$79,924 - $101,721",
+              "current_vacancy_index": 39.18
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 133.62,
+              "vacancies_share": "5%",
+              "salary_annual": "$80,573 - $102,548",
+              "current_vacancy_index": 91.06
+            },
+            "Wellington": {
+              "opportunity_score": 487.0,
+              "vacancies_share": "14%",
+              "salary_annual": "$97,208 - $123,720",
+              "current_vacancy_index": 98.25
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 22.85,
+              "vacancies_share": "1%",
+              "salary_annual": "$79,274 - $100,894",
+              "current_vacancy_index": 79.13
+            },
+            "Canterbury": {
+              "opportunity_score": 421.93,
+              "vacancies_share": "14%",
+              "salary_annual": "$87,266 - $111,067",
+              "current_vacancy_index": 94.82
+            },
+            "Otago/Southland": {
+              "opportunity_score": 249.41,
+              "vacancies_share": "9%",
+              "salary_annual": "$83,173 - $105,856",
+              "current_vacancy_index": 91.48
+            }
+          },
+          "description": "Primary, Secondary, Tertiary Teaching & Educational Admin"
+        },
+        "Health care": {
+          "salary_range_annual": "$96,169 - $122,397",
+          "salary_range_hourly": "$46.24 - $58.84 / hr",
+          "median_weekly": 2101.6,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1811.27,
+              "vacancies_share": "32%",
+              "salary_annual": "$100,210 - $127,541",
+              "current_vacancy_index": 155.08
+            },
+            "Waikato": {
+              "opportunity_score": 842.18,
+              "vacancies_share": "10%",
+              "salary_annual": "$91,987 - $117,075",
+              "current_vacancy_index": 251.37
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 1192.66,
+              "vacancies_share": "8%",
+              "salary_annual": "$89,897 - $114,414",
+              "current_vacancy_index": 455.32
+            },
+            "Northland": {
+              "opportunity_score": 327.68,
+              "vacancies_share": "4%",
+              "salary_annual": "$84,322 - $107,319",
+              "current_vacancy_index": 266.74
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 255.44,
+              "vacancies_share": "4%",
+              "salary_annual": "$85,715 - $109,092",
+              "current_vacancy_index": 204.55
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 782.64,
+              "vacancies_share": "6%",
+              "salary_annual": "$86,412 - $109,979",
+              "current_vacancy_index": 414.45
+            },
+            "Wellington": {
+              "opportunity_score": 988.17,
+              "vacancies_share": "12%",
+              "salary_annual": "$104,252 - $132,685",
+              "current_vacancy_index": 216.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 241.02,
+              "vacancies_share": "2%",
+              "salary_annual": "$85,018 - $108,206",
+              "current_vacancy_index": 389.18
+            },
+            "Canterbury": {
+              "opportunity_score": 1382.44,
+              "vacancies_share": "15%",
+              "salary_annual": "$93,590 - $119,115",
+              "current_vacancy_index": 270.37
+            },
+            "Otago/Southland": {
+              "opportunity_score": 985.84,
+              "vacancies_share": "7%",
+              "salary_annual": "$89,200 - $113,527",
+              "current_vacancy_index": 433.49
+            }
+          },
+          "description": "Nursing, Medical Specialists, Allied Health & Care Services"
+        },
+        "Hospitality": {
+          "salary_range_annual": "$63,679 - $81,046",
+          "salary_range_hourly": "$30.61 - $38.96 / hr",
+          "median_weekly": 1391.6,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1227.8,
+              "vacancies_share": "35%",
+              "salary_annual": "$66,355 - $84,452",
+              "current_vacancy_index": 145.15
+            },
+            "Waikato": {
+              "opportunity_score": 282.26,
+              "vacancies_share": "6%",
+              "salary_annual": "$60,910 - $77,522",
+              "current_vacancy_index": 212.05
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 452.73,
+              "vacancies_share": "9%",
+              "salary_annual": "$59,526 - $75,760",
+              "current_vacancy_index": 232.02
+            },
+            "Northland": {
+              "opportunity_score": 131.13,
+              "vacancies_share": "2%",
+              "salary_annual": "$55,834 - $71,062",
+              "current_vacancy_index": 322.41
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 31.75,
+              "vacancies_share": "1%",
+              "salary_annual": "$56,757 - $72,236",
+              "current_vacancy_index": 153.6
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 58.6,
+              "vacancies_share": "1%",
+              "salary_annual": "$57,218 - $72,823",
+              "current_vacancy_index": 281.2
+            },
+            "Wellington": {
+              "opportunity_score": 490.23,
+              "vacancies_share": "12%",
+              "salary_annual": "$69,031 - $87,858",
+              "current_vacancy_index": 162.48
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 168.8,
+              "vacancies_share": "4%",
+              "salary_annual": "$56,295 - $71,649",
+              "current_vacancy_index": 205.81
+            },
+            "Canterbury": {
+              "opportunity_score": 498.95,
+              "vacancies_share": "12%",
+              "salary_annual": "$61,971 - $78,873",
+              "current_vacancy_index": 184.21
+            },
+            "Otago/Southland": {
+              "opportunity_score": 1789.77,
+              "vacancies_share": "18%",
+              "salary_annual": "$59,064 - $75,173",
+              "current_vacancy_index": 462.2
+            }
+          },
+          "description": "Accommodation, Food Services & Tourism"
+        },
+        "IT": {
+          "salary_range_annual": "$120,211 - $152,996",
+          "salary_range_hourly": "$57.79 - $73.56 / hr",
+          "median_weekly": 2627.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1474.92,
+              "vacancies_share": "60%",
+              "salary_annual": "$125,263 - $159,426",
+              "current_vacancy_index": 53.88
+            },
+            "Waikato": {
+              "opportunity_score": 128.79,
+              "vacancies_share": "3%",
+              "salary_annual": "$114,984 - $146,344",
+              "current_vacancy_index": 102.51
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 103.56,
+              "vacancies_share": "2%",
+              "salary_annual": "$112,371 - $143,018",
+              "current_vacancy_index": 126.51
+            },
+            "Northland": {
+              "opportunity_score": 7.4,
+              "vacancies_share": "0%",
+              "salary_annual": "$105,402 - $134,148",
+              "current_vacancy_index": 192.86
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 3.47,
+              "vacancies_share": "0%",
+              "salary_annual": "$107,144 - $136,366",
+              "current_vacancy_index": 29.63
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 23.6,
+              "vacancies_share": "0%",
+              "salary_annual": "$108,015 - $137,474",
+              "current_vacancy_index": 120.0
+            },
+            "Wellington": {
+              "opportunity_score": 480.45,
+              "vacancies_share": "25%",
+              "salary_annual": "$130,315 - $165,856",
+              "current_vacancy_index": 40.49
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 3.57,
+              "vacancies_share": "0%",
+              "salary_annual": "$106,273 - $135,257",
+              "current_vacancy_index": 92.31
+            },
+            "Canterbury": {
+              "opportunity_score": 304.88,
+              "vacancies_share": "8%",
+              "salary_annual": "$116,987 - $148,893",
+              "current_vacancy_index": 89.44
+            },
+            "Otago/Southland": {
+              "opportunity_score": 61.14,
+              "vacancies_share": "1%",
+              "salary_annual": "$111,500 - $141,909",
+              "current_vacancy_index": 150.54
+            }
+          },
+          "description": "Software, Data Analytics, Cybersecurity & IT Infrastructure"
+        },
+        "Manufacturing": {
+          "salary_range_annual": "$85,772 - $109,165",
+          "salary_range_hourly": "$41.24 - $52.48 / hr",
+          "median_weekly": 1874.4,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1921.82,
+              "vacancies_share": "38%",
+              "salary_annual": "$89,376 - $113,753",
+              "current_vacancy_index": 155.36
+            },
+            "Waikato": {
+              "opportunity_score": 1663.38,
+              "vacancies_share": "16%",
+              "salary_annual": "$82,042 - $104,418",
+              "current_vacancy_index": 347.91
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 1235.4,
+              "vacancies_share": "9%",
+              "salary_annual": "$80,178 - $102,045",
+              "current_vacancy_index": 470.05
+            },
+            "Northland": {
+              "opportunity_score": 98.32,
+              "vacancies_share": "1%",
+              "salary_annual": "$75,205 - $95,717",
+              "current_vacancy_index": 358.93
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 122.6,
+              "vacancies_share": "2%",
+              "salary_annual": "$76,448 - $97,299",
+              "current_vacancy_index": 220.16
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 580.09,
+              "vacancies_share": "7%",
+              "salary_annual": "$77,070 - $98,090",
+              "current_vacancy_index": 295.22
+            },
+            "Wellington": {
+              "opportunity_score": 287.17,
+              "vacancies_share": "4%",
+              "salary_annual": "$92,981 - $118,341",
+              "current_vacancy_index": 211.99
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 117.38,
+              "vacancies_share": "1%",
+              "salary_annual": "$75,827 - $96,508",
+              "current_vacancy_index": 425.0
+            },
+            "Canterbury": {
+              "opportunity_score": 1766.06,
+              "vacancies_share": "16%",
+              "salary_annual": "$83,472 - $106,238",
+              "current_vacancy_index": 363.06
+            },
+            "Otago/Southland": {
+              "opportunity_score": 989.91,
+              "vacancies_share": "6%",
+              "salary_annual": "$79,556 - $101,254",
+              "current_vacancy_index": 569.38
+            }
+          },
+          "description": "Food Processing, Advanced Manufacturing & Logistics"
+        },
+        "Primary": {
+          "salary_range_annual": "$84,472 - $107,511",
+          "salary_range_hourly": "$40.61 - $51.69 / hr",
+          "median_weekly": 1846.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 246.01,
+              "vacancies_share": "3%",
+              "salary_annual": "$88,022 - $112,029",
+              "current_vacancy_index": 255.78
+            },
+            "Waikato": {
+              "opportunity_score": 2262.6,
+              "vacancies_share": "22%",
+              "salary_annual": "$80,799 - $102,836",
+              "current_vacancy_index": 349.47
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 3164.9,
+              "vacancies_share": "18%",
+              "salary_annual": "$78,962 - $100,499",
+              "current_vacancy_index": 611.36
+            },
+            "Northland": {
+              "opportunity_score": 254.55,
+              "vacancies_share": "4%",
+              "salary_annual": "$74,066 - $94,266",
+              "current_vacancy_index": 235.9
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 626.79,
+              "vacancies_share": "8%",
+              "salary_annual": "$75,290 - $95,825",
+              "current_vacancy_index": 285.71
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 900.46,
+              "vacancies_share": "12%",
+              "salary_annual": "$75,902 - $96,604",
+              "current_vacancy_index": 271.43
+            },
+            "Wellington": {
+              "opportunity_score": 93.09,
+              "vacancies_share": "1%",
+              "salary_annual": "$91,572 - $116,548",
+              "current_vacancy_index": 279.1
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 292.47,
+              "vacancies_share": "4%",
+              "salary_annual": "$74,678 - $95,045",
+              "current_vacancy_index": 268.82
+            },
+            "Canterbury": {
+              "opportunity_score": 1596.91,
+              "vacancies_share": "18%",
+              "salary_annual": "$82,207 - $104,628",
+              "current_vacancy_index": 296.3
+            },
+            "Otago/Southland": {
+              "opportunity_score": 1000.11,
+              "vacancies_share": "10%",
+              "salary_annual": "$78,350 - $99,720",
+              "current_vacancy_index": 350.46
+            }
+          },
+          "description": "Agriculture, Horticulture, Forestry & Agritech"
+        },
+        "Sales": {
+          "salary_range_annual": "$79,274 - $100,894",
+          "salary_range_hourly": "$38.11 - $48.51 / hr",
+          "median_weekly": 1732.4,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 1139.3,
+              "vacancies_share": "42%",
+              "salary_annual": "$82,605 - $105,134",
+              "current_vacancy_index": 90.16
+            },
+            "Waikato": {
+              "opportunity_score": 455.28,
+              "vacancies_share": "10%",
+              "salary_annual": "$75,827 - $96,507",
+              "current_vacancy_index": 164.85
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 440.59,
+              "vacancies_share": "8%",
+              "salary_annual": "$74,103 - $94,313",
+              "current_vacancy_index": 204.05
+            },
+            "Northland": {
+              "opportunity_score": 68.94,
+              "vacancies_share": "1%",
+              "salary_annual": "$69,508 - $88,465",
+              "current_vacancy_index": 272.31
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 70.26,
+              "vacancies_share": "2%",
+              "salary_annual": "$70,657 - $89,927",
+              "current_vacancy_index": 136.5
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 221.8,
+              "vacancies_share": "4%",
+              "salary_annual": "$71,231 - $90,658",
+              "current_vacancy_index": 213.73
+            },
+            "Wellington": {
+              "opportunity_score": 326.29,
+              "vacancies_share": "12%",
+              "salary_annual": "$85,937 - $109,374",
+              "current_vacancy_index": 86.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 47.52,
+              "vacancies_share": "1%",
+              "salary_annual": "$70,082 - $89,196",
+              "current_vacancy_index": 186.16
+            },
+            "Canterbury": {
+              "opportunity_score": 533.36,
+              "vacancies_share": "14%",
+              "salary_annual": "$77,148 - $98,188",
+              "current_vacancy_index": 135.58
+            },
+            "Otago/Southland": {
+              "opportunity_score": 472.23,
+              "vacancies_share": "6%",
+              "salary_annual": "$73,529 - $93,582",
+              "current_vacancy_index": 293.88
+            }
+          },
+          "description": "Retail Sales, Business Development & Account Management"
+        },
+        "Other": {
+          "salary_range_annual": "$81,224 - $103,376",
+          "salary_range_hourly": "$39.05 - $49.70 / hr",
+          "median_weekly": 1775.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 3043.1,
+              "vacancies_share": "38%",
+              "salary_annual": "$84,637 - $107,720",
+              "current_vacancy_index": 259.78
+            },
+            "Waikato": {
+              "opportunity_score": 957.01,
+              "vacancies_share": "8%",
+              "salary_annual": "$77,692 - $98,881",
+              "current_vacancy_index": 422.75
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 826.43,
+              "vacancies_share": "6%",
+              "salary_annual": "$75,926 - $96,634",
+              "current_vacancy_index": 498.08
+            },
+            "Northland": {
+              "opportunity_score": 434.86,
+              "vacancies_share": "2%",
+              "salary_annual": "$71,218 - $90,641",
+              "current_vacancy_index": 838.24
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 182.14,
+              "vacancies_share": "3%",
+              "salary_annual": "$72,395 - $92,139",
+              "current_vacancy_index": 230.26
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 421.79,
+              "vacancies_share": "4%",
+              "salary_annual": "$72,983 - $92,888",
+              "current_vacancy_index": 396.69
+            },
+            "Wellington": {
+              "opportunity_score": 1338.55,
+              "vacancies_share": "18%",
+              "salary_annual": "$88,051 - $112,065",
+              "current_vacancy_index": 231.88
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 104.27,
+              "vacancies_share": "1%",
+              "salary_annual": "$71,806 - $91,390",
+              "current_vacancy_index": 398.68
+            },
+            "Canterbury": {
+              "opportunity_score": 1953.44,
+              "vacancies_share": "14%",
+              "salary_annual": "$79,046 - $100,604",
+              "current_vacancy_index": 484.65
+            },
+            "Otago/Southland": {
+              "opportunity_score": 1299.47,
+              "vacancies_share": "6%",
+              "salary_annual": "$75,338 - $95,884",
+              "current_vacancy_index": 789.29
+            }
+          },
+          "description": "Personal Services, Public Safety & Maintenance"
+        }
+      }
+    },
+    "Lead / Executive": {
+      "level_name": "Lead / Executive (10+ Yrs)",
+      "experience_range": "10+ Years Experience",
+      "salary_multiplier": 1.85,
+      "competition_index": 0.3,
+      "industries": {
+        "Business services": {
+          "salary_range_annual": "$131,216 - $167,003",
+          "salary_range_hourly": "$63.08 - $80.29 / hr",
+          "median_weekly": 2867.5,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 4323.8,
+              "vacancies_share": "52%",
+              "salary_annual": "$136,730 - $174,021",
+              "current_vacancy_index": 100.18
+            },
+            "Waikato": {
+              "opportunity_score": 623.93,
+              "vacancies_share": "4%",
+              "salary_annual": "$125,510 - $159,742",
+              "current_vacancy_index": 204.73
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 741.78,
+              "vacancies_share": "3%",
+              "salary_annual": "$122,658 - $156,111",
+              "current_vacancy_index": 332.08
+            },
+            "Northland": {
+              "opportunity_score": 29.01,
+              "vacancies_share": "0%",
+              "salary_annual": "$115,051 - $146,430",
+              "current_vacancy_index": 207.69
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 47.08,
+              "vacancies_share": "0%",
+              "salary_annual": "$116,953 - $148,850",
+              "current_vacancy_index": 132.62
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 167.81,
+              "vacancies_share": "1%",
+              "salary_annual": "$117,904 - $150,060",
+              "current_vacancy_index": 234.46
+            },
+            "Wellington": {
+              "opportunity_score": 2902.03,
+              "vacancies_share": "28%",
+              "salary_annual": "$142,245 - $181,040",
+              "current_vacancy_index": 120.03
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 39.7,
+              "vacancies_share": "0%",
+              "salary_annual": "$116,002 - $147,640",
+              "current_vacancy_index": 187.93
+            },
+            "Canterbury": {
+              "opportunity_score": 1306.63,
+              "vacancies_share": "10%",
+              "salary_annual": "$127,697 - $162,525",
+              "current_vacancy_index": 168.56
+            },
+            "Otago/Southland": {
+              "opportunity_score": 257.32,
+              "vacancies_share": "1%",
+              "salary_annual": "$121,707 - $154,901",
+              "current_vacancy_index": 348.29
+            }
+          },
+          "description": "Accounting, Legal, Consulting, HR & Marketing"
+        },
+        "Construction": {
+          "salary_range_annual": "$120,211 - $152,996",
+          "salary_range_hourly": "$57.79 - $73.56 / hr",
+          "median_weekly": 2627.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 5439.23,
+              "vacancies_share": "40%",
+              "salary_annual": "$125,263 - $159,426",
+              "current_vacancy_index": 178.83
+            },
+            "Waikato": {
+              "opportunity_score": 2797.9,
+              "vacancies_share": "12%",
+              "salary_annual": "$114,984 - $146,344",
+              "current_vacancy_index": 334.04
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 1807.5,
+              "vacancies_share": "7%",
+              "salary_annual": "$112,371 - $143,018",
+              "current_vacancy_index": 378.54
+            },
+            "Northland": {
+              "opportunity_score": 137.26,
+              "vacancies_share": "0%",
+              "salary_annual": "$105,402 - $134,148",
+              "current_vacancy_index": 429.05
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 187.73,
+              "vacancies_share": "1%",
+              "salary_annual": "$107,144 - $136,366",
+              "current_vacancy_index": 192.42
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 410.91,
+              "vacancies_share": "2%",
+              "salary_annual": "$108,015 - $137,474",
+              "current_vacancy_index": 250.67
+            },
+            "Wellington": {
+              "opportunity_score": 1425.81,
+              "vacancies_share": "10%",
+              "salary_annual": "$130,315 - $165,856",
+              "current_vacancy_index": 180.24
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 120.55,
+              "vacancies_share": "0%",
+              "salary_annual": "$106,273 - $135,257",
+              "current_vacancy_index": 373.73
+            },
+            "Canterbury": {
+              "opportunity_score": 4481.59,
+              "vacancies_share": "22%",
+              "salary_annual": "$116,987 - $148,893",
+              "current_vacancy_index": 286.85
+            },
+            "Otago/Southland": {
+              "opportunity_score": 1767.65,
+              "vacancies_share": "4%",
+              "salary_annual": "$111,500 - $141,909",
+              "current_vacancy_index": 652.9
+            }
+          },
+          "description": "Civil Engineering, Building Trades & Project Management"
+        },
+        "Education": {
+          "salary_range_annual": "$116,825 - $148,686",
+          "salary_range_hourly": "$56.17 - $71.48 / hr",
+          "median_weekly": 2553.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 2379.49,
+              "vacancies_share": "35%",
+              "salary_annual": "$121,735 - $154,935",
+              "current_vacancy_index": 92.0
+            },
+            "Waikato": {
+              "opportunity_score": 692.92,
+              "vacancies_share": "10%",
+              "salary_annual": "$111,745 - $142,221",
+              "current_vacancy_index": 102.15
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 427.52,
+              "vacancies_share": "7%",
+              "salary_annual": "$109,205 - $138,989",
+              "current_vacancy_index": 92.13
+            },
+            "Northland": {
+              "opportunity_score": 143.1,
+              "vacancies_share": "2%",
+              "salary_annual": "$102,433 - $130,369",
+              "current_vacancy_index": 115.07
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 74.3,
+              "vacancies_share": "3%",
+              "salary_annual": "$104,126 - $132,524",
+              "current_vacancy_index": 39.18
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 290.13,
+              "vacancies_share": "5%",
+              "salary_annual": "$104,973 - $133,601",
+              "current_vacancy_index": 91.06
+            },
+            "Wellington": {
+              "opportunity_score": 1057.45,
+              "vacancies_share": "14%",
+              "salary_annual": "$126,645 - $161,184",
+              "current_vacancy_index": 98.25
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 49.61,
+              "vacancies_share": "1%",
+              "salary_annual": "$103,280 - $131,447",
+              "current_vacancy_index": 79.13
+            },
+            "Canterbury": {
+              "opportunity_score": 916.16,
+              "vacancies_share": "14%",
+              "salary_annual": "$113,692 - $144,699",
+              "current_vacancy_index": 94.82
+            },
+            "Otago/Southland": {
+              "opportunity_score": 541.56,
+              "vacancies_share": "9%",
+              "salary_annual": "$108,359 - $137,911",
+              "current_vacancy_index": 91.48
+            }
+          },
+          "description": "Primary, Secondary, Tertiary Teaching & Educational Admin"
+        },
+        "Health care": {
+          "salary_range_annual": "$125,290 - $159,461",
+          "salary_range_hourly": "$60.24 - $76.66 / hr",
+          "median_weekly": 2738.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 3932.93,
+              "vacancies_share": "32%",
+              "salary_annual": "$130,555 - $166,162",
+              "current_vacancy_index": 155.08
+            },
+            "Waikato": {
+              "opportunity_score": 1828.69,
+              "vacancies_share": "10%",
+              "salary_annual": "$119,842 - $152,527",
+              "current_vacancy_index": 251.37
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 2589.69,
+              "vacancies_share": "8%",
+              "salary_annual": "$117,118 - $149,061",
+              "current_vacancy_index": 455.32
+            },
+            "Northland": {
+              "opportunity_score": 711.52,
+              "vacancies_share": "4%",
+              "salary_annual": "$109,855 - $139,817",
+              "current_vacancy_index": 266.74
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 554.65,
+              "vacancies_share": "4%",
+              "salary_annual": "$111,671 - $142,128",
+              "current_vacancy_index": 204.55
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 1699.41,
+              "vacancies_share": "6%",
+              "salary_annual": "$112,579 - $143,283",
+              "current_vacancy_index": 414.45
+            },
+            "Wellington": {
+              "opportunity_score": 2145.68,
+              "vacancies_share": "12%",
+              "salary_annual": "$135,821 - $172,864",
+              "current_vacancy_index": 216.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 523.35,
+              "vacancies_share": "2%",
+              "salary_annual": "$110,763 - $140,972",
+              "current_vacancy_index": 389.18
+            },
+            "Canterbury": {
+              "opportunity_score": 3001.77,
+              "vacancies_share": "15%",
+              "salary_annual": "$121,930 - $155,185",
+              "current_vacancy_index": 270.37
+            },
+            "Otago/Southland": {
+              "opportunity_score": 2140.62,
+              "vacancies_share": "7%",
+              "salary_annual": "$116,211 - $147,905",
+              "current_vacancy_index": 433.49
+            }
+          },
+          "description": "Nursing, Medical Specialists, Allied Health & Care Services"
+        },
+        "Hospitality": {
+          "salary_range_annual": "$82,962 - $105,589",
+          "salary_range_hourly": "$39.89 - $50.76 / hr",
+          "median_weekly": 1813.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 2666.0,
+              "vacancies_share": "35%",
+              "salary_annual": "$86,448 - $110,026",
+              "current_vacancy_index": 145.15
+            },
+            "Waikato": {
+              "opportunity_score": 612.89,
+              "vacancies_share": "6%",
+              "salary_annual": "$79,354 - $100,998",
+              "current_vacancy_index": 212.05
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 983.05,
+              "vacancies_share": "9%",
+              "salary_annual": "$77,551 - $98,702",
+              "current_vacancy_index": 232.02
+            },
+            "Northland": {
+              "opportunity_score": 284.73,
+              "vacancies_share": "2%",
+              "salary_annual": "$72,742 - $92,581",
+              "current_vacancy_index": 322.41
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 68.95,
+              "vacancies_share": "1%",
+              "salary_annual": "$73,944 - $94,111",
+              "current_vacancy_index": 153.6
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 127.25,
+              "vacancies_share": "1%",
+              "salary_annual": "$74,545 - $94,877",
+              "current_vacancy_index": 281.2
+            },
+            "Wellington": {
+              "opportunity_score": 1064.46,
+              "vacancies_share": "12%",
+              "salary_annual": "$89,935 - $114,464",
+              "current_vacancy_index": 162.48
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 366.52,
+              "vacancies_share": "4%",
+              "salary_annual": "$73,343 - $93,346",
+              "current_vacancy_index": 205.81
+            },
+            "Canterbury": {
+              "opportunity_score": 1083.39,
+              "vacancies_share": "12%",
+              "salary_annual": "$80,737 - $102,757",
+              "current_vacancy_index": 184.21
+            },
+            "Otago/Southland": {
+              "opportunity_score": 3886.23,
+              "vacancies_share": "18%",
+              "salary_annual": "$76,950 - $97,937",
+              "current_vacancy_index": 462.2
+            }
+          },
+          "description": "Accommodation, Food Services & Tourism"
+        },
+        "IT": {
+          "salary_range_annual": "$156,613 - $199,326",
+          "salary_range_hourly": "$75.29 - $95.83 / hr",
+          "median_weekly": 3422.5,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 3202.58,
+              "vacancies_share": "60%",
+              "salary_annual": "$163,195 - $207,703",
+              "current_vacancy_index": 53.88
+            },
+            "Waikato": {
+              "opportunity_score": 279.66,
+              "vacancies_share": "3%",
+              "salary_annual": "$149,803 - $190,659",
+              "current_vacancy_index": 102.51
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 224.86,
+              "vacancies_share": "2%",
+              "salary_annual": "$146,399 - $186,326",
+              "current_vacancy_index": 126.51
+            },
+            "Northland": {
+              "opportunity_score": 16.08,
+              "vacancies_share": "0%",
+              "salary_annual": "$137,320 - $174,771",
+              "current_vacancy_index": 192.86
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 7.53,
+              "vacancies_share": "0%",
+              "salary_annual": "$139,589 - $177,660",
+              "current_vacancy_index": 29.63
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 51.25,
+              "vacancies_share": "0%",
+              "salary_annual": "$140,724 - $179,104",
+              "current_vacancy_index": 120.0
+            },
+            "Wellington": {
+              "opportunity_score": 1043.23,
+              "vacancies_share": "25%",
+              "salary_annual": "$169,777 - $216,080",
+              "current_vacancy_index": 40.49
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 7.76,
+              "vacancies_share": "0%",
+              "salary_annual": "$138,454 - $176,215",
+              "current_vacancy_index": 92.31
+            },
+            "Canterbury": {
+              "opportunity_score": 662.0,
+              "vacancies_share": "8%",
+              "salary_annual": "$152,413 - $193,981",
+              "current_vacancy_index": 89.44
+            },
+            "Otago/Southland": {
+              "opportunity_score": 132.75,
+              "vacancies_share": "1%",
+              "salary_annual": "$145,264 - $184,882",
+              "current_vacancy_index": 150.54
+            }
+          },
+          "description": "Software, Data Analytics, Cybersecurity & IT Infrastructure"
+        },
+        "Manufacturing": {
+          "salary_range_annual": "$111,745 - $142,222",
+          "salary_range_hourly": "$53.72 - $68.38 / hr",
+          "median_weekly": 2442.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 4172.97,
+              "vacancies_share": "38%",
+              "salary_annual": "$116,441 - $148,199",
+              "current_vacancy_index": 155.36
+            },
+            "Waikato": {
+              "opportunity_score": 3611.81,
+              "vacancies_share": "16%",
+              "salary_annual": "$106,886 - $136,038",
+              "current_vacancy_index": 347.91
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 2682.5,
+              "vacancies_share": "9%",
+              "salary_annual": "$104,457 - $132,946",
+              "current_vacancy_index": 470.05
+            },
+            "Northland": {
+              "opportunity_score": 213.48,
+              "vacancies_share": "1%",
+              "salary_annual": "$97,979 - $124,701",
+              "current_vacancy_index": 358.93
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 266.22,
+              "vacancies_share": "2%",
+              "salary_annual": "$99,598 - $126,763",
+              "current_vacancy_index": 220.16
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 1259.59,
+              "vacancies_share": "7%",
+              "salary_annual": "$100,408 - $127,793",
+              "current_vacancy_index": 295.22
+            },
+            "Wellington": {
+              "opportunity_score": 623.55,
+              "vacancies_share": "4%",
+              "salary_annual": "$121,138 - $154,176",
+              "current_vacancy_index": 211.99
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 254.87,
+              "vacancies_share": "1%",
+              "salary_annual": "$98,789 - $125,732",
+              "current_vacancy_index": 425.0
+            },
+            "Canterbury": {
+              "opportunity_score": 3834.76,
+              "vacancies_share": "16%",
+              "salary_annual": "$108,748 - $138,408",
+              "current_vacancy_index": 363.06
+            },
+            "Otago/Southland": {
+              "opportunity_score": 2149.45,
+              "vacancies_share": "6%",
+              "salary_annual": "$103,647 - $131,916",
+              "current_vacancy_index": 569.38
+            }
+          },
+          "description": "Food Processing, Advanced Manufacturing & Logistics"
+        },
+        "Primary": {
+          "salary_range_annual": "$110,052 - $140,067",
+          "salary_range_hourly": "$52.91 - $67.34 / hr",
+          "median_weekly": 2405.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 534.17,
+              "vacancies_share": "3%",
+              "salary_annual": "$114,677 - $145,953",
+              "current_vacancy_index": 255.78
+            },
+            "Waikato": {
+              "opportunity_score": 4912.92,
+              "vacancies_share": "22%",
+              "salary_annual": "$105,267 - $133,977",
+              "current_vacancy_index": 349.47
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 6872.15,
+              "vacancies_share": "18%",
+              "salary_annual": "$102,874 - $130,932",
+              "current_vacancy_index": 611.36
+            },
+            "Northland": {
+              "opportunity_score": 552.72,
+              "vacancies_share": "4%",
+              "salary_annual": "$96,494 - $122,812",
+              "current_vacancy_index": 235.9
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 1360.99,
+              "vacancies_share": "8%",
+              "salary_annual": "$98,089 - $124,842",
+              "current_vacancy_index": 285.71
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 1955.21,
+              "vacancies_share": "12%",
+              "salary_annual": "$98,887 - $125,857",
+              "current_vacancy_index": 271.43
+            },
+            "Wellington": {
+              "opportunity_score": 202.13,
+              "vacancies_share": "1%",
+              "salary_annual": "$119,302 - $151,840",
+              "current_vacancy_index": 279.1
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 635.06,
+              "vacancies_share": "4%",
+              "salary_annual": "$97,292 - $123,827",
+              "current_vacancy_index": 268.82
+            },
+            "Canterbury": {
+              "opportunity_score": 3467.48,
+              "vacancies_share": "18%",
+              "salary_annual": "$107,101 - $136,311",
+              "current_vacancy_index": 296.3
+            },
+            "Otago/Southland": {
+              "opportunity_score": 2171.61,
+              "vacancies_share": "10%",
+              "salary_annual": "$102,077 - $129,917",
+              "current_vacancy_index": 350.46
+            }
+          },
+          "description": "Agriculture, Horticulture, Forestry & Agritech"
+        },
+        "Sales": {
+          "salary_range_annual": "$103,280 - $131,447",
+          "salary_range_hourly": "$49.65 - $63.20 / hr",
+          "median_weekly": 2257.0,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 2473.84,
+              "vacancies_share": "42%",
+              "salary_annual": "$107,620 - $136,971",
+              "current_vacancy_index": 90.16
+            },
+            "Waikato": {
+              "opportunity_score": 988.58,
+              "vacancies_share": "10%",
+              "salary_annual": "$98,789 - $125,731",
+              "current_vacancy_index": 164.85
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 956.68,
+              "vacancies_share": "8%",
+              "salary_annual": "$96,544 - $122,874",
+              "current_vacancy_index": 204.05
+            },
+            "Northland": {
+              "opportunity_score": 149.69,
+              "vacancies_share": "1%",
+              "salary_annual": "$90,557 - $115,254",
+              "current_vacancy_index": 272.31
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 152.55,
+              "vacancies_share": "2%",
+              "salary_annual": "$92,053 - $117,159",
+              "current_vacancy_index": 136.5
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 481.61,
+              "vacancies_share": "4%",
+              "salary_annual": "$92,802 - $118,111",
+              "current_vacancy_index": 213.73
+            },
+            "Wellington": {
+              "opportunity_score": 708.49,
+              "vacancies_share": "12%",
+              "salary_annual": "$111,961 - $142,496",
+              "current_vacancy_index": 86.87
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 103.18,
+              "vacancies_share": "1%",
+              "salary_annual": "$91,305 - $116,206",
+              "current_vacancy_index": 186.16
+            },
+            "Canterbury": {
+              "opportunity_score": 1158.11,
+              "vacancies_share": "14%",
+              "salary_annual": "$100,510 - $127,922",
+              "current_vacancy_index": 135.58
+            },
+            "Otago/Southland": {
+              "opportunity_score": 1025.37,
+              "vacancies_share": "6%",
+              "salary_annual": "$95,795 - $121,921",
+              "current_vacancy_index": 293.88
+            }
+          },
+          "description": "Retail Sales, Business Development & Account Management"
+        },
+        "Other": {
+          "salary_range_annual": "$105,820 - $134,680",
+          "salary_range_hourly": "$50.88 - $64.75 / hr",
+          "median_weekly": 2312.5,
+          "regional_distribution": {
+            "Auckland": {
+              "opportunity_score": 6607.67,
+              "vacancies_share": "38%",
+              "salary_annual": "$110,267 - $140,340",
+              "current_vacancy_index": 259.78
+            },
+            "Waikato": {
+              "opportunity_score": 2078.01,
+              "vacancies_share": "8%",
+              "salary_annual": "$101,219 - $128,824",
+              "current_vacancy_index": 422.75
+            },
+            "Bay of Plenty": {
+              "opportunity_score": 1794.49,
+              "vacancies_share": "6%",
+              "salary_annual": "$98,918 - $125,896",
+              "current_vacancy_index": 498.08
+            },
+            "Northland": {
+              "opportunity_score": 944.24,
+              "vacancies_share": "2%",
+              "salary_annual": "$92,784 - $118,088",
+              "current_vacancy_index": 838.24
+            },
+            "Gisborne/Hawkes Bay": {
+              "opportunity_score": 395.5,
+              "vacancies_share": "3%",
+              "salary_annual": "$94,317 - $120,040",
+              "current_vacancy_index": 230.26
+            },
+            "Manawatu-Whanganui/Taranaki": {
+              "opportunity_score": 915.87,
+              "vacancies_share": "4%",
+              "salary_annual": "$95,084 - $121,016",
+              "current_vacancy_index": 396.69
+            },
+            "Wellington": {
+              "opportunity_score": 2906.48,
+              "vacancies_share": "18%",
+              "salary_annual": "$114,715 - $146,000",
+              "current_vacancy_index": 231.88
+            },
+            "Tasman/Nelson/Marlborough/West Coast": {
+              "opportunity_score": 226.4,
+              "vacancies_share": "1%",
+              "salary_annual": "$93,551 - $119,064",
+              "current_vacancy_index": 398.68
+            },
+            "Canterbury": {
+              "opportunity_score": 4241.63,
+              "vacancies_share": "14%",
+              "salary_annual": "$102,982 - $131,069",
+              "current_vacancy_index": 484.65
+            },
+            "Otago/Southland": {
+              "opportunity_score": 2821.62,
+              "vacancies_share": "6%",
+              "salary_annual": "$98,151 - $124,920",
+              "current_vacancy_index": 789.29
+            }
+          },
+          "description": "Personal Services, Public Safety & Maintenance"
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import DownloadCSVButton from './DownloadCSVButton';
 import { 
-  Compass, MapPin, DollarSign, Award, Target, ArrowRight, RotateCcw, CheckCircle2, ShieldCheck, Database 
+  Compass, MapPin, DollarSign, Award, Target, ArrowRight, RotateCcw, CheckCircle2, ShieldCheck, Database, Briefcase, Info
 } from 'lucide-react';
+import { selectJobVolumeEstimates } from '../utils/selectors';
 
-export default function CareerPathfinder({ pathfinderRules, regionalData, industryData }) {
+export default function CareerPathfinder({ pathfinderRules, regionalData, industryData, levelData, jobVolumeData }) {
   const [selectedIndustry, setSelectedIndustry] = useState('');
   const [careerLevel, setCareerLevel] = useState('mid_level');
   const [relocationOpen, setRelocationOpen] = useState(true);
@@ -31,11 +32,60 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
   const currentIndustryObj = industries.find(ind => ind.id === selectedIndustry);
   const currentGuidance = levelGuidance[careerLevel];
 
+  // Map CareerPathfinder state to levelData keys
+  const levelMap = {
+    "entry_level": "Junior",
+    "mid_level": "Intermediate",
+    "senior_level": "Senior"
+  };
+
+  const industryIdMap = {
+    "it_tech": "IT",
+    "business_services": "Business services",
+    "healthcare": "Health care",
+    "construction_engineering": "Construction",
+    "manufacturing_logistics": "Manufacturing",
+    "hospitality_tourism": "Hospitality",
+    "sales_retail": "Sales",
+    "primary_agriculture": "Primary",
+    "education": "Education"
+  };
+
+  // Resolve dynamic level-specific salary benchmark
+  let displaySalary = currentIndustryObj?.median_salary;
+  if (levelData && selectedIndustry && careerLevel) {
+    const levelKey = levelMap[careerLevel];
+    const indKey = industryIdMap[selectedIndustry];
+    const levelIndData = levelData.levels?.[levelKey]?.industries?.[indKey];
+    if (levelIndData) {
+      displaySalary = `${levelIndData.salary_range_annual} / yr (${levelIndData.salary_range_hourly})`;
+    }
+  }
+
+  // Calculate estimated job pool size for the recommended regions
+  let totalEstimatedRoles = null;
+  if (jobVolumeData && selectedIndustry && careerLevel && currentIndustryObj?.top_regions) {
+    const levelKey = levelMap[careerLevel];
+    const indKey = industryIdMap[selectedIndustry];
+    let sum = 0;
+    let found = false;
+    currentIndustryObj.top_regions.forEach(reg => {
+      const vol = selectJobVolumeEstimates(jobVolumeData, indKey, reg, levelKey);
+      if (vol !== null) {
+        sum += vol;
+        found = true;
+      }
+    });
+    if (found) {
+      totalEstimatedRoles = sum;
+    }
+  }
+
   // Brief Export Data object for DownloadCSVButton
   const briefExportData = currentIndustryObj ? [
     {
       Industry: currentIndustryObj.label,
-      "Median Salary": currentIndustryObj.median_salary,
+      "Median Salary": displaySalary,
       "Market Outlook": currentIndustryObj.market_outlook,
       "INZ Visa Status": currentIndustryObj.inz_visa_status || '🟢 INZ Green List Tier 1 (Straight to Residence)',
       "Top Target Regions": currentIndustryObj.top_regions.join('; '),
@@ -141,9 +191,9 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Median Earnings Benchmark:</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Level-Specific Earnings Benchmark:</div>
                   <div style={{ fontSize: '1.2rem', fontWeight: '800', color: '#059669' }}>
-                    {currentIndustryObj?.median_salary}
+                    {displaySalary}
                   </div>
                 </div>
               </div>
@@ -158,6 +208,23 @@ export default function CareerPathfinder({ pathfinderRules, regionalData, indust
                   </span>
                 </div>
               </div>
+
+              {/* Estimated Job Volume Badge */}
+              {totalEstimatedRoles !== null && (
+                <div style={{ background: 'var(--bg-card)', padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--border-subtle)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <Briefcase size={20} color="#0284c7" aria-hidden="true" />
+                  <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)' }}>Estimated Active Job Pool: </span>
+                    <span className="badge badge-cyan" style={{ marginLeft: '6px', fontWeight: '900' }}>
+                      ~{totalEstimatedRoles.toLocaleString()} open roles per year
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: '8px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      (across recommended target regions)
+                      <Info size={14} color="var(--text-muted)" aria-label="Calculated using official Stats NZ Industry Size multiplied by LEED Annual Turnover Rate, Regional Share, and your Seniority level." title="Calculated using official Stats NZ Industry Size multiplied by LEED Annual Turnover Rate, Regional Share, and your Seniority level." />
+                    </span>
+                  </div>
+                </div>
+              )}
 
               <div className="section-grid" style={{ marginBottom: 0 }}>
                 {/* Strategic Advice */}

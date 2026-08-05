@@ -117,6 +117,21 @@ export default function Methodology() {
                 <strong>Coverage:</strong> Actual mean weekly rent ($/wk) across 78 Territorial Authorities and 10 Labour Market Regions used to compute Net Discretionary Income.
               </p>
             </div>
+
+            {/* Job Volume Extrapolations */}
+            <div className="col-6 glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <span className="badge badge-cyan">Absolute Counts Dataset</span>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
+                  6. Stats NZ Business Demography & LEED (2025 – 2026)
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                <strong>Source:</strong> Stats NZ Linked Employer-Employee Data (LEED) & Business Demography Statistics.<br />
+                <strong>Methodology:</strong> Cross-tabulation of total enterprise employee counts (`ec_count`) against LEED quarterly worker separations to compute the official "Annual Turnover Rate".<br />
+                <strong>Coverage:</strong> Industry sizes across NZ and absolute count extrapolations.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -128,6 +143,27 @@ export default function Methodology() {
           </h3>
 
           <div className="section-grid" style={{ marginBottom: '24px' }}>
+            {/* Job Volume Extrapolator Formula */}
+            <div className="col-6 glass-card section-card" style={{ background: 'var(--table-header-bg)', border: '1px solid var(--border-accent)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <span className="badge badge-cyan">Job Volume Estimator</span>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+                  Estimated Active Job Pool
+                </h4>
+              </div>
+              <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: '800', color: '#0284c7', background: 'var(--bg-card)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)', marginBottom: '10px' }}>
+                Est. Openings = Industry Size × Annual Turnover % × Regional Share % × Seniority Distribution %
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '8px' }}>
+                <strong>Purpose:</strong> Extrapolates the true absolute number of open job vacancies using official data. 
+              </p>
+              <ul style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5', paddingLeft: '20px', margin: '0' }}>
+                <li><strong>Industry Size & Regional Share %:</strong> Sourced from Stats NZ Business Demography Statistics (<code>geographic-units-by-industry-and-statistical-area.csv</code>).</li>
+                <li><strong>Annual Turnover %:</strong> Sourced from Stats NZ Linked Employer-Employee Data (<code>STATSNZ,LEED_Q3W.csv</code>), using "Worker separations" divided by "Total filled jobs".</li>
+                <li><strong>Seniority Distribution %:</strong> Sourced from the Hays Salary Guide and Absolute IT Tech Report market distribution curves (Junior 20%, Intermediate 45%, Senior 25%, Lead 10%).</li>
+              </ul>
+            </div>
+
             {/* Rent-Adjusted Real Purchasing Power */}
             <div className="col-6 glass-card section-card" style={{ background: 'var(--table-header-bg)', border: '1px solid var(--border-accent)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
@@ -157,6 +193,22 @@ export default function Methodology() {
               </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
                 Filters out children (&lt;15) and retirees (65+) to measure per-capita job vacancy density relative to active job seekers.
+              </p>
+            </div>
+
+            {/* Calibrated Level-Specific Opportunity Score */}
+            <div className="col-12 glass-card section-card" style={{ background: 'var(--table-header-bg)', border: '1px solid var(--border-accent)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <span className="badge badge-amber">Level-Specific & Volume-Weighted Score</span>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+                  Level-Specific Calibrated Industry Opportunity Score
+                </h4>
+              </div>
+              <div className="tabular-nums" style={{ fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: '800', color: '#8b5cf6', background: 'var(--bg-card)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)', marginBottom: '10px' }}>
+                Score = (Vacancy Index × Regional Industry Share) × (Level Wage / $1,200) / Competition Index
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+                <strong>Calibration Rationale:</strong> Corrects the 2007 baseline distortion by multiplying the Index by the real-world <strong>Regional Industry Market Share</strong>. This volume-weighting ensures large markets (e.g., Auckland IT capturing 65% of jobs) correctly score higher than small regions with statistically noisy index jumps. It further adjusts for seniority level salary and competition ratios (Junior vs Senior).
               </p>
             </div>
           </div>

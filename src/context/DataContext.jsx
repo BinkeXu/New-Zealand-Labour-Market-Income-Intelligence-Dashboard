@@ -10,6 +10,8 @@ export function DataProvider({ children }) {
   const [occupationData, setOccupationData] = useState(null);
   const [pathfinderRules, setPathfinderRules] = useState(null);
   const [irdIncomeData, setIrdIncomeData] = useState(null);
+  const [levelData, setLevelData] = useState(null);
+  const [jobVolumeData, setJobVolumeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -19,14 +21,16 @@ export function DataProvider({ children }) {
     async function loadData() {
       try {
         setLoading(true);
-        const [resMonthly, resRegional, resCityIndustry, resIndustry, resOccupation, resRules, resIrd] = await Promise.all([
+        const [resMonthly, resRegional, resCityIndustry, resIndustry, resOccupation, resRules, resIrd, resLevel, resJobVolume] = await Promise.all([
           fetch('/data/monthly_series.json'),
           fetch('/data/regional_summary.json'),
           fetch('/data/city_industry_vacancies.json'),
           fetch('/data/industry_matrix.json'),
           fetch('/data/detailed_occupations.json'),
           fetch('/data/career_pathfinder_rules.json'),
-          fetch('/data/ird_income_distributions.json')
+          fetch('/data/ird_income_distributions.json'),
+          fetch('/data/level_industry_benchmarks.json'),
+          fetch('/data/job_volume_estimates.json')
         ]);
 
         if (!resMonthly.ok || !resRegional.ok || !resCityIndustry.ok) {
@@ -40,7 +44,8 @@ export function DataProvider({ children }) {
         const dataOccupation = await resOccupation.json();
         const dataRules = await resRules.json();
         const dataIrd = resIrd.ok ? await resIrd.json() : null;
-
+        const dataLevel = resLevel.ok ? await resLevel.json() : null;
+        const dataJobVolume = resJobVolume.ok ? await resJobVolume.json() : null;
         if (isMounted) {
           setMonthlyData(dataMonthly);
           setRegionalData(dataRegional);
@@ -49,6 +54,8 @@ export function DataProvider({ children }) {
           setOccupationData(dataOccupation);
           setPathfinderRules(dataRules);
           setIrdIncomeData(dataIrd);
+          setLevelData(dataLevel);
+          setJobVolumeData(dataJobVolume);
           setLoading(false);
         }
       } catch (err) {
@@ -75,9 +82,11 @@ export function DataProvider({ children }) {
     occupationData,
     pathfinderRules,
     irdIncomeData,
+    levelData,
+    jobVolumeData,
     loading,
     error
-  }), [monthlyData, regionalData, cityIndustryData, industryData, occupationData, pathfinderRules, irdIncomeData, loading, error]);
+  }), [monthlyData, regionalData, cityIndustryData, industryData, occupationData, pathfinderRules, irdIncomeData, levelData, jobVolumeData, loading, error]);
 
   return (
     <DataContext.Provider value={value}>

@@ -2,19 +2,21 @@ import React, { useState, useMemo } from 'react';
 import { 
   selectFilteredRegions, 
   selectRegionalChartData, 
-  selectFilteredCityIndustryVacancies 
+  selectFilteredCityIndustryVacancies,
+  selectLevelIndustryBenchmarks,
+  selectJobVolumeEstimates
 } from '../utils/selectors';
 import DownloadCSVButton from './DownloadCSVButton';
 import { 
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend 
 } from 'recharts';
 import { 
-  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star 
+  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star, Info
 } from 'lucide-react';
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
 
-export default function RegionalMatrix({ regionalData, cityIndustryData }) {
+export default function RegionalMatrix({ regionalData, cityIndustryData, levelData, jobVolumeData }) {
   const [selectedIsland, setSelectedIsland] = useState('All');
   const [selectedCityFilter, setSelectedCityFilter] = useState('');
   
@@ -64,6 +66,12 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
       matrixSortDirection
     );
   }, [cityIndustryData, matrixRegion, matrixIndustry, debouncedCityFilter, matrixSortField, matrixSortDirection]);
+
+  const [selectedLevel, setSelectedLevel] = useState('Intermediate');
+  
+  const levelBenchmarks = useMemo(() => {
+    return selectLevelIndustryBenchmarks(levelData, selectedLevel);
+  }, [levelData, selectedLevel]);
 
   if (!regionalData || !regionalData.regions || regionalData.regions.length === 0) {
     return (
@@ -365,6 +373,22 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
               </select>
             </div>
 
+            <div>
+              <label htmlFor="matrix-level-select" className="navbar-subtitle" style={{ display: 'block', marginBottom: '4px' }}>Seniority Level:</label>
+              <select 
+                id="matrix-level-select"
+                className="select-control"
+                value={selectedLevel}
+                onChange={(e) => setSelectedLevel(e.target.value)}
+                aria-label="Filter matrix by Seniority Level"
+              >
+                <option value="Junior">Junior (0-2 Yrs)</option>
+                <option value="Intermediate">Intermediate (3-5 Yrs)</option>
+                <option value="Senior">Senior (6+ Yrs)</option>
+                <option value="Lead / Executive">Lead / Exec (10+ Yrs)</option>
+              </select>
+            </div>
+
             <DownloadCSVButton 
               data={cityIndustryMatrix} 
               filename="nz_city_industry_vacancy_matrix.csv" 
@@ -395,8 +419,16 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                     </div>
                   </th>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('opportunity_score')} onKeyDown={(e) => onMatrixKeyDown(e, 'opportunity_score')}>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Opportunity Score <SortIcon field="opportunity_score" sortField={matrixSortField} sortDirection={matrixSortDirection} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      Opportunity Score 
+                      <Info size={14} color="var(--text-muted)" aria-label="Calculated as: (Vacancy Index × Regional Industry Share) × (Wage / $1,200) / Competition Index" title="Calculated as: (Vacancy Index × Regional Industry Share) × (Wage / $1,200) / Competition Index" />
+                      <SortIcon field="opportunity_score" sortField={matrixSortField} sortDirection={matrixSortDirection} />
+                    </div>
+                  </th>
+                  <th scope="col">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      Estimated Annual Openings
+                      <Info size={14} color="var(--text-muted)" aria-label="Extrapolated from Stats NZ Industry Size × LEED Turnover Rate × Regional Share × Seniority Curve" title="Extrapolated from Stats NZ Industry Size × LEED Turnover Rate × Regional Share × Seniority Curve" />
                     </div>
                   </th>
                   <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleMatrixSort('current_vacancy_index')} onKeyDown={(e) => onMatrixKeyDown(e, 'current_vacancy_index')}>
@@ -422,7 +454,11 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                 </tr>
               </thead>
               <tbody>
-                {cityIndustryMatrix.map((row) => (
+                {cityIndustryMatrix.map((row) => {
+                  const levelDist = levelBenchmarks?.industries?.[row.industry]?.regional_distribution?.[row.region_name];
+                  const oppScore = levelDist ? levelDist.opportunity_score : row.opportunity_score;
+                  
+                  return (
                   <tr key={`${row.region_name}-${row.industry}`}>
                     <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -440,13 +476,25 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                       </div>
                     </td>
                     <td>
-                      {row.opportunity_score ? (
+                      {oppScore ? (
                         <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
-                          {row.opportunity_score} pts
+                          {oppScore} pts
                         </span>
                       ) : (
                         <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
                       )}
+                    </td>
+                    <td>
+                      {(() => {
+                        const est = selectJobVolumeEstimates(jobVolumeData, row.industry, row.region_name, selectedLevel);
+                        return est !== null ? (
+                          <span className="badge badge-cyan tabular-nums" style={{ fontWeight: '800', fontSize: '0.85rem' }}>
+                            ~{est.toLocaleString()} roles
+                          </span>
+                        ) : (
+                          <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
+                        );
+                      })()}
                     </td>
                     <td className="tabular-nums" style={{ fontWeight: '700', color: '#4f46e5' }}>
                       {row.current_vacancy_index !== null ? row.current_vacancy_index : 'No data available'}
@@ -461,13 +509,22 @@ export default function RegionalMatrix({ regionalData, cityIndustryData }) {
                       )}
                     </td>
                     <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
-                      ${row.hourly_income ? row.hourly_income.toFixed(2) : (row.median_weekly_income / 40.0).toFixed(2)} / hr
+                      {levelBenchmarks && levelBenchmarks.industries[row.industry] ? (
+                        levelBenchmarks.industries[row.industry].salary_range_hourly
+                      ) : (
+                        `$${row.hourly_income ? row.hourly_income.toFixed(2) : (row.median_weekly_income / 40.0).toFixed(2)} / hr`
+                      )}
                     </td>
                     <td className="tabular-nums" style={{ fontWeight: '600' }}>
-                      ${row.median_weekly_income ? row.median_weekly_income.toLocaleString() : 'N/A'} / wk
+                      {levelBenchmarks && levelBenchmarks.industries[row.industry] ? (
+                        `$${levelBenchmarks.industries[row.industry].median_weekly.toLocaleString()} / wk`
+                      ) : (
+                        `$${row.median_weekly_income ? row.median_weekly_income.toLocaleString() : 'N/A'} / wk`
+                      )}
                     </td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>

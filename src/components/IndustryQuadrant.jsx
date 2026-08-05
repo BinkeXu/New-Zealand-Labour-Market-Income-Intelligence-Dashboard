@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { 
   selectFilteredIndustryMatrix, 
-  selectFilteredOccupations 
+  selectFilteredOccupations,
+  selectLevelIndustryBenchmarks
 } from '../utils/selectors';
 import DownloadCSVButton from './DownloadCSVButton';
 import HistoricalChartModal from './HistoricalChartModal';
@@ -11,8 +12,9 @@ import {
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
 
-export default function IndustryQuadrant({ industryData, occupationData, cityIndustryData, monthlyData, regionalData }) {
+export default function IndustryQuadrant({ industryData, occupationData, cityIndustryData, monthlyData, regionalData, levelData }) {
   const [selectedQuadrant, setSelectedQuadrant] = useState('All');
+  const [selectedLevel, setSelectedLevel] = useState('Intermediate');
   const [occupationSearch, setOccupationSearch] = useState('');
   
   // Debounce search query to prevent high-frequency re-filtering on keystrokes
@@ -44,6 +46,10 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
   const filteredOccupations = useMemo(() => {
     return selectFilteredOccupations(occupationData, debouncedOccupationSearch, occSortField, occSortDirection, 25);
   }, [occupationData, debouncedOccupationSearch, occSortField, occSortDirection]);
+
+  const levelBenchmarks = useMemo(() => {
+    return selectLevelIndustryBenchmarks(levelData, selectedLevel);
+  }, [levelData, selectedLevel]);
 
   if (!industryData || !industryData.industry_matrix) {
     return (
@@ -97,6 +103,22 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                   <option value="High Demand">High Demand (Accessible Entry)</option>
                   <option value="High Salary">High Salary / Specialized Niche</option>
                   <option value="Stable">Stable / Moderate Growth</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="level-filter-select" className="navbar-subtitle" style={{ display: 'block', marginBottom: '4px' }}>Seniority Level:</label>
+                <select 
+                  id="level-filter-select"
+                  className="select-control"
+                  value={selectedLevel}
+                  onChange={(e) => setSelectedLevel(e.target.value)}
+                  aria-label="Filter by Seniority Level"
+                >
+                  <option value="Junior">Junior (0-2 Yrs)</option>
+                  <option value="Intermediate">Intermediate (3-5 Yrs)</option>
+                  <option value="Senior">Senior (6+ Yrs)</option>
+                  <option value="Lead / Executive">Lead / Exec (10+ Yrs)</option>
                 </select>
               </div>
 
@@ -174,10 +196,18 @@ export default function IndustryQuadrant({ industryData, occupationData, cityInd
                     </span>
                   </td>
                   <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
-                    ${item.hourly_income ? item.hourly_income.toFixed(2) : (item.median_weekly_income / 40.0).toFixed(2)} / hr
+                    {levelBenchmarks && levelBenchmarks.industries[item.industry] ? (
+                      levelBenchmarks.industries[item.industry].salary_range_hourly
+                    ) : (
+                      `$${item.hourly_income ? item.hourly_income.toFixed(2) : (item.median_weekly_income / 40.0).toFixed(2)} / hr`
+                    )}
                   </td>
                   <td className="tabular-nums" style={{ fontWeight: '600' }}>
-                    ${item.median_weekly_income ? item.median_weekly_income.toLocaleString() : 'N/A'} / wk
+                    {levelBenchmarks && levelBenchmarks.industries[item.industry] ? (
+                      `$${levelBenchmarks.industries[item.industry].median_weekly.toLocaleString()} / wk`
+                    ) : (
+                      `$${item.median_weekly_income ? item.median_weekly_income.toLocaleString() : 'N/A'} / wk`
+                    )}
                   </td>
                   <td>
                     <span className={`badge ${

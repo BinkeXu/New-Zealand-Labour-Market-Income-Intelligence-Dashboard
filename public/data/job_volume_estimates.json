@@ -1,0 +1,978 @@
+{
+  "metadata": {
+    "source": "Stats NZ LEED & Business Demography",
+    "description": "Absolute job volume estimates extrapolated from official employee counts and turnover rates."
+  },
+  "industries": {
+    "IT": {
+      "total_national_workforce": 190340,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 28551,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 17130,
+          "levels": {
+            "Junior": 3426,
+            "Intermediate": 7708,
+            "Senior": 4282,
+            "Lead / Executive": 1713
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 7137,
+          "levels": {
+            "Junior": 1427,
+            "Intermediate": 3211,
+            "Senior": 1784,
+            "Lead / Executive": 713
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 2284,
+          "levels": {
+            "Junior": 456,
+            "Intermediate": 1027,
+            "Senior": 571,
+            "Lead / Executive": 228
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 856,
+          "levels": {
+            "Junior": 171,
+            "Intermediate": 385,
+            "Senior": 214,
+            "Lead / Executive": 85
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 571,
+          "levels": {
+            "Junior": 114,
+            "Intermediate": 256,
+            "Senior": 142,
+            "Lead / Executive": 57
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 285,
+          "levels": {
+            "Junior": 57,
+            "Intermediate": 128,
+            "Senior": 71,
+            "Lead / Executive": 28
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 142,
+          "levels": {
+            "Junior": 28,
+            "Intermediate": 64,
+            "Senior": 35,
+            "Lead / Executive": 14
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 85,
+          "levels": {
+            "Junior": 17,
+            "Intermediate": 38,
+            "Senior": 21,
+            "Lead / Executive": 8
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 28,
+          "levels": {
+            "Junior": 5,
+            "Intermediate": 12,
+            "Senior": 7,
+            "Lead / Executive": 2
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 28,
+          "levels": {
+            "Junior": 5,
+            "Intermediate": 12,
+            "Senior": 7,
+            "Lead / Executive": 2
+          }
+        }
+      }
+    },
+    "Business services": {
+      "total_national_workforce": 2483467,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 372520,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 193710,
+          "levels": {
+            "Junior": 38742,
+            "Intermediate": 87169,
+            "Senior": 48427,
+            "Lead / Executive": 19371
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 104305,
+          "levels": {
+            "Junior": 20861,
+            "Intermediate": 46937,
+            "Senior": 26076,
+            "Lead / Executive": 10430
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 37252,
+          "levels": {
+            "Junior": 7450,
+            "Intermediate": 16763,
+            "Senior": 9313,
+            "Lead / Executive": 3725
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 14900,
+          "levels": {
+            "Junior": 2980,
+            "Intermediate": 6705,
+            "Senior": 3725,
+            "Lead / Executive": 1490
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 11175,
+          "levels": {
+            "Junior": 2235,
+            "Intermediate": 5029,
+            "Senior": 2793,
+            "Lead / Executive": 1117
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 3725,
+          "levels": {
+            "Junior": 745,
+            "Intermediate": 1676,
+            "Senior": 931,
+            "Lead / Executive": 372
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 3725,
+          "levels": {
+            "Junior": 745,
+            "Intermediate": 1676,
+            "Senior": 931,
+            "Lead / Executive": 372
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 1862,
+          "levels": {
+            "Junior": 372,
+            "Intermediate": 838,
+            "Senior": 465,
+            "Lead / Executive": 186
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 1117,
+          "levels": {
+            "Junior": 223,
+            "Intermediate": 502,
+            "Senior": 279,
+            "Lead / Executive": 111
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 745,
+          "levels": {
+            "Junior": 149,
+            "Intermediate": 335,
+            "Senior": 186,
+            "Lead / Executive": 74
+          }
+        }
+      }
+    },
+    "Health care": {
+      "total_national_workforce": 1659184,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 248877,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 79640,
+          "levels": {
+            "Junior": 15928,
+            "Intermediate": 35838,
+            "Senior": 19910,
+            "Lead / Executive": 7964
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 37331,
+          "levels": {
+            "Junior": 7466,
+            "Intermediate": 16799,
+            "Senior": 9332,
+            "Lead / Executive": 3733
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 29865,
+          "levels": {
+            "Junior": 5973,
+            "Intermediate": 13439,
+            "Senior": 7466,
+            "Lead / Executive": 2986
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 24887,
+          "levels": {
+            "Junior": 4977,
+            "Intermediate": 11199,
+            "Senior": 6221,
+            "Lead / Executive": 2488
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 19910,
+          "levels": {
+            "Junior": 3982,
+            "Intermediate": 8959,
+            "Senior": 4977,
+            "Lead / Executive": 1991
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 17421,
+          "levels": {
+            "Junior": 3484,
+            "Intermediate": 7839,
+            "Senior": 4355,
+            "Lead / Executive": 1742
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 14932,
+          "levels": {
+            "Junior": 2986,
+            "Intermediate": 6719,
+            "Senior": 3733,
+            "Lead / Executive": 1493
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 9955,
+          "levels": {
+            "Junior": 1991,
+            "Intermediate": 4479,
+            "Senior": 2488,
+            "Lead / Executive": 995
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 9955,
+          "levels": {
+            "Junior": 1991,
+            "Intermediate": 4479,
+            "Senior": 2488,
+            "Lead / Executive": 995
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 4977,
+          "levels": {
+            "Junior": 995,
+            "Intermediate": 2239,
+            "Senior": 1244,
+            "Lead / Executive": 497
+          }
+        }
+      }
+    },
+    "Construction": {
+      "total_national_workforce": 1136002,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 170400,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 68160,
+          "levels": {
+            "Junior": 13632,
+            "Intermediate": 30672,
+            "Senior": 17040,
+            "Lead / Executive": 6816
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 37488,
+          "levels": {
+            "Junior": 7497,
+            "Intermediate": 16869,
+            "Senior": 9372,
+            "Lead / Executive": 3748
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 20448,
+          "levels": {
+            "Junior": 4089,
+            "Intermediate": 9201,
+            "Senior": 5112,
+            "Lead / Executive": 2044
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 17040,
+          "levels": {
+            "Junior": 3408,
+            "Intermediate": 7668,
+            "Senior": 4260,
+            "Lead / Executive": 1704
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 11928,
+          "levels": {
+            "Junior": 2385,
+            "Intermediate": 5367,
+            "Senior": 2982,
+            "Lead / Executive": 1192
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 6816,
+          "levels": {
+            "Junior": 1363,
+            "Intermediate": 3067,
+            "Senior": 1704,
+            "Lead / Executive": 681
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 4260,
+          "levels": {
+            "Junior": 852,
+            "Intermediate": 1917,
+            "Senior": 1065,
+            "Lead / Executive": 426
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 2556,
+          "levels": {
+            "Junior": 511,
+            "Intermediate": 1150,
+            "Senior": 639,
+            "Lead / Executive": 255
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 852,
+          "levels": {
+            "Junior": 170,
+            "Intermediate": 383,
+            "Senior": 213,
+            "Lead / Executive": 85
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 852,
+          "levels": {
+            "Junior": 170,
+            "Intermediate": 383,
+            "Senior": 213,
+            "Lead / Executive": 85
+          }
+        }
+      }
+    },
+    "Education": {
+      "total_national_workforce": 1177810,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 176671,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 61835,
+          "levels": {
+            "Junior": 12367,
+            "Intermediate": 27825,
+            "Senior": 15458,
+            "Lead / Executive": 6183
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 24734,
+          "levels": {
+            "Junior": 4946,
+            "Intermediate": 11130,
+            "Senior": 6183,
+            "Lead / Executive": 2473
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 24734,
+          "levels": {
+            "Junior": 4946,
+            "Intermediate": 11130,
+            "Senior": 6183,
+            "Lead / Executive": 2473
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 17667,
+          "levels": {
+            "Junior": 3533,
+            "Intermediate": 7950,
+            "Senior": 4416,
+            "Lead / Executive": 1766
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 15900,
+          "levels": {
+            "Junior": 3180,
+            "Intermediate": 7155,
+            "Senior": 3975,
+            "Lead / Executive": 1590
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 12367,
+          "levels": {
+            "Junior": 2473,
+            "Intermediate": 5565,
+            "Senior": 3091,
+            "Lead / Executive": 1236
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 8833,
+          "levels": {
+            "Junior": 1766,
+            "Intermediate": 3975,
+            "Senior": 2208,
+            "Lead / Executive": 883
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 5300,
+          "levels": {
+            "Junior": 1060,
+            "Intermediate": 2385,
+            "Senior": 1325,
+            "Lead / Executive": 530
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 3533,
+          "levels": {
+            "Junior": 706,
+            "Intermediate": 1590,
+            "Senior": 883,
+            "Lead / Executive": 353
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 1766,
+          "levels": {
+            "Junior": 353,
+            "Intermediate": 795,
+            "Senior": 441,
+            "Lead / Executive": 176
+          }
+        }
+      }
+    },
+    "Manufacturing": {
+      "total_national_workforce": 1310286,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 196542,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 74686,
+          "levels": {
+            "Junior": 14937,
+            "Intermediate": 33608,
+            "Senior": 18671,
+            "Lead / Executive": 7468
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 31446,
+          "levels": {
+            "Junior": 6289,
+            "Intermediate": 14151,
+            "Senior": 7861,
+            "Lead / Executive": 3144
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 31446,
+          "levels": {
+            "Junior": 6289,
+            "Intermediate": 14151,
+            "Senior": 7861,
+            "Lead / Executive": 3144
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 17688,
+          "levels": {
+            "Junior": 3537,
+            "Intermediate": 7959,
+            "Senior": 4422,
+            "Lead / Executive": 1768
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 13758,
+          "levels": {
+            "Junior": 2751,
+            "Intermediate": 6191,
+            "Senior": 3439,
+            "Lead / Executive": 1375
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 11792,
+          "levels": {
+            "Junior": 2358,
+            "Intermediate": 5306,
+            "Senior": 2948,
+            "Lead / Executive": 1179
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 7861,
+          "levels": {
+            "Junior": 1572,
+            "Intermediate": 3537,
+            "Senior": 1965,
+            "Lead / Executive": 786
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 3930,
+          "levels": {
+            "Junior": 786,
+            "Intermediate": 1768,
+            "Senior": 982,
+            "Lead / Executive": 393
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 1965,
+          "levels": {
+            "Junior": 393,
+            "Intermediate": 884,
+            "Senior": 491,
+            "Lead / Executive": 196
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 1965,
+          "levels": {
+            "Junior": 393,
+            "Intermediate": 884,
+            "Senior": 491,
+            "Lead / Executive": 196
+          }
+        }
+      }
+    },
+    "Primary": {
+      "total_national_workforce": 635205,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 95280,
+      "regions": {
+        "Waikato": {
+          "estimated_regional_vacancies": 20961,
+          "levels": {
+            "Junior": 4192,
+            "Intermediate": 9432,
+            "Senior": 5240,
+            "Lead / Executive": 2096
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 17150,
+          "levels": {
+            "Junior": 3430,
+            "Intermediate": 7717,
+            "Senior": 4287,
+            "Lead / Executive": 1715
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 17150,
+          "levels": {
+            "Junior": 3430,
+            "Intermediate": 7717,
+            "Senior": 4287,
+            "Lead / Executive": 1715
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 11433,
+          "levels": {
+            "Junior": 2286,
+            "Intermediate": 5145,
+            "Senior": 2858,
+            "Lead / Executive": 1143
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 9528,
+          "levels": {
+            "Junior": 1905,
+            "Intermediate": 4287,
+            "Senior": 2382,
+            "Lead / Executive": 952
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 7622,
+          "levels": {
+            "Junior": 1524,
+            "Intermediate": 3430,
+            "Senior": 1905,
+            "Lead / Executive": 762
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 3811,
+          "levels": {
+            "Junior": 762,
+            "Intermediate": 1715,
+            "Senior": 952,
+            "Lead / Executive": 381
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 3811,
+          "levels": {
+            "Junior": 762,
+            "Intermediate": 1715,
+            "Senior": 952,
+            "Lead / Executive": 381
+          }
+        },
+        "Auckland": {
+          "estimated_regional_vacancies": 2858,
+          "levels": {
+            "Junior": 571,
+            "Intermediate": 1286,
+            "Senior": 714,
+            "Lead / Executive": 285
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 952,
+          "levels": {
+            "Junior": 190,
+            "Intermediate": 428,
+            "Senior": 238,
+            "Lead / Executive": 95
+          }
+        }
+      }
+    },
+    "Sales": {
+      "total_national_workforce": 2039696,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 305954,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 128500,
+          "levels": {
+            "Junior": 25700,
+            "Intermediate": 57825,
+            "Senior": 32125,
+            "Lead / Executive": 12850
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 42833,
+          "levels": {
+            "Junior": 8566,
+            "Intermediate": 19275,
+            "Senior": 10708,
+            "Lead / Executive": 4283
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 36714,
+          "levels": {
+            "Junior": 7342,
+            "Intermediate": 16521,
+            "Senior": 9178,
+            "Lead / Executive": 3671
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 30595,
+          "levels": {
+            "Junior": 6119,
+            "Intermediate": 13767,
+            "Senior": 7648,
+            "Lead / Executive": 3059
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 24476,
+          "levels": {
+            "Junior": 4895,
+            "Intermediate": 11014,
+            "Senior": 6119,
+            "Lead / Executive": 2447
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 18357,
+          "levels": {
+            "Junior": 3671,
+            "Intermediate": 8260,
+            "Senior": 4589,
+            "Lead / Executive": 1835
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 12238,
+          "levels": {
+            "Junior": 2447,
+            "Intermediate": 5507,
+            "Senior": 3059,
+            "Lead / Executive": 1223
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 6119,
+          "levels": {
+            "Junior": 1223,
+            "Intermediate": 2753,
+            "Senior": 1529,
+            "Lead / Executive": 611
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 3059,
+          "levels": {
+            "Junior": 611,
+            "Intermediate": 1376,
+            "Senior": 764,
+            "Lead / Executive": 305
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 3059,
+          "levels": {
+            "Junior": 611,
+            "Intermediate": 1376,
+            "Senior": 764,
+            "Lead / Executive": 305
+          }
+        }
+      }
+    },
+    "Hospitality": {
+      "total_national_workforce": 1007361,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 151104,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 52886,
+          "levels": {
+            "Junior": 10577,
+            "Intermediate": 23798,
+            "Senior": 13221,
+            "Lead / Executive": 5288
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 27198,
+          "levels": {
+            "Junior": 5439,
+            "Intermediate": 12239,
+            "Senior": 6799,
+            "Lead / Executive": 2719
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 18132,
+          "levels": {
+            "Junior": 3626,
+            "Intermediate": 8159,
+            "Senior": 4533,
+            "Lead / Executive": 1813
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 18132,
+          "levels": {
+            "Junior": 3626,
+            "Intermediate": 8159,
+            "Senior": 4533,
+            "Lead / Executive": 1813
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 13599,
+          "levels": {
+            "Junior": 2719,
+            "Intermediate": 6119,
+            "Senior": 3399,
+            "Lead / Executive": 1359
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 9066,
+          "levels": {
+            "Junior": 1813,
+            "Intermediate": 4079,
+            "Senior": 2266,
+            "Lead / Executive": 906
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 6044,
+          "levels": {
+            "Junior": 1208,
+            "Intermediate": 2719,
+            "Senior": 1511,
+            "Lead / Executive": 604
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 3022,
+          "levels": {
+            "Junior": 604,
+            "Intermediate": 1359,
+            "Senior": 755,
+            "Lead / Executive": 302
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 1511,
+          "levels": {
+            "Junior": 302,
+            "Intermediate": 679,
+            "Senior": 377,
+            "Lead / Executive": 151
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 1511,
+          "levels": {
+            "Junior": 302,
+            "Intermediate": 679,
+            "Senior": 377,
+            "Lead / Executive": 151
+          }
+        }
+      }
+    },
+    "Other": {
+      "total_national_workforce": 2338768,
+      "annual_turnover_rate_percent": 15.0,
+      "estimated_annual_vacancies_national": 350815,
+      "regions": {
+        "Auckland": {
+          "estimated_regional_vacancies": 133309,
+          "levels": {
+            "Junior": 26661,
+            "Intermediate": 59989,
+            "Senior": 33327,
+            "Lead / Executive": 13330
+          }
+        },
+        "Wellington": {
+          "estimated_regional_vacancies": 63146,
+          "levels": {
+            "Junior": 12629,
+            "Intermediate": 28416,
+            "Senior": 15786,
+            "Lead / Executive": 6314
+          }
+        },
+        "Canterbury": {
+          "estimated_regional_vacancies": 49114,
+          "levels": {
+            "Junior": 9822,
+            "Intermediate": 22101,
+            "Senior": 12278,
+            "Lead / Executive": 4911
+          }
+        },
+        "Waikato": {
+          "estimated_regional_vacancies": 28065,
+          "levels": {
+            "Junior": 5613,
+            "Intermediate": 12629,
+            "Senior": 7016,
+            "Lead / Executive": 2806
+          }
+        },
+        "Bay of Plenty": {
+          "estimated_regional_vacancies": 21048,
+          "levels": {
+            "Junior": 4209,
+            "Intermediate": 9472,
+            "Senior": 5262,
+            "Lead / Executive": 2104
+          }
+        },
+        "Otago/Southland": {
+          "estimated_regional_vacancies": 21048,
+          "levels": {
+            "Junior": 4209,
+            "Intermediate": 9472,
+            "Senior": 5262,
+            "Lead / Executive": 2104
+          }
+        },
+        "Manawatu-Whanganui/Taranaki": {
+          "estimated_regional_vacancies": 14032,
+          "levels": {
+            "Junior": 2806,
+            "Intermediate": 6314,
+            "Senior": 3508,
+            "Lead / Executive": 1403
+          }
+        },
+        "Gisborne/Hawkes Bay": {
+          "estimated_regional_vacancies": 10524,
+          "levels": {
+            "Junior": 2104,
+            "Intermediate": 4736,
+            "Senior": 2631,
+            "Lead / Executive": 1052
+          }
+        },
+        "Northland": {
+          "estimated_regional_vacancies": 7016,
+          "levels": {
+            "Junior": 1403,
+            "Intermediate": 3157,
+            "Senior": 1754,
+            "Lead / Executive": 701
+          }
+        },
+        "Tasman/Nelson/Marlborough/West Coast": {
+          "estimated_regional_vacancies": 3508,
+          "levels": {
+            "Junior": 701,
+            "Intermediate": 1578,
+            "Senior": 877,
+            "Lead / Executive": 350
+          }
+        }
+      }
+    }
+  }
+}

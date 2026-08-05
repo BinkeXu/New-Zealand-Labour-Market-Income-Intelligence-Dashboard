@@ -213,3 +213,39 @@ export function selectNationalIncomeDistribution(regionalData) {
     return null;
   }
 }
+
+/**
+ * Selects level-specific industry benchmark data for a given seniority level.
+ */
+export function selectLevelIndustryBenchmarks(levelData, level = 'Intermediate') {
+  try {
+    if (!levelData || !levelData.levels || !levelData.levels[level]) {
+      return null;
+    }
+    return levelData.levels[level];
+  } catch (err) {
+    console.error('Error in selectLevelIndustryBenchmarks:', err);
+    return null;
+  }
+}
+
+/**
+ * Selects job volume estimate for a specific industry, region, and seniority level.
+ */
+export function selectJobVolumeEstimates(jobVolumeData, industry, region, level) {
+  try {
+    if (!jobVolumeData || !jobVolumeData.industries) return null;
+    const indData = jobVolumeData.industries[industry];
+    if (!indData || !indData.regions) return null;
+    
+    // Find matching region (exact match or mapping)
+    // The regional keys in jobVolumeData match the benchmark keys (e.g. "Auckland", "Wellington")
+    const regData = indData.regions[region];
+    if (!regData || !regData.levels) return null;
+    
+    return regData.levels[level] || null;
+  } catch (err) {
+    console.error('Error in selectJobVolumeEstimates:', err);
+    return null;
+  }
+}

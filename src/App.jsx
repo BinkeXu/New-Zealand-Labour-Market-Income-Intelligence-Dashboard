@@ -34,6 +34,8 @@ function DashboardContent() {
     occupationData, 
     pathfinderRules, 
     irdIncomeData,
+    levelData,
+    jobVolumeData,
     loading, 
     error 
   } = useDashboardContext();
@@ -90,6 +92,8 @@ function DashboardContent() {
                 regionalData={regionalData} 
                 cityIndustryData={cityIndustryData}
                 irdIncomeData={irdIncomeData}
+                levelData={levelData}
+                jobVolumeData={jobVolumeData}
               />
             )}
 
@@ -100,6 +104,7 @@ function DashboardContent() {
                 cityIndustryData={cityIndustryData}
                 monthlyData={monthlyData}
                 regionalData={regionalData}
+                levelData={levelData}
               />
             )}
 
@@ -108,6 +113,8 @@ function DashboardContent() {
                 pathfinderRules={pathfinderRules} 
                 regionalData={regionalData}
                 industryData={industryData}
+                levelData={levelData}
+                jobVolumeData={jobVolumeData}
               />
             )}
 
