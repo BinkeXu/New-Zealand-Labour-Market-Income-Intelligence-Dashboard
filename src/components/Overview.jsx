@@ -57,44 +57,22 @@ export default function Overview() {
         regionalData={regionalData}
       />
 
-      {/* Latest Dataset Release Date Banner */}
-      <div 
-        className="glass-card" 
-        style={{ 
-          padding: '16px 24px', 
-          marginBottom: '28px', 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center', 
-          flexWrap: 'wrap', 
-          gap: '12px',
-          borderLeft: '4px solid var(--primary)'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Calendar size={20} className="text-gradient" aria-hidden="true" />
-          <span style={{ fontWeight: '700', fontSize: '0.95rem', color: 'var(--text-main)' }}>
-            Latest Dataset Release: <span className="badge badge-indigo" style={{ marginLeft: '6px', fontSize: '0.85rem' }}>{lastUpdatedDate}</span>
-          </span>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            (MBIE Jobs Online & Stats NZ Census Monthly Intelligence Series)
-          </span>
-        </div>
-        <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)', fontWeight: '600' }}>
-          {totalRecords} Monthly Series Points Tracked (May 2007 – {lastUpdatedDate})
-        </div>
-      </div>
-
       {/* SECTION 1: NZ Job Vacancy Trajectory Line Chart */}
       <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="vacancy-trajectory-title">
-        <div className="card-header-flex">
+        <div className="card-header-flex" style={{ alignItems: 'flex-start', gap: '16px' }}>
           <div>
-            <h2 id="vacancy-trajectory-title" className="card-title">
-              <TrendingUp size={22} className="text-gradient" aria-hidden="true" />
-              New Zealand Job Vacancy Index Trajectory ({lastUpdatedDate})
-            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '4px' }}>
+              <h2 id="vacancy-trajectory-title" className="card-title">
+                <TrendingUp size={24} className="text-gradient" aria-hidden="true" />
+                New Zealand Job Vacancy Index Trajectory
+              </h2>
+              <span className="badge badge-indigo" style={{ fontSize: '0.8rem', padding: '4px 10px' }}>
+                <Calendar size={13} style={{ marginRight: '4px' }} aria-hidden="true" />
+                Latest Release: {lastUpdatedDate}
+              </span>
+            </div>
             <p className="card-subtitle">
-              Time-series tracking of MBIE online job postings across major NZ regions and skill tiers. Select time horizon (3M, 6M, 1Y, 3Y, 5Y, or All).
+              Time-series tracking of MBIE online job postings across major NZ regions and skill tiers ({totalRecords} monthly records tracked from May 2007). Select time horizon below.
             </p>
           </div>
 

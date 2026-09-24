@@ -13,8 +13,8 @@ An executive, production-grade analytics platform providing data-driven insights
 - **KPI Trend Modals**: Clicking any KPI card opens an interactive, centered modal dialog displaying historical trend charts with dynamic time-range filter controls (**`1Y`**, **`3Y`**, **`5Y`**, **`10Y`**, **`All`**) and CSV data export:
   - **NZ Overall Vacancy Index**: 230 monthly series records (May 2007 – June 2026).
   - **NZ National Median Income**: 28-year annual income census series (1998 – 2025).
-  - **NZ Official Unemployment Rate**: 57 quarterly HLFS unemployment rates (2012 – 2026).
-  - **NZ Labor Underutilisation Rate**: 57 quarterly HLFS underutilisation rates (2012 – 2026).
+  - **NZ Official Unemployment Rate**: 58 quarterly HLFS unemployment rates (June 2012 – June 2026, 5.6%).
+  - **NZ Labor Underutilisation Rate**: 58 quarterly HLFS underutilisation rates (June 2012 – June 2026, 13.8%).
 
 ### 💰 2. National Income Distribution by Source & Breakdown Analytics
 - **Category Color Indicators**:
@@ -58,6 +58,21 @@ An executive, production-grade analytics platform providing data-driven insights
 - **Debounced Inputs**: Search fields use custom `useDebounce` hook to prevent high-frequency re-filtering on keystrokes.
 - **RFC-4180 CSV Export**: RFC-compliant CSV escaping for string fields containing quotes, commas, or newlines.
 
+### 🤖 8. Automated Hands-Free Government Data Collection Pipeline
+- **Auto-Collector Engine (`scripts/auto_collect_data.py`)**: Directly queries Stats NZ information releases and MBIE release pages, parses embedded quarterly CSV data (HLFS unemployment, underutilisation, employment rates), and automatically appends new quarters to `Dataset/active/`.
+- **One-Command CLI Refresh**: Run `npm run update-data` to scrape, verify, and trigger the ETL rebuilder in a single operation.
+- **GitHub Actions Scheduled CI/CD (`.github/workflows/auto-update-data.yml`)**:
+  - Automatically runs on a weekly cron schedule (and on-demand via `workflow_dispatch`).
+  - Scrapes for newly published government datasets.
+  - Automatically rebuilds production JSONs and verifies React compilation.
+  - Commits updated datasets back to `main` with `[skip ci]`, triggering immediate live deployment on Vercel with **zero manual developer intervention**.
+
+### 🎨 9. Web Design Engineer & Bento-Grid Refinements
+- **Streamlined Visual Hierarchy**: Absorbed the intermediate release banner into the primary Vacancy Trajectory card header, recovering ~80px of prime vertical viewport space and creating an uninterrupted visual flow from executive KPIs into the primary chart.
+- **Unified Atmospheric Canvas**: Replaced conflicting multi-colored background radials with a subtle top-center ambient glow (`radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.04) 0%, transparent 55%)`) for maximum contrast and pristine card legibility in both light and dark themes.
+- **Typographic Scale & Legibility**: Elevated section titles to `1.4rem` with `-0.03em` tracking and enhanced subtitles with `text-wrap: pretty` and `1.55` line-height for a commanding ~2.4× typographic scale.
+- **Touch-Scrolling Navigation**: Responsive `.nav-tabs` equipped with `-webkit-overflow-scrolling: touch` and hidden scrollbars, preventing multi-row layout fragmentation on mobile and tablet devices.
+
 ---
 
 ## 📁 Dataset Architecture
@@ -91,10 +106,13 @@ python scripts/process_data.py
 # 4. Run automated unit tests
 python -m unittest discover -s scripts/tests
 
-# 5. Build for production verification
+# 5. Run automated government data collector (Stats NZ / MBIE auto-ingestion)
+npm run update-data
+
+# 6. Build for production verification
 npm run build
 
-# 6. Launch local development server
+# 7. Launch local development server
 npm run dev
 ```
 

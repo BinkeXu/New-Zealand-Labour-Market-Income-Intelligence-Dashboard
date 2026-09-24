@@ -1,0 +1,60 @@
+name: Automated NZ Government Data Collector & Rebuilder
+
+on:
+  schedule:
+    # Runs every Thursday at 06:00 UTC (18:00/19:00 NZT, following Wednesday morning Stats NZ / MBIE releases)
+    - cron: '0 6 * * 4'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions web tab anytime
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas openpyxl
+
+      - name: 🌐 Run Auto Data Collector
+        run: |
+          python scripts/auto_collect_data.py
+
+      - name: ⚡ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install NPM Dependencies & Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: 🚀 Commit & Push Updated Datasets
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check for changes in Dataset/active or public/data
+          if [[ -n $(git status -s Dataset/active public/data) ]]; then
+            echo "✨ Changes detected in datasets, committing..."
+            git add Dataset/active public/data
+            git commit -m "chore(data): auto-update NZ government datasets [skip ci]"
+            git push origin main
+          else
+            echo "✓ No dataset changes detected. Everything is up to date."
+          fi

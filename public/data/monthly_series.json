@@ -13,9 +13,9 @@
         "women": 5.5
       },
       "underutilisation_rate": {
-        "total": 12.9,
-        "men": 11.6,
-        "women": 14.3
+        "total": 13.8,
+        "men": 12.4,
+        "women": 15.3
       },
       "historical_unemployment": [
         {
@@ -703,6 +703,12 @@
           "total": 12.9,
           "men": 11.6,
           "women": 14.3
+        },
+        {
+          "quarter": "Jun-26",
+          "total": 13.8,
+          "men": 12.4,
+          "women": 15.3
         }
       ]
     }

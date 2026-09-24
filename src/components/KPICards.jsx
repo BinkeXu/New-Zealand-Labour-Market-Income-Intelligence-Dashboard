@@ -9,9 +9,12 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
   const nationalHourly = regionalData?.metadata?.national_median_hourly || (nationalWeekly / 40.0).toFixed(2);
 
   const hlfs = monthlyData?.metadata?.hlfs_labor_metrics || {
-    unemployment_rate: { total: 5.3, men: 5.4, women: 5.3 },
-    underutilisation_rate: { total: 12.9, men: 11.6, women: 14.3 }
+    quarter: "Jun-26",
+    unemployment_rate: { total: 5.6, men: 5.7, women: 5.5 },
+    underutilisation_rate: { total: 13.8, men: 12.4, women: 15.3 }
   };
+
+  const quarterLabel = hlfs?.quarter ? (hlfs.quarter === 'Jun-26' ? 'June 2026' : hlfs.quarter) : 'June 2026';
 
   const cards = useMemo(() => [
     {
@@ -41,7 +44,7 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
       title: "Unemployment Rate",
       value: `${hlfs.unemployment_rate.total}%`,
       subtitle: `Men: ${hlfs.unemployment_rate.men}% • Women: ${hlfs.unemployment_rate.women}%`,
-      source: "Stats NZ HLFS (March 2026 Quarter)",
+      source: `Stats NZ HLFS (${quarterLabel} Quarter)`,
       icon: UserX,
       iconBg: "rgba(244, 63, 94, 0.15)",
       iconColor: "#e11d48",
@@ -52,7 +55,7 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
       title: "Underutilisation Rate",
       value: `${hlfs.underutilisation_rate.total}%`,
       subtitle: `Men: ${hlfs.underutilisation_rate.men}% • Women: ${hlfs.underutilisation_rate.women}%`,
-      source: "Stats NZ HLFS Labor Slack Survey",
+      source: `Stats NZ HLFS (${quarterLabel} Quarter)`,
       icon: ShieldAlert,
       iconBg: "rgba(217, 119, 6, 0.15)",
       iconColor: "#d97706",

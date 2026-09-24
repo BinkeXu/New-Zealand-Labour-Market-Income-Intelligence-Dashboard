@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "etl": "python scripts/process_data.py"
+    "etl": "python scripts/process_data.py",
+    "update-data": "python scripts/auto_collect_data.py"
   },
   "dependencies": {
     "lucide-react": "^0.475.0",

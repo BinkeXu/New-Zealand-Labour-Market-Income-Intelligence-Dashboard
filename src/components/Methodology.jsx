@@ -10,8 +10,8 @@ export default function Methodology() {
     { Metric: "Hourly Wage Conversion", Formula: "Stats NZ Median Weekly Wage / 40.0 hours", Source: "Stats NZ Household Income Census" },
     { Metric: "Annualized Salary", Formula: "Stats NZ Median Weekly Wage * 52.0 weeks", Source: "Stats NZ Household Income Census" },
     { Metric: "YoY Vacancy Growth", Formula: "((Index_Current - Index_PrevYear) / Index_PrevYear) * 100", Source: "MBIE Jobs Online Quarterly Consolidated Release" },
-    { Metric: "NZ Official Unemployment Rate", Formula: "HLFS Seasonally Adjusted Unemployed / Labour Force", Source: "Stats NZ Unemployment Rate Dataset (5.3%)" },
-    { Metric: "NZ Labor Underutilisation Rate", Formula: "HLFS Seasonally Adjusted Underutilised / Extended Labour Force", Source: "Stats NZ Underutilisation Rate Dataset (12.9%)" },
+    { Metric: "NZ Official Unemployment Rate", Formula: "HLFS Seasonally Adjusted Unemployed / Labour Force", Source: "Stats NZ Unemployment Rate Dataset (5.6%)" },
+    { Metric: "NZ Labor Underutilisation Rate", Formula: "HLFS Seasonally Adjusted Underutilised / Extended Labour Force", Source: "Stats NZ Underutilisation Rate Dataset (13.8%)" },
     { Metric: "IRD Income Percentile Rank", Formula: "Linear Interpolation over IRD PAYE Tax Return Deciles (2001-2025)", Source: "Inland Revenue Department (IRD) PAYE Returns" }
   ];
 
@@ -99,7 +99,7 @@ export default function Methodology() {
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
                 <strong>Source:</strong> Household Labour Force Survey (HLFS).<br />
                 <strong>Methodology:</strong> Seasonally adjusted quarterly survey of active NZ job seekers and underemployed part-time workers seeking additional hours.<br />
-                <strong>Coverage:</strong> 57 historical quarters tracking official Unemployment Rate (5.3%) and Labor Underutilisation Rate (12.9%) by gender.
+                <strong>Coverage:</strong> 58 historical quarters tracking official Unemployment Rate (5.6%) and Labor Underutilisation Rate (13.8%) by gender.
               </p>
             </div>
 
@@ -279,15 +279,15 @@ export default function Methodology() {
                   <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>Unemployment Rate by Sex</td>
                   <td>Stats NZ (Tatauranga Aotearoa)</td>
                   <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>Dataset/active/unemployment_rate_by_sex.csv</td>
-                  <td>March 2012 – March 2026 Quarters</td>
-                  <td>Official NZ Unemployment Rate (5.3%, Men: 5.4%, Women: 5.3%)</td>
+                  <td>June 2012 – June 2026 Quarters</td>
+                  <td>Official NZ Unemployment Rate (5.6%, Men: 5.7%, Women: 5.5%)</td>
                 </tr>
                 <tr>
                   <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>Underutilisation Rate by Sex</td>
                   <td>Stats NZ (Tatauranga Aotearoa)</td>
                   <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>Dataset/active/underutilisation_rate_by_sex.csv</td>
-                  <td>March 2012 – March 2026 Quarters</td>
-                  <td>NZ Labor Underutilisation Rate (12.9%, Men: 11.6%, Women: 14.3%)</td>
+                  <td>June 2012 – June 2026 Quarters</td>
+                  <td>NZ Labor Underutilisation Rate (13.8%, Men: 12.4%, Women: 15.3%)</td>
                 </tr>
               </tbody>
             </table>
