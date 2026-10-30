@@ -1,12 +1,15 @@
 import RegionalLeaderboard from './RegionalLeaderboard';
 import CityIndustryTable from './CityIndustryTable';
+import CityComparisonWidget from './CityComparisonWidget';
 import React, { useState, useMemo } from 'react';
 import { 
   selectFilteredRegions, 
   selectRegionalChartData, 
   selectFilteredCityIndustryVacancies,
   selectLevelIndustryBenchmarks,
-  selectJobVolumeEstimates
+  selectJobVolumeEstimates,
+  calculateNZTakeHomePay,
+  getOpportunityBadge
 } from '../utils/selectors';
 import { useDashboardData } from '../context/DashboardContext';
 import DownloadCSVButton from './DownloadCSVButton';
@@ -14,7 +17,7 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend 
 } from 'recharts';
 import { 
-  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star, Info
+  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star, Info, ShieldCheck
 } from 'lucide-react';
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
@@ -23,6 +26,7 @@ export default function RegionalMatrix() {
   const { regionalData, cityIndustryData, levelData, jobVolumeData } = useDashboardData();
   const [selectedIsland, setSelectedIsland] = useState('All');
   const [selectedCityFilter, setSelectedCityFilter] = useState('');
+  const [useTakeHomePay, setUseTakeHomePay] = useState(false);
   
   // Debounce search query to prevent high-frequency re-filtering on keystrokes
   const debouncedCityFilter = useDebounce(selectedCityFilter, 250);
@@ -136,6 +140,29 @@ export default function RegionalMatrix() {
                 </select>
               </div>
 
+              {/* Take-Home Pay Tax Adjustment Toggle */}
+              <div>
+                <label className="navbar-subtitle" style={{ display: 'block', marginBottom: '4px' }}>Income Tax Basis:</label>
+                <div className="nav-tabs" role="group" aria-label="Tax Basis Mode" style={{ padding: '3px' }}>
+                  <button 
+                    type="button"
+                    className={`nav-tab-btn ${!useTakeHomePay ? 'active' : ''}`}
+                    onClick={() => setUseTakeHomePay(false)}
+                    style={{ padding: '4px 10px', minHeight: '32px', fontSize: '0.8rem' }}
+                  >
+                    Gross (Pre-Tax)
+                  </button>
+                  <button 
+                    type="button"
+                    className={`nav-tab-btn ${useTakeHomePay ? 'active' : ''}`}
+                    onClick={() => setUseTakeHomePay(true)}
+                    style={{ padding: '4px 10px', minHeight: '32px', fontSize: '0.8rem' }}
+                  >
+                    🛡️ Net (PAYE & ACC)
+                  </button>
+                </div>
+              </div>
+
               {/* Download CSV Button */}
               <DownloadCSVButton 
                 data={filteredRegions} 
@@ -208,7 +235,7 @@ export default function RegionalMatrix() {
                     </th>
                     <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('median_weekly_income')} onKeyDown={(e) => onKeyDown(e, 'median_weekly_income')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Median Weekly Wage <SortIcon field="median_weekly_income" sortField={sortField} sortDirection={sortDirection} />
+                        {useTakeHomePay ? 'Net Take-Home ($/wk)' : 'Median Weekly Wage'} <SortIcon field="median_weekly_income" sortField={sortField} sortDirection={sortDirection} />
                       </div>
                     </th>
                     <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('mean_weekly_rent')} onKeyDown={(e) => onKeyDown(e, 'mean_weekly_rent')}>
@@ -218,7 +245,7 @@ export default function RegionalMatrix() {
                     </th>
                     <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('net_discretionary_income')} onKeyDown={(e) => onKeyDown(e, 'net_discretionary_income')}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        Net Income (After Rent) <SortIcon field="net_discretionary_income" sortField={sortField} sortDirection={sortDirection} />
+                        {useTakeHomePay ? 'Net Cash (After Tax & Rent)' : 'Gross Cash (After Rent)'} <SortIcon field="net_discretionary_income" sortField={sortField} sortDirection={sortDirection} />
                       </div>
                     </th>
                     <th scope="col" role="button" tabIndex={0} style={{ cursor: 'pointer' }} onClick={() => handleSort('purchasing_power_index')} onKeyDown={(e) => onKeyDown(e, 'purchasing_power_index')}>
@@ -229,53 +256,71 @@ export default function RegionalMatrix() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredRegions.map((region) => (
-                    <tr key={region.region_name}>
-                      <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <MapPin size={16} color="#4f46e5" aria-hidden="true" />
-                          {region.region_name}
-                        </div>
-                      </td>
-                      <td>
-                        {region.opportunity_score ? (
-                          <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
-                            {region.opportunity_score} pts
-                          </span>
-                        ) : 'N/A'}
-                      </td>
-                      <td className="tabular-nums">
-                        {region.working_age_population ? (
-                          <span>{region.working_age_population.toLocaleString()}</span>
-                        ) : 'N/A'}
-                      </td>
-                      <td className="tabular-nums" style={{ fontWeight: '700', color: '#4f46e5' }}>
-                        {region.vacancies_per_100k ? `${region.vacancies_per_100k} / 100k` : 'N/A'}
-                      </td>
-                      <td className="tabular-nums" style={{ fontWeight: '600' }}>
-                        {region.median_weekly_income ? `$${region.median_weekly_income.toLocaleString()} / wk` : 'N/A'}
-                      </td>
-                      <td className="tabular-nums" style={{ color: 'var(--accent-rose)', fontWeight: '600' }}>
-                        {region.mean_weekly_rent ? `$${region.mean_weekly_rent.toFixed(2)} / wk` : 'N/A'}
-                      </td>
-                      <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
-                        {region.net_discretionary_income ? `$${region.net_discretionary_income.toFixed(2)} / wk` : 'N/A'}
-                      </td>
-                      <td>
-                        {region.purchasing_power_index ? (
-                          <span className="badge badge-emerald tabular-nums" style={{ fontWeight: '800' }}>
-                            {region.purchasing_power_index} pts
-                          </span>
-                        ) : 'N/A'}
-                      </td>
-                    </tr>
-                  ))}
+                  {filteredRegions.map((region) => {
+                    const pay = calculateNZTakeHomePay((region.median_weekly_income || 0) * 52);
+                    const displayWage = useTakeHomePay ? pay.weeklyNet : region.median_weekly_income;
+                    const displayNet = useTakeHomePay 
+                      ? (pay.weeklyNet - (region.mean_weekly_rent || 0)) 
+                      : region.net_discretionary_income;
+                    const oppBadge = getOpportunityBadge(region.opportunity_score);
+
+                    return (
+                      <tr key={region.region_name}>
+                        <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <MapPin size={16} color="#4f46e5" aria-hidden="true" />
+                            {region.region_name}
+                          </div>
+                        </td>
+                        <td>
+                          {region.opportunity_score ? (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-start' }}>
+                              <span className={`badge ${oppBadge.variant} tabular-nums`} style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                                {region.opportunity_score} pts
+                              </span>
+                              <span style={{ fontSize: '0.72rem', color: oppBadge.iconColor, fontWeight: '700' }}>
+                                {oppBadge.label}
+                              </span>
+                            </div>
+                          ) : 'N/A'}
+                        </td>
+                        <td className="tabular-nums">
+                          {region.working_age_population ? (
+                            <span>{region.working_age_population.toLocaleString()}</span>
+                          ) : 'N/A'}
+                        </td>
+                        <td className="tabular-nums" style={{ fontWeight: '700', color: '#4f46e5' }}>
+                          {region.vacancies_per_100k ? `${region.vacancies_per_100k} / 100k` : 'N/A'}
+                        </td>
+                        <td className="tabular-nums" style={{ fontWeight: '600', color: useTakeHomePay ? '#059669' : 'inherit' }}>
+                          {displayWage != null ? `$${Math.round(displayWage).toLocaleString()} / wk` : 'N/A'}
+                          {useTakeHomePay && <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block' }}>After PAYE/ACC</span>}
+                        </td>
+                        <td className="tabular-nums" style={{ color: 'var(--accent-rose)', fontWeight: '600' }}>
+                          {region.mean_weekly_rent ? `$${region.mean_weekly_rent.toFixed(2)} / wk` : 'N/A'}
+                        </td>
+                        <td className="tabular-nums" style={{ fontWeight: '700', color: '#059669' }}>
+                          {displayNet != null ? `$${displayNet.toFixed(2)} / wk` : 'N/A'}
+                        </td>
+                        <td>
+                          {region.purchasing_power_index ? (
+                            <span className="badge badge-emerald tabular-nums" style={{ fontWeight: '800' }}>
+                              {region.purchasing_power_index} pts
+                            </span>
+                          ) : 'N/A'}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
           </>
         )}
       </section>
+
+      {/* Head-to-Head City Relocation Comparator */}
+      <CityComparisonWidget regions={regionalData.regions} />
 
       {/* SECTION 2: City x Industry Vacancy Breakdown Matrix */}
       <CityIndustryTable 

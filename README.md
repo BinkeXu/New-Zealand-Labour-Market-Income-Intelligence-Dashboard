@@ -30,35 +30,47 @@ An executive, production-grade analytics platform providing data-driven insights
 - **Decile & Top Earner Benchmarks**: Displays 10th percentile ($6,923/yr), Median ($59,908/yr), Top 20% ($99,932/yr), Top 10% ($129,846/yr), Top 5% ($163,389/yr), and Top 1% ($278,750/yr).
 - **Income Distribution Histogram Chart**: Recharts bar chart displaying worker density across 10 income brackets from <$20k to >$200k+.
 
-### 💼 4. ANZSCO 58-Quarter Demand Trajectory & INZ Green List Visas
-- **58-Quarter Historical Series**: Extracted 58 historical quarters (2011–2026) for 100+ 4-digit ANZSCO occupations.
+### 💼 4. ANZSCO 58-Quarter Demand Trajectory & Authoritative INZ Green List Engine
+- **58-Quarter Historical Series**: Extracted 58 historical quarters (2011–2026) for 196 4-digit ANZSCO occupations.
 - **Interactive Role Graphs**: Clicking any occupation row (e.g., Software Engineer, Developer Programmer, Registered Nurse, Civil Engineer) opens its historical demand trajectory.
-- **Immigration NZ (INZ) Green List Status**:
-  - `🟢 INZ Green List Tier 1 (Straight to Residence)` (Developers, Software Engineers, ICT Managers, Civil Engineers, Doctors, Nurses).
-  - `🟡 INZ Green List Tier 2 (Work to Residence)` (ICT Support Engineers, Network Engineers, Qualified Trades).
+- **Authoritative INZ Residence Pathway Engine**: Replaced heuristic keyword matching with an authoritative 4-digit ANZSCO dictionary (`scripts/config/green_list_anzsco.json`) mapped directly to Immigration New Zealand Operational Manual Appendices 13 and 14:
+  - `🟢 INZ Green List Tier 1 (Straight to Residence)` (38 occupations: Developers, Software Engineers, ICT Managers, Civil/Mechanical/Electrical Engineers, Construction Managers, Doctors, Surgeons, Registered Nurses, Secondary & Primary Teachers, Radiographers, Physiotherapists).
+  - `🟡 INZ Green List Tier 2 (Work to Residence)` (23 occupations: Electricians, Plumbers, Carpenters & Joiners, Motor Mechanics, Welders, Telecommunication Technicians, Architectural Technicians, Dairy Cattle Farm Managers).
+  - `🟣 Sector Agreements (Work to Residence)` (4 occupations: Aged & Disabled Carers, Personal Care Workers, Bus & Coach Drivers, Truck Drivers).
+- **Interactive Visa Filter Controls**: Fast-track residence pathway pills allowing users to filter by All (196), Tier 1 (38), Tier 2 (23), Sector Agreements (4), or All Fast-Track Roles (65).
 
-### 📈 5. Job Volume Estimator & Seniority Level Salary Benchmarks
+### 🏛️ 5. Head-to-Head Regional Relocation Comparator & Net Take-Home Pay
+- **Net Take-Home Pay (After PAYE & ACC)**: Client-side mathematical model of official Inland Revenue Department (IRD) tax brackets (10.5% – 39%) and the 1.60% ACC Earner's Levy (capped at $142,283 income). Provides a toggle between Gross Pre-Tax Wages and True Net Take-Home Pay across all regional purchasing power tables and the percentile calculator.
+- **Side-by-Side Relocation Comparator (`CityComparisonWidget.jsx`)**: 2-column comparative tool enabling users to benchmark any two NZ regions head-to-head (e.g. Auckland vs Canterbury) across median income, rent, remaining discretionary cash, vacancy density, and annual net cash difference.
+- **Qualitative Opportunity Score Badges**: Intuitive visual rating bands demystifying Opportunity Scores across all tables:
+  - `🟢 High Opportunity (120+)`: Strong vacancy density & premium wage yields.
+  - `🟡 Balanced Market (90–119)`: Stable replacement hiring and steady pay.
+  - `🔴 Competitive (<90)`: Tighter vacancy availability relative to workforce size.
+- **Executive Market Snapshot (TL;DR)**: Top-of-page executive briefing banner on the Overview tab summarizing macro hiring momentum, purchasing power standouts (Canterbury & Waikato), and immigration residence pathways.
+- **Actionable Career Links**: Direct 1-click dynamic query links to live vacancy listings on SEEK NZ and TradeMe Jobs within Career Pathfinder.
+
+### 📈 6. Job Volume Estimator & Seniority Level Salary Benchmarks
 - **Real-World Annual Openings**: Extrapolates absolute annual job opening estimates across regions, industries, and seniority levels using official Stats NZ LEED turnover rates and Business Demography workforce counts.
 - **Seniority-Level Specific Benchmarks**: Dynamic selectors allowing users to filter salary benchmarks and opportunity scores by Junior (0-2 Yrs), Intermediate (3-5 Yrs), Senior (6+ Yrs), and Lead/Executive (10+ Yrs) experience levels.
 
-### 🏠 6. Market Concentration Volume-Weighted Opportunity Score & Regional Matrix
+### 🏠 7. Market Concentration Volume-Weighted Opportunity Score & Regional Matrix
 - **Calibrated Opportunity Score Formula**: Combines MBIE Vacancy Indices with regional industry hiring volume shares ($S_{\text{region, industry}}$) and median weekly earnings to prevent index baseline distortions in small regions:
   $$\text{Opportunity Score}_{\text{region, industry}} = \left(\text{Vacancy Index} \times \frac{S_{\text{region, industry}}}{10\%}\right) \times \left(\frac{\text{Effective Weekly Income}}{\$1,200}\right)$$
 - **Real Purchasing Power Index**:
   $$\text{Net Discretionary Income} = \text{Median Weekly Wage} - \text{Mean Weekly Rent}$$
 - **Granular Table Displays**: Opportunity Scores are computed and displayed for every region, every city/region x industry matrix cell, every industry sector, and every 4-digit ANZSCO occupation.
 
-### ⚡ 7. Modular Enterprise State Architecture & Performance
+### ⚡ 8. Modular Enterprise State Architecture & Performance
 - **Modularized Python ETL**: Decoupled monolithic processing into dedicated ETL modules (`scripts/etl/income.py`, `vacancies.py`, `workforce.py`, `config.py`).
 - **Extensible Chart Strategy Pattern**: Extracted chart configurations into strategy pattern modules (`src/config/chartStrategies.js`) following the Open/Closed Principle.
-- **Component Decomposition**: Split heavy pages into smaller focused components (`RegionalLeaderboard.jsx`, `CityIndustryTable.jsx`).
+- **Component Decomposition**: Split heavy pages into smaller focused components (`RegionalLeaderboard.jsx`, `CityIndustryTable.jsx`, `CityComparisonWidget.jsx`).
 - **Segregated Memoized Contexts**: Split state into `ThemeContext`, `NavigationContext`, and `DataContext` with `useMemo` to eliminate global re-renders.
 - **`React.lazy()` & `Suspense` Code-Splitting**: Lazily loads dashboard tabs (`Overview`, `RegionalMatrix`, `IndustryQuadrant`, etc.), dropping initial JS bundle size from **700 kB down to 210 kB** (~70% load speed improvement).
 - **React `ErrorBoundary`**: Graceful error catching prevents single-component errors from crashing the entire application.
 - **Debounced Inputs**: Search fields use custom `useDebounce` hook to prevent high-frequency re-filtering on keystrokes.
 - **RFC-4180 CSV Export**: RFC-compliant CSV escaping for string fields containing quotes, commas, or newlines.
 
-### 🤖 8. Automated Hands-Free Government Data Collection Pipeline
+### 🤖 9. Automated Hands-Free Government Data Collection Pipeline
 - **Auto-Collector Engine (`scripts/auto_collect_data.py`)**: Directly queries Stats NZ information releases and MBIE release pages, parses embedded quarterly CSV data (HLFS unemployment, underutilisation, employment rates), and automatically appends new quarters to `Dataset/active/`.
 - **One-Command CLI Refresh**: Run `npm run update-data` to scrape, verify, and trigger the ETL rebuilder in a single operation.
 - **GitHub Actions Scheduled CI/CD (`.github/workflows/auto-update-data.yml`)**:
@@ -67,7 +79,12 @@ An executive, production-grade analytics platform providing data-driven insights
   - Automatically rebuilds production JSONs and verifies React compilation.
   - Commits updated datasets back to `main` with `[skip ci]`, triggering immediate live deployment on Vercel with **zero manual developer intervention**.
 
-### 🎨 9. Web Design Engineer & Bento-Grid Refinements
+### 🧪 10. Automated Multi-Tier Test Suite (JavaScript & Python)
+- **Unified Test Runner**: Single-command execution (`npm test`) that tests both frontend data transformations and backend ETL pipelines (24/24 tests passing).
+- **Node.js Selector & Tax Tests**: High-performance native tests (`src/utils/__tests__/selectors.test.js`) executed in ~15ms via Node 24's native test runner (`node --test`).
+- **Python ETL & Green List Tests**: Python `unittest` suite (`scripts/tests/test_green_list.py` & `test_calculators.py`) verifying mathematical formulas and INZ visa mappings.
+
+### 🎨 11. Web Design Engineer & Bento-Grid Refinements
 - **Streamlined Visual Hierarchy**: Absorbed the intermediate release banner into the primary Vacancy Trajectory card header, recovering ~80px of prime vertical viewport space and creating an uninterrupted visual flow from executive KPIs into the primary chart.
 - **Unified Atmospheric Canvas**: Replaced conflicting multi-colored background radials with a subtle top-center ambient glow (`radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.04) 0%, transparent 55%)`) for maximum contrast and pristine card legibility in both light and dark themes.
 - **Typographic Scale & Legibility**: Elevated section titles to `1.4rem` with `-0.03em` tracking and enhanced subtitles with `text-wrap: pretty` and `1.55` line-height for a commanding ~2.4× typographic scale.
@@ -103,16 +120,20 @@ npm install
 # 3. Run Python ETL Pipeline
 python scripts/process_data.py
 
-# 4. Run automated unit tests
-python -m unittest discover -s scripts/tests
+# 4. Run automated unit tests (JavaScript & Python test suites)
+npm test
 
-# 5. Run automated government data collector (Stats NZ / MBIE auto-ingestion)
+# 5. Run individual test suites
+npm run test:js    # Node.js selector & tax tests
+npm run test:py    # Python ETL & Green List tests
+
+# 6. Run automated government data collector (Stats NZ / MBIE auto-ingestion)
 npm run update-data
 
-# 6. Build for production verification
+# 7. Build for production verification
 npm run build
 
-# 7. Launch local development server
+# 8. Launch local development server
 npm run dev
 ```
 

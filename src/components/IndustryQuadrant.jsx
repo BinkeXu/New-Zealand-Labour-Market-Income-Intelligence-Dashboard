@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { 
   selectFilteredIndustryMatrix, 
   selectFilteredOccupations,
-  selectLevelIndustryBenchmarks
+  selectLevelIndustryBenchmarks,
+  getOpportunityBadge
 } from '../utils/selectors';
 import { useDashboardData } from '../context/DashboardContext';
 import DownloadCSVButton from './DownloadCSVButton';
@@ -17,6 +18,7 @@ export default function IndustryQuadrant() {
   const { industryData, occupationData, cityIndustryData, monthlyData, regionalData, levelData } = useDashboardData();
   const [selectedQuadrant, setSelectedQuadrant] = useState('All');
   const [selectedLevel, setSelectedLevel] = useState('Intermediate');
+  const [selectedVisaTier, setSelectedVisaTier] = useState('All');
   const [occupationSearch, setOccupationSearch] = useState('');
   
   // Debounce search query to prevent high-frequency re-filtering on keystrokes
@@ -45,9 +47,28 @@ export default function IndustryQuadrant() {
     return selectFilteredIndustryMatrix(industryData, selectedQuadrant, matrixSortField, matrixSortDirection);
   }, [industryData, selectedQuadrant, matrixSortField, matrixSortDirection]);
 
+  // Visa Tier / Green List breakdown counts
+  const visaTierCounts = useMemo(() => {
+    const all = occupationData?.all_occupations || [];
+    return {
+      all: all.length,
+      tier1: all.filter(o => o.inz_green_list_tier?.includes('Tier 1')).length,
+      tier2: all.filter(o => o.inz_green_list_tier?.includes('Tier 2')).length,
+      sector: all.filter(o => o.inz_green_list_tier?.includes('Sector Agreement')).length,
+      allGreenList: all.filter(o => Boolean(o.inz_green_list_tier)).length
+    };
+  }, [occupationData]);
+
   const filteredOccupations = useMemo(() => {
-    return selectFilteredOccupations(occupationData, debouncedOccupationSearch, occSortField, occSortDirection, 25);
-  }, [occupationData, debouncedOccupationSearch, occSortField, occSortDirection]);
+    return selectFilteredOccupations(
+      occupationData, 
+      debouncedOccupationSearch, 
+      occSortField, 
+      occSortDirection, 
+      50, 
+      selectedVisaTier
+    );
+  }, [occupationData, debouncedOccupationSearch, occSortField, occSortDirection, selectedVisaTier]);
 
   const levelBenchmarks = useMemo(() => {
     return selectLevelIndustryBenchmarks(levelData, selectedLevel);
@@ -276,6 +297,47 @@ export default function IndustryQuadrant() {
           </div>
         </div>
 
+        {/* Visa Pathway Filter Tabs */}
+        <div style={{ marginTop: '16px', marginBottom: '8px' }}>
+          <div className="nav-tabs" role="group" aria-label="Visa Pathway Filter Tabs" style={{ flexWrap: 'wrap', gap: '6px' }}>
+            <button 
+              className={`nav-tab-btn ${selectedVisaTier === 'All' ? 'active' : ''}`}
+              onClick={() => setSelectedVisaTier('All')}
+              style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+            >
+              All Occupations ({visaTierCounts.all})
+            </button>
+            <button 
+              className={`nav-tab-btn ${selectedVisaTier === 'Tier 1' ? 'active' : ''}`}
+              onClick={() => setSelectedVisaTier('Tier 1')}
+              style={{ padding: '6px 14px', fontSize: '0.8rem', color: selectedVisaTier === 'Tier 1' ? '#fff' : '#059669' }}
+            >
+              🟢 Tier 1: Straight to Residence ({visaTierCounts.tier1})
+            </button>
+            <button 
+              className={`nav-tab-btn ${selectedVisaTier === 'Tier 2' ? 'active' : ''}`}
+              onClick={() => setSelectedVisaTier('Tier 2')}
+              style={{ padding: '6px 14px', fontSize: '0.8rem', color: selectedVisaTier === 'Tier 2' ? '#fff' : '#d97706' }}
+            >
+              🟡 Tier 2: Work to Residence ({visaTierCounts.tier2})
+            </button>
+            <button 
+              className={`nav-tab-btn ${selectedVisaTier === 'Sector Agreement' ? 'active' : ''}`}
+              onClick={() => setSelectedVisaTier('Sector Agreement')}
+              style={{ padding: '6px 14px', fontSize: '0.8rem', color: selectedVisaTier === 'Sector Agreement' ? '#fff' : '#6366f1' }}
+            >
+              🟣 Sector Agreements ({visaTierCounts.sector})
+            </button>
+            <button 
+              className={`nav-tab-btn ${selectedVisaTier === 'All Green List' ? 'active' : ''}`}
+              onClick={() => setSelectedVisaTier('All Green List')}
+              style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+            >
+              ⭐ All Fast-Track Roles ({visaTierCounts.allGreenList})
+            </button>
+          </div>
+        </div>
+
         {filteredOccupations.length === 0 ? (
           <div className="no-data-banner">
             <AlertCircle size={20} aria-hidden="true" />
@@ -334,11 +396,19 @@ export default function IndustryQuadrant() {
                       {occ.title}
                     </td>
                     <td>
-                      {occ.opportunity_score ? (
-                        <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
-                          {occ.opportunity_score} pts
-                        </span>
-                      ) : (
+                      {occ.opportunity_score ? (() => {
+                        const badge = getOpportunityBadge(occ.opportunity_score);
+                        return (
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-start' }}>
+                            <span className={`badge ${badge.variant} tabular-nums`} style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                              {occ.opportunity_score} pts
+                            </span>
+                            <span style={{ fontSize: '0.72rem', color: badge.iconColor, fontWeight: '700' }}>
+                              {badge.label}
+                            </span>
+                          </div>
+                        );
+                      })() : (
                         <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
                       )}
                     </td>
@@ -352,7 +422,14 @@ export default function IndustryQuadrant() {
                     </td>
                     <td>
                       {occ.inz_green_list_tier ? (
-                        <span className={`badge ${occ.inz_green_list_tier.includes('Tier 1') ? 'badge-emerald' : 'badge-amber'}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        <span 
+                          className={`badge ${
+                            occ.inz_green_list_tier.includes('Tier 1') ? 'badge-emerald' : 
+                            occ.inz_green_list_tier.includes('Tier 2') ? 'badge-amber' : 
+                            'badge-indigo'
+                          }`} 
+                          style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                        >
                           <ShieldCheck size={14} aria-hidden="true" />
                           <span>{occ.inz_green_list_tier}</span>
                         </span>

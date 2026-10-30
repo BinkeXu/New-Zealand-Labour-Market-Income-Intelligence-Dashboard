@@ -253,6 +253,18 @@ def process_industry_matrix() -> Dict[str, Any]:
     return output_data
 
 
+def load_green_list_config() -> Dict[str, Any]:
+    """Loads authoritative 4-digit ANZSCO Green List and Sector Agreement mapping."""
+    config_file = os.path.join(CONFIG_DIR, "green_list_anzsco.json")
+    if os.path.exists(config_file):
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning(f"Failed to load green list config: {e}")
+    return {}
+
+
 def process_detailed_occupations() -> Dict[str, Any]:
     """Parses detailed 4-digit ANZSCO occupation CSV and extracts 58-quarter historical time series for each role."""
     filepath = os.path.join(ACTIVE_DATA_DIR, "jobs-online-detailed-occupational-data-march-2026-quarter.csv")
@@ -272,8 +284,12 @@ def process_detailed_occupations() -> Dict[str, Any]:
     
     df_sorted = df_latest.sort_values(by='ANNUAL_PERCENTAGE_CHANGE', ascending=False).dropna(subset=['ANNUAL_PERCENTAGE_CHANGE'])
     
-    green_list_tier1_keywords = ['developer', 'software', 'programmer', 'analyst', 'ict manager', 'architect', 'engineer', 'doctor', 'nurse', 'general practitioner', 'civil']
-    green_list_tier2_keywords = ['network engineer', 'support engineer', 'technician', 'plumber', 'electrician', 'mechanic']
+    # Authoritative INZ Green List and Sector Agreement mappings
+    gl_config = load_green_list_config()
+    gl_occupations = gl_config.get("occupations", {})
+    
+    green_list_tier1_keywords = ['developer', 'software', 'programmer', 'analyst', 'ict manager', 'architect', 'engineer', 'doctor', 'nurse', 'general practitioner', 'civil', 'surgeon', 'physiotherapist', 'teacher']
+    green_list_tier2_keywords = ['network engineer', 'support engineer', 'technician', 'plumber', 'electrician', 'mechanic', 'carpenter']
 
     # Pre-group historical data by ANZSCO_CODE
     df_grouped = df.groupby('ANZSCO_CODE')
@@ -287,7 +303,11 @@ def process_detailed_occupations() -> Dict[str, Any]:
         title_lower = title.lower()
         
         inz_tier = None
-        if any(re.search(rf'\b({re.escape(kw)})\b', title_lower) for kw in green_list_tier1_keywords):
+        # 1. Primary resolution: Official 4-digit ANZSCO dictionary lookup
+        if code in gl_occupations:
+            inz_tier = gl_occupations[code].get("tier")
+        # 2. Fallback resolution: Keyword heuristic for unmapped or specialized titles
+        elif any(re.search(rf'\b({re.escape(kw)})\b', title_lower) for kw in green_list_tier1_keywords):
             inz_tier = "Tier 1 (Straight to Residence)"
         elif any(re.search(rf'\b({re.escape(kw)})\b', title_lower) for kw in green_list_tier2_keywords):
             inz_tier = "Tier 2 (Work to Residence)"

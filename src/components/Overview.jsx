@@ -8,7 +8,7 @@ import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, BarChart, Bar 
 } from 'recharts';
 import { 
-  Calendar, Database, ArrowUpRight, TrendingUp, Info, PieChart, Users, DollarSign, Layers, CheckCircle, Calculator, Award 
+  Calendar, Database, ArrowUpRight, TrendingUp, Info, PieChart, Users, DollarSign, Layers, CheckCircle, Calculator, Award, Sparkles 
 } from 'lucide-react';
 
 export default function Overview() {
@@ -56,6 +56,44 @@ export default function Overview() {
         monthlyData={monthlyData}
         regionalData={regionalData}
       />
+
+      {/* Executive Market Snapshot / Strategic Takeaways Banner */}
+      <section className="glass-card section-card" style={{ marginBottom: '28px', background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(2, 132, 199, 0.05) 100%)', border: '1px solid var(--border-accent)' }} aria-label="Executive Market Snapshot">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', flexWrap: 'wrap' }}>
+          <Sparkles size={20} className="text-gradient" aria-hidden="true" />
+          <h2 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--text-main)', margin: 0 }}>
+            New Zealand Labour Market Snapshot & Strategic Takeaways ({lastUpdatedDate})
+          </h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px', fontSize: '0.875rem' }}>
+          <div style={{ background: 'var(--bg-card)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ fontWeight: '700', color: '#4f46e5', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <TrendingUp size={16} /> 1. Macro Hiring Momentum
+            </div>
+            <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
+              National online job vacancies track at index <strong>115.7</strong> with an official unemployment rate of <strong>5.6%</strong>. The market remains an employer-favouring environment with selective hiring in core technical and essential roles.
+            </p>
+          </div>
+
+          <div style={{ background: 'var(--bg-card)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ fontWeight: '700', color: '#059669', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <DollarSign size={16} /> 2. Purchasing Power Hotspots
+            </div>
+            <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
+              <strong>Canterbury</strong> and <strong>Waikato</strong> continue to deliver the highest rent-to-wage purchasing power, retaining over <strong>$840+/wk</strong> in gross discretionary income after average weekly rent payments.
+            </p>
+          </div>
+
+          <div style={{ background: 'var(--bg-card)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ fontWeight: '700', color: '#d97706', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Award size={16} /> 3. INZ Residence Opportunities
+            </div>
+            <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
+              <strong>65 occupations</strong> currently qualify for fast-track New Zealand residency (38 Tier 1 Straight to Residence, 23 Tier 2 Work to Residence, and 4 Sector Agreements), led by Healthcare, Engineering, and Qualified Trades.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 1: NZ Job Vacancy Trajectory Line Chart */}
       <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="vacancy-trajectory-title">

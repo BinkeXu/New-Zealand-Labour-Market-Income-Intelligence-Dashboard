@@ -173,9 +173,93 @@ export function selectFilteredIndustryMatrix(industryData, selectedQuadrant, sor
 }
 
 /**
- * Filters and sorts detailed 4-digit ANZSCO occupational roles.
+ * Evaluates a qualitative Opportunity Score tier and returns label and badge styling metadata.
+ * Benchmarks:
+ * - 120+: High Opportunity (Substantial job density and wage premium)
+ * - 90 - 119: Balanced Market (Stable replacement hiring and steady pay)
+ * - < 90: Competitive (Tight market with lower vacancies per capita)
  */
-export function selectFilteredOccupations(occupationData, searchTerm, sortField = 'annual_change_percent', sortDirection = 'desc', maxResults = 15) {
+export function getOpportunityBadge(score) {
+  if (score == null || isNaN(score)) {
+    return { label: 'Unrated', variant: 'badge-neutral', tier: 'none' };
+  }
+  const num = Number(score);
+  if (num >= 120) {
+    return { label: 'High Opportunity', variant: 'badge-emerald', tier: 'high', iconColor: '#059669' };
+  }
+  if (num >= 90) {
+    return { label: 'Balanced Market', variant: 'badge-amber', tier: 'moderate', iconColor: '#d97706' };
+  }
+  return { label: 'Competitive', variant: 'badge-rose', tier: 'competitive', iconColor: '#e11d48' };
+}
+
+/**
+ * Calculates official New Zealand PAYE annual tax and ACC Earner's Levy (2025/2026 Inland Revenue rates).
+ * Tax Brackets:
+ * - $0 to $15,600: 10.5%
+ * - $15,601 to $53,500: 17.5%
+ * - $53,501 to $78,100: 30.0%
+ * - $78,101 to $180,000: 33.0%
+ * - Over $180,000: 39.0%
+ * ACC Earner's Levy: 1.60% (capped at $142,283 income)
+ *
+ * @param {number} annualGross - Gross annual earnings in NZD.
+ * @returns {object} Net annual and weekly take-home income, tax breakdown, and effective rate.
+ */
+export function calculateNZTakeHomePay(annualGross) {
+  if (!annualGross || annualGross <= 0 || isNaN(annualGross)) {
+    return {
+      annualGross: 0,
+      weeklyGross: 0,
+      annualNet: 0,
+      weeklyNet: 0,
+      totalTax: 0,
+      accLevy: 0,
+      totalDeductions: 0,
+      effectiveRate: 0
+    };
+  }
+
+  const gross = Number(annualGross);
+  let tax = 0;
+
+  if (gross <= 15600) {
+    tax = gross * 0.105;
+  } else if (gross <= 53500) {
+    tax = (15600 * 0.105) + ((gross - 15600) * 0.175);
+  } else if (gross <= 78100) {
+    tax = (15600 * 0.105) + ((53500 - 15600) * 0.175) + ((gross - 53500) * 0.30);
+  } else if (gross <= 180000) {
+    tax = (15600 * 0.105) + ((53500 - 15600) * 0.175) + ((78100 - 53500) * 0.30) + ((gross - 78100) * 0.33);
+  } else {
+    tax = (15600 * 0.105) + ((53500 - 15600) * 0.175) + ((78100 - 53500) * 0.30) + ((180000 - 78100) * 0.33) + ((gross - 180000) * 0.39);
+  }
+
+  // ACC earner levy capped at $142,283 (max $2,276.53)
+  const accCapped = Math.min(gross, 142283);
+  const accLevy = accCapped * 0.0160;
+
+  const totalDeductions = tax + accLevy;
+  const annualNet = Math.max(0, gross - totalDeductions);
+  const weeklyNet = annualNet / 52.0;
+  const effectiveRate = Number(((totalDeductions / gross) * 100).toFixed(1));
+
+  return {
+    annualGross: Math.round(gross),
+    weeklyGross: Math.round(gross / 52.0),
+    annualNet: Math.round(annualNet),
+    weeklyNet: Math.round(weeklyNet),
+    totalTax: Math.round(tax),
+    accLevy: Math.round(accLevy),
+    totalDeductions: Math.round(totalDeductions),
+    effectiveRate
+  };
+}
+
+/**
+ * Filters and sorts detailed 4-digit ANZSCO occupational roles with optional visa tier filtering.
+ */
+export function selectFilteredOccupations(occupationData, searchTerm, sortField = 'annual_change_percent', sortDirection = 'desc', maxResults = 25, visaTierFilter = 'All') {
   try {
     if (!occupationData || !occupationData.all_occupations) {
       return [];
@@ -183,6 +267,19 @@ export function selectFilteredOccupations(occupationData, searchTerm, sortField 
 
     const query = searchTerm ? searchTerm.trim().toLowerCase() : '';
     let occupations = occupationData.all_occupations;
+
+    // Visa Tier / Green List Filter
+    if (visaTierFilter && visaTierFilter !== 'All') {
+      if (visaTierFilter === 'Tier 1') {
+        occupations = occupations.filter(occ => occ.inz_green_list_tier && occ.inz_green_list_tier.includes('Tier 1'));
+      } else if (visaTierFilter === 'Tier 2') {
+        occupations = occupations.filter(occ => occ.inz_green_list_tier && occ.inz_green_list_tier.includes('Tier 2'));
+      } else if (visaTierFilter === 'Sector Agreement') {
+        occupations = occupations.filter(occ => occ.inz_green_list_tier && occ.inz_green_list_tier.includes('Sector Agreement'));
+      } else if (visaTierFilter === 'All Green List') {
+        occupations = occupations.filter(occ => Boolean(occ.inz_green_list_tier));
+      }
+    }
 
     if (query) {
       occupations = occupations.filter(occ => 
@@ -192,7 +289,7 @@ export function selectFilteredOccupations(occupationData, searchTerm, sortField 
     }
 
     const sorted = sortByField(occupations, sortField, sortDirection);
-    return sorted.slice(0, maxResults);
+    return maxResults ? sorted.slice(0, maxResults) : sorted;
   } catch (err) {
     console.error('Error in selectFilteredOccupations:', err);
     return [];

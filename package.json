@@ -9,7 +9,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "etl": "python scripts/process_data.py",
-    "update-data": "python scripts/auto_collect_data.py"
+    "update-data": "python scripts/auto_collect_data.py",
+    "test": "node --test src/utils/__tests__/*.test.js && python -m unittest discover -s scripts/tests",
+    "test:js": "node --test src/utils/__tests__/*.test.js",
+    "test:py": "python -m unittest discover -s scripts/tests"
   },
   "dependencies": {
     "lucide-react": "^0.475.0",

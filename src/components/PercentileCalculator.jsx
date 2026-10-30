@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { PieChart } from 'lucide-react';
+import { PieChart, ShieldCheck } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { calculateNZTakeHomePay } from '../utils/selectors';
 
 export default function PercentileCalculator({ irdIncomeData }) {
   const [inputVal, setInputVal] = useState('85000');
@@ -8,6 +9,10 @@ export default function PercentileCalculator({ irdIncomeData }) {
 
   const numericVal = parseFloat(inputVal.replace(/[^0-9.]/g, '')) || 0;
   const annualSalary = isWeekly ? numericVal * 52 : numericVal;
+
+  const takeHome = useMemo(() => {
+    return calculateNZTakeHomePay(annualSalary);
+  }, [annualSalary]);
 
   const result = useMemo(() => {
     if (!annualSalary || annualSalary <= 0) return null;
@@ -111,9 +116,14 @@ export default function PercentileCalculator({ irdIncomeData }) {
               <div style={{ fontSize: '1.4rem', fontWeight: '900', color: 'var(--primary)' }}>
                 {result.topPct <= 10 ? `Top ${result.topPct}% Earner` : `Top ${result.topPct}% (${result.percentileRank}th Percentile)`}
               </div>
-              <span className="badge badge-emerald" style={{ marginTop: '4px' }}>
-                {result.tierLabel} • ${annualSalary.toLocaleString()}/yr
-              </span>
+              <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', flexWrap: 'wrap', marginTop: '6px' }}>
+                <span className="badge badge-emerald">
+                  {result.tierLabel} • ${annualSalary.toLocaleString()}/yr
+                </span>
+                <span className="badge badge-indigo" title={`PAYE: $${takeHome.totalTax.toLocaleString()} • ACC: $${takeHome.accLevy.toLocaleString()} • Effective: ${takeHome.effectiveRate}%`}>
+                  🛡️ Net Take-Home: ${takeHome.weeklyNet.toLocaleString()}/wk (${takeHome.annualNet.toLocaleString()}/yr)
+                </span>
+              </div>
             </div>
           )}
         </div>

@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import { Briefcase, AlertCircle, Info, MapPin } from 'lucide-react';
 import { SortIcon } from '../hooks/useTableSort';
 import { useDashboardData } from '../context/DashboardContext';
-import { selectJobVolumeEstimates, selectLevelIndustryBenchmarks } from '../utils/selectors';
+import { selectJobVolumeEstimates, selectLevelIndustryBenchmarks, getOpportunityBadge } from '../utils/selectors';
 import DownloadCSVButton from './DownloadCSVButton';
 
 export default function CityIndustryTable({ 
@@ -178,11 +178,19 @@ export default function CityIndustryTable({
                       </div>
                     </td>
                     <td>
-                      {oppScore ? (
-                        <span className="badge badge-amber tabular-nums" style={{ fontWeight: '900', fontSize: '0.85rem' }}>
-                          {oppScore} pts
-                        </span>
-                      ) : (
+                      {oppScore ? (() => {
+                        const badge = getOpportunityBadge(oppScore);
+                        return (
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-start' }}>
+                            <span className={`badge ${badge.variant} tabular-nums`} style={{ fontWeight: '900', fontSize: '0.85rem' }}>
+                              {oppScore} pts
+                            </span>
+                            <span style={{ fontSize: '0.72rem', color: badge.iconColor, fontWeight: '700' }}>
+                              {badge.label}
+                            </span>
+                          </div>
+                        );
+                      })() : (
                         <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>N/A</span>
                       )}
                     </td>

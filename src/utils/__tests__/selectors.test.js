@@ -1,4 +1,5 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
 import { 
   sortByField,
   selectOverviewChartData,
@@ -6,8 +7,10 @@ import {
   selectRegionalChartData, 
   selectFilteredIndustryMatrix,
   selectFilteredOccupations,
-  selectNationalIncomeDistribution
-} from '../selectors';
+  selectNationalIncomeDistribution,
+  calculateNZTakeHomePay,
+  getOpportunityBadge
+} from '../selectors.js';
 
 describe('selectors.js unit tests', () => {
   const sampleRegionalData = {
@@ -35,42 +38,42 @@ describe('selectors.js unit tests', () => {
 
   it('sortByField sorts numeric and string fields in asc and desc order', () => {
     const sortedDesc = sortByField(sampleRegionalData.regions, 'opportunity_score', 'desc');
-    expect(sortedDesc[0].region_name).toBe('Canterbury');
+    assert.equal(sortedDesc[0].region_name, 'Canterbury');
 
     const sortedAsc = sortByField(sampleRegionalData.regions, 'opportunity_score', 'asc');
-    expect(sortedAsc[0].region_name).toBe('Auckland');
+    assert.equal(sortedAsc[0].region_name, 'Auckland');
 
     const sortedNameAsc = sortByField(sampleRegionalData.regions, 'region_name', 'asc');
-    expect(sortedNameAsc[0].region_name).toBe('Auckland');
+    assert.equal(sortedNameAsc[0].region_name, 'Auckland');
   });
 
   it('selectOverviewChartData handles empty or null data safely', () => {
-    expect(selectOverviewChartData(null, '5Y')).toEqual([]);
-    expect(selectOverviewChartData({}, '5Y')).toEqual([]);
+    assert.deepEqual(selectOverviewChartData(null, '5Y'), []);
+    assert.deepEqual(selectOverviewChartData({}, '5Y'), []);
   });
 
   it('selectFilteredRegions filters by Island correctly', () => {
     const northResult = selectFilteredRegions(sampleRegionalData, 'North Island', '');
-    expect(northResult).toHaveLength(1);
-    expect(northResult[0].region_name).toBe('Auckland');
+    assert.equal(northResult.length, 1);
+    assert.equal(northResult[0].region_name, 'Auckland');
 
     const southResult = selectFilteredRegions(sampleRegionalData, 'South Island', '');
-    expect(southResult).toHaveLength(1);
-    expect(southResult[0].region_name).toBe('Canterbury');
+    assert.equal(southResult.length, 1);
+    assert.equal(southResult[0].region_name, 'Canterbury');
   });
 
   it('selectFilteredRegions filters by city search query correctly', () => {
     const searchResult = selectFilteredRegions(sampleRegionalData, 'All', 'Christchurch');
-    expect(searchResult).toHaveLength(1);
-    expect(searchResult[0].region_name).toBe('Canterbury');
+    assert.equal(searchResult.length, 1);
+    assert.equal(searchResult[0].region_name, 'Canterbury');
   });
 
   it('selectRegionalChartData formats Recharts input array correctly', () => {
     const filtered = selectFilteredRegions(sampleRegionalData, 'All', '');
     const chartData = selectRegionalChartData(filtered);
-    expect(chartData).toHaveLength(2);
-    expect(chartData[0].name).toBe('Canterbury');
-    expect(chartData[0]['Hourly Wage ($/hr)']).toBe(33.58);
+    assert.equal(chartData.length, 2);
+    assert.equal(chartData[0].name, 'Canterbury');
+    assert.equal(chartData[0]['Hourly Wage ($/hr)'], 33.58);
   });
 
   it('selectFilteredIndustryMatrix filters by quadrant', () => {
@@ -81,19 +84,81 @@ describe('selectors.js unit tests', () => {
       ]
     };
     const result = selectFilteredIndustryMatrix(sampleIndustryData, 'Star');
-    expect(result).toHaveLength(1);
-    expect(result[0].industry).toBe('IT');
+    assert.equal(result.length, 1);
+    assert.equal(result[0].industry, 'IT');
   });
 
-  it('selectFilteredOccupations filters and limits results', () => {
+  it('selectFilteredOccupations filters by search keyword and limits results', () => {
     const sampleOccData = {
       all_occupations: [
-        { code: '2613', title: 'Software Engineer', annual_change_percent: 15.2 },
-        { code: '2544', title: 'Registered Nurse', annual_change_percent: 8.4 }
+        { code: '2613', title: 'Software Engineer', annual_change_percent: 15.2, inz_green_list_tier: 'Tier 1 (Straight to Residence)' },
+        { code: '2544', title: 'Registered Nurse', annual_change_percent: 8.4, inz_green_list_tier: 'Tier 1 (Straight to Residence)' },
+        { code: '3411', title: 'Electricians', annual_change_percent: 5.1, inz_green_list_tier: 'Tier 2 (Work to Residence)' },
+        { code: '4231', title: 'Aged and Disabled Carers', annual_change_percent: 4.2, inz_green_list_tier: 'Sector Agreement (Work to Residence)' },
+        { code: '5311', title: 'General Clerks', annual_change_percent: -2.1, inz_green_list_tier: null }
       ]
     };
     const result = selectFilteredOccupations(sampleOccData, 'Nurse', 'annual_change_percent', 'desc', 10);
-    expect(result).toHaveLength(1);
-    expect(result[0].code).toBe('2544');
+    assert.equal(result.length, 1);
+    assert.equal(result[0].code, '2544');
+  });
+
+  it('selectFilteredOccupations filters by Visa Tier correctly', () => {
+    const sampleOccData = {
+      all_occupations: [
+        { code: '2613', title: 'Software Engineer', annual_change_percent: 15.2, inz_green_list_tier: 'Tier 1 (Straight to Residence)' },
+        { code: '2544', title: 'Registered Nurse', annual_change_percent: 8.4, inz_green_list_tier: 'Tier 1 (Straight to Residence)' },
+        { code: '3411', title: 'Electricians', annual_change_percent: 5.1, inz_green_list_tier: 'Tier 2 (Work to Residence)' },
+        { code: '4231', title: 'Aged and Disabled Carers', annual_change_percent: 4.2, inz_green_list_tier: 'Sector Agreement (Work to Residence)' },
+        { code: '5311', title: 'General Clerks', annual_change_percent: -2.1, inz_green_list_tier: null }
+      ]
+    };
+
+    // Tier 1
+    const t1 = selectFilteredOccupations(sampleOccData, '', 'annual_change_percent', 'desc', 10, 'Tier 1');
+    assert.equal(t1.length, 2);
+
+    // Tier 2
+    const t2 = selectFilteredOccupations(sampleOccData, '', 'annual_change_percent', 'desc', 10, 'Tier 2');
+    assert.equal(t2.length, 1);
+    assert.equal(t2[0].code, '3411');
+
+    // Sector Agreement
+    const sec = selectFilteredOccupations(sampleOccData, '', 'annual_change_percent', 'desc', 10, 'Sector Agreement');
+    assert.equal(sec.length, 1);
+    assert.equal(sec[0].code, '4231');
+
+    // All Green List / Fast Track
+    const allGL = selectFilteredOccupations(sampleOccData, '', 'annual_change_percent', 'desc', 10, 'All Green List');
+    assert.equal(allGL.length, 4);
+  });
+
+  it('getOpportunityBadge returns correct qualitative rating bands', () => {
+    assert.equal(getOpportunityBadge(135).tier, 'high');
+    assert.equal(getOpportunityBadge(135).label, 'High Opportunity');
+
+    assert.equal(getOpportunityBadge(105).tier, 'moderate');
+    assert.equal(getOpportunityBadge(105).label, 'Balanced Market');
+
+    assert.equal(getOpportunityBadge(75).tier, 'competitive');
+    assert.equal(getOpportunityBadge(75).label, 'Competitive');
+
+    assert.equal(getOpportunityBadge(null).tier, 'none');
+  });
+
+  it('calculateNZTakeHomePay calculates accurate NZ PAYE tax and ACC levy', () => {
+    // $100,000 annual gross salary
+    const pay100k = calculateNZTakeHomePay(100000);
+    assert.equal(pay100k.annualGross, 100000);
+    assert.equal(pay100k.totalTax, 22878); // $22,877.50 rounded to $22,878
+    assert.equal(pay100k.accLevy, 1600); // 1.6% of $100k
+    assert.equal(pay100k.annualNet, 75523); // $75,522.50 rounded to $75,523
+    assert.equal(pay100k.weeklyNet, 1452); // $1,452.36 rounded
+    assert.equal(pay100k.effectiveRate, 24.5);
+
+    // Zero or invalid input
+    const zeroPay = calculateNZTakeHomePay(0);
+    assert.equal(zeroPay.annualNet, 0);
+    assert.equal(zeroPay.weeklyNet, 0);
   });
 });

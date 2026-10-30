@@ -264,6 +264,34 @@ export default function CareerPathfinder() {
                   </p>
                 </div>
               </div>
+
+              {/* Direct Live Job Search Action Links */}
+              <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)' }}>
+                <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Target size={16} color="#059669" />
+                  Take Immediate Career Action: Live Vacancies on Major NZ Job Boards
+                </div>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <a 
+                    href={`https://www.seek.co.nz/${encodeURIComponent((currentIndustryObj?.label || '').split(',')[0].trim())}-jobs/in-${encodeURIComponent(currentIndustryObj?.top_regions?.[0] || 'All-New-Zealand')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{ padding: '9px 16px', fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    🔍 Search on SEEK NZ ↗
+                  </a>
+                  <a 
+                    href={`https://www.trademe.co.nz/a/jobs?search_string=${encodeURIComponent((currentIndustryObj?.label || '').split(',')[0].trim())}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{ padding: '9px 16px', fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    🔍 Search on TradeMe Jobs ↗
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div style={{ textAlign: 'center' }}>
