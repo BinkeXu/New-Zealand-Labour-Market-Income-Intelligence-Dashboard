@@ -1,9 +1,40 @@
 # 🇳🇿 New Zealand Labour Market & Income Intelligence Dashboard
 
-An executive, production-grade analytics platform providing data-driven insights into New Zealand online job vacancies, median/average earnings, mean weekly rents, real purchasing power, labor market slack, and ANZSCO occupational trajectories. Built with **React 18**, **Vite**, **Recharts**, and an automated **Python ETL Data Processing Pipeline** parsing official datasets from **MBIE (Ministry of Business, Innovation and Employment)**, **Stats NZ (Tatauranga Aotearoa)**, and **IRD (Inland Revenue Department)**.
+An executive, production-grade analytics platform providing data-driven insights into New Zealand online job vacancies, median/average earnings, mean weekly rents, real purchasing power, labor market slack, and ANZSCO occupational trajectories. Built with **React 19**, **Vite**, **Recharts**, and an automated **Python ETL Data Processing Pipeline** parsing official datasets from **MBIE (Ministry of Business, Innovation and Employment)**, **Stats NZ (Tatauranga Aotearoa)**, and **IRD (Inland Revenue Department)**.
 
 🔗 **Live Production Dashboard**: [https://nz-labour-dashboard.vercel.app/](https://nz-labour-dashboard.vercel.app/)  
 📂 **GitHub Repository**: [https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git](https://github.com/BinkeXu/New-Zealand-Labour-Market-Income-Intelligence-Dashboard.git)
+
+---
+
+## 🏗️ High-Level Technical Architecture
+
+The platform operates on a decoupled, automated architecture connecting official New Zealand government data releases directly to an interactive, high-performance client:
+
+```mermaid
+flowchart TD
+    subgraph DataSources["🏛️ Official Government Data Sources"]
+        S1["Stats NZ (Tatauranga Aotearoa)<br/>• HLFS Unemployment & Slack (58 Quarters)<br/>• 28-Yr Household Income Census<br/>• LEED Turnover & Business Demography"]
+        S2["MBIE (Jobs Online & Tenancy Services)<br/>• 230-Month Vacancy Index (2007–2026)<br/>• 58-Quarter ANZSCO Demand Series<br/>• Mean Weekly Bonded Rent"]
+        S3["Inland Revenue Department (IRD)<br/>• 25-Yr PAYE Individual Tax Census<br/>• 2.46M Tax Returns (Deciles & Top 1%)"]
+        S4["Immigration New Zealand (INZ)<br/>• Green List Tier 1 & Tier 2<br/>• Care & Transport Sector Agreements"]
+    end
+
+    subgraph Pipeline["⚙️ Automated Ingestion & ETL Pipeline"]
+        A1["scripts/auto_collect_data.py<br/>(Scheduled Weekly GitHub Actions CI/CD)"] --> P1["scripts/process_data.py<br/>(Modular Python ETL Engine)"]
+        S1 & S2 & S3 & S4 --> P1
+        P1 --> J1["public/data/*.json<br/>(Normalized Production Datasets)"]
+    end
+
+    subgraph Client["⚡ Modern Client Architecture (React 19 + Vite)"]
+        J1 --> C1["React 19 Client<br/>(Code-Split Suspense Tabs)"]
+        C1 --> M1["Market Overview & KPIs<br/>(Overview.jsx)"]
+        C1 --> M2["Regional Matrix & Comparator<br/>(RegionalMatrix.jsx)"]
+        C1 --> M3["Industry Quadrant & ANZSCO<br/>(IndustryQuadrant.jsx)"]
+        C1 --> M4["Career Pathfinder & Live Links<br/>(CareerPathfinder.jsx)"]
+        C1 --> M5["IRD Percentile & Tax Calculator<br/>(PercentileCalculator.jsx)"]
+    end
+```
 
 ---
 
