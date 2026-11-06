@@ -44,8 +44,8 @@ flowchart TD
 - **KPI Trend Modals**: Clicking any KPI card opens an interactive, centered modal dialog displaying historical trend charts with dynamic time-range filter controls (**`1Y`**, **`3Y`**, **`5Y`**, **`10Y`**, **`All`**) and CSV data export:
   - **NZ Overall Vacancy Index**: 230 monthly series records (May 2007 – June 2026).
   - **NZ National Median Income**: 28-year annual income census series (1998 – 2025).
-  - **NZ Official Unemployment Rate**: 58 quarterly HLFS unemployment rates (June 2012 – June 2026, 5.6%).
-  - **NZ Labor Underutilisation Rate**: 58 quarterly HLFS underutilisation rates (June 2012 – June 2026, 13.8%).
+  - **NZ Official Unemployment Rate**: 59 quarterly HLFS unemployment rates (June 2012 – September 2026, 5.7%).
+  - **NZ Labour Underutilisation Rate**: 59 quarterly HLFS underutilisation rates (June 2012 – September 2026, 13.8%).
 
 ### 💰 2. National Income Distribution by Source & Breakdown Analytics
 - **Category Color Indicators**:
@@ -56,9 +56,9 @@ flowchart TD
 - **Interactive Breakdown Modal**: Clicking any row in the Income Distribution table opens a 28-year historical growth chart and a detailed breakdown box comparing median weekly/hourly wages, average weekly/hourly wages, 52-week annualized income, total NZ recipient counts, and policy/tax context notes.
 
 ### 🧮 3. IRD Tax Census NZ Income Percentile Calculator & Distribution Histogram
-- **25-Year PAYE Tax Dataset**: Integrated 2.46M official Inland Revenue Department (IRD) individual tax returns (2001 – 2025).
+- **26-Year PAYE Tax Dataset**: Integrated 2.84M official Inland Revenue Department (IRD) individual tax returns (2001 – 2026).
 - **Interactive Percentile Calculator**: Instant salary ranking calculator ($/yr or $/wk) returning exact NZ percentile position (e.g. *$85,000 puts you in the Top 26% of NZ earners*).
-- **Decile & Top Earner Benchmarks**: Displays 10th percentile ($6,923/yr), Median ($59,908/yr), Top 20% ($99,932/yr), Top 10% ($129,846/yr), Top 5% ($163,389/yr), and Top 1% ($278,750/yr).
+- **Decile & Top Earner Benchmarks**: Displays 10th percentile ($6,880/yr), Median ($61,958/yr), Top 20% ($103,897/yr), Top 10% ($134,568/yr), Top 5% ($169,365/yr), and Top 1% ($289,186/yr).
 - **Income Distribution Histogram Chart**: Recharts bar chart displaying worker density across 10 income brackets from <$20k to >$200k+.
 
 ### 💼 4. ANZSCO 58-Quarter Demand Trajectory & Authoritative INZ Green List Engine
@@ -102,18 +102,34 @@ flowchart TD
 - **RFC-4180 CSV Export**: RFC-compliant CSV escaping for string fields containing quotes, commas, or newlines.
 
 ### 🤖 9. Automated Hands-Free Government Data Collection Pipeline
-- **Auto-Collector Engine (`scripts/auto_collect_data.py`)**: Directly queries Stats NZ information releases and MBIE release pages, parses embedded quarterly CSV data (HLFS unemployment, underutilisation, employment rates), and automatically appends new quarters to `Dataset/active/`.
+
+The platform features a resilient, automated CI/CD data ingestion engine that continuously monitors official government publications:
+
+```mermaid
+flowchart TD
+    A["Stats NZ Quarterly Labour Release<br/>(Early Feb, May, Aug, Nov)"] --> B["GitHub Actions Cron Schedule<br/>(Every Thursday 06:00 UTC / 18:00 NZT)"]
+    B --> C["scripts/auto_collect_data.py<br/>(Scrapes HLFS Quarterly CSV Series)"]
+    C --> D{"New Quarter Detected?"}
+    D -- "Yes" --> E["Append Clean Rows to Dataset/active/<br/>• Unemployment, Slack & Employment"]
+    E --> F["scripts/process_data.py Engine<br/>• Normalises & Rebuilds public/data/*.json"]
+    F --> G["Automated Test Verification<br/>• Python unittest & Node.js test suites"]
+    G --> H["github-actions[bot] Git Commit & Push<br/>• Pushes to 'main' branch [skip ci]"]
+    H --> I["Vercel Production Auto-Deploy<br/>• Live in under 60 seconds"]
+    D -- "No" --> J["Clean Exit (0 Changes Detected)<br/>• Verified up-to-date"]
+```
+
+- **Auto-Collector Engine (`scripts/auto_collect_data.py`)**: Directly queries Stats NZ information releases and MBIE release pages, parses embedded quarterly CSV data (HLFS unemployment, underutilisation, employment rates), and automatically appends new quarters to `Dataset/active/` with duplicate-prevention and line-termination safety.
 - **One-Command CLI Refresh**: Run `npm run update-data` to scrape, verify, and trigger the ETL rebuilder in a single operation.
 - **GitHub Actions Scheduled CI/CD (`.github/workflows/auto-update-data.yml`)**:
-  - Automatically runs on a weekly cron schedule (and on-demand via `workflow_dispatch`).
+  - Automatically runs on a weekly cron schedule (`0 6 * * 4`) following Wednesday morning Stats NZ releases (and on-demand via `workflow_dispatch`).
   - Scrapes for newly published government datasets.
-  - Automatically rebuilds production JSONs and verifies React compilation.
+  - Automatically rebuilds production JSONs and verifies compilation.
   - Commits updated datasets back to `main` with `[skip ci]`, triggering immediate live deployment on Vercel with **zero manual developer intervention**.
 
 ### 🧪 10. Automated Multi-Tier Test Suite (JavaScript & Python)
-- **Unified Test Runner**: Single-command execution (`npm test`) that tests both frontend data transformations and backend ETL pipelines (24/24 tests passing).
+- **Unified Test Runner**: Single-command execution (`npm test`) that tests both frontend data transformations and backend ETL pipelines (25/25 tests passing).
 - **Node.js Selector & Tax Tests**: High-performance native tests (`src/utils/__tests__/selectors.test.js`) executed in ~15ms via Node 24's native test runner (`node --test`).
-- **Python ETL & Green List Tests**: Python `unittest` suite (`scripts/tests/test_green_list.py` & `test_calculators.py`) verifying mathematical formulas and INZ visa mappings.
+- **Python ETL & Ingestion Tests**: Comprehensive Python `unittest` suite (`scripts/tests/test_auto_collect.py`, `test_ird_income.py`, `test_green_list.py`, `test_calculators.py`) verifying Stats NZ auto-ingestion, 2026 IRD deciles, mathematical formulas, and INZ visa mappings.
 
 ### 🎨 11. Web Design Engineer & Bento-Grid Refinements
 - **Streamlined Visual Hierarchy**: Absorbed the intermediate release banner into the primary Vacancy Trajectory card header, recovering ~80px of prime vertical viewport space and creating an uninterrupted visual flow from executive KPIs into the primary chart.

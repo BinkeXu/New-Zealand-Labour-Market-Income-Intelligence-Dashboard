@@ -20,13 +20,19 @@ export default function PercentileCalculator({ irdIncomeData }) {
     const deciles = irdIncomeData?.deciles || [];
     const topP = irdIncomeData?.top_percentiles || [];
 
-    // All boundary points: (percentile, boundary_dollar)
+    // All boundary points: (percentile, boundary_dollar) using latest available tax year
     const points = [];
     deciles.forEach(d => {
-      points.push({ percentile: d.decile * 10, dollar: d.annual_boundary_2025 });
+      const boundary = d.annual_boundary_2026 || d.annual_boundary || d.annual_boundary_2025;
+      if (boundary) {
+        points.push({ percentile: d.decile * 10, dollar: boundary });
+      }
     });
     topP.forEach(p => {
-      points.push({ percentile: p.percentile, dollar: p.annual_boundary_2025 });
+      const boundary = p.annual_boundary_2026 || p.annual_boundary || p.annual_boundary_2025;
+      if (boundary) {
+        points.push({ percentile: p.percentile, dollar: boundary });
+      }
     });
     points.sort((a, b) => a.percentile - b.percentile);
 
@@ -62,7 +68,39 @@ export default function PercentileCalculator({ irdIncomeData }) {
     return { percentileRank: 50, topPct: 50, tierLabel: 'Median Income' };
   }, [annualSalary, irdIncomeData]);
 
+  // Dynamic Key IRD Percentile Benchmarks from Ingested Tax Dataset
+  const benchmarks = useMemo(() => {
+    const deciles = irdIncomeData?.deciles || [];
+    const topP = irdIncomeData?.top_percentiles || [];
+
+    const getVal = (item, defaultAnn, defaultWk) => {
+      const ann = item?.annual_boundary_2026 || item?.annual_boundary || item?.annual_boundary_2025;
+      const wk = item?.weekly_boundary_2026 || item?.weekly_boundary || item?.weekly_boundary_2025;
+      return {
+        annual: ann ? Math.round(ann) : defaultAnn,
+        weekly: wk ? Math.round(wk) : defaultWk
+      };
+    };
+
+    const d1 = deciles.find(d => d.decile === 1);
+    const d5 = deciles.find(d => d.decile === 5);
+    const d8 = deciles.find(d => d.decile === 8);
+    const d9 = deciles.find(d => d.decile === 9);
+    const p95 = topP.find(p => p.percentile === 95);
+    const p99 = topP.find(p => p.percentile === 99);
+
+    return {
+      p10: getVal(d1, 6880, 132),
+      p50: getVal(d5, 61958, 1192),
+      p80: getVal(d8, 103897, 1998),
+      p90: getVal(d9, 134568, 2588),
+      p95: getVal(p95, 169365, 3257),
+      p99: getVal(p99, 289186, 5561),
+    };
+  }, [irdIncomeData]);
+
   const histogramData = irdIncomeData?.income_histogram || [];
+  const totalTaxpayersMillions = irdIncomeData?.metadata?.total_wage_earners_2026_millions || '2.84';
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
@@ -128,42 +166,66 @@ export default function PercentileCalculator({ irdIncomeData }) {
           )}
         </div>
 
-        {/* 2025 Key IRD Percentile Benchmark Cards */}
+        {/* Dynamic Key IRD Percentile Benchmark Cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '10px' }}>
           <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>10th Percentile</div>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>$6,923 / yr</div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>$133 / wk</div>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+              ${benchmarks.p10.annual.toLocaleString()} / yr
+            </div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
+              ${benchmarks.p10.weekly.toLocaleString()} / wk
+            </div>
           </div>
 
           <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', borderLeft: '3px solid #4f46e5' }}>
             <div style={{ fontSize: '0.75rem', color: '#4f46e5', fontWeight: '700' }}>50th (Median Income)</div>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>$59,908 / yr</div>
-            <div style={{ fontSize: '0.75rem', color: '#4f46e5', fontWeight: '600' }}>$1,152 / wk</div>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+              ${benchmarks.p50.annual.toLocaleString()} / yr
+            </div>
+            <div style={{ fontSize: '0.75rem', color: '#4f46e5', fontWeight: '600' }}>
+              ${benchmarks.p50.weekly.toLocaleString()} / wk
+            </div>
           </div>
 
           <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', borderLeft: '3px solid #0284c7' }}>
             <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: '700' }}>Top 20% Threshold</div>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>$99,932 / yr</div>
-            <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: '600' }}>$1,922 / wk</div>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+              ${benchmarks.p80.annual.toLocaleString()} / yr
+            </div>
+            <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: '600' }}>
+              ${benchmarks.p80.weekly.toLocaleString()} / wk
+            </div>
           </div>
 
           <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', borderLeft: '3px solid #059669' }}>
             <div style={{ fontSize: '0.75rem', color: '#059669', fontWeight: '700' }}>Top 10% Threshold</div>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>$129,846 / yr</div>
-            <div style={{ fontSize: '0.75rem', color: '#059669', fontWeight: '600' }}>$2,497 / wk</div>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+              ${benchmarks.p90.annual.toLocaleString()} / yr
+            </div>
+            <div style={{ fontSize: '0.75rem', color: '#059669', fontWeight: '600' }}>
+              ${benchmarks.p90.weekly.toLocaleString()} / wk
+            </div>
           </div>
 
           <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', borderLeft: '3px solid #d97706' }}>
             <div style={{ fontSize: '0.75rem', color: '#d97706', fontWeight: '700' }}>Top 5% Threshold</div>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>$163,389 / yr</div>
-            <div style={{ fontSize: '0.75rem', color: '#d97706', fontWeight: '600' }}>$3,142 / wk</div>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+              ${benchmarks.p95.annual.toLocaleString()} / yr
+            </div>
+            <div style={{ fontSize: '0.75rem', color: '#d97706', fontWeight: '600' }}>
+              ${benchmarks.p95.weekly.toLocaleString()} / wk
+            </div>
           </div>
 
           <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', borderLeft: '3px solid #e11d48' }}>
             <div style={{ fontSize: '0.75rem', color: '#e11d48', fontWeight: '700' }}>Top 1% Threshold</div>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>$278,750 / yr</div>
-            <div style={{ fontSize: '0.75rem', color: '#e11d48', fontWeight: '600' }}>$5,361 / wk</div>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-main)' }}>
+              ${benchmarks.p99.annual.toLocaleString()} / yr
+            </div>
+            <div style={{ fontSize: '0.75rem', color: '#e11d48', fontWeight: '600' }}>
+              ${benchmarks.p99.weekly.toLocaleString()} / wk
+            </div>
           </div>
         </div>
       </div>
@@ -172,7 +234,7 @@ export default function PercentileCalculator({ irdIncomeData }) {
       <div style={{ width: '100%' }}>
         <h3 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <PieChart size={18} color="#059669" aria-hidden="true" />
-          NZ Individual Income Distribution Histogram (2.46 Million Taxpayers)
+          NZ Individual Income Distribution Histogram ({totalTaxpayersMillions} Million Taxpayers)
         </h3>
 
         <div style={{ width: '100%', height: 260 }}>

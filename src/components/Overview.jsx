@@ -71,7 +71,7 @@ export default function Overview() {
               <TrendingUp size={16} /> 1. Macro Hiring Momentum
             </div>
             <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
-              National online job vacancies track at index <strong>115.7</strong> with an official unemployment rate of <strong>5.6%</strong>. The market remains an employer-favouring environment with selective hiring in core technical and essential roles.
+              National online job vacancies track at index <strong>115.7</strong> with an official unemployment rate of <strong>{monthlyData?.metadata?.hlfs_labor_metrics?.unemployment_rate?.total || 5.7}%</strong>. The market remains an employer-favouring environment with selective hiring in core technical and essential roles.
             </p>
           </div>
 

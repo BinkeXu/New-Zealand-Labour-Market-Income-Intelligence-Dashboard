@@ -17,6 +17,12 @@ import urllib.request
 import subprocess
 from datetime import datetime
 
+# Configure standard streams for UTF-8 on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ACTIVE_DATA_DIR = os.path.join(BASE_DIR, "Dataset", "active")
 
@@ -77,13 +83,12 @@ def update_hlfs_data() -> bool:
         return False
 
     unescaped = html.unescape(release_page)
-    headings = re.findall(r'"GraphHeading":\s*"([^"]+)"', unescaped)
-    csv_blocks = re.findall(r'"GraphCsvData":\s*"([^"]+)"', unescaped)
+    # Match each GraphHeading strictly with its adjacent GraphCsvData within the JSON block
+    pairs = re.findall(r'"GraphHeading":\s*"([^"]+)"(?:(?!"GraphHeading")[\s\S])*?"GraphCsvData":\s*"([^"]+)"', unescaped)
 
     updated_any = False
 
-    for i, raw_csv in enumerate(csv_blocks):
-        heading = headings[i] if i < len(headings) else ""
+    for heading, raw_csv in pairs:
         try:
             clean_csv = raw_csv.encode('utf-8').decode('unicode_escape')
         except Exception:
@@ -111,8 +116,12 @@ def update_csv_from_transposed(stats_csv: str, local_csv_path: str, metric_name:
     Parses Stats NZ transposed CSV (Row 1: Quarters, Row 2: Men, Row 3: Women, Row 4: Total)
     and updates the local vertical CSV ("Quarter","Men","Women","Total").
     """
-    lines = [l.strip() for l in stats_csv.split("\r\n") if l.strip()]
+    lines = [l.strip() for l in stats_csv.splitlines() if l.strip()]
     if len(lines) < 4:
+        return False
+
+    first_col = lines[0].split(",")[0].strip('"\ufeff')
+    if first_col.lower() != "quarter":
         return False
 
     quarters = [q.strip('"\ufeff') for q in lines[0].split(",")[1:]]
@@ -139,7 +148,19 @@ def update_csv_from_transposed(stats_csv: str, local_csv_path: str, metric_name:
 
     if new_rows:
         print(f"✨ Found {len(new_rows)} new quarter(s) for {metric_name}: {[r.split(',')[0] for r in new_rows]}")
+        # Ensure the file ends with a newline before appending
+        needs_leading_newline = False
+        if os.path.exists(local_csv_path):
+            with open(local_csv_path, 'rb') as f:
+                f.seek(0, os.SEEK_END)
+                if f.tell() > 0:
+                    f.seek(-1, os.SEEK_END)
+                    if f.read(1) != b'\n':
+                        needs_leading_newline = True
+
         with open(local_csv_path, 'a', encoding='utf-8', newline='') as f:
+            if needs_leading_newline:
+                f.write('\n')
             for row in new_rows:
                 f.write(row + "\n")
         print(f"✅ Appended new rows to {local_csv_path}")

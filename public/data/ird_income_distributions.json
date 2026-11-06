@@ -1,153 +1,220 @@
 {
   "metadata": {
-    "source": "Inland Revenue Department (IRD) Individual Wage & Salary Returns (2001 - 2025)",
-    "last_updated": "2025 PAYE Final Release",
-    "total_wage_earners_2025": 2464108,
-    "total_wage_earners_2025_thousands": 2464.1
+    "source": "Inland Revenue Department (IRD) Individual Wage & Salary Returns (2001 - 2026)",
+    "last_updated": "2026 PAYE Final Release (Tax Year Ended 31 March 2026)",
+    "tax_year": 2026,
+    "total_wage_earners": 2840300,
+    "total_wage_earners_2026": 2840300,
+    "total_wage_earners_2026_thousands": 2840.3,
+    "total_wage_earners_2026_millions": "2.84",
+    "total_wage_earners_2025": 2865620
   },
   "deciles": [
     {
       "decile": 1,
       "percentile_label": "10th Percentile (Bottom 10%)",
-      "annual_boundary_2025": 6922.83,
-      "weekly_boundary_2025": 133.13,
+      "annual_boundary": 6880.24,
+      "weekly_boundary": 132.31,
+      "hourly_boundary": 3.31,
+      "annual_boundary_2026": 6880.24,
+      "weekly_boundary_2026": 132.31,
+      "hourly_boundary_2026": 3.31,
+      "annual_boundary_2025": 6923.79,
+      "weekly_boundary_2025": 133.15,
       "hourly_boundary_2025": 3.33,
       "history": {
         "2019": 4293.0,
         "2020": 4718.0,
         "2021": 5576.0,
         "2022": 6428.34,
-        "2023": 6241.51,
-        "2024": 6784.43,
-        "2025": 6922.83
+        "2023": 6243.05,
+        "2024": 6786.18,
+        "2025": 6923.79,
+        "2026": 6880.24
       }
     },
     {
       "decile": 2,
       "percentile_label": "20th Percentile",
-      "annual_boundary_2025": 18945.39,
-      "weekly_boundary_2025": 364.33,
+      "annual_boundary": 19375.96,
+      "weekly_boundary": 372.61,
+      "hourly_boundary": 9.32,
+      "annual_boundary_2026": 19375.96,
+      "weekly_boundary_2026": 372.61,
+      "hourly_boundary_2026": 9.32,
+      "annual_boundary_2025": 18955.12,
+      "weekly_boundary_2025": 364.52,
       "hourly_boundary_2025": 9.11,
       "history": {
         "2019": 11917.0,
         "2020": 13009.0,
         "2021": 15288.0,
         "2022": 17288.68,
-        "2023": 16773.3,
-        "2024": 18033.58,
-        "2025": 18945.39
+        "2023": 16778.96,
+        "2024": 18039.36,
+        "2025": 18955.12,
+        "2026": 19375.96
       }
     },
     {
       "decile": 3,
       "percentile_label": "30th Percentile",
-      "annual_boundary_2025": 34039.76,
-      "weekly_boundary_2025": 654.61,
-      "hourly_boundary_2025": 16.37,
+      "annual_boundary": 35007.47,
+      "weekly_boundary": 673.22,
+      "hourly_boundary": 16.83,
+      "annual_boundary_2026": 35007.47,
+      "weekly_boundary_2026": 673.22,
+      "hourly_boundary_2026": 16.83,
+      "annual_boundary_2025": 34064.31,
+      "weekly_boundary_2025": 655.08,
+      "hourly_boundary_2025": 16.38,
       "history": {
         "2019": 22073.0,
         "2020": 23920.0,
         "2021": 27536.0,
         "2022": 30776.51,
-        "2023": 30227.95,
-        "2024": 31956.71,
-        "2025": 34039.76
+        "2023": 30236.5,
+        "2024": 31969.4,
+        "2025": 34064.31,
+        "2026": 35007.47
       }
     },
     {
       "decile": 4,
       "percentile_label": "40th Percentile",
-      "annual_boundary_2025": 48599.98,
-      "weekly_boundary_2025": 934.62,
+      "annual_boundary": 50111.25,
+      "weekly_boundary": 963.68,
+      "hourly_boundary": 24.09,
+      "annual_boundary_2026": 50111.25,
+      "weekly_boundary_2026": 963.68,
+      "hourly_boundary_2026": 24.09,
+      "annual_boundary_2025": 48613.9,
+      "weekly_boundary_2025": 934.88,
       "hourly_boundary_2025": 23.37,
       "history": {
         "2019": 33202.0,
         "2020": 35536.0,
         "2021": 39160.0,
         "2022": 42947.73,
-        "2023": 44039.89,
-        "2024": 46106.32,
-        "2025": 48599.98
+        "2023": 44047.14,
+        "2024": 46116.0,
+        "2025": 48613.9,
+        "2026": 50111.25
       }
     },
     {
       "decile": 5,
       "percentile_label": "50th Percentile (NZ Median Income)",
-      "annual_boundary_2025": 59907.5,
-      "weekly_boundary_2025": 1152.07,
-      "hourly_boundary_2025": 28.8,
+      "annual_boundary": 61957.92,
+      "weekly_boundary": 1191.5,
+      "hourly_boundary": 29.79,
+      "annual_boundary_2026": 61957.92,
+      "weekly_boundary_2026": 1191.5,
+      "hourly_boundary_2026": 29.79,
+      "annual_boundary_2025": 59917.41,
+      "weekly_boundary_2025": 1152.26,
+      "hourly_boundary_2025": 28.81,
       "history": {
         "2019": 42580.0,
         "2020": 45037.0,
         "2021": 48031.0,
         "2022": 51999.96,
-        "2023": 54467.46,
-        "2024": 57200.0,
-        "2025": 59907.5
+        "2023": 54472.3,
+        "2024": 57205.03,
+        "2025": 59917.41,
+        "2026": 61957.92
       }
     },
     {
       "decile": 6,
       "percentile_label": "60th Percentile",
-      "annual_boundary_2025": 70121.96,
-      "weekly_boundary_2025": 1348.5,
+      "annual_boundary": 72722.73,
+      "weekly_boundary": 1398.51,
+      "hourly_boundary": 34.96,
+      "annual_boundary_2026": 72722.73,
+      "weekly_boundary_2026": 1398.51,
+      "hourly_boundary_2026": 34.96,
+      "annual_boundary_2025": 70126.63,
+      "weekly_boundary_2025": 1348.59,
       "hourly_boundary_2025": 33.71,
       "history": {
         "2019": 51094.0,
         "2020": 53701.0,
         "2021": 56507.0,
         "2022": 60673.21,
-        "2023": 64058.85,
-        "2024": 67388.48,
-        "2025": 70121.96
+        "2023": 64063.38,
+        "2024": 67392.55,
+        "2025": 70126.63,
+        "2026": 72722.73
       }
     },
     {
       "decile": 7,
       "percentile_label": "70th Percentile",
-      "annual_boundary_2025": 82459.72,
-      "weekly_boundary_2025": 1585.76,
-      "hourly_boundary_2025": 39.64,
+      "annual_boundary": 85546.21,
+      "weekly_boundary": 1645.12,
+      "hourly_boundary": 41.13,
+      "annual_boundary_2026": 85546.21,
+      "weekly_boundary_2026": 1645.12,
+      "hourly_boundary_2026": 41.13,
+      "annual_boundary_2025": 82462.08,
+      "weekly_boundary_2025": 1585.81,
+      "hourly_boundary_2025": 39.65,
       "history": {
         "2019": 60954.0,
         "2020": 63776.0,
         "2021": 66637.0,
         "2022": 71153.86,
-        "2023": 75335.21,
-        "2024": 79343.95,
-        "2025": 82459.72
+        "2023": 75341.13,
+        "2024": 79348.68,
+        "2025": 82462.08,
+        "2026": 85546.21
       }
     },
     {
       "decile": 8,
       "percentile_label": "80th Percentile",
-      "annual_boundary_2025": 99932.29,
-      "weekly_boundary_2025": 1921.77,
+      "annual_boundary": 103896.5,
+      "weekly_boundary": 1998.01,
+      "hourly_boundary": 49.95,
+      "annual_boundary_2026": 103896.5,
+      "weekly_boundary_2026": 1998.01,
+      "hourly_boundary_2026": 49.95,
+      "annual_boundary_2025": 99932.3,
+      "weekly_boundary_2025": 1921.78,
       "hourly_boundary_2025": 48.04,
       "history": {
         "2019": 74320.0,
         "2020": 77458.0,
         "2021": 80665.0,
         "2022": 85817.54,
-        "2023": 90754.48,
-        "2024": 96308.34,
-        "2025": 99932.29
+        "2023": 90761.52,
+        "2024": 96315.0,
+        "2025": 99932.3,
+        "2026": 103896.5
       }
     },
     {
       "decile": 9,
       "percentile_label": "90th Percentile (Top 10% Threshold)",
-      "annual_boundary_2025": 129846.08,
-      "weekly_boundary_2025": 2497.04,
+      "annual_boundary": 134568.0,
+      "weekly_boundary": 2587.85,
+      "hourly_boundary": 64.7,
+      "annual_boundary_2026": 134568.0,
+      "weekly_boundary_2026": 2587.85,
+      "hourly_boundary_2026": 64.7,
+      "annual_boundary_2025": 129849.92,
+      "weekly_boundary_2025": 2497.11,
       "hourly_boundary_2025": 62.43,
       "history": {
         "2019": 96703.0,
         "2020": 100694.0,
         "2021": 104926.0,
         "2022": 111603.68,
-        "2023": 118358.44,
-        "2024": 125950.88,
-        "2025": 129846.08
+        "2023": 118366.97,
+        "2024": 125947.95,
+        "2025": 129849.92,
+        "2026": 134568.0
       }
     }
   ],
@@ -155,7 +222,13 @@
     {
       "percentile": 91,
       "percentile_label": "Top 9% Threshold (91th Percentile)",
-      "annual_boundary_2025": 134615.41,
+      "annual_boundary": 139615.12,
+      "weekly_boundary": 2684.91,
+      "hourly_boundary": 67.12,
+      "annual_boundary_2026": 139615.12,
+      "weekly_boundary_2026": 2684.91,
+      "hourly_boundary_2026": 67.12,
+      "annual_boundary_2025": 134615.6,
       "weekly_boundary_2025": 2588.76,
       "hourly_boundary_2025": 64.72,
       "history": {
@@ -163,200 +236,257 @@
         "2020": 104814.0,
         "2021": 109113.0,
         "2022": 116115.82,
-        "2023": 122906.84,
-        "2024": 130768.95,
-        "2025": 134615.41
+        "2023": 122913.84,
+        "2024": 130769.1,
+        "2025": 134615.6,
+        "2026": 139615.12
       }
     },
     {
       "percentile": 92,
       "percentile_label": "Top 8% Threshold (92th Percentile)",
-      "annual_boundary_2025": 140111.6,
-      "weekly_boundary_2025": 2694.45,
+      "annual_boundary": 145228.9,
+      "weekly_boundary": 2792.86,
+      "hourly_boundary": 69.82,
+      "annual_boundary_2026": 145228.9,
+      "weekly_boundary_2026": 2792.86,
+      "hourly_boundary_2026": 69.82,
+      "annual_boundary_2025": 140115.96,
+      "weekly_boundary_2025": 2694.54,
       "hourly_boundary_2025": 67.36,
       "history": {
         "2019": 105062.0,
         "2020": 109713.0,
         "2021": 114051.0,
         "2022": 121101.32,
-        "2023": 128219.21,
-        "2024": 136341.27,
-        "2025": 140111.6
+        "2023": 128228.0,
+        "2024": 136345.4,
+        "2025": 140115.96,
+        "2026": 145228.9
       }
     },
     {
       "percentile": 93,
       "percentile_label": "Top 7% Threshold (93th Percentile)",
-      "annual_boundary_2025": 146620.13,
-      "weekly_boundary_2025": 2819.62,
+      "annual_boundary": 151724.7,
+      "weekly_boundary": 2917.78,
+      "hourly_boundary": 72.94,
+      "annual_boundary_2026": 151724.7,
+      "weekly_boundary_2026": 2917.78,
+      "hourly_boundary_2026": 72.94,
+      "annual_boundary_2025": 146624.82,
+      "weekly_boundary_2025": 2819.71,
       "hourly_boundary_2025": 70.49,
       "history": {
         "2019": 110572.0,
         "2020": 115341.0,
         "2021": 119727.0,
         "2022": 127077.05,
-        "2023": 134459.44,
-        "2024": 142743.0,
-        "2025": 146620.13
+        "2023": 134474.1,
+        "2024": 142752.0,
+        "2025": 146624.82,
+        "2026": 151724.7
       }
     },
     {
       "percentile": 94,
       "percentile_label": "Top 6% Threshold (94th Percentile)",
-      "annual_boundary_2025": 154007.55,
-      "weekly_boundary_2025": 2961.68,
-      "hourly_boundary_2025": 74.04,
+      "annual_boundary": 159644.86,
+      "weekly_boundary": 3070.09,
+      "hourly_boundary": 76.75,
+      "annual_boundary_2026": 159644.86,
+      "weekly_boundary_2026": 3070.09,
+      "hourly_boundary_2026": 76.75,
+      "annual_boundary_2025": 154014.5,
+      "weekly_boundary_2025": 2961.82,
+      "hourly_boundary_2025": 74.05,
       "history": {
         "2019": 117255.0,
         "2020": 121965.0,
         "2021": 126279.0,
         "2022": 134364.91,
-        "2023": 141780.0,
-        "2024": 150000.23,
-        "2025": 154007.55
+        "2023": 141798.41,
+        "2024": 150000.24,
+        "2025": 154014.5,
+        "2026": 159644.86
       }
     },
     {
       "percentile": 95,
       "percentile_label": "Top 5% Threshold (95th Percentile)",
-      "annual_boundary_2025": 163389.05,
-      "weekly_boundary_2025": 3142.1,
+      "annual_boundary": 169365.41,
+      "weekly_boundary": 3257.03,
+      "hourly_boundary": 81.43,
+      "annual_boundary_2026": 169365.41,
+      "weekly_boundary_2026": 3257.03,
+      "hourly_boundary_2026": 81.43,
+      "annual_boundary_2025": 163391.1,
+      "weekly_boundary_2025": 3142.14,
       "hourly_boundary_2025": 78.55,
       "history": {
         "2019": 125129.0,
         "2020": 130241.0,
         "2021": 134926.0,
         "2022": 143375.53,
-        "2023": 150723.5,
-        "2024": 159132.07,
-        "2025": 163389.05
+        "2023": 150740.84,
+        "2024": 159148.88,
+        "2025": 163391.1,
+        "2026": 169365.41
       }
     },
     {
       "percentile": 96,
       "percentile_label": "Top 4% Threshold (96th Percentile)",
-      "annual_boundary_2025": 175522.49,
-      "weekly_boundary_2025": 3375.43,
+      "annual_boundary": 181333.94,
+      "weekly_boundary": 3487.19,
+      "hourly_boundary": 87.18,
+      "annual_boundary_2026": 181333.94,
+      "weekly_boundary_2026": 3487.19,
+      "hourly_boundary_2026": 87.18,
+      "annual_boundary_2025": 175532.61,
+      "weekly_boundary_2025": 3375.63,
       "hourly_boundary_2025": 84.39,
       "history": {
         "2019": 135753.0,
         "2020": 141127.0,
         "2021": 145950.0,
         "2022": 154746.17,
-        "2023": 162529.02,
-        "2024": 170698.81,
-        "2025": 175522.49
+        "2023": 162547.81,
+        "2024": 170724.15,
+        "2025": 175532.61,
+        "2026": 181333.94
       }
     },
     {
       "percentile": 97,
       "percentile_label": "Top 3% Threshold (97th Percentile)",
-      "annual_boundary_2025": 191988.2,
-      "weekly_boundary_2025": 3692.08,
-      "hourly_boundary_2025": 92.3,
+      "annual_boundary": 198786.17,
+      "weekly_boundary": 3822.81,
+      "hourly_boundary": 95.57,
+      "annual_boundary_2026": 198786.17,
+      "weekly_boundary_2026": 3822.81,
+      "hourly_boundary_2026": 95.57,
+      "annual_boundary_2025": 192000.0,
+      "weekly_boundary_2025": 3692.31,
+      "hourly_boundary_2025": 92.31,
       "history": {
         "2019": 150275.0,
         "2020": 155868.0,
         "2021": 161252.0,
         "2022": 170862.96,
-        "2023": 178988.42,
-        "2024": 186592.59,
-        "2025": 191988.2
+        "2023": 179000.06,
+        "2024": 186623.65,
+        "2025": 192000.0,
+        "2026": 198786.17
       }
     },
     {
       "percentile": 98,
       "percentile_label": "Top 2% Threshold (98th Percentile)",
-      "annual_boundary_2025": 219614.42,
-      "weekly_boundary_2025": 4223.35,
-      "hourly_boundary_2025": 105.58,
+      "annual_boundary": 227120.9,
+      "weekly_boundary": 4367.71,
+      "hourly_boundary": 109.19,
+      "annual_boundary_2026": 227120.9,
+      "weekly_boundary_2026": 4367.71,
+      "hourly_boundary_2026": 109.19,
+      "annual_boundary_2025": 219638.59,
+      "weekly_boundary_2025": 4223.82,
+      "hourly_boundary_2025": 105.6,
       "history": {
         "2019": 174001.0,
         "2020": 180023.0,
         "2021": 186791.0,
         "2022": 196732.47,
-        "2023": 204681.18,
-        "2024": 212629.88,
-        "2025": 219614.42
+        "2023": 204720.0,
+        "2024": 212652.07,
+        "2025": 219638.59,
+        "2026": 227120.9
       }
     },
     {
       "percentile": 99,
       "percentile_label": "Top 1% Threshold (99th Percentile)",
-      "annual_boundary_2025": 278750.05,
-      "weekly_boundary_2025": 5360.58,
-      "hourly_boundary_2025": 134.01,
+      "annual_boundary": 289185.87,
+      "weekly_boundary": 5561.27,
+      "hourly_boundary": 139.03,
+      "annual_boundary_2026": 289185.87,
+      "weekly_boundary_2026": 5561.27,
+      "hourly_boundary_2026": 139.03,
+      "annual_boundary_2025": 278753.69,
+      "weekly_boundary_2025": 5360.65,
+      "hourly_boundary_2025": 134.02,
       "history": {
         "2019": 223510.0,
         "2020": 230325.0,
         "2021": 241040.0,
         "2022": 251777.24,
-        "2023": 259812.5,
-        "2024": 267952.0,
-        "2025": 278750.05
+        "2023": 259843.18,
+        "2024": 267988.85,
+        "2025": 278753.69,
+        "2026": 289185.87
       }
     }
   ],
   "income_histogram": [
     {
       "range_label": "< $20k",
-      "people_count": 354660,
-      "people_count_thousands": 354.7,
-      "percentage_of_earners": 14.4
+      "people_count": 196530,
+      "people_count_thousands": 196.5,
+      "percentage_of_earners": 8.2
     },
     {
       "range_label": "$20k - $40k",
-      "people_count": 378130,
-      "people_count_thousands": 378.1,
-      "percentage_of_earners": 15.3
+      "people_count": 362470,
+      "people_count_thousands": 362.5,
+      "percentage_of_earners": 15.1
     },
     {
       "range_label": "$40k - $60k",
-      "people_count": 455440,
-      "people_count_thousands": 455.4,
-      "percentage_of_earners": 18.5
+      "people_count": 418170,
+      "people_count_thousands": 418.2,
+      "percentage_of_earners": 17.5
     },
     {
       "range_label": "$60k - $80k",
-      "people_count": 524300,
-      "people_count_thousands": 524.3,
+      "people_count": 510710,
+      "people_count_thousands": 510.7,
       "percentage_of_earners": 21.3
     },
     {
       "range_label": "$80k - $100k",
-      "people_count": 346650,
-      "people_count_thousands": 346.6,
-      "percentage_of_earners": 14.1
+      "people_count": 353610,
+      "people_count_thousands": 353.6,
+      "percentage_of_earners": 14.8
     },
     {
       "range_label": "$100k - $120k",
-      "people_count": 221130,
-      "people_count_thousands": 221.1,
-      "percentage_of_earners": 9.0
+      "people_count": 232900,
+      "people_count_thousands": 232.9,
+      "percentage_of_earners": 9.7
     },
     {
       "range_label": "$120k - $140k",
-      "people_count": 130240,
-      "people_count_thousands": 130.2,
-      "percentage_of_earners": 5.3
+      "people_count": 142920,
+      "people_count_thousands": 142.9,
+      "percentage_of_earners": 6.0
     },
     {
       "range_label": "$140k - $160k",
-      "people_count": 49704,
-      "people_count_thousands": 49.7,
-      "percentage_of_earners": 2.0
+      "people_count": 86300,
+      "people_count_thousands": 86.3,
+      "percentage_of_earners": 3.6
     },
     {
       "range_label": "$160k - $200k",
-      "people_count": 3764,
-      "people_count_thousands": 3.8,
-      "percentage_of_earners": 0.2
+      "people_count": 87520,
+      "people_count_thousands": 87.5,
+      "percentage_of_earners": 3.7
     },
     {
       "range_label": "> $200k",
-      "people_count": 90,
-      "people_count_thousands": 0.1,
-      "percentage_of_earners": 0.0
+      "people_count": 1520,
+      "people_count_thousands": 1.5,
+      "percentage_of_earners": 0.1
     }
   ]
 }

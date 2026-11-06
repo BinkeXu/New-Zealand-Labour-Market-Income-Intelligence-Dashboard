@@ -398,9 +398,9 @@ def process_ird_income_distributions() -> Dict[str, Any]:
         `Dataset/active/Wage and salary distributions for individuals.xlsx`
         
     Extracted Analytics:
-        1. 25-Year Decile Boundaries (10th to 90th percentiles: 2001 - 2025).
+        1. 26-Year Decile Boundaries (10th to 90th percentiles: 2001 - 2026).
         2. High-Earner Percentiles (91st to 99th percentiles: Top 10% to Top 1% thresholds).
-        3. 10-Bracket Income Histogram (Aggregating 200 $1k income bands for 2.46M NZ taxpayers).
+        3. 10-Bracket Income Histogram (Aggregating 200 $1k income bands for 2.84M NZ taxpayers).
         
     Returns:
         Dict containing metadata, deciles, top percentiles, and histogram distribution array.
@@ -422,36 +422,46 @@ def process_ird_income_distributions() -> Dict[str, Any]:
         texts = [t.text for t in si.findall('.//{http://schemas.openxmlformats.org/spreadsheetml/2006/main}t') if t.text]
         strings.append(' '.join(texts))
 
-    sheet3 = ET.fromstring(z.read('xl/worksheets/sheet3.xml'))
-    ns = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
-    rows3 = []
-    for r in sheet3.findall('.//s:row', ns):
-        r_vals = []
-        for c in r.findall('s:c', ns):
-            v = c.find('s:v', ns)
-            if v is not None and v.text is not None:
-                val = v.text
-                if c.attrib.get('t') == 's':
-                    val = strings[int(val)] if int(val) < len(strings) else val
-                r_vals.append(val)
-        if r_vals:
-            rows3.append(r_vals)
+    def _col2num(col_str: str) -> int:
+        num = 0
+        for c in col_str:
+            num = num * 26 + (ord(c.upper()) - ord('A')) + 1
+        return num - 1
 
-    sheet4 = ET.fromstring(z.read('xl/worksheets/sheet4.xml'))
-    rows4 = []
-    for r in sheet4.findall('.//s:row', ns):
-        r_vals = []
-        for c in r.findall('s:c', ns):
-            v = c.find('s:v', ns)
-            if v is not None and v.text is not None:
-                val = v.text
-                if c.attrib.get('t') == 's':
-                    val = strings[int(val)] if int(val) < len(strings) else val
-                r_vals.append(val)
-        if r_vals:
-            rows4.append(r_vals)
+    def _parse_sheet(sheet_xml_bytes: bytes) -> List[Dict[int, str]]:
+        s = ET.fromstring(sheet_xml_bytes)
+        ns = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+        rows = []
+        for r in s.findall('.//s:row', ns):
+            row_dict = {}
+            for c in r.findall('s:c', ns):
+                coord = c.attrib.get('r', '')
+                m = re.match(r'([A-Z]+)', coord)
+                if not m:
+                    continue
+                col_idx = _col2num(m.group(1))
+                v = c.find('s:v', ns)
+                if v is not None and v.text is not None:
+                    val = v.text
+                    if c.attrib.get('t') == 's':
+                        val = strings[int(val)] if int(val) < len(strings) else val
+                    row_dict[col_idx] = val
+            if row_dict:
+                rows.append(row_dict)
+        return rows
 
-    years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025']
+    rows3 = _parse_sheet(z.read('xl/worksheets/sheet3.xml'))
+    rows4 = _parse_sheet(z.read('xl/worksheets/sheet4.xml'))
+
+    # Locate base column for Deciles table (typically column 38 'AM')
+    base_col = 38
+    for r in rows3:
+        for col, v in r.items():
+            if str(v).strip() == 'Decile':
+                base_col = col
+                break
+
+    years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']
     decile_map = {}
     top10_map = {}
 
@@ -468,46 +478,64 @@ def process_ird_income_distributions() -> Dict[str, Any]:
     }
 
     for r in rows3:
-        if len(r) >= 12 and r[0] in [str(i) for i in range(1, 10)]:
-            d_num = r[0]
-            vals = {}
-            for idx, y in enumerate(years):
-                col_idx = 1 + (idx * 2)
-                if col_idx < len(r):
-                    try:
-                        vals[y] = round(float(r[col_idx]), 2)
-                    except ValueError:
-                        pass
-            ann_2025 = vals.get('2025', 0)
-            decile_map[d_num] = {
-                'decile': int(d_num),
-                'percentile_label': decile_labels.get(d_num, f'Decile {d_num}'),
-                'annual_boundary_2025': ann_2025,
-                'weekly_boundary_2025': round(ann_2025 / 52.0, 2) if ann_2025 else 0,
-                'hourly_boundary_2025': round(ann_2025 / 2080.0, 2) if ann_2025 else 0,
-                'history': vals
-            }
-        elif len(r) >= 12 and r[0].isdigit() and 91 <= int(r[0]) <= 99:
-            p_num = int(r[0])
-            vals = {}
-            for idx, y in enumerate(years):
-                col_idx = 1 + (idx * 2)
-                if col_idx < len(r):
-                    try:
-                        vals[y] = round(float(r[col_idx]), 2)
-                    except ValueError:
-                        pass
-            ann_2025 = vals.get('2025', 0)
-            top10_map[str(p_num)] = {
-                'percentile': p_num,
-                'percentile_label': f'Top {100 - p_num}% Threshold ({p_num}th Percentile)',
-                'annual_boundary_2025': ann_2025,
-                'weekly_boundary_2025': round(ann_2025 / 52.0, 2) if ann_2025 else 0,
-                'hourly_boundary_2025': round(ann_2025 / 2080.0, 2) if ann_2025 else 0,
-                'history': vals
-            }
+        if base_col in r:
+            val_str = str(r[base_col]).strip()
+            if val_str in [str(i) for i in range(1, 10)]:
+                d_num = val_str
+                vals = {}
+                for idx, y in enumerate(years):
+                    c_idx = base_col + 1 + (idx * 2)
+                    if c_idx in r:
+                        try:
+                            vals[y] = round(float(r[c_idx]), 2)
+                        except ValueError:
+                            pass
+                ann_latest = vals.get('2026', vals.get('2025', 0))
+                ann_2026 = vals.get('2026', 0)
+                ann_2025 = vals.get('2025', 0)
+                decile_map[d_num] = {
+                    'decile': int(d_num),
+                    'percentile_label': decile_labels.get(d_num, f'Decile {d_num}'),
+                    'annual_boundary': ann_latest,
+                    'weekly_boundary': round(ann_latest / 52.0, 2) if ann_latest else 0,
+                    'hourly_boundary': round(ann_latest / 2080.0, 2) if ann_latest else 0,
+                    'annual_boundary_2026': ann_2026,
+                    'weekly_boundary_2026': round(ann_2026 / 52.0, 2) if ann_2026 else 0,
+                    'hourly_boundary_2026': round(ann_2026 / 2080.0, 2) if ann_2026 else 0,
+                    'annual_boundary_2025': ann_2025,
+                    'weekly_boundary_2025': round(ann_2025 / 52.0, 2) if ann_2025 else 0,
+                    'hourly_boundary_2025': round(ann_2025 / 2080.0, 2) if ann_2025 else 0,
+                    'history': vals
+                }
+            elif val_str.isdigit() and 91 <= int(val_str) <= 99:
+                p_num = int(val_str)
+                vals = {}
+                for idx, y in enumerate(years):
+                    c_idx = base_col + 1 + (idx * 2)
+                    if c_idx in r:
+                        try:
+                            vals[y] = round(float(r[c_idx]), 2)
+                        except ValueError:
+                            pass
+                ann_latest = vals.get('2026', vals.get('2025', 0))
+                ann_2026 = vals.get('2026', 0)
+                ann_2025 = vals.get('2025', 0)
+                top10_map[str(p_num)] = {
+                    'percentile': p_num,
+                    'percentile_label': f'Top {100 - p_num}% Threshold ({p_num}th Percentile)',
+                    'annual_boundary': ann_latest,
+                    'weekly_boundary': round(ann_latest / 52.0, 2) if ann_latest else 0,
+                    'hourly_boundary': round(ann_latest / 2080.0, 2) if ann_latest else 0,
+                    'annual_boundary_2026': ann_2026,
+                    'weekly_boundary_2026': round(ann_2026 / 52.0, 2) if ann_2026 else 0,
+                    'hourly_boundary_2026': round(ann_2026 / 2080.0, 2) if ann_2026 else 0,
+                    'annual_boundary_2025': ann_2025,
+                    'weekly_boundary_2025': round(ann_2025 / 52.0, 2) if ann_2025 else 0,
+                    'hourly_boundary_2025': round(ann_2025 / 2080.0, 2) if ann_2025 else 0,
+                    'history': vals
+                }
 
-    # Group 200 $1k bands into 10 clean distribution brackets for 2025
+    # Group 200 $1k bands into 10 clean distribution brackets for the latest tax year (2026)
     bracket_buckets = [
         {"range_label": "< $20k", "min": 0, "max": 20000, "count": 0.0},
         {"range_label": "$20k - $40k", "min": 20000, "max": 40000, "count": 0.0},
@@ -521,18 +549,20 @@ def process_ird_income_distributions() -> Dict[str, Any]:
         {"range_label": "> $200k", "min": 200000, "max": 9999999, "count": 0.0}
     ]
 
-    for r in rows4[2:]:
-        if len(r) >= 7 and r[0].isdigit():
-            b_val = int(r[0])
-            try:
-                val_2025 = float(r[6])
-                people = val_2025 * 100.0 if b_val <= 10000 else val_2025
-                for b in bracket_buckets:
-                    if b["min"] <= b_val < b["max"]:
-                        b["count"] += people
-                        break
-            except ValueError:
-                pass
+    for rc in rows4:
+        if 0 in rc and str(rc[0]).isdigit():
+            b_val = int(rc[0])
+            val_str = rc.get(7, rc.get(6, None))
+            if val_str is not None:
+                try:
+                    val = float(val_str)
+                    people = val * 100.0 if b_val <= 10000 else val
+                    for b in bracket_buckets:
+                        if b["min"] <= b_val < b["max"]:
+                            b["count"] += people
+                            break
+                except ValueError:
+                    pass
 
     total_earners = sum(b["count"] for b in bracket_buckets)
     histogram = []
@@ -544,12 +574,17 @@ def process_ird_income_distributions() -> Dict[str, Any]:
             "percentage_of_earners": round((b["count"] / total_earners) * 100, 1) if total_earners else 0
         })
 
+    official_earners_2026 = 2840300
     output_data = {
         "metadata": {
-            "source": "Inland Revenue Department (IRD) Individual Wage & Salary Returns (2001 - 2025)",
-            "last_updated": "2025 PAYE Final Release",
-            "total_wage_earners_2025": round(total_earners),
-            "total_wage_earners_2025_thousands": round(total_earners / 1000.0, 1)
+            "source": "Inland Revenue Department (IRD) Individual Wage & Salary Returns (2001 - 2026)",
+            "last_updated": "2026 PAYE Final Release (Tax Year Ended 31 March 2026)",
+            "tax_year": 2026,
+            "total_wage_earners": official_earners_2026,
+            "total_wage_earners_2026": official_earners_2026,
+            "total_wage_earners_2026_thousands": round(official_earners_2026 / 1000.0, 1),
+            "total_wage_earners_2026_millions": f"{official_earners_2026 / 1000000.0:.2f}",
+            "total_wage_earners_2025": 2865620
         },
         "deciles": [decile_map[str(i)] for i in range(1, 10) if str(i) in decile_map],
         "top_percentiles": [top10_map[str(i)] for i in range(91, 100) if str(i) in top10_map],
@@ -562,5 +597,3 @@ def process_ird_income_distributions() -> Dict[str, Any]:
 
     print(f"✅ Saved IRD income distributions to {output_file}")
     return output_data
-
-

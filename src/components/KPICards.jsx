@@ -9,12 +9,14 @@ export default function KPICards({ monthlyData, regionalData, onOpenModal }) {
   const nationalHourly = regionalData?.metadata?.national_median_hourly || (nationalWeekly / 40.0).toFixed(2);
 
   const hlfs = monthlyData?.metadata?.hlfs_labor_metrics || {
-    quarter: "Jun-26",
-    unemployment_rate: { total: 5.6, men: 5.7, women: 5.5 },
+    quarter: "Sept-26",
+    unemployment_rate: { total: 5.7, men: 5.6, women: 5.7 },
     underutilisation_rate: { total: 13.8, men: 12.4, women: 15.3 }
   };
 
-  const quarterLabel = hlfs?.quarter ? (hlfs.quarter === 'Jun-26' ? 'June 2026' : hlfs.quarter) : 'June 2026';
+  const quarterLabel = hlfs?.quarter 
+    ? (hlfs.quarter === 'Sept-26' ? 'September 2026' : (hlfs.quarter === 'Jun-26' ? 'June 2026' : hlfs.quarter)) 
+    : 'September 2026';
 
   const cards = useMemo(() => [
     {
