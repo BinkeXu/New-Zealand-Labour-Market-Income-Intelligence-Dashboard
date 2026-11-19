@@ -20,6 +20,7 @@ ENV/
 # Large raw archive files (372MB ANZSIC dataset)
 Dataset/archive_other/
 datasets/archive_other/
+Dataset/cache/
 
 # IDE & Editor files
 .vscode/

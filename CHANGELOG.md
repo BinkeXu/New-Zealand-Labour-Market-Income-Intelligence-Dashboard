@@ -31,6 +31,11 @@ All notable changes to the New Zealand Labour Market & Income Intelligence Dashb
 - **Default Dark Mode**: Set Dark Mode as the default theme in `ThemeContext.jsx` for optimal contrast and data legibility.
 - **Automated Unit Tests**: Authored `src/utils/__tests__/mapHelpers.test.js` validating metric range calculations, theme colour interpolations, and top/bottom rankings.
 
+### 📜 Data Provenance, Licensing & Transparency Hardening
+- **Reproducible Map Generation (`scripts/generate_nz_map_paths.py`)**: Authored and committed a standalone, thoroughly-commented Python script documenting the geoBoundaries (LINZ / Stats NZ) GIS boundary download, 16-to-10 region fusion, equirectangular projection math, and SVG coordinate generation.
+- **Methodological Scope & Disclaimers**: Added dedicated sections to `Methodology.jsx` and `README.md` covering open government licensing (NZGOAL / CC BY 4.0), online vacancy measurement boundaries, lodged bond rents vs. sitting tenants, and statutory non-advice notices.
+- **Provenance Matrix**: Added data vintage, release cadence, and official source links table across all tracked datasets.
+
 ---
 
 ## [2026-11-06]

@@ -177,8 +177,34 @@ flowchart TD
 
 ---
 
-## 📁 Dataset Architecture
+## 📁 Dataset Architecture & Provenance
 
+### 📋 Official Government Data Sources & Vintage
+| Dataset | Reporting Agency | Cadence | Latest Vintage Tracked | Official Source & Access |
+| :--- | :--- | :--- | :--- | :--- |
+| **MBIE Jobs Online Index** | MBIE | Monthly & Quarterly | June 2026 (Consolidated) | [mbie.govt.nz](https://www.mbie.govt.nz) |
+| **Household Labour Force (HLFS)** | Stats NZ (Tatauranga Aotearoa) | Quarterly | September 2026 Quarter | [stats.govt.nz](https://www.stats.govt.nz) |
+| **Household Income Census** | Stats NZ | Annual | 2025 Release | [stats.govt.nz](https://www.stats.govt.nz) |
+| **PAYE Individual Tax Deciles** | Inland Revenue (IRD) | Annual | Tax Year ended 31 March 2026 | [ird.govt.nz](https://www.ird.govt.nz) |
+| **Tenancy Mean Weekly Rent** | MBIE Tenancy Services | Quarterly | 2026 Release | [tenancy.govt.nz](https://www.tenancy.govt.nz) |
+| **INZ Green List & Fast-Track Visas** | Immigration New Zealand | Operational Manual | March 2026 Release | [immigration.govt.nz](https://www.immigration.govt.nz) |
+| **Regional Geographic Vectors** | geoBoundaries / LINZ / Stats NZ | Periodic | ADM1 Simplified Release | [geoboundaries.org](https://www.geoboundaries.org) |
+
+### 🗺️ New Zealand Geographic Map Vector Pipeline
+The interactive map rendered by `src/components/NZRegionalMap.jsx` is built directly from official geographic boundaries:
+- **Source**: geoBoundaries open-license database, mirroring official Land Information New Zealand (LINZ) and Stats NZ administrative divisions.
+- **Reproducible Pipeline (`scripts/generate_nz_map_paths.py`)**:
+  - Automatically fetches `geoBoundaries-NZL-ADM1_simplified.geojson`.
+  - Filters out remote offshore territories (e.g. Chatham Islands 800 km east) to optimize mainland canvas focus.
+  - Merges the 16 Regional Councils into the 10 MBIE grouped reporting regions.
+  - Projects spherical GPS coordinates into planar SVG pixel coordinates via equirectangular projection centered at 41°S.
+  - Compiles the geometries into an ultra-fast ~40 kB ES module (`src/data/nzRegionsPaths.js`).
+- **Reproduce anytime via**:
+  ```bash
+  python scripts/generate_nz_map_paths.py
+  ```
+
+### 📂 Raw Datasets in Repository
 Active datasets processed by the Python ETL script (`scripts/process_data.py`) reside under `Dataset/active/`:
 - `jol-monthly-unadjusted-series-from-may-2007-june-2026.csv` (MBIE Monthly Vacancies)
 - `jobs-online-all-unadjusted-quarterly-data-consolidated-march-2026.csv` (MBIE Regional & Industry Vacancies)
@@ -186,9 +212,19 @@ Active datasets processed by the Python ETL script (`scripts/process_data.py`) r
 - `Income by sex, region, ethnic groups and income source.csv` (Stats NZ 28-Year Income Census)
 - `Census_Population_by_age_by_Regional_Council_2001_2006_2013.csv` (Stats NZ Working-Age Population)
 - `mean_weekly_rent.csv` (MBIE / Stats NZ Mean Weekly Rent)
-- `Unemployment-rate-by-sex,-seasonally-adjusted,-June-2012–June-2026-quarters.csv` (Stats NZ HLFS Unemployment Rate through June 2026)
+- `Unemployment-rate-by-sex,-seasonally-adjusted,-June-2012–June-2026-quarters.csv` (Stats NZ HLFS Unemployment Rate)
 - `underutilisation_rate_by_sex.csv` (Stats NZ HLFS Underutilisation Rate)
 - `Wage and salary distributions for individuals.xlsx` (IRD PAYE Individual Tax Returns)
+
+---
+
+## ⚖️ Methodological Limitations & Disclaimers
+
+To maintain complete analytical transparency, users should consider the following data scope limitations:
+1. **Online Vacancy Scope**: MBIE Jobs Online measures job advertisements posted on major online job boards (SEEK, TradeMe Jobs). It reflects hiring trends and directional velocity, but does not capture unadvertised vacancies, internal promotions, or informal word-of-mouth hiring.
+2. **Lodged Market Rents vs. Sitting Tenants**: Mean weekly rent data is compiled from newly registered tenancy bonds lodged with MBIE Tenancy Services during active quarters. It reflects prevailing market rates for active movers, which typically sit above rents paid by long-term sitting tenants.
+3. **Analytical Index Intent**: The Opportunity Score is a proprietary mathematical index developed for comparative career and relocation analysis. It is an analytical indicator, not an official New Zealand government ranking.
+4. **Statutory Non-Advice Disclaimer**: Tax calculations, salary benchmarks, and INZ Green List visa summaries are educational models based on statutory rules. They do not constitute certified financial, legal, tax, or registered immigration advice.
 
 ---
 
@@ -224,5 +260,8 @@ npm run dev
 
 ---
 
-## 📜 License & Data Attribution
-Published under the MIT License. Data sources strictly attributed to MBIE, Stats NZ, and Inland Revenue Department under Creative Commons Attribution 4.0 International (CC BY 4.0).
+## 📜 License & Official Data Attribution
+
+- **Application Code**: Licensed under the [MIT License](LICENSE).
+- **Official New Zealand Government Data**: Sourced from the **Ministry of Business, Innovation and Employment (MBIE)**, **Stats NZ (Tatauranga Aotearoa)**, and **Inland Revenue Department (IRD / Te Tari Taake)**. Reused under Crown copyright and the **New Zealand Government Open Access and Licensing (NZGOAL)** framework, licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+- **Geographic Boundary Data**: Administrative regional boundaries sourced from **geoBoundaries (Open Data)**, derived from official **Land Information New Zealand (LINZ)** and **Stats NZ** geographic datasets under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).

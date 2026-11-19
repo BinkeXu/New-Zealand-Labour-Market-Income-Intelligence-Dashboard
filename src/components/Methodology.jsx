@@ -134,6 +134,21 @@ export default function Methodology() {
                 <strong>Coverage:</strong> Industry sizes across NZ and absolute count extrapolations.
               </p>
             </div>
+
+            {/* Geographic Boundary Vectors */}
+            <div className="col-12 glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <span className="badge badge-indigo">Geographic GIS Dataset</span>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
+                  7. New Zealand Administrative Geographic Vector Boundaries (geoBoundaries / LINZ / Stats NZ)
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                <strong>Source:</strong> geoBoundaries Open Administrative Boundary Database (Release: NZL ADM1 Simplified), derived from Land Information New Zealand (LINZ) and Stats NZ (Creative Commons Attribution 4.0 International).<br />
+                <strong>Methodology:</strong> Extraction of ADM1 boundaries, exclusion of remote offshore territories (e.g. Chatham Islands 800 km east to preserve mainland prominence), multi-polygon fusion of 16 Regional Councils into the 10 MBIE grouped reporting regions, coordinate simplification, and planar equirectangular projection centered at 41°S.<br />
+                <strong>Reproducibility:</strong> Fully automated and verifiable via <code>python scripts/generate_nz_map_paths.py</code>.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -291,13 +306,27 @@ export default function Methodology() {
                   <td>June 2012 – September 2026 Quarters</td>
                   <td>NZ Labour Underutilisation Rate (13.8%, Men: 12.4%, Women: 15.3%)</td>
                 </tr>
+                <tr>
+                  <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>Regional Unemployment Rates (HLFS)</td>
+                  <td>Stats NZ (Tatauranga Aotearoa)</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>public/data/regional_summary.json</td>
+                  <td>September 2026 Quarter (Q3)</td>
+                  <td>Regional Unemployment % across all 10 regions (Northland 8.3%, Canterbury 4.7%, Otago 3.3%)</td>
+                </tr>
+                <tr>
+                  <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>Regional GIS Boundary Vectors</td>
+                  <td>geoBoundaries / LINZ / Stats NZ</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>src/data/nzRegionsPaths.js</td>
+                  <td>ADM1 Simplified Boundary Release</td>
+                  <td>Simplified, projected vector paths for 10 MBIE regions via scripts/generate_nz_map_paths.py</td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
 
         {/* SECTION 4: Data Sanitization & Zero Artificial Data Policy */}
-        <div className="glass-card section-card" style={{ background: 'rgba(244, 63, 94, 0.05)', border: '1px solid rgba(244, 63, 94, 0.2)' }}>
+        <div className="glass-card section-card" style={{ background: 'rgba(244, 63, 94, 0.05)', border: '1px solid rgba(244, 63, 94, 0.2)', marginBottom: '32px' }}>
           <h3 className="card-title" style={{ fontSize: '1.2rem', marginBottom: '12px', color: 'var(--accent-rose)' }}>
             <AlertTriangle size={20} aria-hidden="true" />
             4. Strict Data Hygiene & Zero Artificial Data Policy
@@ -310,6 +339,51 @@ export default function Methodology() {
             <li>UI components render explicit <strong>"No data available"</strong> banners or <strong>"N/A"</strong> tags.</li>
             <li>No dummy numbers, synthetic fallbacks, or arbitrary values are ever invented or generated.</li>
           </ul>
+        </div>
+
+        {/* SECTION 5: Methodological Limitations, Licensing & Disclaimers */}
+        <div className="glass-card section-card" style={{ background: 'var(--table-header-bg)', border: '1px solid var(--border-subtle)' }}>
+          <h3 className="card-title" style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--text-main)' }}>
+            <ShieldCheck size={20} className="text-gradient" aria-hidden="true" />
+            5. Methodological Scope, Licensing & Statutory Disclaimers
+          </h3>
+          <div className="section-grid" style={{ marginBottom: 0 }}>
+            <div className="col-6">
+              <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '6px' }}>
+                Open Government Licensing (NZGOAL &amp; CC BY 4.0)
+              </h4>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                Data provided by Stats NZ (Tatauranga Aotearoa), the Ministry of Business, Innovation and Employment (MBIE), and Inland Revenue (IRD) is licensed under Crown copyright and the New Zealand Government Open Access and Licensing (NZGOAL) framework under Creative Commons Attribution 4.0 International (CC BY 4.0).
+              </p>
+            </div>
+
+            <div className="col-6">
+              <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '6px' }}>
+                Online Vacancy Scope vs. Informal Hiring
+              </h4>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                MBIE Jobs Online tracks web-advertised job postings on major online job boards (SEEK, TradeMe Jobs). It reflects hiring demand and trends, but does not capture unadvertised vacancies, internal company promotions, or informal word-of-mouth hiring networks.
+              </p>
+            </div>
+
+            <div className="col-6" style={{ marginTop: '16px' }}>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '6px' }}>
+                Market Rent vs. Sitting Tenant Rents
+              </h4>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                Mean weekly rents reflect newly lodged tenancy bonds filed with MBIE Tenancy Services during active quarters. This measures prevailing prices faced by active movers, which typically exceed rents paid by sitting tenants on long-term historical agreements.
+              </p>
+            </div>
+
+            <div className="col-6" style={{ marginTop: '16px' }}>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '6px' }}>
+                Informational &amp; Research Disclaimer
+              </h4>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                Opportunity Scores, take-home tax models, and INZ Green List pathways are analytical decision-support tools built for research and exploratory comparison. They do not constitute certified financial, legal, tax, or registered immigration advice.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
