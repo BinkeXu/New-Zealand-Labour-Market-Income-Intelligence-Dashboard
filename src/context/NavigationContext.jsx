@@ -1,14 +1,29 @@
-import React, { createContext, useContext, useState, useMemo } from 'react';
+import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
 
 const NavigationContext = createContext(null);
 
 export function NavigationProvider({ children, initialTab = 'overview' }) {
   const [activeTab, setActiveTab] = useState(initialTab);
+  const [preselectedIndustryId, setPreselectedIndustryId] = useState(null);
+
+  const navigateToPathfinder = useCallback((industryId = null) => {
+    if (industryId) {
+      setPreselectedIndustryId(industryId);
+    }
+    setActiveTab('pathfinder');
+  }, []);
+
+  const clearPreselectedIndustry = useCallback(() => {
+    setPreselectedIndustryId(null);
+  }, []);
 
   const value = useMemo(() => ({
     activeTab,
-    setActiveTab
-  }), [activeTab]);
+    setActiveTab,
+    preselectedIndustryId,
+    navigateToPathfinder,
+    clearPreselectedIndustry,
+  }), [activeTab, preselectedIndustryId, navigateToPathfinder, clearPreselectedIndustry]);
 
   return (
     <NavigationContext.Provider value={value}>

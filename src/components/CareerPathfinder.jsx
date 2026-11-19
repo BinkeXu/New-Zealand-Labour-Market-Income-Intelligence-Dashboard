@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DownloadCSVButton from './DownloadCSVButton';
 import { 
   Compass, MapPin, DollarSign, Award, Target, ArrowRight, RotateCcw, CheckCircle2, ShieldCheck, Database, Briefcase, Info
 } from 'lucide-react';
-import { useDashboardData } from '../context/DashboardContext';
+import { useDashboardData, useNavigation } from '../context/DashboardContext';
 import { selectJobVolumeEstimates } from '../utils/selectors';
 
 export default function CareerPathfinder() {
   const { pathfinderRules, regionalData, industryData, levelData, jobVolumeData } = useDashboardData();
+  const { preselectedIndustryId, clearPreselectedIndustry } = useNavigation();
   const [selectedIndustry, setSelectedIndustry] = useState('');
   const [careerLevel, setCareerLevel] = useState('mid_level');
   const [relocationOpen, setRelocationOpen] = useState(true);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+
+  useEffect(() => {
+    if (preselectedIndustryId) {
+      setSelectedIndustry(preselectedIndustryId);
+      setErrorMsg('');
+      setQuizCompleted(true);
+      clearPreselectedIndustry();
+    }
+  }, [preselectedIndustryId, clearPreselectedIndustry]);
 
   const industries = pathfinderRules?.target_industries || [];
   const levelGuidance = pathfinderRules?.career_level_guidance || {};

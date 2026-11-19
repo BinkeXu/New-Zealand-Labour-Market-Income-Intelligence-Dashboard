@@ -7,7 +7,8 @@
     "income_year": 2025,
     "national_median_weekly": 1380.0,
     "national_median_hourly": 34.5,
-    "total_regions_covered": 10
+    "total_regions_covered": 10,
+    "source_unemployment": "Stats NZ Household Labour Force Survey (September 2026 Quarter)"
   },
   "regions": [
     {
@@ -40,7 +41,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 6.3,
+      "rent_to_income_pct": 43.0
     },
     {
       "region_name": "Waikato",
@@ -72,7 +75,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 6.3,
+      "rent_to_income_pct": 39.9
     },
     {
       "region_name": "Bay of Plenty",
@@ -103,7 +108,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 4.4,
+      "rent_to_income_pct": 42.1
     },
     {
       "region_name": "Northland",
@@ -134,7 +141,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 8.3,
+      "rent_to_income_pct": 36.8
     },
     {
       "region_name": "Gisborne/Hawkes Bay",
@@ -165,7 +174,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 5.4,
+      "rent_to_income_pct": 36.5
     },
     {
       "region_name": "Manawatu-Whanganui/Taranaki",
@@ -197,7 +208,10 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 5.8,
+      "unemployment_note": "Manawat\u016b-Whanganui 6.3%, Taranaki 4.8%",
+      "rent_to_income_pct": 33.5
     },
     {
       "region_name": "Wellington",
@@ -229,7 +243,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 4.9,
+      "rent_to_income_pct": 37.0
     },
     {
       "region_name": "Tasman/Nelson/Marlborough/West Coast",
@@ -261,7 +277,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 4.1,
+      "rent_to_income_pct": 37.1
     },
     {
       "region_name": "Canterbury",
@@ -292,7 +310,9 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 4.7,
+      "rent_to_income_pct": 38.6
     },
     {
       "region_name": "Otago/Southland",
@@ -324,7 +344,10 @@
       "data_source_vacancy": "MBIE Jobs Online Quarterly Release (March 2026)",
       "data_source_income": "Stats NZ Household Income Census (2025)",
       "data_source_rent": "Stats NZ / MBIE Tenancy Services Mean Weekly Rent (2026)",
-      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)"
+      "data_source_population": "Stats NZ Census Working-Age Population (Ages 15-64)",
+      "unemployment_rate": 4.0,
+      "unemployment_note": "Otago 3.3%, Southland 5.6%",
+      "rent_to_income_pct": 37.9
     }
   ],
   "national_income_distribution": {

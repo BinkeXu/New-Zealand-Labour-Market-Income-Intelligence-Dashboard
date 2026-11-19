@@ -8,11 +8,14 @@ import {
 import { useDashboardData } from '../context/DashboardContext';
 import DownloadCSVButton from './DownloadCSVButton';
 import HistoricalChartModal from './HistoricalChartModal';
+import IndustryQuadrantChart from './IndustryQuadrantChart';
 import { 
-  Briefcase, TrendingUp, Award, DollarSign, Search, Filter, AlertCircle, Database, CheckCircle, ShieldCheck, Bookmark, BarChart2 
+  Briefcase, TrendingUp, Award, DollarSign, Search, Filter, AlertCircle, Database, CheckCircle, ShieldCheck, Bookmark, BarChart2, ChevronDown, ChevronUp 
 } from 'lucide-react';
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
+
+const DEFAULT_OCC_ROWS = 10;
 
 export default function IndustryQuadrant() {
   const { industryData, occupationData, cityIndustryData, monthlyData, regionalData, levelData } = useDashboardData();
@@ -20,6 +23,9 @@ export default function IndustryQuadrant() {
   const [selectedLevel, setSelectedLevel] = useState('Intermediate');
   const [selectedVisaTier, setSelectedVisaTier] = useState('All');
   const [occupationSearch, setOccupationSearch] = useState('');
+  const [selectedSector, setSelectedSector] = useState(null);
+  const [showSectorTable, setShowSectorTable] = useState(false);
+  const [showAllOccupations, setShowAllOccupations] = useState(false);
   
   // Debounce search query to prevent high-frequency re-filtering on keystrokes
   const debouncedOccupationSearch = useDebounce(occupationSearch, 250);
@@ -154,6 +160,36 @@ export default function IndustryQuadrant() {
           </div>
         </div>
 
+        <IndustryQuadrantChart
+          sectors={filteredMatrix}
+          levelBenchmarks={levelBenchmarks}
+          selectedIndustry={selectedSector}
+          onSelectIndustry={setSelectedSector}
+        />
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: showSectorTable ? '14px' : '4px' }}>
+          <button
+            type="button"
+            className={`nav-tab-btn ${showSectorTable ? 'active' : ''}`}
+            onClick={() => setShowSectorTable((prev) => !prev)}
+            aria-expanded={showSectorTable}
+            style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+          >
+            {showSectorTable ? (
+              <>
+                <ChevronUp size={15} aria-hidden="true" />
+                Hide full sector table
+              </>
+            ) : (
+              <>
+                <ChevronDown size={15} aria-hidden="true" />
+                View full sector table ({filteredMatrix.length})
+              </>
+            )}
+          </button>
+        </div>
+
+        {showSectorTable && (
         <div className="custom-table-container">
           <table className="custom-table" aria-label="Industry Opportunity Matrix Table">
             <thead>
@@ -249,6 +285,7 @@ export default function IndustryQuadrant() {
             </tbody>
           </table>
         </div>
+        )}
 
         <div className="data-source-caption" style={{ marginTop: '12px' }}>
           <Database size={14} aria-hidden="true" />
@@ -374,7 +411,7 @@ export default function IndustryQuadrant() {
                 </tr>
               </thead>
               <tbody>
-                {filteredOccupations.map((occ) => (
+                {(showAllOccupations ? filteredOccupations : filteredOccupations.slice(0, DEFAULT_OCC_ROWS)).map((occ) => (
                   <tr 
                     key={occ.code} 
                     role="button"
@@ -446,6 +483,43 @@ export default function IndustryQuadrant() {
                 ))}
               </tbody>
             </table>
+
+            {filteredOccupations.length > DEFAULT_OCC_ROWS && (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                  marginTop: '16px',
+                  paddingTop: '14px',
+                  borderTop: '1px solid var(--border-subtle)',
+                }}
+              >
+                <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                  Showing <strong>{showAllOccupations ? filteredOccupations.length : DEFAULT_OCC_ROWS}</strong> of <strong>{filteredOccupations.length}</strong> occupations
+                </span>
+                <button
+                  type="button"
+                  className="nav-tab-btn active"
+                  onClick={() => setShowAllOccupations((prev) => !prev)}
+                  style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+                >
+                  {showAllOccupations ? (
+                    <>
+                      <ChevronUp size={15} aria-hidden="true" />
+                      Show Top {DEFAULT_OCC_ROWS} only
+                    </>
+                  ) : (
+                    <>
+                      <ChevronDown size={15} aria-hidden="true" />
+                      Show all {filteredOccupations.length} rows
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         )}
 

@@ -4,7 +4,36 @@ All notable changes to the New Zealand Labour Market & Income Intelligence Dashb
 
 ---
 
-## [Unreleased] - 2026-11-06
+## [Unreleased] - 2026-11-19
+
+### 🗺️ Interactive 2D New Zealand Regional Choropleth Map & Detail Navigator
+- **SVG Vector Mapping (`NZRegionalMap.jsx`)**: Designed a themeable vector SVG map grouped into the 10 MBIE administrative regions (`src/data/nzRegionsPaths.js`).
+- **6 Toggleable Colour Metrics**: Vacancies per 100k (default), Median Weekly Wage, Purchasing Power / After-Rent Discretionary Cash, Vacancy Index, Stats NZ Regional Unemployment Rate (%), and Rent-to-Income Burden (%).
+- **Interactive Detail Card**: Defaults to a National Summary profile with Top 3 & Lowest 3 ranked mini-bars; updates dynamically on region click with full local breakdowns and a Gross vs Net (PAYE & ACC) tax toggle.
+- **Map-Driven Filtering**: Clicking a region dynamically filters the City × Industry Matrix below with an active filter badge and reset pill.
+
+### 📊 2×2 Industry Opportunity Scatter Quadrant Chart
+- **Scatter Matrix (`IndustryQuadrantChart.jsx`)**: Built a 2×2 Recharts scatter plot mapping all 10 ANZSIC sectors across YoY Vacancy Growth (%) vs. Weekly Wage ($/wk) with bubble radii scaled to Opportunity Scores.
+- **Quadrant Zone Anchors**: Embedded corner labels (`★ STAR: HIGH PAY + GROWTH`, `HIGH SALARY • NICHE`, `HIGH DEMAND • ENTRY`, `STABLE / MODERATE`) and sector labels.
+- **Cross-Tab Deep Linking**: Integrated 1-click *"Plan career in [Sector] →"* action button connecting directly into Career Pathfinder with the target industry pre-selected.
+
+### 🎛️ Progressive Disclosure & De-cluttering
+- **Regional Matrix Table Toggle**: Collapsed the 10-region summary table and chart behind an accordion toggle button (`"View full regional table (10)"`).
+- **City × Industry Table Cap**: Capped default view to Top 10 rows with an expandable `"Show all rows"` toggle and counter.
+- **ANZSCO Occupations Table Cap**: Defaulted to Top 10 roles with an expandable `"Show all rows"` toggle.
+- **Overview Income Tabs**: Replaced stacked vertical tables with 4 pill tabs (*By Income Source*, *Ethnicity Demographics*, *Gender & Pay Tiers*, and *Percentile Calculator*).
+
+### 🏛️ Regional Unemployment Rates & Housing Cost Ratios
+- **Stats NZ HLFS Q3 2026 Regional Unemployment**: Integrated official regional unemployment rates into `regional_summary.json` (Northland 8.3%, Auckland 6.3%, Waikato 6.3%, Gisborne/HB 5.4%, Wellington 4.9%, Canterbury 4.7%, Bay of Plenty 4.4%, Tasman/Nelson/Marlborough/West Coast 4.1%, Otago 3.3% / Southland 5.6%, Manawatū-Whanganui 6.3% / Taranaki 4.8%).
+- **Rent-to-Income Ratio (%)**: Ingested and computed regional housing burden percentages dynamically in `NZRegionalMap.jsx` and `CityComparisonWidget.jsx`.
+
+### 🎨 Visual & Quality Improvements
+- **Default Dark Mode**: Set Dark Mode as the default theme in `ThemeContext.jsx` for optimal contrast and data legibility.
+- **Automated Unit Tests**: Authored `src/utils/__tests__/mapHelpers.test.js` validating metric range calculations, theme colour interpolations, and top/bottom rankings.
+
+---
+
+## [2026-11-06]
 
 ### 🏛️ Stats NZ September 2026 Labour Market Integration
 - **Unemployment Rate**: Updated official HLFS unemployment rate to **5.7%** (Men: 5.6%, Women: 5.7%).

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
-import { Briefcase, AlertCircle, Info, MapPin } from 'lucide-react';
+import { Briefcase, AlertCircle, Info, MapPin, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { SortIcon } from '../hooks/useTableSort';
 import { useDashboardData } from '../context/DashboardContext';
 import { selectJobVolumeEstimates, selectLevelIndustryBenchmarks, getOpportunityBadge } from '../utils/selectors';
 import DownloadCSVButton from './DownloadCSVButton';
+
+const DEFAULT_VISIBLE_ROWS = 10;
 
 export default function CityIndustryTable({ 
   cityIndustryMatrix, 
@@ -20,14 +22,16 @@ export default function CityIndustryTable({
 }) {
   const { regionalData, levelData, jobVolumeData } = useDashboardData();
   const [selectedLevel, setSelectedLevel] = useState('Intermediate');
-  const [cityPage, setCityPage] = useState(1);
-  const rowsPerPage = 15;
+  const [showAllRows, setShowAllRows] = useState(false);
 
   const levelBenchmarks = useMemo(() => {
     return selectLevelIndustryBenchmarks(levelData, selectedLevel);
   }, [levelData, selectedLevel]);
-  const totalCityPages = Math.ceil((cityIndustryMatrix?.length || 0) / rowsPerPage);
-  const paginatedCityMatrix = (cityIndustryMatrix || []).slice((cityPage - 1) * rowsPerPage, cityPage * rowsPerPage);
+
+  const totalRows = cityIndustryMatrix?.length || 0;
+  const visibleMatrix = showAllRows
+    ? (cityIndustryMatrix || [])
+    : (cityIndustryMatrix || []).slice(0, DEFAULT_VISIBLE_ROWS);
 
   return (
     <section className="glass-card section-card" aria-labelledby="city-industry-matrix-title">
@@ -38,8 +42,32 @@ export default function CityIndustryTable({
               City x Industry Vacancy & Calibrated Opportunity Score Matrix
             </h2>
             <p className="card-subtitle">
-              Granular vacancy indices and <strong>Market Concentration-Weighted Opportunity Scores</strong> across specific NZ cities and industry sectors. Filter by region or industry below.
+              Granular vacancy indices and <strong>Market Concentration-Weighted Opportunity Scores</strong> across specific NZ cities and industry sectors. Click a region on the map above or filter below.
             </p>
+            {matrixRegion && matrixRegion !== 'All' && (
+              <button
+                type="button"
+                onClick={() => setMatrixRegion('All')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  marginTop: '8px',
+                  padding: '5px 12px',
+                  borderRadius: '999px',
+                  background: 'var(--primary-gradient-subtle)',
+                  border: '1px solid var(--border-accent)',
+                  color: 'var(--text-main)',
+                  fontSize: '0.8rem',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                }}
+              >
+                <MapPin size={13} color="var(--accent-cyan)" aria-hidden="true" />
+                Filtered by: {matrixRegion}
+                <X size={13} aria-hidden="true" />
+              </button>
+            )}
           </div>
 
           <div className="filter-group">
@@ -156,7 +184,7 @@ export default function CityIndustryTable({
                 </tr>
               </thead>
               <tbody>
-                {cityIndustryMatrix.map((row) => {
+                {visibleMatrix.map((row) => {
                   const levelDist = levelBenchmarks?.industries?.[row.industry]?.regional_distribution?.[row.region_name];
                   const oppScore = levelDist ? levelDist.opportunity_score : row.opportunity_score;
                   
@@ -237,6 +265,43 @@ export default function CityIndustryTable({
                 })}
               </tbody>
             </table>
+
+            {totalRows > DEFAULT_VISIBLE_ROWS && (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                  marginTop: '16px',
+                  paddingTop: '14px',
+                  borderTop: '1px solid var(--border-subtle)',
+                }}
+              >
+                <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                  Showing <strong>{visibleMatrix.length}</strong> of <strong>{totalRows}</strong> rows
+                </span>
+                <button
+                  type="button"
+                  className="nav-tab-btn active"
+                  onClick={() => setShowAllRows((prev) => !prev)}
+                  style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+                >
+                  {showAllRows ? (
+                    <>
+                      <ChevronUp size={15} aria-hidden="true" />
+                      Show Top {DEFAULT_VISIBLE_ROWS} only
+                    </>
+                  ) : (
+                    <>
+                      <ChevronDown size={15} aria-hidden="true" />
+                      Show all {totalRows} rows
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         )}
       </section>

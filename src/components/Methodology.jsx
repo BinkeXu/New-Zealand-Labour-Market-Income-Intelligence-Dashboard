@@ -11,6 +11,8 @@ export default function Methodology() {
     { Metric: "Annualized Salary", Formula: "Stats NZ Median Weekly Wage * 52.0 weeks", Source: "Stats NZ Household Income Census" },
     { Metric: "YoY Vacancy Growth", Formula: "((Index_Current - Index_PrevYear) / Index_PrevYear) * 100", Source: "MBIE Jobs Online Quarterly Consolidated Release" },
     { Metric: "NZ Official Unemployment Rate", Formula: "HLFS Seasonally Adjusted Unemployed / Labour Force", Source: "Stats NZ Unemployment Rate Dataset (5.7% - September 2026 Quarter)" },
+    { Metric: "Regional Unemployment Rate", Formula: "HLFS Seasonally Adjusted Regional Council Unemployment Rate (%)", Source: "Stats NZ Household Labour Force Survey (HLFS) September 2026 Q3" },
+    { Metric: "Rent-to-Income Ratio", Formula: "(Mean Weekly Rent / Median Weekly Wage) * 100", Source: "Stats NZ Household Income & Tenancy Mean Rent" },
     { Metric: "NZ Labor Underutilisation Rate", Formula: "HLFS Seasonally Adjusted Underutilised / Extended Labour Force", Source: "Stats NZ Underutilisation Rate Dataset (13.8%)" },
     { Metric: "IRD Income Percentile Rank", Formula: "Linear Interpolation over IRD PAYE Tax Return Deciles (2001-2026)", Source: "Inland Revenue Department (IRD) PAYE Returns" }
   ];

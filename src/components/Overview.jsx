@@ -15,6 +15,7 @@ export default function Overview() {
   const { monthlyData, regionalData, irdIncomeData } = useDashboardData();
   const { setActiveTab } = useNavigation();
   const [timeRange, setTimeRange] = useState('5Y');
+  const [incomeTab, setIncomeTab] = useState('sources');
   const [activeModalMetric, setActiveModalMetric] = useState(null);
   const [activeModalData, setActiveModalData] = useState(null);
 
@@ -166,24 +167,75 @@ export default function Overview() {
       {/* SECTION 2: National Income Distribution Analysis */}
       {nationalIncomeData && (
         <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="income-distribution-title">
-          <div className="card-header-flex" style={{ marginBottom: '20px' }}>
+          <div className="card-header-flex" style={{ marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
             <div>
               <h2 id="income-distribution-title" className="card-title">
                 <PieChart size={22} className="text-gradient-cyan" aria-hidden="true" />
                 New Zealand National Income Distribution & Pay Benchmarks
               </h2>
               <p className="card-subtitle">
-                Official Stats NZ Household Income Census breakdown across income sources, ethnicity demographics, gender pay metrics, and national pay tiers.
+                Official Stats NZ Household Income Census &amp; IRD Tax Census breakdowns—switch views below.
               </p>
             </div>
             <span className="badge badge-emerald" style={{ fontSize: '0.85rem' }}>
-              Stats NZ Official Census Data (2025)
+              Stats NZ &amp; IRD Official Data
             </span>
           </div>
 
-          <div className="section-grid" style={{ marginBottom: '24px' }}>
-            {/* Income Source Breakdown Table */}
-            <div className="col-12 glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
+          {/* Sub-section Pill Tabs */}
+          <div className="nav-tabs" role="tablist" aria-label="Income Distribution Views" style={{ marginBottom: '20px', flexWrap: 'wrap', gap: '6px' }}>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={incomeTab === 'sources'}
+              className={`nav-tab-btn ${incomeTab === 'sources' ? 'active' : ''}`}
+              onClick={() => setIncomeTab('sources')}
+              style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+            >
+              <DollarSign size={14} aria-hidden="true" />
+              By Income Source
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={incomeTab === 'ethnicity'}
+              className={`nav-tab-btn ${incomeTab === 'ethnicity' ? 'active' : ''}`}
+              onClick={() => setIncomeTab('ethnicity')}
+              style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+            >
+              <Users size={14} aria-hidden="true" />
+              Ethnicity Demographics
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={incomeTab === 'gender_tiers'}
+              className={`nav-tab-btn ${incomeTab === 'gender_tiers' ? 'active' : ''}`}
+              onClick={() => setIncomeTab('gender_tiers')}
+              style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+            >
+              <Layers size={14} aria-hidden="true" />
+              Gender &amp; Pay Tiers
+            </button>
+            {irdIncomeData && (
+              <button
+                type="button"
+                role="tab"
+                aria-selected={incomeTab === 'percentile'}
+                className={`nav-tab-btn ${incomeTab === 'percentile' ? 'active' : ''}`}
+                onClick={() => setIncomeTab('percentile')}
+                style={{ padding: '7px 14px', fontSize: '0.82rem' }}
+              >
+                <Calculator size={14} aria-hidden="true" />
+                Percentile Calculator
+              </button>
+            )}
+          </div>
+
+          <div style={{ marginBottom: '24px' }}>
+            {/* TAB 1: Income Source Breakdown Table */}
+            {incomeTab === 'sources' && (
+            <div className="glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
               <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <DollarSign size={18} color="#059669" aria-hidden="true" />
                 1. National Income Distribution by Source (Wages, Self-Employment & Transfers)
@@ -255,9 +307,11 @@ export default function Overview() {
                 </table>
               </div>
             </div>
+            )}
 
-            {/* Demographic & Ethnicity Distribution Chart */}
-            <div className="col-6 glass-card section-card">
+            {/* TAB 2: Demographic & Ethnicity Distribution Chart */}
+            {incomeTab === 'ethnicity' && (
+            <div className="glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
               <h3 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Users size={18} color="#4f46e5" aria-hidden="true" />
                 2. Median Earnings by Ethnicity Demographic ($/hr)
@@ -294,9 +348,11 @@ export default function Overview() {
                 ))}
               </div>
             </div>
+            )}
 
-            {/* Gender Income Distribution & Quintiles */}
-            <div className="col-6 glass-card section-card">
+            {/* TAB 3: Gender Income Distribution & Quintiles */}
+            {incomeTab === 'gender_tiers' && (
+            <div className="glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
               <h3 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Layers size={18} color="#d97706" aria-hidden="true" />
                 3. Gender Income Distribution & Pay Tiers
@@ -339,6 +395,23 @@ export default function Overview() {
                 ))}
               </div>
             </div>
+            )}
+
+            {/* TAB 4: IRD Tax Census Individual Wage & Salary Percentile Calculator */}
+            {incomeTab === 'percentile' && irdIncomeData && (
+              <div className="glass-card section-card" style={{ background: 'var(--table-header-bg)' }}>
+                <div style={{ marginBottom: '14px' }}>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Calculator size={18} className="text-gradient" aria-hidden="true" />
+                    NZ Wage &amp; Salary Percentile Calculator (2.46M IRD PAYE Returns)
+                  </h3>
+                  <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)', margin: 0 }}>
+                    Source: Inland Revenue Department ({irdIncomeData.metadata.last_updated}). Calculate your exact NZ income percentile rank.
+                  </p>
+                </div>
+                <PercentileCalculator irdIncomeData={irdIncomeData} />
+              </div>
+            )}
           </div>
 
         {/* Global CTA */}
@@ -355,30 +428,6 @@ export default function Overview() {
             <Database size={14} aria-hidden="true" />
             <span>Data Source: Stats NZ Household Labour Force Survey & Annual Household Income Census (2025 Release)</span>
           </div>
-        </section>
-      )}
-
-      {/* SECTION 4: IRD Tax Census Individual Wage & Salary Percentile Calculator & Distribution */}
-      {irdIncomeData && (
-        <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="ird-percentile-title">
-          <div className="card-header-flex">
-            <div>
-              <h2 id="ird-percentile-title" className="card-title">
-                <Calculator size={22} className="text-gradient" aria-hidden="true" />
-                NZ Wage & Salary Percentile Calculator & Distribution (Official IRD Tax Census Data)
-              </h2>
-              <p className="card-subtitle">
-                Based on 2.46M official PAYE individual tax returns filed with Inland Revenue Department (IRD). Calculate your exact NZ income percentile rank.
-              </p>
-            </div>
-
-            <div className="data-source-caption" style={{ marginTop: '4px' }}>
-              <Database size={14} aria-hidden="true" />
-              <span>Source: IRD PAYE Individual Returns ({irdIncomeData.metadata.last_updated})</span>
-            </div>
-          </div>
-
-          <PercentileCalculator irdIncomeData={irdIncomeData} />
         </section>
       )}
 

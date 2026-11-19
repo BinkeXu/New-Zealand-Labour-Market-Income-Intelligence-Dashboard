@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ArrowRight, MapPin, DollarSign, Home, TrendingUp, Sparkles, ShieldCheck } from 'lucide-react';
 import { calculateNZTakeHomePay, getOpportunityBadge } from '../utils/selectors';
 
-export default function CityComparisonWidget({ regions }) {
+export default function CityComparisonWidget({ regions, externalCompareRequest }) {
   const [regionAId, setRegionAId] = useState('Auckland');
   const [regionBId, setRegionBId] = useState('Canterbury');
   const [compareTakeHome, setCompareTakeHome] = useState(true);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!externalCompareRequest?.regionName) return;
+    const target = externalCompareRequest.regionName;
+    if (target === 'Auckland') {
+      setRegionAId('Auckland');
+      setRegionBId((prev) => (prev === 'Auckland' ? 'Wellington' : prev));
+    } else {
+      setRegionBId(target);
+    }
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [externalCompareRequest]);
 
   if (!regions || regions.length < 2) return null;
 
@@ -31,7 +44,7 @@ export default function CityComparisonWidget({ regions }) {
   const badgeB = getOpportunityBadge(regB.opportunity_score);
 
   return (
-    <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="city-comparator-title">
+    <section ref={sectionRef} className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="city-comparator-title">
       <div className="card-header-flex" style={{ marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -137,6 +150,18 @@ export default function CityComparisonWidget({ regions }) {
               <span>Vacancies / 100k pop:</span>
               <span><strong>{regA.vacancies_per_100k}</strong> roles</span>
             </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              <span>Rent-to-Income Ratio:</span>
+              <strong style={{ color: effectiveWeeklyA > 0 && (rentA / effectiveWeeklyA) * 100 > 45 ? 'var(--accent-rose)' : 'var(--text-main)' }}>
+                {effectiveWeeklyA > 0 ? `${((rentA / effectiveWeeklyA) * 100).toFixed(1)}%` : 'N/A'}
+              </strong>
+            </div>
+            {regA.unemployment_rate != null && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                <span>Regional Unemployment:</span>
+                <strong>{regA.unemployment_rate.toFixed(1)}%</strong>
+              </div>
+            )}
           </div>
         </div>
 
@@ -174,6 +199,18 @@ export default function CityComparisonWidget({ regions }) {
               <span>Vacancies / 100k pop:</span>
               <span><strong>{regB.vacancies_per_100k}</strong> roles</span>
             </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              <span>Rent-to-Income Ratio:</span>
+              <strong style={{ color: effectiveWeeklyB > 0 && (rentB / effectiveWeeklyB) * 100 > 45 ? 'var(--accent-rose)' : 'var(--text-main)' }}>
+                {effectiveWeeklyB > 0 ? `${((rentB / effectiveWeeklyB) * 100).toFixed(1)}%` : 'N/A'}
+              </strong>
+            </div>
+            {regB.unemployment_rate != null && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                <span>Regional Unemployment:</span>
+                <strong>{regB.unemployment_rate.toFixed(1)}%</strong>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -206,5 +243,9 @@ export default function CityComparisonWidget({ regions }) {
 }
 
 CityComparisonWidget.propTypes = {
-  regions: PropTypes.array.isRequired
+  regions: PropTypes.array.isRequired,
+  externalCompareRequest: PropTypes.shape({
+    regionName: PropTypes.string,
+    nonce: PropTypes.number,
+  }),
 };

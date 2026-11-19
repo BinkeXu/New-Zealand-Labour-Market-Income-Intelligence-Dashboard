@@ -1,4 +1,5 @@
 import RegionalLeaderboard from './RegionalLeaderboard';
+import NZRegionalMap from './NZRegionalMap';
 import CityIndustryTable from './CityIndustryTable';
 import CityComparisonWidget from './CityComparisonWidget';
 import React, { useState, useMemo } from 'react';
@@ -17,7 +18,7 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend 
 } from 'recharts';
 import { 
-  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star, Info, ShieldCheck
+  MapPin, Award, ArrowUpRight, Database, Users, AlertCircle, Calculator, Briefcase, Home, UserCheck, Zap, Star, Info, ShieldCheck, ChevronDown, ChevronUp, Table
 } from 'lucide-react';
 import { useTableSort, SortIcon } from '../hooks/useTableSort';
 import { useDebounce } from '../hooks/useDebounce';
@@ -42,6 +43,8 @@ export default function RegionalMatrix() {
   // City x Industry Matrix Filter & Sorting State
   const [matrixRegion, setMatrixRegion] = useState('All');
   const [matrixIndustry, setMatrixIndustry] = useState('All');
+  const [showRegionalTable, setShowRegionalTable] = useState(false);
+  const [compareRequest, setCompareRequest] = useState(null);
   
   const { 
     sortField: matrixSortField, 
@@ -96,20 +99,54 @@ export default function RegionalMatrix() {
       {/* HIGHLIGHT BANNER: Working-Age Opportunity Score Leaderboard */}
       <RegionalLeaderboard data={topOpportunityLeaderboard} />
 
-      {/* SECTION 1: Regional Summary & Purchasing Power Analysis */}
+      {/* INTERACTIVE MAP: 2D NZ Choropleth + Detail Card (drives matrixRegion filter below) */}
+      <NZRegionalMap
+        regions={regionalData.regions}
+        selectedRegion={matrixRegion}
+        onSelectRegion={setMatrixRegion}
+        onCompareRegion={(regionName) =>
+          setCompareRequest({ regionName, nonce: Date.now() })
+        }
+      />
+
+      {/* SECTION 1: Collapsible Full Regional Summary & Purchasing Power Table */}
       <section className="glass-card section-card" style={{ marginBottom: '28px' }} aria-labelledby="regional-matrix-title">
-        <div className="card-header-flex">
+        <div className="card-header-flex" style={{ marginBottom: showRegionalTable ? '18px' : 0 }}>
           <div>
             <h2 id="regional-matrix-title" className="card-title">
-              <MapPin size={22} className="text-gradient-cyan" aria-hidden="true" />
-              All New Zealand Regional Vacancies, Opportunity Scores & Income
+              <Table size={20} className="text-gradient-cyan" aria-hidden="true" />
+              All 10 Regions Comparison Chart &amp; Table
             </h2>
-            <p className="card-subtitle">
-              Comprehensive analysis of online job vacancies (MBIE), median earnings (Stats NZ), mean rent (Stats NZ/MBIE Tenancy), and <strong>Working-Age Opportunity Scores</strong> across all 10 regions.
+            <p className="card-subtitle" style={{ marginBottom: 0 }}>
+              Full side-by-side breakdown of vacancies, PAYE/ACC take-home pay, mean rent, and opportunity scores.
             </p>
           </div>
 
-          <div className="filter-group">
+          <button
+            type="button"
+            className={`nav-tab-btn ${showRegionalTable ? 'active' : ''}`}
+            onClick={() => setShowRegionalTable((prev) => !prev)}
+            aria-expanded={showRegionalTable}
+            style={{ padding: '8px 14px', fontSize: '0.84rem', whiteSpace: 'nowrap' }}
+          >
+            {showRegionalTable ? (
+              <>
+                <ChevronUp size={16} aria-hidden="true" />
+                Hide full regional table
+              </>
+            ) : (
+              <>
+                <ChevronDown size={16} aria-hidden="true" />
+                View full regional table (10)
+              </>
+            )}
+          </button>
+        </div>
+
+        {showRegionalTable && (
+          <>
+            <div className="card-header-flex" style={{ marginBottom: '16px' }}>
+              <div className="filter-group">
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
               <div>
                 <label htmlFor="city-search-input" className="navbar-subtitle" style={{ display: 'block', marginBottom: '4px' }}>Filter City / Region:</label>
@@ -317,10 +354,15 @@ export default function RegionalMatrix() {
             </div>
           </>
         )}
+          </>
+        )}
       </section>
 
       {/* Head-to-Head City Relocation Comparator */}
-      <CityComparisonWidget regions={regionalData.regions} />
+      <CityComparisonWidget
+        regions={regionalData.regions}
+        externalCompareRequest={compareRequest}
+      />
 
       {/* SECTION 2: City x Industry Vacancy Breakdown Matrix */}
       <CityIndustryTable 
