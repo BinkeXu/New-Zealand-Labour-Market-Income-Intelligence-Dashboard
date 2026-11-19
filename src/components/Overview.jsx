@@ -72,7 +72,7 @@ export default function Overview() {
               <TrendingUp size={16} /> 1. Macro Hiring Momentum
             </div>
             <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
-              National online job vacancies track at index <strong>115.7</strong> with an official unemployment rate of <strong>{monthlyData?.metadata?.hlfs_labor_metrics?.unemployment_rate?.total || 5.7}%</strong>. The market remains an employer-favouring environment with selective hiring in core technical and essential roles.
+              National online job vacancies track at index <strong>{monthlyData?.totals?.[monthlyData.totals.length - 1] ?? 101.8}</strong> with an official unemployment rate of <strong>{monthlyData?.metadata?.hlfs_labor_metrics?.unemployment_rate?.total || 5.7}%</strong>. The market remains an employer-favouring environment with selective hiring in core technical and essential roles.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export default function Overview() {
               <DollarSign size={16} /> 2. Purchasing Power Hotspots
             </div>
             <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
-              <strong>Canterbury</strong> and <strong>Waikato</strong> continue to deliver the highest rent-to-wage purchasing power, retaining over <strong>$840+/wk</strong> in gross discretionary income after average weekly rent payments.
+              <strong>Wellington</strong> ($943/wk) and <strong>Manawatū-Whanganui/Taranaki</strong> ($894/wk) lead in gross discretionary cash after average rent, while <strong>Canterbury</strong> ($824/wk) balances strong affordability with high hiring volume.
             </p>
           </div>
 
@@ -403,7 +403,7 @@ export default function Overview() {
                 <div style={{ marginBottom: '14px' }}>
                   <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Calculator size={18} className="text-gradient" aria-hidden="true" />
-                    NZ Wage &amp; Salary Percentile Calculator (2.46M IRD PAYE Returns)
+                    NZ Wage &amp; Salary Percentile Calculator ({irdIncomeData?.metadata?.total_wage_earners_2026_millions || '2.84'}M IRD PAYE Returns)
                   </h3>
                   <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)', margin: 0 }}>
                     Source: Inland Revenue Department ({irdIncomeData.metadata.last_updated}). Calculate your exact NZ income percentile rank.

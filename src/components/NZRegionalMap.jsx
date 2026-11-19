@@ -29,7 +29,7 @@ const SHORT_MAP_LABELS = {
   'Otago/Southland': 'Otago / Southland',
 };
 
-export default function NZRegionalMap({ regions, selectedRegion, onSelectRegion, onCompareRegion }) {
+export default function NZRegionalMap({ regions, metadata, selectedRegion, onSelectRegion, onCompareRegion }) {
   const { theme } = useTheme();
   const [activeMetric, setActiveMetric] = useState('vacancies_per_100k');
   const [hoveredRegion, setHoveredRegion] = useState(null);
@@ -51,8 +51,8 @@ export default function NZRegionalMap({ regions, selectedRegion, onSelectRegion,
   );
 
   const nationalSummary = useMemo(
-    () => computeNationalSummary(regions, activeMetric),
-    [regions, activeMetric]
+    () => computeNationalSummary(regions, activeMetric, metadata),
+    [regions, activeMetric, metadata]
   );
 
   const rankedMiniBars = useMemo(
@@ -543,10 +543,10 @@ export default function NZRegionalMap({ regions, selectedRegion, onSelectRegion,
 
                     <div style={{ padding: '10px 12px', borderRadius: '10px', background: 'var(--table-header-bg)', border: '1px solid var(--border-subtle)' }}>
                       <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '3px' }}>
-                        <DollarSign size={13} color="var(--accent-emerald)" aria-hidden="true" /> Avg Regional Wage
+                        <DollarSign size={13} color="var(--accent-emerald)" aria-hidden="true" /> National Median Wage
                       </div>
                       <div className="tabular-nums" style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                        ${Math.round(nationalSummary.avgWeeklyIncome).toLocaleString()} / wk
+                        ${Math.round(nationalSummary.nationalMedianWeekly).toLocaleString()} / wk
                       </div>
                     </div>
 
@@ -679,6 +679,7 @@ export default function NZRegionalMap({ regions, selectedRegion, onSelectRegion,
 
 NZRegionalMap.propTypes = {
   regions: PropTypes.array.isRequired,
+  metadata: PropTypes.object,
   selectedRegion: PropTypes.string,
   onSelectRegion: PropTypes.func,
   onCompareRegion: PropTypes.func,

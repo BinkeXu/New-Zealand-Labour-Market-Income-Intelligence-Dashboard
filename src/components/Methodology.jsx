@@ -80,13 +80,13 @@ export default function Methodology() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                 <span className="badge badge-cyan">IRD Tax Census Dataset</span>
                 <h4 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-main)' }}>
-                  3. IRD Individual Wage & Salary Returns (2001 – 2025)
+                  3. IRD Individual Wage &amp; Salary Returns (2001 – 2026)
                 </h4>
               </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
                 <strong>Source:</strong> Inland Revenue Department (IRD / Te Tari Taake).<br />
-                <strong>Methodology:</strong> Census-level administrative PAYE tax return records for 2.46 million individual wage and salary earners in New Zealand.<br />
-                <strong>Coverage:</strong> 25-year time series tracking income deciles (10th-90th), top high-earner percentiles (91st-99th), and $1,000 income bracket distribution histograms.
+                <strong>Methodology:</strong> Census-level administrative PAYE tax return records for 2.84 million individual wage and salary earners in New Zealand.<br />
+                <strong>Coverage:</strong> 26-year time series tracking income deciles (10th-90th), top high-earner percentiles (91st-99th), and $1,000 income bracket distribution histograms.
               </p>
             </div>
 
@@ -282,8 +282,8 @@ export default function Methodology() {
                   <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>IRD Individual Wage & Salary Distributions</td>
                   <td>Inland Revenue Department (IRD)</td>
                   <td style={{ fontFamily: 'monospace', fontSize: '0.8rem' }}>Dataset/active/Wage and salary distributions...xlsx</td>
-                  <td>2001 – 2025 Annual PAYE Tax Release</td>
-                  <td>Census of 2.46M Taxpayers, 10th-99th Percentile Boundaries, $1k Income Bracket Histograms</td>
+                  <td>2001 – 2026 Annual PAYE Tax Release</td>
+                  <td>Census of 2.84M Taxpayers, 10th-99th Percentile Boundaries, $1k Income Bracket Histograms</td>
                 </tr>
                 <tr>
                   <td style={{ fontWeight: '700', color: 'var(--text-main)' }}>Mean Weekly Rent Dataset</td>

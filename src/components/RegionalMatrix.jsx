@@ -102,6 +102,7 @@ export default function RegionalMatrix() {
       {/* INTERACTIVE MAP: 2D NZ Choropleth + Detail Card (drives matrixRegion filter below) */}
       <NZRegionalMap
         regions={regionalData.regions}
+        metadata={regionalData.metadata}
         selectedRegion={matrixRegion}
         onSelectRegion={setMatrixRegion}
         onCompareRegion={(regionName) =>

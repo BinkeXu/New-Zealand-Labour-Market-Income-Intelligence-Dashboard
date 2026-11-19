@@ -50,12 +50,18 @@ describe('mapHelpers.js unit tests', () => {
     assert.ok(darkHigh.startsWith('rgb('));
   });
 
-  it('computes national summary and identifies top region', () => {
-    const summary = computeNationalSummary(sampleRegions, 'vacancies_per_100k');
-    assert.equal(summary.regionCount, 2);
-    assert.equal(summary.totalWorkingAgePop, 1330000);
-    assert.equal(summary.topOpportunityRegion.region_name, 'Canterbury');
-    assert.equal(summary.topMetricRegion.region_name, 'Canterbury');
+  it('computes national summary using metadata or population-weighted median', () => {
+    const summaryWeighted = computeNationalSummary(sampleRegions, 'vacancies_per_100k');
+    assert.equal(summaryWeighted.regionCount, 2);
+    assert.equal(summaryWeighted.totalWorkingAgePop, 1330000);
+    assert.equal(Math.round(summaryWeighted.nationalMedianWeekly), 1411);
+    assert.equal(summaryWeighted.topOpportunityRegion.region_name, 'Canterbury');
+    assert.equal(summaryWeighted.topMetricRegion.region_name, 'Canterbury');
+
+    const summaryFromMeta = computeNationalSummary(sampleRegions, 'vacancies_per_100k', {
+      national_median_weekly: 1380,
+    });
+    assert.equal(summaryFromMeta.nationalMedianWeekly, 1380);
   });
 
   it('returns ranked top and bottom regions for mini-bars', () => {

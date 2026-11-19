@@ -99,8 +99,10 @@ export function getChoroplethColor(value, min, max, theme = 'dark') {
 
 /**
  * Computes national summary stats for the unselected (default) map detail card.
+ * Uses authoritative national metadata when available, or population-weighted averages
+ * so smaller regions do not skew national benchmarks.
  */
-export function computeNationalSummary(regions, activeMetricId = 'vacancies_per_100k') {
+export function computeNationalSummary(regions, activeMetricId = 'vacancies_per_100k', metadata = null) {
   const list = (regions || []).filter((r) => r && r.has_data !== false);
   if (list.length === 0) {
     return null;
@@ -109,8 +111,17 @@ export function computeNationalSummary(regions, activeMetricId = 'vacancies_per_
   const totalWorkingAgePop = list.reduce((sum, r) => sum + (Number(r.working_age_population) || 0), 0);
   const avgVacanciesPer100k =
     list.reduce((sum, r) => sum + (Number(r.vacancies_per_100k) || 0), 0) / list.length;
-  const avgWeeklyIncome =
-    list.reduce((sum, r) => sum + (Number(r.median_weekly_income) || 0), 0) / list.length;
+
+  const populationWeightedIncome =
+    totalWorkingAgePop > 0
+      ? list.reduce(
+          (sum, r) => sum + (Number(r.median_weekly_income) || 0) * (Number(r.working_age_population) || 0),
+          0
+        ) / totalWorkingAgePop
+      : list.reduce((sum, r) => sum + (Number(r.median_weekly_income) || 0), 0) / list.length;
+
+  const nationalMedianWeekly = metadata?.national_median_weekly || populationWeightedIncome;
+
   const avgNetDiscretionary =
     list.reduce((sum, r) => sum + (Number(r.net_discretionary_income) || 0), 0) / list.length;
 
@@ -123,7 +134,7 @@ export function computeNationalSummary(regions, activeMetricId = 'vacancies_per_
     regionCount: list.length,
     totalWorkingAgePop,
     avgVacanciesPer100k,
-    avgWeeklyIncome,
+    nationalMedianWeekly,
     avgNetDiscretionary,
     topOpportunityRegion: sortedByOpp[0] || null,
     topMetricRegion: sortedByMetric[0] || null,
